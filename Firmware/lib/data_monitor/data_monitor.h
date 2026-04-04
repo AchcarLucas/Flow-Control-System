@@ -45,8 +45,10 @@ class DataMonitor {
         DataMonitor(const std::string fileName="database.db", std::string cleaningTime="-3 months");
         ~DataMonitor();
 
+        uint32_t getTotalPages(uint16_t limit = 100);
+
         bool insertSamples(std::list<Sample>);
-        std::list<Sample> selectSamples(uint16_t limit = 100);
+        std::list<Sample> selectSamples(uint16_t page = 1, uint16_t limit = 100);
 
         bool removeSamplesByID(uint32_t id);
         bool removeSamplesByTimestamp(uint64_t timestamp);

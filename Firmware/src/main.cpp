@@ -119,6 +119,16 @@ void setup() {
 
         STARTING_SERVER_PROCESSING();
 
+        uint16_t limit = 10;
+        uint16_t currentPage = 1;
+
+        if (request->hasParam("page")) {
+            currentPage = request->getParam("page")->value().toInt();
+            if (currentPage < 1) {
+                currentPage = 1;
+            }
+        }
+
         String html = 
         "<!DOCTYPE html>"
         "<html lang=\"pt-br\">"
@@ -130,7 +140,9 @@ void setup() {
         html += "<h1>[Test Mode] - Monitor de Fluxo - Univesp</h1>";
         html += "<h2>\t\tDATABASE:" DATABASE "</h1>";
 
-        html += "<table border='1'>"
+        ////////////////////////////////////////////////////////////////
+
+        html += "<table border='1' style='border-collapse: collapse; margin: auto; font-family: sans-serif; min-width: 500px;'>"
                 "<tr>"
                     "<th>ID</th>"
                     "<th>Data/Hora</th>"
@@ -139,7 +151,10 @@ void setup() {
                     "<th>Saída</th>"
                 "</tr>";
 
-        std::list<Sample> samples = monitor->selectSamples(10); // Exibe os 10 registros mais recentes
+        uint32_t totalPages = monitor->getTotalPages(limit);
+        std::list<Sample> samples = monitor->selectSamples(currentPage, limit);
+
+        Serial.println("Total Pages: " + String(totalPages) + " Current Page: " + currentPage);
 
         for (const auto& sample : samples) {
             html += "<tr>";
@@ -153,27 +168,73 @@ void setup() {
 
         html += "</table><br>";
 
+        ////////////////////////////////////////////////////////////////
+
+        html += "<style>"
+            ".pagination { display: flex; list-style: none; padding: 0; gap: 5px; justify-content: center; font-family: sans-serif; }"
+            ".pagination a { "
+            "    text-decoration: none; "
+            "    padding: 8px 12px; "
+            "    border: 1px solid #ccc; "
+            "    color: #333; "
+            "    border-radius: 4px; "
+            "}"
+            ".pagination a.active { background-color: #007bff; color: white; border-color: #007bff; font-weight: bold; }"
+            ".pagination a:hover:not(.active) { background-color: #f0f0f0; }"
+            ".disabled { color: #ccc !important; pointer-events: none; border-color: #eee !important; }"
+        "</style>";
+
+        // Sistema de Paginação
+        html += "<ul class='pagination'>";
+
+        // Botão anterior
+        if (currentPage > 1) {
+            html += "<li><a href='?page=" + String(currentPage - 1) + "'>Anterior</a></li>";
+        } else {
+            html += "<li><a class='disabled'>Anterior</a></li>";
+        }
+
+        // Status
+        html += "<li><a class='active'>" + String(currentPage) + " / " + String(totalPages) + "</a></li>";
+
+        // Botão próximo
+        if (currentPage < totalPages) {
+            html += "<li><a href='?page=" + String(currentPage + 1) + "'>Próxima</a></li>";
+        } else {
+            html += "<li><a class='disabled'>Próxima</a></li>";
+        }
+
+        html += "</ul><br>";
+
+        ////////////////////////////////////////////////////////////////
+
         // Estilo de botão real: cinza, com borda e sombra suave
         String style = "color: black; background-color: #e7e7e7; border: 1px solid #ccc; "
                     "padding: 10px 20px; text-align: center; text-decoration: none; "
                     "display: inline-block; border-radius: 4px; font-family: sans-serif; "
                     "margin-right: 10px; font-weight: bold; box-shadow: 1px 1px 2px #888888;";
 
-        String simulate_button = "<a href='/simulate' style='%s'>Simulate Flow</a>";
-        simulate_button.replace("%s", style);
-        html += simulate_button;
+        html += "<div style='text-align: center; margin: 20px 0; width: 100%;'>";
 
-        String cleanup_button = "<a href='/cleanup' style='%s'>Cleanup Optimization Database</a>";
-        cleanup_button.replace("%s", style);
-        html += cleanup_button;
+        String simulateButton = "<a href='/simulate' style='%s'>Simulate Flow</a>";
+        simulateButton.replace("%s", style);
+        html += simulateButton;
 
-        String reset_button = "<a href='/reset' style='%s'>Reset Database</a>";
-        reset_button.replace("%s", style);
-        html += reset_button;
+        String cleanupButton = "<a href='/cleanup' style='%s'>Cleanup Optimization Database</a>";
+        cleanupButton.replace("%s", style);
+        html += cleanupButton;
 
-        String download_button = "<a href='/download' style='%s'>Download Database</a>";
-        download_button.replace("%s", style);
-        html += download_button;
+        String resetButton = "<a href='/reset' style='%s'>Reset Database</a>";
+        resetButton.replace("%s", style);
+        html += resetButton;
+
+        String downloadButton = "<a href='/download' style='%s'>Download Database</a>";
+        downloadButton.replace("%s", style);
+        html += downloadButton;
+
+        html += "</div>";
+
+        ////////////////////////////////////////////////////////////////
 
         request->send(200, "text/html", html);
 

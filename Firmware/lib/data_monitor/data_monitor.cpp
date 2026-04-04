@@ -41,11 +41,33 @@ bool DataMonitor::insertSamples(std::list<Sample> samples) {
     return true;
 }
 
-std::list<Sample> DataMonitor::selectSamples(uint16_t limit) {
+uint32_t DataMonitor::getTotalPages(uint16_t limit) {
+    std::string SQL = dao->SQLiteQuery("SELECT COUNT(*) FROM sample;");
+
+    Serial.println(SQL.c_str());
+
+    uint32_t rows = 0;
+
+    SQLitePrepareObject *prepare = dao->SQLitePrepare(SQL);
+
+    if (prepare != nullptr) {
+        if(dao->SQLiteStep(prepare)) {
+            rows = sqlite3_column_int(prepare->getRes(), 0);
+        }
+    }
+
+    dao->SQLiteFinalize(prepare);
+
+    return (rows + limit - 1) / limit;
+}
+
+std::list<Sample> DataMonitor::selectSamples(uint16_t page, uint16_t limit) {
     std::list<Sample> samples;
 
     sqlite3_stmt *res;
     const char *tail;
+
+    uint32_t offset = (page - 1) * limit;
 
     std::string SQL = dao->SQLiteQuery(
         "SELECT id, "
@@ -53,8 +75,11 @@ std::list<Sample> DataMonitor::selectSamples(uint16_t limit) {
         "sampling_time, "
         "in_flow, "
         "out_flow "
-        "FROM sample ORDER BY id DESC LIMIT %u;",
-        limit
+        "FROM sample "
+        "ORDER BY id DESC "
+        "LIMIT %u OFFSET %u;",
+        limit,
+        offset
     );
 
     Serial.println(SQL.c_str());
