@@ -7,6 +7,9 @@
 #include <dao_sqlite.h>
 #include <data_monitor.h>
 
+#include <page.h>
+#include <test_page.h>
+
 #define D15 15
 #define D14 14
 #define D4 4
@@ -41,62 +44,77 @@ AsyncWebServer server(80);
 #define STARTING_SERVER_PROCESSING() digitalWrite(LED_PIN, HIGH)
 #define FINISH_SERVER_PROCESSING() digitalWrite(LED_PIN, LOW); return
 
+#define VISUAL_INDICATOR_ON() digitalWrite(LED_PIN, HIGH); delay(200)
+#define VISUAL_INDICATOR_OFF() digitalWrite(LED_PIN, LOW); delay(100)
+
+void initLittleFS() {
+    Serial.print("Attempting to mounting LittleFS, please wait...");
+
+    // Iniciar LittleFS
+    if (!LittleFS.begin(true)) {
+        Serial.println("An error occurred while trying to mount LittleFS.");
+        abort();
+    }
+}
+
+void initWifi() {
+    Serial.print("Attempting to connect to WiFi, please wait...");
+
+    // Conectar Wi-Fi
+    WiFi.begin(ssid, password);
+
+    while (WiFi.status() != WL_CONNECTED) { 
+        Serial.print(".");
+        delay(500);
+    }
+
+    Serial.println("\nIP: " + WiFi.localIP().toString());
+}
+
+void initNTP() {
+    Serial.print("Waiting for NTP synchronization...");
+
+    // Sincroniza com os servidores NTP
+    configTime(gmtOffset_sec, daylightOffset_sec, "pool.ntp.org", "time.google.com");
+
+    struct tm timeinfo;
+    while (!getLocalTime(&timeinfo)) {
+        Serial.print(".");
+        delay(500);
+    }
+
+    Serial.println(&timeinfo, "Current Time: %A, %B %d %Y %H:%M:%S");
+}
+
 void hardwareSetting() {
     Serial.begin(115200);
 
     // Configuração das portas In|Out do ESP32
     pinMode(LED_PIN, OUTPUT);
-
     pinMode(IN_FLOW, INPUT);
     pinMode(OUT_FLOW, INPUT);
     pinMode(INTERRUPTION, INPUT);
 
-    // Inicia o aviso visual em HIGH
-    digitalWrite(LED_PIN, HIGH);
+    VISUAL_INDICATOR_ON();
 
+    // Exibe Modo Debug
     Serial.printf("DEBUG: %d\n", DEBUG);
-
     // Exibe o SSID do Wifi
-    Serial.print("SSID: ");
-    Serial.println(ssid);
+    Serial.println("SSID: " + String(ssid));
 
     // Aviso visual para indicar que o sistema esta sendo iniciado
     for(uint8_t i = 0; i < 8; ++i) {
-        digitalWrite(LED_PIN, LOW);
-        delay(500);
-        digitalWrite(LED_PIN, HIGH);
-        delay(500);
+        VISUAL_INDICATOR_ON();
+        VISUAL_INDICATOR_OFF();
     }
 
-    // Iniciar LittleFS
-    if (!LittleFS.begin(true)) {
-        Serial.println("Erro ao montar LittleFS");
-        return;
-    }
+    VISUAL_INDICATOR_ON();
 
-    // Conectar Wi-Fi
-    WiFi.begin(ssid, password);
-    Serial.print("Attempting to connect to WiFi, please wait...");
+    initLittleFS();
+    initWifi();
+    initNTP();
 
-    while (WiFi.status() != WL_CONNECTED) { 
-        delay(500);
-        Serial.print(".");
-    }
-
-    Serial.println("\nIP: " + WiFi.localIP().toString());
-
-    // Sincroniza com os servidores do Google ou NTP.br
-    configTime(gmtOffset_sec, daylightOffset_sec, "pool.ntp.org", "time.google.com");
-
-    Serial.print("Waiting for NTP synchronization...");
-
-    struct tm timeinfo;
-    while (!getLocalTime(&timeinfo)) {
-        delay(500);
-        Serial.print(".");
-    }
-
-    Serial.println(&timeinfo, "Current Time: %A, %B %d %Y %H:%M:%S");
+    VISUAL_INDICATOR_OFF();
 }
 
 void setup() {
@@ -129,114 +147,22 @@ void setup() {
             }
         }
 
-        String html = 
-        "<!DOCTYPE html>"
-        "<html lang=\"pt-br\">"
-        "<head>"
-            "<meta charset=\"UTF-8\">"
-            "<title>Monitor de Fluxo - Univesp</title>"
-        "</head>";
-    
-        html += "<h1>[Test Mode] - Monitor de Fluxo - Univesp</h1>";
-        html += "<h2>\t\tDATABASE:" DATABASE "</h1>";
-
-        ////////////////////////////////////////////////////////////////
-
-        html += "<table border='1' style='border-collapse: collapse; margin: auto; font-family: sans-serif; min-width: 500px;'>"
-                "<tr>"
-                    "<th>ID</th>"
-                    "<th>Data/Hora</th>"
-                    "<th>Tempo Amostragem (Minutos)</th>"
-                    "<th>Entrada</th>"
-                    "<th>Saída</th>"
-                "</tr>";
-
         uint32_t totalPages = monitor->getTotalPages(limit);
         std::list<Sample> samples = monitor->selectSamples(currentPage, limit);
 
-        Serial.println("Total Pages: " + String(totalPages) + " Current Page: " + currentPage);
+        Serial.println("Current Page: " + String(currentPage) + " Total Pages: " + String(totalPages));
 
-        for (const auto& sample : samples) {
-            html += "<tr>";
-            html += "<td>" + String(sample.id) + "</td>";
-            html += "<td>" + String(sample.timestamp.c_str()) + "</td>";
-            html += "<td>" + String(sample.sampling_time) + "</td>";
-            html += "<td>" + String(sample.in) + "</td>";
-            html += "<td>" + String(sample.out) + "</td>";
-            html += "</tr>";
-        }
+        Page *testPage = new TestPage(
+            DATABASE,
+            currentPage,
+            totalPages,
+            limit,
+            samples
+        );
 
-        html += "</table><br>";
+        request->send(200, "text/html", testPage->page());
 
-        ////////////////////////////////////////////////////////////////
-
-        html += "<style>"
-            ".pagination { display: flex; list-style: none; padding: 0; gap: 5px; justify-content: center; font-family: sans-serif; }"
-            ".pagination a { "
-            "    text-decoration: none; "
-            "    padding: 8px 12px; "
-            "    border: 1px solid #ccc; "
-            "    color: #333; "
-            "    border-radius: 4px; "
-            "}"
-            ".pagination a.active { background-color: #007bff; color: white; border-color: #007bff; font-weight: bold; }"
-            ".pagination a:hover:not(.active) { background-color: #f0f0f0; }"
-            ".disabled { color: #ccc !important; pointer-events: none; border-color: #eee !important; }"
-        "</style>";
-
-        // Sistema de Paginação
-        html += "<ul class='pagination'>";
-
-        // Botão anterior
-        if (currentPage > 1) {
-            html += "<li><a href='?page=" + String(currentPage - 1) + "'>Anterior</a></li>";
-        } else {
-            html += "<li><a class='disabled'>Anterior</a></li>";
-        }
-
-        // Status
-        html += "<li><a class='active'>" + String(currentPage) + " / " + String(totalPages) + "</a></li>";
-
-        // Botão próximo
-        if (currentPage < totalPages) {
-            html += "<li><a href='?page=" + String(currentPage + 1) + "'>Próxima</a></li>";
-        } else {
-            html += "<li><a class='disabled'>Próxima</a></li>";
-        }
-
-        html += "</ul><br>";
-
-        ////////////////////////////////////////////////////////////////
-
-        // Estilo de botão real: cinza, com borda e sombra suave
-        String style = "color: black; background-color: #e7e7e7; border: 1px solid #ccc; "
-                    "padding: 10px 20px; text-align: center; text-decoration: none; "
-                    "display: inline-block; border-radius: 4px; font-family: sans-serif; "
-                    "margin-right: 10px; font-weight: bold; box-shadow: 1px 1px 2px #888888;";
-
-        html += "<div style='text-align: center; margin: 20px 0; width: 100%;'>";
-
-        String simulateButton = "<a href='/simulate' style='%s'>Simulate Flow</a>";
-        simulateButton.replace("%s", style);
-        html += simulateButton;
-
-        String cleanupButton = "<a href='/cleanup' style='%s'>Cleanup Optimization Database</a>";
-        cleanupButton.replace("%s", style);
-        html += cleanupButton;
-
-        String resetButton = "<a href='/reset' style='%s'>Reset Database</a>";
-        resetButton.replace("%s", style);
-        html += resetButton;
-
-        String downloadButton = "<a href='/download' style='%s'>Download Database</a>";
-        downloadButton.replace("%s", style);
-        html += downloadButton;
-
-        html += "</div>";
-
-        ////////////////////////////////////////////////////////////////
-
-        request->send(200, "text/html", html);
+        delete testPage;
 
         FINISH_SERVER_PROCESSING();
     });
@@ -328,9 +254,11 @@ void loop() {
     int statusD14 = digitalRead(D14);
 
     // Exibe os valores no Monitor Serial
+    /*
     Serial.print("D15: "); Serial.print(statusD15);
     Serial.print(" | D4: "); Serial.print(statusD4);
     Serial.print(" | D14: "); Serial.println(statusD14);
+    */
 
     // Pequeno atraso para facilitar a leitura humana no monitor
     delay(250);
