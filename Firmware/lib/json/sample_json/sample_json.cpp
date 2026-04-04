@@ -3,11 +3,11 @@
 #include <ArduinoJson.h>
 
 String SampleJson::serialize() {
-    JsonDocument doc; // Ajuste o tamanho conforme necessário
+    JsonDocument doc;
     JsonArray array = doc.createNestedArray("data");
 
     for (const auto& sample : this->samples) {
-        JsonObject obj = doc['data'].createNestedObject();
+        JsonObject obj = array.add<JsonObject>();
 
         obj["id"] = sample.id;
         obj["timestamp"] = sample.timestamp; // Se for string ou uint64
