@@ -27,7 +27,7 @@ const int OUT_FLOW = D4;
 const int INTERRUPTION = D14;
 
 // Configuração de fuso: -3 horas * 3600 segundos
-const long gmtOffset_sec = -3 * 3600;
+const long gmtOffset_sec = TZS * 3600;
 // Configuração do horário de verão: 3600 se houver horário de verão
 const int daylightOffset_sec = 0;
 
@@ -159,7 +159,7 @@ void setup() {
                     "display: inline-block; border-radius: 4px; font-family: sans-serif; "
                     "margin-right: 10px; font-weight: bold; box-shadow: 1px 1px 2px #888888;";
 
-        String simulate_button = "<a href='/simulate' style='%s'>Simular Fluxo</a>";
+        String simulate_button = "<a href='/simulate' style='%s'>Simulate Flow</a>";
         simulate_button.replace("%s", style);
         html += simulate_button;
 
