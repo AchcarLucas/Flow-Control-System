@@ -7,7 +7,10 @@
 #include <data_monitor.h>
 
 #include <page.h>
+
 #include <index_page.h>
+#include <analysis_page.h>
+#include <raw_page.h>
 
 #define D15 15
 #define D14 14
@@ -31,7 +34,7 @@ const int daylightOffset_sec = 0;
 
 DataMonitor *monitor;
 
-AsyncWebServer server(80);
+AsyncWebServer server(SERVER_PORT);
 
 #define CHECK_DEBUG() if (DEBUG != 1) return
 
@@ -97,8 +100,38 @@ void initNTP() {
 }
 
 void index_request() {
-    // 4. Configurar Rotas do WebServer
+    // PAGE 'index' http://[IP-DO-ESP]/index
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
+        STARTING_SERVER_PROCESSING();
+
+        Page *indexPage = new IndexPage();
+
+        request->send(200, "text/html", indexPage->page());
+
+        delete indexPage;
+
+        FINISH_SERVER_PROCESSING();
+    });
+}
+
+void analysis_request() {
+    // PAGE 'analysis data' http://[IP-DO-ESP]/analysis?start={datetime}&end={datetime}
+    server.on("/analysis", HTTP_GET, [](AsyncWebServerRequest *request) {
+        STARTING_SERVER_PROCESSING();
+
+        Page *analysisPage = new AnalysisPage(DATABASE);
+
+        request->send(200, "text/html", analysisPage->page());
+
+        delete analysisPage;
+
+        FINISH_SERVER_PROCESSING();
+    });
+}
+
+void raw_request() {
+    // PAGE 'raw data' http://[IP-DO-ESP]/raw?page={page}
+    server.on("/raw", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
         uint16_t limit = 10;
@@ -116,7 +149,7 @@ void index_request() {
 
         Serial.println("Current Page: " + String(currentPage) + " Total Pages: " + String(totalPages));
 
-        Page *testPage = new IndexPage(
+        Page *rawPage = new RawPage(
             DATABASE,
             currentPage,
             totalPages,
@@ -124,9 +157,9 @@ void index_request() {
             samples
         );
 
-        request->send(200, "text/html", testPage->page());
+        request->send(200, "text/html", rawPage->page());
 
-        delete testPage;
+        delete rawPage;
 
         FINISH_SERVER_PROCESSING();
     });
@@ -149,7 +182,7 @@ void simulate_request() {
             return;
         }
 
-        request->redirect("/");
+        request->redirect("/raw");
 
         FINISH_SERVER_PROCESSING();
     });
@@ -168,7 +201,7 @@ void cleanup_request() {
             return;
         }
 
-        request->redirect("/");
+        request->redirect("/raw");
 
         FINISH_SERVER_PROCESSING();
     });
@@ -187,7 +220,7 @@ void reset_request() {
             return;
         }
 
-        request->redirect("/");
+        request->redirect("/raw");
 
         FINISH_SERVER_PROCESSING();
     });
@@ -215,7 +248,7 @@ void download_request() {
 }
 
 void delete_request() {
-    // Limpeza de otimização do banco de dados: http://[IP-DO-ESP]/cleanup
+    // Deleta um dado especifico com base no seu ID: http://[IP-DO-ESP]/delete?id={id}
     server.on("/delete", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
@@ -235,7 +268,7 @@ void delete_request() {
             return;
         }
 
-        request->redirect("/");
+        request->redirect("/raw");
 
         FINISH_SERVER_PROCESSING();
     });
@@ -267,8 +300,12 @@ void initServer() {
     Serial.println("Server configuration and initialization");
     monitor = new DataMonitor(DATABASE, CLEANUP);
 
-    // Page Request
+    // PAGE Request
     index_request();
+    analysis_request();
+    raw_request();
+
+    // GET Request
     simulate_request();
     cleanup_request();
     reset_request();

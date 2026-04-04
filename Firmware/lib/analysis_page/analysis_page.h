@@ -1,5 +1,5 @@
-#ifndef INDEX_PAGE_H
-#define INDEX_PAGE_H
+#ifndef ANALYSIS_PAGE_H
+#define ANALYSIS_PAGE_H
 
 #include <Arduino.h>
 
@@ -8,12 +8,13 @@
 
 #include <list>
 
-class IndexPage : public Page {
+class AnalysisPage : public Page {
     protected:
         String header();
     private:
+        String database;
     public:
-        IndexPage() {};
+        AnalysisPage(String database) : database(database) {};
         String page() override;
 };
 
