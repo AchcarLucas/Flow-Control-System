@@ -42,7 +42,7 @@ class DataMonitor {
         std::string cleaningTime;
     private:
     public:
-        DataMonitor(const std::string fileName="monitor.db", std::string cleaningTime="-3 months");
+        DataMonitor(const std::string fileName="database.db", std::string cleaningTime="-3 months");
         ~DataMonitor();
 
         bool insertSamples(std::list<Sample>);

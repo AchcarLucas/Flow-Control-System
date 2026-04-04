@@ -12,74 +12,77 @@
 #define D4 4
 #define D2 2
 
-// Configurações do Wi-Fi (configuração no arquivo .env)
+// Configurações do Wi-Fi (Configuração no arquivo /env/.env)
 const char* ssid = WIFI_SSID;
 const char* password = WIFI_PASSWORD;
 
-// Pino do LED (O padrão da maioria das placas é o 2)
+// Pino do LED (Indicador visual)
 const int LED_PIN = D2;
 
-// Pino de controle de fluxo
+// Pinos de estado do controle de fluxo
 const int IN_FLOW = D15;
 const int OUT_FLOW = D4;
+
+// Pino de identificação de interrupção
 const int INTERRUPTION = D14;
 
-AsyncWebServer server(80);
-sqlite3 *db;
+// Configuração de fuso: -3 horas * 3600 segundos
+const long gmtOffset_sec = -3 * 3600;
+// Configuração do horário de verão: 3600 se houver horário de verão
+const int daylightOffset_sec = 0;
 
 SQLiteDAO *dao;
 DataMonitor *monitor;
 
-// Configuração de fuso: -3 horas * 3600 segundos
-const long gmtOffset_sec = -3 * 3600; 
-const int daylightOffset_sec = 0; // 3600 se houver horário de verão
+AsyncWebServer server(80);
 
-// Função auxiliar para executar comandos SQL
-int db_exec(const char *sql) {
-    char *zErrMsg = 0;
-    int rc = sqlite3_exec(db, sql, NULL, NULL, &zErrMsg);
-    if (rc != SQLITE_OK) {
-        Serial.printf("Erro SQL: %s\n", zErrMsg);
-        sqlite3_free(zErrMsg);
-    }
-    return rc;
-}
+#define CHECK_DEBUG() if (DEBUG != 1) return
 
-void setup() {
+#define STARTING_SERVER_PROCESSING() digitalWrite(LED_PIN, HIGH)
+#define FINISH_SERVER_PROCESSING() digitalWrite(LED_PIN, LOW); return
+
+void hardwareSetting() {
     Serial.begin(115200);
 
-    Serial.print("SSID: ");
-    Serial.println(ssid);
-
+    // Configuração das portas In|Out do ESP32
     pinMode(LED_PIN, OUTPUT);
 
     pinMode(IN_FLOW, INPUT);
     pinMode(OUT_FLOW, INPUT);
     pinMode(INTERRUPTION, INPUT);
 
-    digitalWrite(LED_PIN, HIGH);
-    delay(500);
-    digitalWrite(LED_PIN, LOW);
-    delay(500);
-    digitalWrite(LED_PIN, HIGH);
-    delay(500);
-    digitalWrite(LED_PIN, LOW);
-    delay(500);
-    digitalWrite(LED_PIN, HIGH);
-    delay(500);
-
+    // Inicia o aviso visual em HIGH
     digitalWrite(LED_PIN, HIGH);
 
-    // 1. Iniciar LittleFS
+    Serial.printf("DEBUG: %d\n", DEBUG);
+
+    // Exibe o SSID do Wifi
+    Serial.print("SSID: ");
+    Serial.println(ssid);
+
+    // Aviso visual para indicar que o sistema esta sendo iniciado
+    for(uint8_t i = 0; i < 8; ++i) {
+        digitalWrite(LED_PIN, LOW);
+        delay(500);
+        digitalWrite(LED_PIN, HIGH);
+        delay(500);
+    }
+
+    // Iniciar LittleFS
     if (!LittleFS.begin(true)) {
         Serial.println("Erro ao montar LittleFS");
         return;
     }
 
-    // 2. Conectar Wi-Fi
+    // Conectar Wi-Fi
     WiFi.begin(ssid, password);
     Serial.print("Attempting to connect to WiFi, please wait...");
-    while (WiFi.status() != WL_CONNECTED) { delay(500); Serial.print("."); }
+
+    while (WiFi.status() != WL_CONNECTED) { 
+        delay(500);
+        Serial.print(".");
+    }
+
     Serial.println("\nIP: " + WiFi.localIP().toString());
 
     // Sincroniza com os servidores do Google ou NTP.br
@@ -88,27 +91,54 @@ void setup() {
     Serial.print("Waiting for NTP synchronization...");
 
     struct tm timeinfo;
-    while (!getLocalTime(&timeinfo)) { delay(500); Serial.print("."); }
+    while (!getLocalTime(&timeinfo)) {
+        delay(500);
+        Serial.print(".");
+    }
 
     Serial.println(&timeinfo, "Current Time: %A, %B %d %Y %H:%M:%S");
+}
 
-    monitor = new DataMonitor("monitor.db", "-3 months");
+void setup() {
+    hardwareSetting();
+
+    monitor = new DataMonitor(DATABASE, "-3 months");
+
+    // Limpeza de otimização do banco de dados
+    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
+        STARTING_SERVER_PROCESSING();
+
+        request->send(200, "text/html", "/");
+
+        FINISH_SERVER_PROCESSING();
+    });
 
     // 4. Configurar Rotas do WebServer
-    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
-        String html = "<h1>Monitor de Fluxo - Univesp - Test</h1>";
+    server.on("/test", HTTP_GET, [](AsyncWebServerRequest *request) {
+        CHECK_DEBUG();
+
+        STARTING_SERVER_PROCESSING();
+
+        String html = 
+        "<!DOCTYPE html>"
+        "<html lang=\"pt-br\">"
+        "<head>"
+            "<meta charset=\"UTF-8\">"
+            "<title>Monitor de Fluxo - Univesp</title>"
+        "</head>";
+    
+        html += "<h1>[Test Mode] - Monitor de Fluxo - Univesp</h1>";
+        html += "<h2>\t\tDATABASE:" DATABASE "</h1>";
+
         html += "<table border='1'>"
                 "<tr>"
                     "<th>ID</th>"
                     "<th>Data/Hora</th>"
-                    "<th>Tempo Amostragem</th>"
+                    "<th>Tempo Amostragem (Minutos)</th>"
                     "<th>Entrada</th>"
                     "<th>Saída</th>"
                 "</tr>";
 
-        // Pisca o LED rapidamente
-        digitalWrite(LED_PIN, HIGH);
-        
         std::list<Sample> samples = monitor->selectSamples(10); // Exibe os 10 registros mais recentes
 
         for (const auto& sample : samples) {
@@ -121,40 +151,79 @@ void setup() {
             html += "</tr>";
         }
 
-        html += "</table><br><a href='/add'>Simular Detecção</a>";
+        html += "</table><br>";
+
+        // Estilo de botão real: cinza, com borda e sombra suave
+        String style = "color: black; background-color: #e7e7e7; border: 1px solid #ccc; "
+                    "padding: 10px 20px; text-align: center; text-decoration: none; "
+                    "display: inline-block; border-radius: 4px; font-family: sans-serif; "
+                    "margin-right: 10px; font-weight: bold; box-shadow: 1px 1px 2px #888888;";
+
+        String simulate_button = "<a href='/simulate' style='%s'>Simular Fluxo</a>";
+        simulate_button.replace("%s", style);
+        html += simulate_button;
+
+        String cleanup_button = "<a href='/cleanup' style='%s'>Cleanup Optimization Database</a>";
+        cleanup_button.replace("%s", style);
+        html += cleanup_button;
+
+        String reset_button = "<a href='/reset' style='%s'>Reset Database</a>";
+        reset_button.replace("%s", style);
+        html += reset_button;
+
+        String download_button = "<a href='/download' style='%s'>Download Database</a>";
+        download_button.replace("%s", style);
+        html += download_button;
+
         request->send(200, "text/html", html);
 
-        digitalWrite(LED_PIN, LOW);
+        FINISH_SERVER_PROCESSING();
     });
 
-    // Rota para simular inserção de dados
-    server.on("/add", HTTP_GET, [](AsyncWebServerRequest *request) {
-        digitalWrite(LED_PIN, HIGH);
+    // Rota para simulação de inserção de dados: http://[IP-DO-ESP]/simulate
+    server.on("/simulate", HTTP_GET, [](AsyncWebServerRequest *request) {
+        CHECK_DEBUG();
 
-        monitor->insertSamples({Sample(10, 1, 1)});
+        STARTING_SERVER_PROCESSING();
 
+        monitor->insertSamples({Sample(10, esp_random() % 2000, esp_random() % 2000)});
         request->redirect("/");
 
-        digitalWrite(LED_PIN, LOW);
+        FINISH_SERVER_PROCESSING();
+    });
+
+    // Limpeza de otimização do banco de dados: http://[IP-DO-ESP]/cleanup
+    server.on("/cleanup", HTTP_GET, [](AsyncWebServerRequest *request) {
+        CHECK_DEBUG();
+
+        STARTING_SERVER_PROCESSING();
+        FINISH_SERVER_PROCESSING();
+    });
+
+    // Reset do banco de dados: http://[IP-DO-ESP]/reset
+    server.on("/reset", HTTP_GET, [](AsyncWebServerRequest *request) {
+        CHECK_DEBUG();
+
+        STARTING_SERVER_PROCESSING();
+        FINISH_SERVER_PROCESSING();
     });
     
     // Rota para baixar o banco de dados: http://[IP-DO-ESP]/download
     server.on("/download", HTTP_GET, [](AsyncWebServerRequest *request) {
-        digitalWrite(LED_PIN, HIGH);
-
-        if (LittleFS.exists("/monitor.db")) {
-            // Criamos a resposta apontando para o arquivo no LittleFS
-            AsyncWebServerResponse *response = request->beginResponse(LittleFS, "/monitor.db", "application/octet-stream");
-            
-            // Este é o "pulo do gato": força o navegador a reconhecer o nome do arquivo
-            response->addHeader("Content-Disposition", "attachment; filename=\"monitor.db\"");
-            
-            request->send(response);
-        } else {
-            request->send(404, "text/plain", "Arquivo nao encontrado");
+        STARTING_SERVER_PROCESSING();
+        
+        if (!LittleFS.exists("/" DATABASE)) {
+            request->send(404, "text/plain", "database " DATABASE " file not found in the system.");
+            FINISH_SERVER_PROCESSING();
         }
 
-        digitalWrite(LED_PIN, LOW);
+        AsyncWebServerResponse *response = request->beginResponse(LittleFS, "/" DATABASE, "application/octet-stream");
+
+        String attachment = "attachment; filename=\"" + String(DATABASE) + "\"";
+        response->addHeader("Content-Disposition", attachment.c_str());
+        request->send(response);
+
+        FINISH_SERVER_PROCESSING();
     });
 
     server.begin();
