@@ -61,7 +61,7 @@ void initLittleFS() {
         abort();
     }
 
-    Serial.println("LittleFS successfully mounted.");
+    Serial.println("LittleFS successfully mounted.\n");
 }
 
 void initWifi() {
@@ -77,7 +77,7 @@ void initWifi() {
     }
 
     Serial.println("\nWiFi successfully connected");
-    Serial.printf("IP: %s\n", WiFi.localIP().toString().c_str());
+    Serial.printf("IP: %s\n\n", WiFi.localIP().toString().c_str());
 }
 
 void initNTP() {
@@ -243,7 +243,7 @@ void initServer() {
 
     server.begin();
 
-    Serial.println("Server successfully initialized.");
+    Serial.println("Server successfully initialized.\n");
 }
 
 void setup() {
