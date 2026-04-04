@@ -4,7 +4,6 @@
 #include <sqlite3.h>
 #include <LittleFS.h>
 
-#include <dao_sqlite.h>
 #include <data_monitor.h>
 
 #include <page.h>
@@ -14,10 +13,6 @@
 #define D14 14
 #define D4 4
 #define D2 2
-
-// Configurações do Wi-Fi (Configuração no arquivo /env/.env)
-const char* ssid = WIFI_SSID;
-const char* password = WIFI_PASSWORD;
 
 // Pino do LED (Indicador visual)
 const int LED_PIN = D2;
@@ -34,7 +29,6 @@ const long gmtOffset_sec = TZS * 3600;
 // Configuração do horário de verão: 3600 se houver horário de verão
 const int daylightOffset_sec = 0;
 
-SQLiteDAO *dao;
 DataMonitor *monitor;
 
 AsyncWebServer server(80);
@@ -42,33 +36,48 @@ AsyncWebServer server(80);
 #define CHECK_DEBUG() if (DEBUG != 1) return
 
 #define STARTING_SERVER_PROCESSING() digitalWrite(LED_PIN, HIGH)
-#define FINISH_SERVER_PROCESSING() digitalWrite(LED_PIN, LOW); return
+#define FINISH_SERVER_PROCESSING() digitalWrite(LED_PIN, LOW)
 
 #define VISUAL_INDICATOR_ON() digitalWrite(LED_PIN, HIGH); delay(200)
 #define VISUAL_INDICATOR_OFF() digitalWrite(LED_PIN, LOW); delay(100)
 
+void settingHardware() {
+    Serial.begin(115200);
+
+    // Configuração das portas In|Out do ESP32
+    pinMode(LED_PIN, OUTPUT);
+
+    pinMode(IN_FLOW, INPUT);
+    pinMode(OUT_FLOW, INPUT);
+    pinMode(INTERRUPTION, INPUT);
+}
+
 void initLittleFS() {
-    Serial.print("Attempting to mounting LittleFS, please wait...");
+    Serial.println("Attempting to mounting LittleFS, please wait...");
 
     // Iniciar LittleFS
     if (!LittleFS.begin(true)) {
-        Serial.println("An error occurred while trying to mount LittleFS.");
+        Serial.println("\nAn error occurred while trying to mount LittleFS.");
         abort();
     }
+
+    Serial.println("LittleFS successfully mounted.");
 }
 
 void initWifi() {
+    Serial.printf("SSID: %s\n", WIFI_SSID);
     Serial.print("Attempting to connect to WiFi, please wait...");
 
     // Conectar Wi-Fi
-    WiFi.begin(ssid, password);
+    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 
     while (WiFi.status() != WL_CONNECTED) { 
         Serial.print(".");
         delay(500);
     }
 
-    Serial.println("\nIP: " + WiFi.localIP().toString());
+    Serial.println("\nWiFi successfully connected");
+    Serial.printf("IP: %s\n", WiFi.localIP().toString().c_str());
 }
 
 void initNTP() {
@@ -83,46 +92,11 @@ void initNTP() {
         delay(500);
     }
 
-    Serial.println(&timeinfo, "Current Time: %A, %B %d %Y %H:%M:%S");
+    Serial.println("\nNTP successfully synchronized.");
+    Serial.println(&timeinfo, "Current Time: %A, %B %d %Y %H:%M:%S\n");
 }
 
-void hardwareSetting() {
-    Serial.begin(115200);
-
-    // Configuração das portas In|Out do ESP32
-    pinMode(LED_PIN, OUTPUT);
-    pinMode(IN_FLOW, INPUT);
-    pinMode(OUT_FLOW, INPUT);
-    pinMode(INTERRUPTION, INPUT);
-
-    VISUAL_INDICATOR_ON();
-
-    // Exibe Modo Debug
-    Serial.printf("DEBUG: %d\n", DEBUG);
-    // Exibe o SSID do Wifi
-    Serial.println("SSID: " + String(ssid));
-
-    // Aviso visual para indicar que o sistema esta sendo iniciado
-    for(uint8_t i = 0; i < 8; ++i) {
-        VISUAL_INDICATOR_ON();
-        VISUAL_INDICATOR_OFF();
-    }
-
-    VISUAL_INDICATOR_ON();
-
-    initLittleFS();
-    initWifi();
-    initNTP();
-
-    VISUAL_INDICATOR_OFF();
-}
-
-void setup() {
-    hardwareSetting();
-
-    monitor = new DataMonitor(DATABASE, CLEANUP);
-
-    // Limpeza de otimização do banco de dados
+void index_request() {
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
@@ -130,11 +104,99 @@ void setup() {
 
         FINISH_SERVER_PROCESSING();
     });
+}
+
+void simulate_request() {
+    CHECK_DEBUG();
+
+    // Rota para simulação de inserção de dados: http://[IP-DO-ESP]/simulate
+    server.on("/simulate", HTTP_GET, [](AsyncWebServerRequest *request) {
+        STARTING_SERVER_PROCESSING();
+
+        bool result = monitor->insertSamples({ 
+            Sample(10, esp_random() % 2000, esp_random() % 2000)
+        });
+
+        if(!result) {
+            request->send(404, "text/plain", "An error occurred while inserting a simulation into the database.");
+            FINISH_SERVER_PROCESSING();
+            return;
+        }
+
+        request->redirect("/");
+
+        FINISH_SERVER_PROCESSING();
+    });
+}
+
+void cleanup_request() {
+    CHECK_DEBUG();
+
+    // Limpeza de otimização do banco de dados: http://[IP-DO-ESP]/cleanup
+    server.on("/cleanup", HTTP_GET, [](AsyncWebServerRequest *request) {
+        STARTING_SERVER_PROCESSING();
+
+        bool result = monitor->cleanup();
+
+        if(!result) {
+            request->send(404, "text/plain", "An error occurred while attempting to perform an database optimized cleanup on the system.");
+            FINISH_SERVER_PROCESSING();
+            return;
+        }
+
+        request->redirect("/");
+
+        FINISH_SERVER_PROCESSING();
+    });
+}
+
+void reset_request() {
+    CHECK_DEBUG();
+
+    // Reset do banco de dados: http://[IP-DO-ESP]/reset
+    server.on("/reset", HTTP_GET, [](AsyncWebServerRequest *request) {
+        STARTING_SERVER_PROCESSING();
+
+        bool result = monitor->reset();
+
+        if(!result) {
+            request->send(404, "text/plain", "An error occurred while attempting to perform an database reset on the system.");
+            FINISH_SERVER_PROCESSING();
+            return;
+        }
+
+        request->redirect("/");
+
+        FINISH_SERVER_PROCESSING();
+    });
+}
+
+void download_request() {
+    // Rota para baixar o banco de dados: http://[IP-DO-ESP]/download
+    server.on("/download", HTTP_GET, [](AsyncWebServerRequest *request) {
+        STARTING_SERVER_PROCESSING();
+        
+        if (!LittleFS.exists("/" DATABASE)) {
+            request->send(404, "text/plain", "An error occurred while trying to download the database " DATABASE " file not found");
+            FINISH_SERVER_PROCESSING();
+            return;
+        }
+
+        AsyncWebServerResponse *response = request->beginResponse(LittleFS, "/" DATABASE, "application/octet-stream");
+
+        String attachment = "attachment; filename=\"" + String(DATABASE) + "\"";
+        response->addHeader("Content-Disposition", attachment.c_str());
+        request->send(response);
+
+        FINISH_SERVER_PROCESSING();
+    });
+}
+
+void test_request() {
+    CHECK_DEBUG();
 
     // 4. Configurar Rotas do WebServer
     server.on("/test", HTTP_GET, [](AsyncWebServerRequest *request) {
-        CHECK_DEBUG();
-
         STARTING_SERVER_PROCESSING();
 
         uint16_t limit = 10;
@@ -166,84 +228,46 @@ void setup() {
 
         FINISH_SERVER_PROCESSING();
     });
+}
 
-    // Rota para simulação de inserção de dados: http://[IP-DO-ESP]/simulate
-    server.on("/simulate", HTTP_GET, [](AsyncWebServerRequest *request) {
-        CHECK_DEBUG();
+void initServer() {
+    Serial.println("Server configuration and initialization");
+    monitor = new DataMonitor(DATABASE, CLEANUP);
 
-        STARTING_SERVER_PROCESSING();
-
-        bool result = monitor->insertSamples({ 
-            Sample(10, esp_random() % 2000, esp_random() % 2000)
-        });
-
-        if(!result) {
-            request->send(404, "text/plain", "An error occurred while inserting a simulation into the database.");
-            FINISH_SERVER_PROCESSING();
-        }
-
-        request->redirect("/");
-
-        FINISH_SERVER_PROCESSING();
-    });
-
-    // Limpeza de otimização do banco de dados: http://[IP-DO-ESP]/cleanup
-    server.on("/cleanup", HTTP_GET, [](AsyncWebServerRequest *request) {
-        CHECK_DEBUG();
-
-        STARTING_SERVER_PROCESSING();
-
-        bool result = monitor->cleanup();
-
-        if(!result) {
-            request->send(404, "text/plain", "An error occurred while attempting to perform an database optimized cleanup on the system.");
-            FINISH_SERVER_PROCESSING();
-        }
-
-        request->redirect("/");
-
-        FINISH_SERVER_PROCESSING();
-    });
-
-    // Reset do banco de dados: http://[IP-DO-ESP]/reset
-    server.on("/reset", HTTP_GET, [](AsyncWebServerRequest *request) {
-        CHECK_DEBUG();
-
-        STARTING_SERVER_PROCESSING();
-
-        bool result = monitor->reset();
-
-        if(!result) {
-            request->send(404, "text/plain", "An error occurred while attempting to perform an database reset on the system.");
-            FINISH_SERVER_PROCESSING();
-        }
-
-        request->redirect("/");
-
-        FINISH_SERVER_PROCESSING();
-    });
-    
-    // Rota para baixar o banco de dados: http://[IP-DO-ESP]/download
-    server.on("/download", HTTP_GET, [](AsyncWebServerRequest *request) {
-        STARTING_SERVER_PROCESSING();
-        
-        if (!LittleFS.exists("/" DATABASE)) {
-            request->send(404, "text/plain", "An error occurred while trying to download the database " DATABASE " file not found");
-            FINISH_SERVER_PROCESSING();
-        }
-
-        AsyncWebServerResponse *response = request->beginResponse(LittleFS, "/" DATABASE, "application/octet-stream");
-
-        String attachment = "attachment; filename=\"" + String(DATABASE) + "\"";
-        response->addHeader("Content-Disposition", attachment.c_str());
-        request->send(response);
-
-        FINISH_SERVER_PROCESSING();
-    });
+    index_request();
+    simulate_request();
+    cleanup_request();
+    reset_request();
+    download_request();
+    test_request();
 
     server.begin();
 
-    digitalWrite(LED_PIN, LOW);
+    Serial.println("Server successfully initialized.");
+}
+
+void setup() {
+    settingHardware();
+
+    // Exibe Modo Debug
+    Serial.printf("DEBUG: %d\n", DEBUG);
+
+    VISUAL_INDICATOR_ON();
+
+    // Aviso visual para indicar que o sistema esta sendo iniciado
+    for(uint8_t i = 0; i < 8; ++i) {
+        VISUAL_INDICATOR_ON();
+        VISUAL_INDICATOR_OFF();
+    }
+
+    VISUAL_INDICATOR_ON();
+
+    initLittleFS();
+    initWifi();
+    initNTP();
+    initServer();
+
+    VISUAL_INDICATOR_OFF();
 }
 
 void loop() {
