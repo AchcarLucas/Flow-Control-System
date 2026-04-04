@@ -12,7 +12,7 @@ String RawPage::header() {
 
     String title = DEBUG ? "[Debug Mode]" : "[Production Mode]";
 
-    html += "<h1 style=\"text-align: center;\">" + title + " Raw Page - Monitor de Fluxo - Univesp</h1>";
+    html += "<h1 style=\"text-align: center;\">" + title + " Raw Page</h1>";
     html += "<h2 style=\"text-align: center;\">\t\tDATABASE [" + this->database + "]</h1>";
 
     return html;

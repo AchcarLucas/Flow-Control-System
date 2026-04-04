@@ -64,7 +64,7 @@ String IndexPage::header() {
 
     String title = DEBUG ? "[Debug Mode]" : "[Production Mode]";
 
-    html += "<h1 style=\"text-align: center;\">" + title + " Index Page - Monitor de Fluxo - Univesp</h1>";
+    html += "<header><h1 style=\"text-align: center;\">" + title + " Index Page - Monitor de Fluxo - Univesp</h1></header>";
 
     return html;
 }
@@ -74,9 +74,6 @@ String IndexPage::body() {
 
     body +=
         "<body>"
-        "    <header>"
-        "        <h1>Visualizador de Rotas</h1>"
-        "    </header>"
         "    <div class=\"container\">"
         "        <div class=\"painel\">"
         "            <div class=\"painel-header\">Route: /raw</div>"

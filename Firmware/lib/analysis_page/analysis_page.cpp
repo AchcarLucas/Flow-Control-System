@@ -12,7 +12,7 @@ String AnalysisPage::header() {
 
     String title = DEBUG ? "[Debug Mode]" : "[Production Mode]";
 
-    html += "<h1 style=\"text-align: center;\">" + title + " Analysis Page - Monitor de Fluxo - Univesp</h1>";
+    html += "<h1 style=\"text-align: center;\">" + title + " Analysis Page</h1>";
     html += "<h2 style=\"text-align: center;\">\t\tDATABASE [" + this->database + "]</h1>";
 
     return html;
