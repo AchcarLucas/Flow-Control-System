@@ -8,7 +8,7 @@
 
 #include <list>
 
-class TestPage : public Page {
+class IndexPage : public Page {
     protected:
         String header();
         String table();
@@ -24,12 +24,13 @@ class TestPage : public Page {
 
         std::list<Sample> samples;
     public:
-        TestPage(
+        IndexPage(
                 String database,
                 uint32_t currentPage,
                 uint16_t totalPages,
                 uint16_t limit,
-                std::list<Sample> samples
+                std::list<Sample> samples,
+                bool debug = false
         ) : database(database),
             currentPage(currentPage),
             totalPages(totalPages),

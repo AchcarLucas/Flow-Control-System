@@ -107,9 +107,53 @@ std::list<Sample> DataMonitor::selectSamples(uint16_t page, uint16_t limit) {
     return samples;
 }
 
+std::list<Sample> DataMonitor::selectSamples(uint32_t startDatetime, uint32_t endDatetime) {
+    std::list<Sample> samples;
+
+    sqlite3_stmt *res;
+    const char *tail;
+
+    std::string SQL = dao->SQLiteQuery(
+        "SELECT id, "
+        "strftime('%%d/%%m/%%Y %%H:%%M:%%S', timestamp, 'localtime') AS timestamp_s, "
+        "sampling_time, "
+        "in_flow, "
+        "out_flow "
+        "FROM sample "
+        "WHERE timestamp BETWEEN %u AND %u "
+        "ORDER BY timestamp ASC;",
+        startDatetime,
+        endDatetime
+    );
+
+    Serial.println(SQL.c_str());
+
+    SQLitePrepareObject *prepare = dao->SQLitePrepare(SQL);
+    
+    if (prepare != nullptr) {
+        while (dao->SQLiteStep(prepare)) {
+            samples.push_back(
+                Sample(
+                    sqlite3_column_int(prepare->getRes(), 0),
+                    std::string(reinterpret_cast<const char*>(sqlite3_column_text(prepare->getRes(), 1))),
+                    sqlite3_column_int(prepare->getRes(), 2),
+                    sqlite3_column_int(prepare->getRes(), 3),
+                    sqlite3_column_int(prepare->getRes(), 4)
+                )
+            );
+
+            esp_task_wdt_reset();
+        }
+    }
+
+    dao->SQLiteFinalize(prepare);
+
+    return samples;
+}
+
 bool DataMonitor::removeSamplesByID(uint32_t id) {
     std::string SQL = dao->SQLiteQuery(
-        "DELETE FROM sample WHERE id = {%u};",
+        "DELETE FROM sample WHERE id = %u;",
         id
     );
 
@@ -122,7 +166,7 @@ bool DataMonitor::removeSamplesByID(uint32_t id) {
 
 bool DataMonitor::removeSamplesByTimestamp(uint64_t timestamp) {
     std::string SQL = dao->SQLiteQuery(
-        "DELETE FROM sample WHERE timestamp = datetime(%u);",
+        "DELETE FROM sample WHERE timestamp = datetime(%llu, 'unixepoch');",
         timestamp
     );
 

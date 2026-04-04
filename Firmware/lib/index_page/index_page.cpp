@@ -1,6 +1,6 @@
-#include <test_page.h>
+#include <index_page.h>
 
-String TestPage::header() {
+String IndexPage::header() {
     String html;
 
     html += "<!DOCTYPE html>"
@@ -10,23 +10,26 @@ String TestPage::header() {
                 "<title>Monitor de Fluxo - Univesp</title>"
             "</head>";
 
-    html += "<h1>[Test Mode] - Monitor de Fluxo - Univesp</h1>";
-    html += "<h2>\t\tDATABASE:" + this->database + "</h1>";
+    String title = DEBUG ? "[Debug Mode]" : "[Production Mode]";
+
+    html += "<h1 style=\"text-align: center;\">" + title + " - Monitor de Fluxo - Univesp</h1>";
+    html += "<h2 style=\"text-align: center;\">\t\tDATABASE [" + this->database + "]</h1>";
 
     return html;
 }
 
-String TestPage::table() {
+String IndexPage::table() {
     String html;
 
     html += 
-        "<table border='1' style='border-collapse: collapse; margin: auto; font-family: sans-serif; min-width: 500px;'>"
+        "<table border='1' style='border-collapse: collapse; margin: auto; font-family: sans-serif; min-width: 65%; text-align: center;'>"
             "<tr>"
                 "<th>ID</th>"
                 "<th>Data/Hora</th>"
                 "<th>Tempo Amostragem (Minutos)</th>"
                 "<th>Entrada</th>"
                 "<th>Saída</th>"
+                "<th>Excluir</th>"
             "</tr>";
 
     for (const auto& sample : this->samples) {
@@ -36,6 +39,11 @@ String TestPage::table() {
         html += "<td>" + String(sample.sampling_time) + "</td>";
         html += "<td>" + String(sample.in) + "</td>";
         html += "<td>" + String(sample.out) + "</td>";
+        html += "<td>"
+            "<a href='/delete?id=" + String(sample.id) + "' onclick='return confirm(\"Are you sure you want to remove?\")'>"
+                "🗑️"
+            "</a>"
+        "</td>";
         html += "</tr>";
     }
 
@@ -44,7 +52,7 @@ String TestPage::table() {
     return html;
 }
 
-String TestPage::pagination() {
+String IndexPage::pagination() {
     String html;
 
     html += 
@@ -87,7 +95,7 @@ String TestPage::pagination() {
     return html;
 }
 
-String TestPage::tools() {
+String IndexPage::tools() {
     String html;
 
     // Estilo de botão real: cinza, com borda e sombra suave
@@ -99,9 +107,11 @@ String TestPage::tools() {
 
     html += "<div style='text-align: center; margin: 20px 0; width: 100%;'>";
 
-    String simulateButton = "<a href='/simulate' style='%s'>Simulate Flow</a>";
-    simulateButton.replace("%s", style);
-    html += simulateButton;
+    if (DEBUG) {
+        String simulateButton = "<a href='/simulate' style='%s'>Simulate Flow</a>";
+        simulateButton.replace("%s", style);
+        html += simulateButton;
+    }
 
     String cleanupButton = "<a href='/cleanup' style='%s'>Cleanup Optimization Database</a>";
     cleanupButton.replace("%s", style);
@@ -120,7 +130,7 @@ String TestPage::tools() {
     return html;
 }
 
-String TestPage::page() {
+String IndexPage::page() {
     String html;
 
     html += this->header();

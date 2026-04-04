@@ -7,7 +7,7 @@
 #include <data_monitor.h>
 
 #include <page.h>
-#include <test_page.h>
+#include <index_page.h>
 
 #define D15 15
 #define D14 14
@@ -97,10 +97,36 @@ void initNTP() {
 }
 
 void index_request() {
+    // 4. Configurar Rotas do WebServer
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
-        request->redirect("/test");
+        uint16_t limit = 10;
+        uint16_t currentPage = 1;
+
+        if (request->hasParam("page")) {
+            currentPage = request->getParam("page")->value().toInt();
+            if (currentPage < 1) {
+                currentPage = 1;
+            }
+        }
+
+        uint32_t totalPages = monitor->getTotalPages(limit);
+        std::list<Sample> samples = monitor->selectSamples(currentPage, limit);
+
+        Serial.println("Current Page: " + String(currentPage) + " Total Pages: " + String(totalPages));
+
+        Page *testPage = new IndexPage(
+            DATABASE,
+            currentPage,
+            totalPages,
+            limit,
+            samples
+        );
+
+        request->send(200, "text/html", testPage->page());
+
+        delete testPage;
 
         FINISH_SERVER_PROCESSING();
     });
@@ -130,8 +156,6 @@ void simulate_request() {
 }
 
 void cleanup_request() {
-    CHECK_DEBUG();
-
     // Limpeza de otimização do banco de dados: http://[IP-DO-ESP]/cleanup
     server.on("/cleanup", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
@@ -151,8 +175,6 @@ void cleanup_request() {
 }
 
 void reset_request() {
-    CHECK_DEBUG();
-
     // Reset do banco de dados: http://[IP-DO-ESP]/reset
     server.on("/reset", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
@@ -192,39 +214,50 @@ void download_request() {
     });
 }
 
-void test_request() {
-    CHECK_DEBUG();
-
-    // 4. Configurar Rotas do WebServer
-    server.on("/test", HTTP_GET, [](AsyncWebServerRequest *request) {
+void delete_request() {
+    // Limpeza de otimização do banco de dados: http://[IP-DO-ESP]/cleanup
+    server.on("/delete", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
-        uint16_t limit = 10;
-        uint16_t currentPage = 1;
-
-        if (request->hasParam("page")) {
-            currentPage = request->getParam("page")->value().toInt();
-            if (currentPage < 1) {
-                currentPage = 1;
-            }
+        if (!request->hasParam("id")) {
+            request->send(404, "text/plain", "An error occurred while trying to delete; the id parameter is not present.");
+            FINISH_SERVER_PROCESSING();
+            return;
         }
 
-        uint32_t totalPages = monitor->getTotalPages(limit);
-        std::list<Sample> samples = monitor->selectSamples(currentPage, limit);
+        uint32_t id = request->getParam("id")->value().toInt();
 
-        Serial.println("Current Page: " + String(currentPage) + " Total Pages: " + String(totalPages));
+        bool result = monitor->removeSamplesByID(id);
 
-        Page *testPage = new TestPage(
-            DATABASE,
-            currentPage,
-            totalPages,
-            limit,
-            samples
-        );
+        if(!result) {
+            request->send(404, "text/plain", "An error occurred while trying to delete the id " + String(id) + ".");
+            FINISH_SERVER_PROCESSING();
+            return;
+        }
 
-        request->send(200, "text/html", testPage->page());
+        request->redirect("/");
 
-        delete testPage;
+        FINISH_SERVER_PROCESSING();
+    });
+}
+
+void sample_api_request() {
+    server.on("/api/samples", HTTP_GET, [](AsyncWebServerRequest *request) {
+        STARTING_SERVER_PROCESSING();
+
+        if (!(request->hasParam("start") && request->hasParam("end"))) {
+            request->send(404, "application/json", "{ \"status\": \"failed\" }");
+            FINISH_SERVER_PROCESSING();
+            return;
+        }
+
+        uint32_t t_start = request->getParam("start")->value().toInt();
+        uint32_t t_end = request->getParam("end")->value().toInt();
+        
+        // Chama sua função do SQLite
+        // std::list<Sample> dados = selectSamples(t_start, t_end);
+        
+        request->send(200, "application/json", "{ \"status\": \"ok\" }");
 
         FINISH_SERVER_PROCESSING();
     });
@@ -234,12 +267,16 @@ void initServer() {
     Serial.println("Server configuration and initialization");
     monitor = new DataMonitor(DATABASE, CLEANUP);
 
+    // Page Request
     index_request();
     simulate_request();
     cleanup_request();
     reset_request();
     download_request();
-    test_request();
+    delete_request();
+
+    // API Request
+    sample_api_request();
 
     server.begin();
 
