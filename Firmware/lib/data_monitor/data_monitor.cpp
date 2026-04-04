@@ -1,4 +1,5 @@
 #include <data_monitor.h>
+#include <esp_task_wdt.h>
 
 DataMonitor::DataMonitor(const std::string fileName, std::string cleaningTime) 
     : fileName(fileName), cleaningTime(cleaningTime) {
@@ -29,7 +30,12 @@ bool DataMonitor::insertSamples(std::list<Sample> samples) {
             sample.out
         );
 
+        Serial.println(SQL.c_str());
+
         if(!dao->SQLiteExec(SQL)) return false;
+
+        // reset do watchdog para não derrubar a aplicação
+        esp_task_wdt_reset();
     }
 
     return true;
@@ -51,6 +57,8 @@ std::list<Sample> DataMonitor::selectSamples(uint16_t limit) {
         limit
     );
 
+    Serial.println(SQL.c_str());
+
     SQLitePrepareObject *prepare = dao->SQLitePrepare(SQL);
     
     if (prepare != nullptr) {
@@ -64,6 +72,8 @@ std::list<Sample> DataMonitor::selectSamples(uint16_t limit) {
                     sqlite3_column_int(prepare->getRes(), 4)
                 )
             );
+
+            esp_task_wdt_reset();
         }
     }
 
@@ -77,6 +87,9 @@ bool DataMonitor::removeSamplesByID(uint32_t id) {
         "DELETE FROM sample WHERE id = {%u};",
         id
     );
+
+    Serial.println(SQL.c_str());
+
     if(!dao->SQLiteExec(SQL)) return false;
 
     return true;
@@ -88,16 +101,30 @@ bool DataMonitor::removeSamplesByTimestamp(uint64_t timestamp) {
         timestamp
     );
 
+    Serial.println(SQL.c_str());
+
     if(!dao->SQLiteExec(SQL)) return false;
 
     return true;
 }
 
-bool DataMonitor::cleaning() {
+bool DataMonitor::cleanup(std::string cleaningTime) {
     std::string SQL = dao->SQLiteQuery(
-        "DELETE FROM sample WHERE timestamp < datetime('now', %u);",
-        this->cleaningTime
+        "DELETE FROM sample WHERE timestamp < datetime('now', '%s');",
+        cleaningTime.empty() ? this->cleaningTime.c_str() : cleaningTime.c_str()
     );
+
+    Serial.println(SQL.c_str());
+
+    if(!dao->SQLiteExec(SQL)) return false;
+
+    return true;
+}
+
+bool DataMonitor::reset() {
+    std::string SQL = dao->SQLiteQuery("DELETE FROM sample; DELETE FROM sqlite_sequence WHERE name='sample';");
+
+    Serial.println(SQL.c_str());
 
     if(!dao->SQLiteExec(SQL)) return false;
 

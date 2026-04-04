@@ -102,13 +102,13 @@ void hardwareSetting() {
 void setup() {
     hardwareSetting();
 
-    monitor = new DataMonitor(DATABASE, "-3 months");
+    monitor = new DataMonitor(DATABASE, CLEANUP);
 
     // Limpeza de otimização do banco de dados
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
-        request->send(200, "text/html", "/");
+        request->redirect("/test");
 
         FINISH_SERVER_PROCESSING();
     });
@@ -186,7 +186,15 @@ void setup() {
 
         STARTING_SERVER_PROCESSING();
 
-        monitor->insertSamples({Sample(10, esp_random() % 2000, esp_random() % 2000)});
+        bool result = monitor->insertSamples({ 
+            Sample(10, esp_random() % 2000, esp_random() % 2000)
+        });
+
+        if(!result) {
+            request->send(404, "text/plain", "An error occurred while inserting a simulation into the database.");
+            FINISH_SERVER_PROCESSING();
+        }
+
         request->redirect("/");
 
         FINISH_SERVER_PROCESSING();
@@ -197,6 +205,16 @@ void setup() {
         CHECK_DEBUG();
 
         STARTING_SERVER_PROCESSING();
+
+        bool result = monitor->cleanup();
+
+        if(!result) {
+            request->send(404, "text/plain", "An error occurred while attempting to perform an database optimized cleanup on the system.");
+            FINISH_SERVER_PROCESSING();
+        }
+
+        request->redirect("/");
+
         FINISH_SERVER_PROCESSING();
     });
 
@@ -205,6 +223,16 @@ void setup() {
         CHECK_DEBUG();
 
         STARTING_SERVER_PROCESSING();
+
+        bool result = monitor->reset();
+
+        if(!result) {
+            request->send(404, "text/plain", "An error occurred while attempting to perform an database reset on the system.");
+            FINISH_SERVER_PROCESSING();
+        }
+
+        request->redirect("/");
+
         FINISH_SERVER_PROCESSING();
     });
     
@@ -213,7 +241,7 @@ void setup() {
         STARTING_SERVER_PROCESSING();
         
         if (!LittleFS.exists("/" DATABASE)) {
-            request->send(404, "text/plain", "database " DATABASE " file not found in the system.");
+            request->send(404, "text/plain", "An error occurred while trying to download the database " DATABASE " file not found");
             FINISH_SERVER_PROCESSING();
         }
 
@@ -230,26 +258,6 @@ void setup() {
 
     digitalWrite(LED_PIN, LOW);
 }
-
-/*
-void limparRegistrosAntigos() {
-    if (WiFi.status() != WL_CONNECTED) return; // Precisa de internet para a hora estar certa
-
-    char *zErrMsg = 0;
-    // Deleta registros onde a coluna 'momento' é anterior a 2 meses atrás
-    const char* sql = "DELETE FROM fluxo WHERE momento < datetime('now', '-2 month');";
-    
-    int rc = sqlite3_exec(db, sql, NULL, NULL, &zErrMsg);
-    if (rc != SQLITE_OK) {
-        Serial.printf("Erro na limpeza: %s\n", zErrMsg);
-        sqlite3_free(zErrMsg);
-    } else {
-        Serial.println("Limpeza de 2 meses concluída com sucesso.");
-        // Opcional: Libera o espaço vazio no arquivo .db
-        sqlite3_exec(db, "VACUUM;", NULL, NULL, NULL);
-    }
-}
-*/
 
 void loop() {
     // O AsyncWebServer não precisa de nada no loop!

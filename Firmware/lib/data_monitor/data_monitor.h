@@ -51,7 +51,8 @@ class DataMonitor {
         bool removeSamplesByID(uint32_t id);
         bool removeSamplesByTimestamp(uint64_t timestamp);
 
-        bool cleaning();
+        bool cleanup(std::string cleaningTime=std::string());
+        bool reset();
 };
 
 #endif
