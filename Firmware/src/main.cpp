@@ -250,7 +250,7 @@ void setup() {
     settingHardware();
 
     // Exibe Modo Debug
-    Serial.printf("DEBUG: %d\n", DEBUG);
+    Serial.printf("DEBUG: %s\n\n", DEBUG == 1 ? "True" : "False");
 
     VISUAL_INDICATOR_ON();
 
