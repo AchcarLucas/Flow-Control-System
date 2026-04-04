@@ -107,7 +107,7 @@ std::list<Sample> DataMonitor::selectSamples(uint16_t page, uint16_t limit) {
     return samples;
 }
 
-std::list<Sample> DataMonitor::selectSamples(uint32_t startDatetime, uint32_t endDatetime) {
+std::list<Sample> DataMonitor::selectSamples(String startDatetime, String endDatetime) {
     std::list<Sample> samples;
 
     sqlite3_stmt *res;
@@ -115,15 +115,16 @@ std::list<Sample> DataMonitor::selectSamples(uint32_t startDatetime, uint32_t en
 
     std::string SQL = dao->SQLiteQuery(
         "SELECT id, "
+        "timestamp, "
         "strftime('%%d/%%m/%%Y %%H:%%M:%%S', timestamp, 'localtime') AS timestamp_s, "
         "sampling_time, "
         "in_flow, "
         "out_flow "
         "FROM sample "
-        "WHERE timestamp BETWEEN %u AND %u "
+        "WHERE timestamp BETWEEN '%s' AND '%s' "
         "ORDER BY timestamp ASC;",
-        startDatetime,
-        endDatetime
+        startDatetime.c_str(),
+        endDatetime.c_str()
     );
 
     Serial.println(SQL.c_str());

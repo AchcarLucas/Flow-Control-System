@@ -14,6 +14,8 @@ class IndexPage : public Page {
     private:
     public:
         IndexPage() {};
+        String style();
+        String body();
         String page() override;
 };
 

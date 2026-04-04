@@ -50,7 +50,7 @@ class DataMonitor {
         bool insertSamples(std::list<Sample>);
 
         std::list<Sample> selectSamples(uint16_t page = 1, uint16_t limit = 100);
-        std::list<Sample> selectSamples(uint32_t start_datetime, uint32_t end_datetime);
+        std::list<Sample> selectSamples(String start_datetime, String end_datetime);
 
         bool removeSamplesByID(uint32_t id);
         bool removeSamplesByTimestamp(uint64_t timestamp);

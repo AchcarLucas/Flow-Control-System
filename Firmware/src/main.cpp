@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <ArduinoJson.h>
 #include <WiFi.h>
 #include <ESPAsyncWebServer.h>
 #include <sqlite3.h>
@@ -11,6 +12,8 @@
 #include <index_page.h>
 #include <analysis_page.h>
 #include <raw_page.h>
+
+#include <sample_json.h>
 
 #define D15 15
 #define D14 14
@@ -275,22 +278,26 @@ void delete_request() {
 }
 
 void sample_api_request() {
+    // t_start ('YYYY-MM-DD HH:MM:SS') and t_end ('YYYY-MM-DD HH:MM:SS')
     server.on("/api/samples", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
-        if (!(request->hasParam("start") && request->hasParam("end"))) {
+        if (!(request->hasParam("t_start") && request->hasParam("t_end"))) {
             request->send(404, "application/json", "{ \"status\": \"failed\" }");
             FINISH_SERVER_PROCESSING();
             return;
         }
 
-        uint32_t t_start = request->getParam("start")->value().toInt();
-        uint32_t t_end = request->getParam("end")->value().toInt();
+        String tStart = request->getParam("t_start")->value();
+        String tEnd = request->getParam("t_end")->value();
         
-        // Chama sua função do SQLite
-        // std::list<Sample> dados = selectSamples(t_start, t_end);
+        Serial.printf("t_start %s - t_end %s", tStart.c_str(), tEnd.c_str());
+
+        std::list<Sample> samples = monitor->selectSamples(tStart, tEnd);
+
+        SampleJson json = SampleJson(samples);
         
-        request->send(200, "application/json", "{ \"status\": \"ok\" }");
+        request->send(200, "application/json", json.serialize());
 
         FINISH_SERVER_PROCESSING();
     });
