@@ -58,13 +58,13 @@ String IndexPage::header() {
             "<head>"
                 "<meta charset=\"UTF-8\">"
                 "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
-                "<title>Index Page - Monitor de Fluxo - Univesp</title>"
+                "<title>Index Page - " + String(TITLE) + " - Univesp</title>"
                 + this->style() +
             "</head>";
 
-    String title = DEBUG ? "[Debug Mode]" : "[Production Mode]";
+    String mode = DEBUG ? "[Debug Mode]" : "[Production Mode]";
 
-    html += "<header><h1 style=\"text-align: center;\">" + title + " Index Page</h1></br><h2>Controle de Fluxo de Pessoas - Univesp - PI V</h2></header>";
+    html += "<header><h1 style=\"text-align: center;\">" + mode + " Index Page</h1><h2>" + String(TITLE) + " - Univesp - PI V</h2></header>";
 
     return html;
 }

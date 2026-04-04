@@ -7,12 +7,12 @@ String RawPage::header() {
             "<html lang=\"pt-br\">"
             "<head>"
                 "<meta charset=\"UTF-8\">"
-                "<title>Raw Page - Monitor de Fluxo - Univesp</title>"
+                "<title>Raw Data Page - " + String(TITLE) + " - Univesp</title>"
             "</head>";
 
-    String title = DEBUG ? "[Debug Mode]" : "[Production Mode]";
+    String mode = DEBUG ? "[Debug Mode]" : "[Production Mode]";
 
-    html += "<h1 style=\"text-align: center;\">" + title + " Raw Page</h1>";
+    html += "<h1 style=\"text-align: center;\">" + mode + " Raw Page</h1>";
     html += "<h2 style=\"text-align: center;\">\t\tDATABASE [" + this->database + "]</h1>";
 
     return html;
