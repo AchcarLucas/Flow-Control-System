@@ -12,9 +12,9 @@
 #define D4 4
 #define D2 2
 
-// Configurações do Wi-Fi
-const char* ssid = "SSID_REMOVED";
-const char* password = "PASSWORD_REMOVED";
+// Configurações do Wi-Fi (configuração no arquivo .env)
+const char* ssid = WIFI_SSID;
+const char* password = WIFI_PASSWORD;
 
 // Pino do LED (O padrão da maioria das placas é o 2)
 const int LED_PIN = D2;
@@ -47,6 +47,9 @@ int db_exec(const char *sql) {
 
 void setup() {
     Serial.begin(115200);
+
+    Serial.print("SSID: ");
+    Serial.println(ssid);
 
     pinMode(LED_PIN, OUTPUT);
 
