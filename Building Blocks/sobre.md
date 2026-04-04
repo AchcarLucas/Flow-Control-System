@@ -1,4 +1,4 @@
-# Documentação Técnica: Sistema de Monitoramento de Fluxo (Projeto Integrador)
+# Documentação Técnica: Sistema de Monitoramento de Fluxo (Projeto Integrador V)
 
 Este documento descreve o funcionamento do circuito de aquisição e identificação de direção para monitoramento de fluxo de pessoas, projetado para integração com microcontroladores (ESP32).
 
