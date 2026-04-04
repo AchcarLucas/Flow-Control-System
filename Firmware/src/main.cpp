@@ -8,11 +8,11 @@
 #include <data_monitor.h>
 
 #include <page.h>
-
 #include <index_page.h>
 #include <analysis_page.h>
 #include <raw_page.h>
 
+#include <json.h>
 #include <sample_json.h>
 
 #define D15 15
@@ -295,9 +295,11 @@ void sample_api_request() {
 
         std::list<Sample> samples = monitor->selectSamples(tStart, tEnd);
 
-        SampleJson json = SampleJson(samples);
+        JSON *json = new SampleJson(samples);
         
-        request->send(200, "application/json", json.serialize());
+        request->send(200, "application/json", json->serialize());
+
+        delete json;
 
         FINISH_SERVER_PROCESSING();
     });

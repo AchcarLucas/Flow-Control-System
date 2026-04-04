@@ -64,7 +64,7 @@ String IndexPage::header() {
 
     String title = DEBUG ? "[Debug Mode]" : "[Production Mode]";
 
-    html += "<header><h1 style=\"text-align: center;\">" + title + " Index Page - Monitor de Fluxo - Univesp</h1></header>";
+    html += "<header><h1 style=\"text-align: center;\">" + title + " Index Page</h1></br><h2>Controle de Fluxo de Pessoas - Univesp - PI V</h2></header>";
 
     return html;
 }
@@ -76,12 +76,12 @@ String IndexPage::body() {
         "<body>"
         "    <div class=\"container\">"
         "        <div class=\"painel\">"
-        "            <div class=\"painel-header\">Route: /raw</div>"
-        "            <iframe src=\"/raw\" title=\"Raw Data\"></iframe>"
-        "        </div>"
-        "        <div class=\"painel\">"
         "            <div class=\"painel-header\">Route: /analysis</div>"
         "            <iframe src=\"/analysis\" title=\"Analysis Data\"></iframe>"
+        "        </div>"
+        "        <div class=\"painel\">"
+        "            <div class=\"painel-header\">Route: /raw</div>"
+        "            <iframe src=\"/raw\" title=\"Raw Data\"></iframe>"
         "        </div>"
         "    </div>"
         "</body>";
