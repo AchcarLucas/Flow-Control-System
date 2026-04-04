@@ -1,0 +1,8 @@
+Software
+    - SimulIDE_1.0.0 - https://simulide.com/p/ (Simulação do circuito de Aquisição e circuito Condicionamento dos Sinais)
+    - Visual Studio Code - https://code.visualstudio.com/ (IDE para Programação do Firmware)
+    - PlatformIO Visual Studio Code Extension - https://platformio.org/ (Embedded Software Development para ESP32)
+    - ESP-IDF - https://www.arduino.cc/en/software/ (Compilador do Firmware ESP32)
+Hardware
+    - ESP32
+

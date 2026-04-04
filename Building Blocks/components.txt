@@ -1,0 +1,55 @@
+- Circuito de Aquisição
+    - NE555                                     - 002 Unidade(s)
+    - 74HC08 (4 AND PORT)                       - 001 Unidade(s)
+    - 74HC14 (6 Portas NOT Schmitt Trigger)     - 001 Unidade(s) - Fazer 2 portas BUFFER com 4 NOT
+    - 74HC238 (DEMULTIPLEXADOR)                 - 001 Unidade(s)
+
+    - E39-R1 ou TD-08 (Espelho Prismático)      - 002 Unidade(s)
+    - KY-008 (Laser Emitter)                    - 002 Unidade(s)
+    - TIL78 (Fototransistor NPN)                - 002 Unidade(s)
+
+    - BC547 (Transistor NPN)                    - 002 Unidade(s)
+    - BC557 (Transistor PNP)                    - 002 Unidade(s)
+
+    - LED (Azul)                                - 001 Unidade(s)
+    - LED (Azul)                                - 001 Unidade(s)
+
+    - 1N4148 (Diodo)                            - 002 Unidade(s)
+
+    - 12k (Resistor)                            - 001 Unidade(s)
+    - 10k (Resistor)                            - 002 Unidade(s)
+    - 5k (Resistor)                             - 002 Unidade(s)
+    - 2k2 (Resistor)                            - 001 Unidade(s)
+    - 1k (Resistor)                             - 004 Unidade(s)
+    - 200R (Resistor)                           - 002 Unidade(s)
+
+    - 100uF (Capacitor 10-16V)                  - 002 Unidade(s)
+    - 100nF (Capacitor 10-16V)                  - 005 Unidade(s) - OBS: 4 Capacitor de desacoplamento - 1 para cada CI
+    - 33nF (Capacitor 10-16V)                   - 002 Unidade(s)
+    - 1nF (Capacitor 10-16V)                    - 001 Unidade(s)
+
+    - Cabo Blindado 2 Vias 22 AWG               - 002 Unidade(s)
+    
+- Circuito Condicionamento e Circuito Identificação de Fluxo
+    - NE555                                     - 001 Unidade(s)
+    - CD4093 (NAND Schmitt Trigger)             - 002 Unidade(s) - OBS: Fazer a NOR e a OR com base na NAND
+    - 74HC74 (2 Flip-Flop-D)                    - 001 Unidade(s)
+
+    - 10k (Resistor)                            - 001 Unidade(s)
+    - 1k (Resistor)                             - 004 Unidade(s)
+    - 200R (Resistor)                           - 001 Unidade(s)
+    - 100R (Resistor)                           - 002 Unidade(s)
+
+    - 270uF (Capacitor 25V)                     - 001 Unidade(s)
+    - 100nF (Capacitor 10-16V)                  - 004 Unidade(s) - OBS: 4 Capacitor de desacoplamento - 1 para cada CI
+    - 10uF (Capacitor 10-16V)                   - 002 Unidade(s)
+    - 10nF (Capacitor 10-16V)                   - 001 Unidade(s)
+
+    - LED (Vermelho)                            - 001 Unidade(s)
+    - LED (Verde)                               - 001 Unidade(s)
+
+- Servidor e Processamento
+    - ESP32                                     - 001 Unidade(s)
+    - 100nF (Capacitor)                         - 001 Unidade(s) - OBS: 1 Capacitor de desacoplamento para o ESP32
+    
+
