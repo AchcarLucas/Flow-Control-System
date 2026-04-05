@@ -4,48 +4,49 @@ String IndexPage::style() {
     String style;
 
     style += 
-        "<style>"
-        "    body {"
-        "        font-family: sans-serif;"
-        "        margin: 0;"
-        "        display: flex;"
-        "        flex-direction: column;"
-        "        height: 100vh;"
-        "        background-color: #f0f2f5;"
-        "    }"
-        "    header {"
-        "        background: #333;"
-        "        color: white;"
-        "        padding: 1rem;"
-        "        text-align: center;"
-        "    }"
-        "    .container {"
-        "        display: flex;"
-        "        flex: 1; /* Ocupa o restante da tela */"
-        "        gap: 10px;"
-        "        padding: 10px;"
-        "    }"
-        "    .painel {"
-        "        flex: 1;"
-        "        display: flex;"
-        "        flex-direction: column;"
-        "        border: 1px solid #ccc;"
-        "        border-radius: 8px;"
-        "        background: white;"
-        "        overflow: hidden;"
-        "    }"
-        "    .painel-header {"
-        "        background: #eee;"
-        "        padding: 10px;"
-        "        font-weight: bold;"
-        "        border-bottom: 1px solid #ccc;"
-        "    }"
-        "    iframe {"
-        "        width: 100%;"
-        "        height: 100%;"
-        "        border: none;"
-        "    }"
-        "</style>";
+        R"raw(<style>"
+                body {
+                    font-family: sans-serif;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    height: 100vh;
+                    background-color: #f0f2f5;
+                }
+                header {
+                    background: #333;
+                    color: white;
+                    padding: 1rem;
+                    text-align: center;
+                }
+                .container {
+                    display: flex;
+                    flex: 1; /* Ocupa o restante da tela */
+                    gap: 10px;
+                    padding: 10px;
+                }
+                .painel {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    background: white;
+                    overflow: hidden;
+                }
+                .painel-header {
+                    background: #eee;
+                    padding: 10px;
+                    font-weight: bold;
+                    border-bottom: 1px solid #ccc;
+                }
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                }
+            </style>
+        )raw";
 
     return style;
 }
@@ -73,18 +74,19 @@ String IndexPage::body() {
     String body;
 
     body +=
-        "<body>"
-        "    <div class=\"container\">"
-        "        <div class=\"painel\">"
-        "            <div class=\"painel-header\">Route: /analysis</div>"
-        "            <iframe src=\"/analysis\" title=\"Analysis Data\"></iframe>"
-        "        </div>"
-        "        <div class=\"painel\">"
-        "            <div class=\"painel-header\">Route: /raw</div>"
-        "            <iframe src=\"/raw\" title=\"Raw Data\"></iframe>"
-        "        </div>"
-        "    </div>"
-        "</body>";
+        R"raw(<body>"
+                <div class=\"container\">
+                    <div class=\"painel\">
+                        <div class=\"painel-header\">Route: /analysis</div>
+                        <iframe src=\"/analysis\" title=\"Analysis Data\"></iframe>
+                    </div>
+                    <div class=\"painel\">
+                        <div class=\"painel-header\">Route: /raw</div>
+                        <iframe src=\"/raw\" title=\"Raw Data\"></iframe>
+                    </div>"
+                </div>"
+            </body>
+        )raw";
 
     return body;
 }
