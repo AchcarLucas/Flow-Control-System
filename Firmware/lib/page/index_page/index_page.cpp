@@ -4,7 +4,7 @@ String IndexPage::style() {
     String style;
 
     style += 
-        R"raw(<style>"
+        R"(<style>"
                 body {
                     font-family: sans-serif;
                     margin: 0;
@@ -46,7 +46,7 @@ String IndexPage::style() {
                     border: none;
                 }
             </style>
-        )raw";
+        )";
 
     return style;
 }
@@ -74,7 +74,7 @@ String IndexPage::body() {
     String body;
 
     body +=
-        R"raw(<body>"
+        R"(<body>"
                 <div class=\"container\">
                     <div class=\"painel\">
                         <div class=\"painel-header\">Route: /analysis</div>
@@ -86,7 +86,7 @@ String IndexPage::body() {
                     </div>"
                 </div>"
             </body>
-        )raw";
+        )";
 
     return body;
 }

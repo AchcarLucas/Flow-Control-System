@@ -11,6 +11,8 @@
 class AnalysisPage : public Page {
     protected:
         String header();
+        String footer();
+        String body();
     private:
         String database;
     public:

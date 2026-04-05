@@ -21,7 +21,7 @@ String RawPage::header() {
 String RawPage::table() {
     String html;
 
-    html += R"raw(<table border='1' style='border-collapse: collapse; margin: auto; font-family: sans-serif; min-width: 65%; text-align: center;'>
+    html += R"(<table border='1' style='border-collapse: collapse; margin: auto; font-family: sans-serif; min-width: 65%; text-align: center;'>
                 <tr>
                     <th>ID</th>
                     <th>Data/Hora</th>
@@ -30,7 +30,7 @@ String RawPage::table() {
                     <th>Saída</th>
                     <th>Excluir</th>
                 </tr>
-            )raw";
+            )";
 
     for (const auto& sample : this->samples) {
         html += "<tr>";
@@ -55,7 +55,7 @@ String RawPage::table() {
 String RawPage::pagination() {
     String html;
 
-    html += R"raw(<style>
+    html += R"(<style>
             .pagination { display: flex; list-style: none; padding: 0; gap: 5px; justify-content: center; font-family: sans-serif; }
             .pagination a { 
                 text-decoration: none; 
@@ -68,7 +68,7 @@ String RawPage::pagination() {
             .pagination a:hover:not(.active) { background-color: #f0f0f0; }
             .disabled { color: #ccc !important; pointer-events: none; border-color: #eee !important; }
         </style>
-        )raw";
+        )";
 
     // Sistema de Paginação
     html += "<ul class='pagination'>";
@@ -99,12 +99,12 @@ String RawPage::tools() {
     String html;
 
     // Estilo de botão real: cinza, com borda e sombra suave
-    String style = R"raw(
+    String style = R"(
                     color: black; background-color: #e7e7e7; border: 1px solid #ccc;
                     padding: 10px 20px; text-align: center; text-decoration: none;
                     display: inline-block; border-radius: 4px; font-family: sans-serif;
                     margin-right: 10px; font-weight: bold; box-shadow: 1px 1px 2px #888888;
-                )raw";
+                )";
 
     html += "<div style='text-align: center; margin: 20px 0; width: 100%;'>";
 
