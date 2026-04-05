@@ -115,7 +115,6 @@ std::list<Sample> DataMonitor::selectSamples(String startDatetime, String endDat
 
     std::string SQL = dao->SQLiteQuery(
         "SELECT id, "
-        "timestamp, "
         "strftime('%%d/%%m/%%Y %%H:%%M:%%S', timestamp, 'localtime') AS timestamp_s, "
         "sampling_time, "
         "in_flow, "

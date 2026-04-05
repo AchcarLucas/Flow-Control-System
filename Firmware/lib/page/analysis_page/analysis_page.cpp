@@ -38,7 +38,7 @@ String AnalysisPage::body() {
             <div class="controls">
                 <label>Início:</label> <input type="datetime-local" id="t_start">
                 <label>Fim:</label> <input type="datetime-local" id="t_end">
-                <button onclick=\"updateChart()\">GERAR RELATÓRIO</button>
+                <button onclick='updateChart()'>GERAR RELATÓRIO</button>
             </div>
             <div class="chart-box">
                 <canvas id="myChart"></canvas>
