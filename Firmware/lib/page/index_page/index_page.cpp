@@ -4,7 +4,7 @@ String IndexPage::style() {
     String style;
 
     style += 
-        R"(<style>"
+        R"(<style>
                 body {
                     font-family: sans-serif;
                     margin: 0;
@@ -75,14 +75,14 @@ String IndexPage::body() {
 
     body +=
         R"(<body>"
-                <div class=\"container\">
-                    <div class=\"painel\">
-                        <div class=\"painel-header\">Route: /analysis</div>
-                        <iframe src=\"/analysis\" title=\"Analysis Data\"></iframe>
+                <div class="container">
+                    <div class="painel">
+                        <div class="painel-header">Route: /analysis</div>
+                        <iframe src="/analysis" title="Analysis Data"></iframe>
                     </div>
-                    <div class=\"painel\">
-                        <div class=\"painel-header\">Route: /raw</div>
-                        <iframe src=\"/raw\" title=\"Raw Data\"></iframe>
+                    <div class="painel">
+                        <div class="painel-header">Route: /raw</div>
+                        <iframe src="/raw" title="Raw Data"></iframe>
                     </div>"
                 </div>"
             </body>

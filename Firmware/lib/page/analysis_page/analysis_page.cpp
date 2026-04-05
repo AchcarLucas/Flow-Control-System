@@ -1,9 +1,10 @@
 #include <analysis_page.h>
 
 String AnalysisPage::header() {
+    String html;
     String mode = DEBUG ? "[Debug Mode]" : "[Production Mode]";
     
-    String html = "<!DOCTYPE html><html lang=\"pt-br\"><head>";
+    mode += "<!DOCTYPE html><html lang=\"pt-br\"><head>";
     html += "<meta charset=\"UTF-8\">";
     html += "<title>Analysis Data Page - " + String(TITLE) + "</title>";
     
@@ -49,7 +50,7 @@ String AnalysisPage::body() {
 String AnalysisPage::page() {
     String html;
 
-    //html += this->header();
+    html += this->header();
 
     return html;
 }
