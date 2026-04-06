@@ -1,4 +1,5 @@
 #include <dao_sqlite.h>
+#include <esp_task_wdt.h>
 
 SQLiteDAO::SQLiteDAO(const std::string fileName)
 {
