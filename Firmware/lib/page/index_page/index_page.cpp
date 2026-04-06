@@ -21,6 +21,7 @@ String IndexPage::style() {
                 }
                 .container {
                     display: flex;
+                    flex-direction: column;
                     flex: 1; /* Ocupa o restante da tela */
                     gap: 10px;
                     padding: 10px;
@@ -51,6 +52,17 @@ String IndexPage::style() {
     return style;
 }
 
+String IndexPage::script() {
+    String script;
+
+    script += R"(
+        <script>
+        </script>
+    )";
+
+    return script;
+}
+
 String IndexPage::header() {
     String html;
 
@@ -60,12 +72,12 @@ String IndexPage::header() {
                 "<meta charset=\"UTF-8\">"
                 "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
                 "<title>Index Page - " + String(TITLE) + " - Univesp</title>"
-                + this->style() +
+                + this->style()
+                + this->script() +
             "</head>";
 
     String mode = DEBUG ? "[Debug Mode]" : "[Production Mode]";
-
-    html += "<header><h1 style=\"text-align: center;\">" + mode + " Index Page</h1><h2>" + String(TITLE) + " - Univesp - PI V</h2></header>";
+    html += "<header><h2>" + String(TITLE) + " - Univesp - PI V</h2><h3 style=\"text-align: center;\">" + mode + " Index Page</h3></header>";
 
     return html;
 }
@@ -73,22 +85,28 @@ String IndexPage::header() {
 String IndexPage::body() {
     String body;
 
-    body +=
-        R"(<body>"
-                <div class="container">
-                    <div class="painel">
-                        <div class="painel-header">Route: /analysis</div>
-                        <iframe src="/analysis" title="Analysis Data"></iframe>
-                    </div>
-                    <div class="painel">
-                        <div class="painel-header">Route: /raw</div>
-                        <iframe src="/raw" title="Raw Data"></iframe>
-                    </div>"
-                </div>"
-            </body>
-        )";
+    body += R"(
+        <body>
+            <div class="container">
+                <div class="painel">
+                    <div class="painel-header">Route: /analysis</div>
+                    <iframe src="/analysis" title="Analysis Data"></iframe>
+                </div>
+                <div class="painel">
+                    <div class="painel-header">Route: /raw</div>
+                    <iframe src="/raw" title="Raw Data"></iframe>
+                </div>
+            </div>
+    )";
 
     return body;
+}
+
+String IndexPage::footer() {
+    return R"(
+        </body>
+        </html>
+    )";
 }
 
 String IndexPage::page() {
@@ -96,6 +114,7 @@ String IndexPage::page() {
 
     html += this->header();
     html += this->body();
+    html += this->footer();
 
     return html;
 }

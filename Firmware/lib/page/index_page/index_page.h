@@ -10,12 +10,16 @@
 
 class IndexPage : public Page {
     protected:
+        String style();
+        String script();
+
         String header();
+        String body();
+        String footer();
     private:
     public:
         IndexPage() {};
-        String style();
-        String body();
+        
         String page() override;
 };
 

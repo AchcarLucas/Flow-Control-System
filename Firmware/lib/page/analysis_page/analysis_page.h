@@ -10,6 +10,9 @@
 
 class AnalysisPage : public Page {
     protected:
+        String style();
+        String script();
+
         String header();
         String body();
         String footer();

@@ -10,10 +10,16 @@
 
 class RawPage : public Page {
     protected:
-        String header();
+        String style();
+        String script();
+
         String table();
         String pagination();
         String tools();
+
+        String header();
+        String body();        
+        String footer();
     private:
         String database;
 
