@@ -8,12 +8,13 @@ String IndexPage::style() {
                 body {
                     min-width: 720px;
                     min-height: 100vh;
+                    height: auto;
                     font-family: sans-serif;
                     margin: 0;
                     display: flex;
                     flex-direction: column;
-                    height: 100vh;
                     background-color: #f0f2f5;
+                    overflow: auto;
                 }
                 header {
                     background: #007bff;
@@ -22,11 +23,9 @@ String IndexPage::style() {
                     text-align: center;
                 }
                 .container {
-                    display: flex;
-                    flex-direction: column;
-                    flex: 1; /* Ocupa o restante da tela */
-                    gap: 10px;
-                    padding: 10px;
+                    padding: 20px;
+                    width: 100%;
+                    box-sizing: border-box;
                 }
                 .painel {
                     /* flex: 1; */
@@ -90,11 +89,11 @@ String IndexPage::body() {
     body += R"(
         <body>
             <div class="container">
-                <div class="painel" style="min-height: 60%;">
+                <div class="painel" style="min-height: 750px">
                     <div class="painel-header">Route: /analysis</div>
                     <iframe src="/analysis" title="Analysis Data"></iframe>
                 </div>
-                <div class="painel" style="min-height: 41%;">
+                <div class="painel" style="min-height: 475px;">
                     <div class="painel-header">Route: /raw</div>
                     <iframe src="/raw" title="Raw Data"></iframe>
                 </div>
