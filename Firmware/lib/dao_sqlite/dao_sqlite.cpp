@@ -1,20 +1,30 @@
 #include <dao_sqlite.h>
 #include <esp_task_wdt.h>
 
+HandlerCallback myHandlerCallback = nullptr;
+
 uint16_t tickCount = 0;
 
-void SQLiteTickReset() {
+void SQLiteHandlerReset() {
     tickCount = 0;
 }
 
-int SQLiteTick(void *arg) {
+int SQLiteHandler(void *arg) {
     // watchdog reset
     esp_task_wdt_reset();
     vTaskDelay(1 / portTICK_PERIOD_MS);
 
     Serial.printf(" - [%u] SQLite is still running. - Watchdog Reset\n", tickCount);
 
+    if (myHandlerCallback != nullptr) {
+        myHandlerCallback(tickCount);
+    }
+
     return 0; 
+}
+
+void SQLiteDAO::handlerCallback(HandlerCallback &handlerCallback) {
+    myHandlerCallback = handlerCallback;
 }
 
 SQLiteDAO::SQLiteDAO(const std::string fileName) {
@@ -27,7 +37,7 @@ SQLiteDAO::SQLiteDAO(const std::string fileName) {
         return;
     }
 
-    sqlite3_progress_handler(db, 100, SQLiteTick, NULL);
+    sqlite3_progress_handler(db, 100, SQLiteHandler, NULL);
 }
 
 SQLiteDAO::~SQLiteDAO() {
@@ -41,7 +51,7 @@ SQLiteDAO::~SQLiteDAO() {
 bool SQLiteDAO::SQLiteExec(const std::string sql) {
     char *zErrMsg = 0;
 
-    SQLiteTickReset();
+    SQLiteHandlerReset();
     int resultExec = sqlite3_exec(this->db, sql.c_str(), NULL, NULL, &zErrMsg);
 
     if (resultExec != SQLITE_OK) {
@@ -57,7 +67,7 @@ SQLitePrepareObject* SQLiteDAO::SQLitePrepare(const std::string sql) {
     sqlite3_stmt *res = nullptr;
     const char *tail = nullptr;
 
-    SQLiteTickReset();
+    SQLiteHandlerReset();
     int resultPrepare = sqlite3_prepare_v2(this->db, sql.c_str(), -1, &res, &tail);
 
     if (resultPrepare == SQLITE_OK) {
@@ -73,7 +83,7 @@ bool SQLiteDAO::SQLiteStep(SQLitePrepareObject *slpo) {
     if (slpo == nullptr)
         return false;
 
-    SQLiteTickReset();
+    SQLiteHandlerReset();
     return sqlite3_step(slpo->getRes()) == SQLITE_ROW;
 }
 
@@ -81,7 +91,7 @@ bool SQLiteDAO::SQLiteFinalize(SQLitePrepareObject *slpo) {
     if (slpo == nullptr)
         return false;
 
-    SQLiteTickReset();
+    SQLiteHandlerReset();
     int resultFinalize = sqlite3_finalize(slpo->getRes());
 
     if (resultFinalize == SQLITE_OK) {

@@ -7,6 +7,8 @@
 #include <sqlite3.h>
 #include <LittleFS.h>
 
+typedef void (*HandlerCallback)(int progresso);
+
 class SQLitePrepareObject {
     private:
         sqlite3_stmt *res;
@@ -40,6 +42,8 @@ class SQLiteDAO {
         SQLitePrepareObject *SQLitePrepare(const std::string sql);
         bool SQLiteStep(SQLitePrepareObject *);
         bool SQLiteFinalize(SQLitePrepareObject *);
+
+        void handlerCallback(HandlerCallback &handlerCallback);
 
         template <typename... Args>
         std::string SQLiteQuery(const char* fmt, Args... args) {
