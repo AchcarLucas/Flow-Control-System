@@ -7,7 +7,7 @@ String IndexPage::style() {
         R"(<style>
                 body {
                     min-width: 720px;
-                    width: 100%;
+                    min-height: 100vh;
                     font-family: sans-serif;
                     margin: 0;
                     display: flex;
@@ -29,7 +29,7 @@ String IndexPage::style() {
                     padding: 10px;
                 }
                 .painel {
-                    flex: 1;
+                    /* flex: 1; */
                     display: flex;
                     flex-direction: column;
                     border: 1px solid #ccc;
@@ -44,8 +44,8 @@ String IndexPage::style() {
                     border-bottom: 1px solid #ccc;
                 }
                 iframe {
+                    flex: 1;
                     width: 100%;
-                    height: 100%;
                     border: none;
                 }
             </style>
@@ -72,7 +72,7 @@ String IndexPage::header() {
             "<html lang=\"pt-br\">"
             "<head>"
                 "<meta charset=\"UTF-8\">"
-                "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+                "<meta name=\"viewport\" content=\"width=720\">"
                 "<title>Index Page - " + String(TITLE) + " - Univesp</title>"
                 + this->style()
                 + this->script() +
@@ -90,11 +90,11 @@ String IndexPage::body() {
     body += R"(
         <body>
             <div class="container">
-                <div class="painel">
+                <div class="painel" style="min-height: 60%;">
                     <div class="painel-header">Route: /analysis</div>
                     <iframe src="/analysis" title="Analysis Data"></iframe>
                 </div>
-                <div class="painel">
+                <div class="painel" style="min-height: 41%;">
                     <div class="painel-header">Route: /raw</div>
                     <iframe src="/raw" title="Raw Data"></iframe>
                 </div>
