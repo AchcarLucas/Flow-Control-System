@@ -291,7 +291,7 @@ void sample_api_request() {
         String tStart = request->getParam("t_start")->value();
         String tEnd = request->getParam("t_end")->value();
         
-        Serial.printf("t_start %s - t_end %s", tStart.c_str(), tEnd.c_str());
+        Serial.printf("t_start %s - t_end %s\n", tStart.c_str(), tEnd.c_str());
 
         std::list<Sample> samples = monitor->selectSamples(tStart, tEnd);
 
