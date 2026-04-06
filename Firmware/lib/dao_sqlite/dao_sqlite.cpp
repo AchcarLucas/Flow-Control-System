@@ -23,7 +23,9 @@ SQLiteDAO::~SQLiteDAO() {
 bool SQLiteDAO::SQLiteExec(const std::string sql) {
     char *zErrMsg = 0;
 
+    esp_task_wdt_delete(NULL);
     int resultExec = sqlite3_exec(this->db, sql.c_str(), NULL, NULL, &zErrMsg);
+    esp_task_wdt_add(NULL);
 
     if (resultExec != SQLITE_OK) {
         Serial.printf("Error <%s> when did you try to execute the SQL command <%s>\n", zErrMsg, sql.c_str());
@@ -37,9 +39,10 @@ bool SQLiteDAO::SQLiteExec(const std::string sql) {
 SQLitePrepareObject* SQLiteDAO::SQLitePrepare(const std::string sql) {
     sqlite3_stmt *res = nullptr;
     const char *tail = nullptr;
-    
 
+    esp_task_wdt_delete(NULL);
     int resultPrepare = sqlite3_prepare_v2(this->db, sql.c_str(), -1, &res, &tail);
+    esp_task_wdt_add(NULL);
 
     if (resultPrepare == SQLITE_OK) {
         SQLitePrepareObject *slpo = new SQLitePrepareObject(res, tail);
@@ -61,7 +64,9 @@ bool SQLiteDAO::SQLiteFinalize(SQLitePrepareObject *slpo) {
     if (slpo == nullptr)
         return false;
 
+    esp_task_wdt_delete(NULL);
     int resultFinalize = sqlite3_finalize(slpo->getRes());
+    esp_task_wdt_add(NULL);
 
     if (resultFinalize == SQLITE_OK) {
         this->slpoList.remove(slpo);
