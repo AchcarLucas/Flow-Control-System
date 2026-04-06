@@ -4,6 +4,7 @@
 #include <ESPAsyncWebServer.h>
 #include <sqlite3.h>
 #include <LittleFS.h>
+#include <esp_task_wdt.h>
 
 #include <data_monitor.h>
 
@@ -56,6 +57,8 @@ void settingHardware() {
     pinMode(IN_FLOW, INPUT);
     pinMode(OUT_FLOW, INPUT);
     pinMode(INTERRUPTION, INPUT);
+
+    esp_task_wdt_init(60, true);
 }
 
 void initLittleFS() {

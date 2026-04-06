@@ -191,7 +191,7 @@ bool DataMonitor::cleanup(std::string cleaningTime) {
 }
 
 bool DataMonitor::reset() {
-    std::string SQL = dao->SQLiteQuery("DELETE FROM sample; DELETE FROM sqlite_sequence WHERE name='sample';");
+    std::string SQL = dao->SQLiteQuery("DELETE FROM sample WHERE timestamp > 0; DELETE FROM sqlite_sequence WHERE name='sample';");
 
     Serial.println(SQL.c_str());
 

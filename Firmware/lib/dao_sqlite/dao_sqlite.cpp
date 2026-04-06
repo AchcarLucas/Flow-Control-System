@@ -1,8 +1,23 @@
 #include <dao_sqlite.h>
 #include <esp_task_wdt.h>
 
-SQLiteDAO::SQLiteDAO(const std::string fileName)
-{
+uint16_t tickCount = 0;
+
+void SQLiteTickReset() {
+    tickCount = 0;
+}
+
+int SQLiteTick(void *arg) {
+    // watchdog reset
+    esp_task_wdt_reset();
+    vTaskDelay(1 / portTICK_PERIOD_MS);
+
+    Serial.printf(" - [%u] SQLite is still running. - Watchdog Reset\n", tickCount);
+
+    return 0; 
+}
+
+SQLiteDAO::SQLiteDAO(const std::string fileName) {
     sqlite3_initialize();
 
     std::string path_file = "/littlefs/" + fileName;
@@ -11,6 +26,8 @@ SQLiteDAO::SQLiteDAO(const std::string fileName)
         Serial.printf("Error to opening <%s> SQLite file\n", path_file.c_str());
         return;
     }
+
+    sqlite3_progress_handler(db, 100, SQLiteTick, NULL);
 }
 
 SQLiteDAO::~SQLiteDAO() {
@@ -24,9 +41,8 @@ SQLiteDAO::~SQLiteDAO() {
 bool SQLiteDAO::SQLiteExec(const std::string sql) {
     char *zErrMsg = 0;
 
-    esp_task_wdt_delete(NULL);
+    SQLiteTickReset();
     int resultExec = sqlite3_exec(this->db, sql.c_str(), NULL, NULL, &zErrMsg);
-    esp_task_wdt_add(NULL);
 
     if (resultExec != SQLITE_OK) {
         Serial.printf("Error <%s> when did you try to execute the SQL command <%s>\n", zErrMsg, sql.c_str());
@@ -41,9 +57,8 @@ SQLitePrepareObject* SQLiteDAO::SQLitePrepare(const std::string sql) {
     sqlite3_stmt *res = nullptr;
     const char *tail = nullptr;
 
-    esp_task_wdt_delete(NULL);
+    SQLiteTickReset();
     int resultPrepare = sqlite3_prepare_v2(this->db, sql.c_str(), -1, &res, &tail);
-    esp_task_wdt_add(NULL);
 
     if (resultPrepare == SQLITE_OK) {
         SQLitePrepareObject *slpo = new SQLitePrepareObject(res, tail);
@@ -58,6 +73,7 @@ bool SQLiteDAO::SQLiteStep(SQLitePrepareObject *slpo) {
     if (slpo == nullptr)
         return false;
 
+    SQLiteTickReset();
     return sqlite3_step(slpo->getRes()) == SQLITE_ROW;
 }
 
@@ -65,9 +81,8 @@ bool SQLiteDAO::SQLiteFinalize(SQLitePrepareObject *slpo) {
     if (slpo == nullptr)
         return false;
 
-    esp_task_wdt_delete(NULL);
+    SQLiteTickReset();
     int resultFinalize = sqlite3_finalize(slpo->getRes());
-    esp_task_wdt_add(NULL);
 
     if (resultFinalize == SQLITE_OK) {
         this->slpoList.remove(slpo);
