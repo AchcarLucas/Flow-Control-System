@@ -41,7 +41,7 @@ String AnalysisPage::style() {
                     border-radius: 4px;
                 }
                 button {
-                    background: #1a73e8;
+                    background: #007bff;
                     color: white;
                     border: none;
                     cursor: pointer;

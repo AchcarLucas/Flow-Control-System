@@ -6,6 +6,8 @@ String IndexPage::style() {
     style += 
         R"(<style>
                 body {
+                    min-width: 720px;
+                    width: 100%;
                     font-family: sans-serif;
                     margin: 0;
                     display: flex;
@@ -14,7 +16,7 @@ String IndexPage::style() {
                     background-color: #f0f2f5;
                 }
                 header {
-                    background: #333;
+                    background: #007bff;
                     color: white;
                     padding: 1rem;
                     text-align: center;
