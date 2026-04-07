@@ -202,7 +202,7 @@ bool DataMonitor::reset() {
 
     if (!(LittleFS.exists("/" DATABASE) && LittleFS.remove("/" DATABASE))) {
         Serial.printf("Failed to remove database %s file.\n", DATABASE);
-        return;
+        return false;
     }
 
     Serial.printf("Recreating database %s file.\n", DATABASE);
