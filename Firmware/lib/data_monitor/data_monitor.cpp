@@ -15,6 +15,7 @@ DataMonitor::~DataMonitor() {
 
 void DataMonitor::createDatabase() {
     if (this->dao != nullptr) return;
+    this->__lock = true;
 
     Serial.println("Creating SQLiteDAO");
     this->dao = new SQLiteDAO(fileName);
@@ -40,6 +41,7 @@ void DataMonitor::createDatabase() {
     );
 
     // dao->SQLiteExec("CREATE INDEX IF NOT EXISTS index_timestamp ON sample (timestamp);");
+    this->__lock = false;
 }
 
 bool DataMonitor::insertSamples(std::list<Sample> samples) {
@@ -82,7 +84,7 @@ uint32_t DataMonitor::getTotalPages(uint16_t limit) {
 
     dao->SQLiteFinalize(prepare);
 
-    this->__lock = true;
+    this->__lock = false;
     return (rows + limit - 1) / limit;
 }
 
@@ -130,7 +132,7 @@ std::list<Sample> DataMonitor::selectSamples(uint16_t page, uint16_t limit) {
 
     dao->SQLiteFinalize(prepare);
 
-    this->__lock = true;
+    this->__lock = false;
     return samples;
 }
 
@@ -176,7 +178,7 @@ std::list<Sample> DataMonitor::selectSamples(String startDatetime, String endDat
 
     dao->SQLiteFinalize(prepare);
 
-    this->__lock = true;
+    this->__lock = false;
     return samples;
 }
 
@@ -191,6 +193,7 @@ bool DataMonitor::removeSamplesByID(uint32_t id) {
 
     if(!dao->SQLiteExec(SQL)) return false;
 
+    this->__lock = false;
     return true;
 }
 
@@ -205,7 +208,7 @@ bool DataMonitor::removeSamplesByTimestamp(uint64_t timestamp) {
 
     if(!dao->SQLiteExec(SQL)) return false;
 
-    this->__lock = true;
+    this->__lock = false;
     return true;
 }
 
@@ -244,6 +247,5 @@ bool DataMonitor::reset() {
     this->createDatabase();
 
     this->__lock = false;
-
     return true;
 }
