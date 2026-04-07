@@ -8,14 +8,14 @@
 
 class WebServer {
     protected:
-        AsyncWebServer *server;
+        AsyncWebServer *webServer;
         DataMonitor *dataMonitor;
     public:
-        WebServer(AsyncWebServer *server, DataMonitor *dataMonitor) :
-            server(server), dataMonitor(dataMonitor) {};
+        WebServer(AsyncWebServer *webServer, DataMonitor *dataMonitor) :
+            webServer(webServer), dataMonitor(dataMonitor) {};
         virtual AsyncCallbackWebHandler& onServer() = 0;
         DataMonitor *getMonitor() { return dataMonitor; }
-        AsyncWebServer *getServer() { return server; }
+        AsyncWebServer *getServer() { return webServer; }
 };
 
 #endif

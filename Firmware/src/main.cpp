@@ -22,7 +22,7 @@
 
 #include <sample_api.h>
 
-AsyncWebServer *webserver;
+AsyncWebServer *webServer;
 DataMonitor *dataMonitor;
 
 // WebServer PAGE
@@ -100,40 +100,40 @@ void initNTP() {
 void initServer() {
     Serial.println("Server configuration and initialization");
 
-    webserver = new AsyncWebServer(SERVER_PORT);
+    webServer = new AsyncWebServer(SERVER_PORT);
     dataMonitor = new DataMonitor(DATABASE, CLEANUP);
 
     // WebServer PAGE
-    indexRequest = new IndexRequest(webserver, dataMonitor);
+    indexRequest = new IndexRequest(webServer, dataMonitor);
     indexRequest->onServer();
 
-    analysisRequest = new AnalysisRequest(webserver, dataMonitor);
+    analysisRequest = new AnalysisRequest(webServer, dataMonitor);
     analysisRequest->onServer();
 
-    rawRequest = new RawRequest(webserver, dataMonitor);
+    rawRequest = new RawRequest(webServer, dataMonitor);
     rawRequest->onServer();
 
     // WebServer GET
-    simulateRequest = new SimulateRequest(webserver, dataMonitor);
+    simulateRequest = new SimulateRequest(webServer, dataMonitor);
     simulateRequest->onServer();
 
-    cleanupRequest = new CleanupRequest(webserver, dataMonitor);
+    cleanupRequest = new CleanupRequest(webServer, dataMonitor);
     cleanupRequest->onServer();
 
-    resetRequest = new ResetRequest(webserver, dataMonitor);
+    resetRequest = new ResetRequest(webServer, dataMonitor);
     resetRequest->onServer();
 
-    downloadRequest = new DownloadRequest(webserver, dataMonitor);
+    downloadRequest = new DownloadRequest(webServer, dataMonitor);
     downloadRequest->onServer();
 
-    deleteRequest = new DeleteRequest(webserver, dataMonitor);
+    deleteRequest = new DeleteRequest(webServer, dataMonitor);
     deleteRequest->onServer();
 
     // WebServer API
-    sampleAPI = new SampleAPI(webserver, dataMonitor);
+    sampleAPI = new SampleAPI(webServer, dataMonitor);
     sampleAPI->onServer();
 
-    webserver->begin();
+    webServer->begin();
 
     Serial.println("Server successfully initialized.\n");
 }

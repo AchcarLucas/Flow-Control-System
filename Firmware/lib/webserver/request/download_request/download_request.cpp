@@ -3,7 +3,7 @@
 
 AsyncCallbackWebHandler& DownloadRequest::onServer() {
     // Rota para baixar o banco de dados: http://[IP-DO-ESP]/download
-    return this->server->on("/download", HTTP_GET, [this](AsyncWebServerRequest *request) {
+    return this->webServer->on("/download", HTTP_GET, [this](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
         
         if (!LittleFS.exists("/" DATABASE)) {

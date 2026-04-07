@@ -6,7 +6,7 @@
 
 AsyncCallbackWebHandler& IndexRequest::onServer() {
     // PAGE 'index' http://[IP-DO-ESP]/index
-    return this->server->on("/", HTTP_GET, [this](AsyncWebServerRequest *request) {
+    return this->webServer->on("/", HTTP_GET, [this](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
         Page *indexPage = new IndexPage();

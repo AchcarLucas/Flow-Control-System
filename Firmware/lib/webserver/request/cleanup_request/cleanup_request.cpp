@@ -25,7 +25,7 @@ void CleanupRequest::Task(void *pvParameters) {
 
 AsyncCallbackWebHandler& CleanupRequest::onServer() {
     // Limpeza de otimização do banco de dados: http://[IP-DO-ESP]/cleanup
-    return this->server->on("/cleanup", HTTP_GET, [this](AsyncWebServerRequest *request) {
+    return this->webServer->on("/cleanup", HTTP_GET, [this](AsyncWebServerRequest *request) {
         CHECK_DEBUG();
 
         STARTING_SERVER_PROCESSING();

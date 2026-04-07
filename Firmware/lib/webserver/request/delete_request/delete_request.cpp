@@ -3,7 +3,7 @@
 
 AsyncCallbackWebHandler& DeleteRequest::onServer() {
     // Deleta um dado especifico com base no seu ID: http://[IP-DO-ESP]/delete?id={id}
-    return this->server->on("/delete", HTTP_GET, [this](AsyncWebServerRequest *request) {
+    return this->webServer->on("/delete", HTTP_GET, [this](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
         if (!request->hasParam("id")) {

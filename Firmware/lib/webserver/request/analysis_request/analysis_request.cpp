@@ -6,7 +6,7 @@
 
 AsyncCallbackWebHandler& AnalysisRequest::onServer() {
     // PAGE 'analysis data' http://[IP-DO-ESP]/analysis?start={datetime}&end={datetime}
-    return this->server->on("/analysis", HTTP_GET, [this](AsyncWebServerRequest *request) {
+    return this->webServer->on("/analysis", HTTP_GET, [this](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
         Page *analysisPage = new AnalysisPage(DATABASE);

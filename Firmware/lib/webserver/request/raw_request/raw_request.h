@@ -8,8 +8,8 @@
 
 class RawRequest : public WebServer {
     public:
-        RawRequest(AsyncWebServer *server, DataMonitor *dataMonitor) :
-            WebServer(server, dataMonitor) {};
+        RawRequest(AsyncWebServer *webServer, DataMonitor *dataMonitor) :
+            WebServer(webServer, dataMonitor) {};
         AsyncCallbackWebHandler& onServer() override;
 };
 

@@ -8,8 +8,8 @@
 
 class IndexRequest : public WebServer {
     public:
-        IndexRequest(AsyncWebServer *server, DataMonitor *dataMonitor) :
-            WebServer(server, dataMonitor) {};
+        IndexRequest(AsyncWebServer *webServer, DataMonitor *dataMonitor) :
+            WebServer(webServer, dataMonitor) {};
         AsyncCallbackWebHandler& onServer() override;
 };
 

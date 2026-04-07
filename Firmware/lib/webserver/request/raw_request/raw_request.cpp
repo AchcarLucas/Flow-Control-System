@@ -6,7 +6,7 @@
 
 AsyncCallbackWebHandler& RawRequest::onServer() {
     // PAGE 'raw data' http://[IP-DO-ESP]/raw?page={page}
-    return this->server->on("/raw", HTTP_GET, [this](AsyncWebServerRequest *request) {
+    return this->webServer->on("/raw", HTTP_GET, [this](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
         uint16_t limit = 10;

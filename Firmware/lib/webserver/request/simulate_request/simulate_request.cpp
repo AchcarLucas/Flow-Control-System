@@ -27,7 +27,7 @@ void SimulateRequest::Task(void *pvParameters) {
 
 AsyncCallbackWebHandler& SimulateRequest::onServer() {
     // Rota para simulação de inserção de dados: http://[IP-DO-ESP]/simulate
-    return this->server->on("/simulate", HTTP_GET, [this](AsyncWebServerRequest *request) {
+    return this->webServer->on("/simulate", HTTP_GET, [this](AsyncWebServerRequest *request) {
         CHECK_DEBUG();
 
         STARTING_SERVER_PROCESSING();

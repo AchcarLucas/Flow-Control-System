@@ -13,8 +13,8 @@ class CleanupRequest : public WebServer {
     protected:
         static void Task(void *pvParameters);
     public:
-        CleanupRequest(AsyncWebServer *server, DataMonitor *dataMonitor) :
-            WebServer(server, dataMonitor), taskRunning(false) {};
+        CleanupRequest(AsyncWebServer *webServer, DataMonitor *dataMonitor) :
+            WebServer(webServer, dataMonitor), taskRunning(false) {};
         AsyncCallbackWebHandler& onServer() override;
 
         void setTaskRunning(bool taskRunning) { this->taskRunning = taskRunning; }

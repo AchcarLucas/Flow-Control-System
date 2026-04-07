@@ -8,8 +8,8 @@
 
 class AnalysisRequest : public WebServer {
     public:
-        AnalysisRequest(AsyncWebServer *server, DataMonitor *dataMonitor) :
-            WebServer(server, dataMonitor) {};
+        AnalysisRequest(AsyncWebServer *webServer, DataMonitor *dataMonitor) :
+            WebServer(webServer, dataMonitor) {};
         AsyncCallbackWebHandler& onServer() override;
 };
 

@@ -3,7 +3,7 @@
 
 AsyncCallbackWebHandler& ResetRequest::onServer() {
     // Reset do banco de dados: http://[IP-DO-ESP]/reset
-    return this->server->on("/reset", HTTP_GET, [this](AsyncWebServerRequest *request) {
+    return this->webServer->on("/reset", HTTP_GET, [this](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
         bool result = this->getMonitor()->reset();

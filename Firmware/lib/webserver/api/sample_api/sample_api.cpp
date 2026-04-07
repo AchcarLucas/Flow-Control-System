@@ -6,7 +6,7 @@
 
 AsyncCallbackWebHandler& SampleAPI::onServer() {
     // t_start ('YYYY-MM-DD HH:MM:SS') and t_end ('YYYY-MM-DD HH:MM:SS')
-    return this->server->on("/api/samples", HTTP_GET, [this](AsyncWebServerRequest *request) {
+    return this->webServer->on("/api/samples", HTTP_GET, [this](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
         if (!(request->hasParam("t_start") && request->hasParam("t_end"))) {
