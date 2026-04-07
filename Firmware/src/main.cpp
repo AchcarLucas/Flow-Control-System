@@ -8,6 +8,7 @@
 #include <config.h>
 
 #include <data_monitor.h>
+#include <sensor_monitor.h>
 
 #include <webserver.h>
 
@@ -23,7 +24,9 @@
 #include <sample_api.h>
 
 AsyncWebServer *webServer;
+
 DataMonitor *dataMonitor;
+SensorMonitor *sensorMonitor;
 
 // WebServer PAGE
 WebServer *indexRequest;
@@ -40,39 +43,6 @@ WebServer *deleteRequest;
 // WebServer API
 WebServer *sampleAPI;
 
-volatile uint16_t inFlow = 0;
-volatile uint16_t outFlow = 0;
-
-void IRAM_ATTR interruptionThrow() {
-    if (digitalRead(IN_FLOW)) {
-        inFlow++;
-    }
-
-    if (digitalRead(OUT_FLOW)) {
-        outFlow++;
-    }
-
-    Serial.printf("[Interruption]: InFlow {%u} OutFlow {%u}\n", inFlow, outFlow);
-}
-
-void routineThrow(struct tm timeinfo) {
-    uint16_t _inFlow = inFlow;
-    uint16_t _outFlow = outFlow;
-
-    inFlow = outFlow = 0;
-
-    Serial.printf("[Routine]: (%02d/%02d/%d - %02d:%02d:%02d) InFlow {%u} OutFlow {%u}\n",
-        timeinfo.tm_mday,
-        timeinfo.tm_mon + 1,
-        timeinfo.tm_year + 1900,
-        timeinfo.tm_hour,
-        timeinfo.tm_min,
-        timeinfo.tm_sec,
-        _inFlow,
-        _outFlow
-    );
-}
-
 void settingHardware() {
     Serial.begin(115200);
 
@@ -82,8 +52,6 @@ void settingHardware() {
     pinMode(IN_FLOW, INPUT);
     pinMode(OUT_FLOW, INPUT);
     pinMode(INTERRUPTION, INPUT);
-
-    attachInterrupt(digitalPinToInterrupt(INTERRUPTION), interruptionThrow, FALLING);
 
     esp_task_wdt_init(60, true);
 }
@@ -136,6 +104,7 @@ void initServer() {
     Serial.println("Server configuration and initialization");
 
     webServer = new AsyncWebServer(SERVER_PORT);
+
     dataMonitor = new DataMonitor(DATABASE, CLEANUP);
 
     // WebServer PAGE
@@ -173,6 +142,12 @@ void initServer() {
     Serial.println("Server successfully initialized.\n");
 }
 
+void initSensor() {
+    Serial.println("Sensor configuration and initialization");
+    sensorMonitor = new SensorMonitor(dataMonitor, IN_FLOW, OUT_FLOW, INTERRUPTION);
+    Serial.println("Sensor successfully initialized.\n");
+}
+
 void setup() {
     settingHardware();
 
@@ -193,29 +168,12 @@ void setup() {
     initWifi();
     initNTP();
     initServer();
+    initSensor();
 
     VISUAL_INDICATOR_OFF();
 }
 
 void loop() {
-    struct tm timeinfo;
-
-    static int lastMinutesProcessed = -1;
-
-    // 1. Lógica do Relógio (NTP)
-    if (getLocalTime(&timeinfo)) {
-        int currentMinutes = timeinfo.tm_min;
-
-        // Chama a routine a cada 10 minutos
-        if (currentMinutes % 1 == 0) {
-            if (currentMinutes != lastMinutesProcessed) {
-                routineThrow(timeinfo);
-                lastMinutesProcessed = currentMinutes;
-            }
-        } else {
-            lastMinutesProcessed = -1;
-        }
-    }
-
+    sensorMonitor->runningSensor();
     delay(250);
 }
