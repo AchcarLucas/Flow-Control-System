@@ -1,6 +1,8 @@
 #include <dao_sqlite.h>
 #include <esp_task_wdt.h>
 
+#define OPS_LIMIT 2000
+
 HandlerCallback myHandlerCallback = nullptr;
 
 uint16_t handlerCount = 0;
@@ -12,7 +14,6 @@ void SQLiteResetHandlerCount() {
 int SQLiteHandler(void *arg) {
     // watchdog reset
     esp_task_wdt_reset();
-    vTaskDelay(1 / portTICK_PERIOD_MS);
 
     Serial.printf(" - [%u] SQLite is still running. - Watchdog Reset\n", handlerCount);
 
@@ -22,6 +23,7 @@ int SQLiteHandler(void *arg) {
 
     handlerCount++;
 
+    vTaskDelay(1 / portTICK_PERIOD_MS);
     return 0; 
 }
 
@@ -39,7 +41,7 @@ SQLiteDAO::SQLiteDAO(const std::string fileName) {
         return;
     }
 
-    sqlite3_progress_handler(db, 100, SQLiteHandler, NULL);
+    sqlite3_progress_handler(db, OPS_LIMIT, SQLiteHandler, NULL);
 }
 
 SQLiteDAO::~SQLiteDAO() {

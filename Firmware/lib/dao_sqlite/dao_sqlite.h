@@ -37,6 +37,8 @@ class SQLiteDAO {
 
         sqlite3 *getDB() { return this->db; }
 
+        int SQLiteChanges() { return sqlite3_changes(this->db); }
+
         bool SQLiteExec(const std::string);
 
         SQLitePrepareObject *SQLitePrepare(const std::string sql);
