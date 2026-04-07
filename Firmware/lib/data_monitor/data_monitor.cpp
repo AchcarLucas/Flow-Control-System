@@ -1,8 +1,8 @@
 #include <data_monitor.h>
 #include <esp_task_wdt.h>
 
-DataMonitor::DataMonitor(const std::string fileName, std::string cleaningTime) 
-    : fileName(fileName), cleaningTime(cleaningTime) {
+DataMonitor::DataMonitor(const std::string fileName, std::string cleaningTime) :
+    dao(nullptr), fileName(fileName), cleaningTime(cleaningTime) {
     this->createDatabase();
 }
 
@@ -12,12 +12,17 @@ DataMonitor::~DataMonitor() {
 
 void DataMonitor::createDatabase() {
     if (this->dao != nullptr) return;
+
+    Serial.println("Creating SQLiteDAO");
     this->dao = new SQLiteDAO(fileName);
 
-    dao->SQLiteExec("PRAGMA synchronous = NORMAL;");
-    dao->SQLiteExec("PRAGMA journal_mode = WAL;");
-    dao->SQLiteExec("PRAGMA auto_vacuum = INCREMENTAL;");
+    /*
+    dao->SQLiteExec("PRAGMA synchronous = OFF;");
+    dao->SQLiteExec("PRAGMA journal_mode = TRUNCATE;");
+    dao->SQLiteExec("PRAGMA auto_vacuum = NONE;");
     dao->SQLiteExec("PRAGMA cache_size = 100;");
+    dao->SQLiteExec("PRAGMA temp_store = MEMORY;");
+    */
 
     dao->SQLiteExec(
         "CREATE TABLE "
@@ -31,7 +36,7 @@ void DataMonitor::createDatabase() {
         ");"
     );
 
-    dao->SQLiteExec("CREATE INDEX IF NOT EXISTS index_timestamp ON sample (timestamp);");
+    // dao->SQLiteExec("CREATE INDEX IF NOT EXISTS index_timestamp ON sample (timestamp);");
 }
 
 bool DataMonitor::insertSamples(std::list<Sample> samples) {
