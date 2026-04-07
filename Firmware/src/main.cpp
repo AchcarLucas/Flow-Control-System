@@ -6,51 +6,38 @@
 #include <LittleFS.h>
 #include <esp_task_wdt.h>
 
+#include <config.h>
+
 #include <data_monitor.h>
 
 #include <page.h>
-#include <index_page.h>
 #include <analysis_page.h>
 #include <raw_page.h>
 #include <waiting_page.h>
 
+#include <webserver.h>
+#include <index_request.h>
+#include <analysis_request.h>
+#include <raw_request.h>
+#include <simulate_request.h>
+#include <cleanup_request.h>
+#include <reset_request.h>
+
 #include <json.h>
 #include <sample_json.h>
 
-#define D15 15
-#define D14 14
-#define D4 4
-#define D2 2
-
-// Pino do LED (Indicador visual)
-const int LED_PIN = D2;
-
-// Pinos de estado do controle de fluxo
-const int IN_FLOW = D15;
-const int OUT_FLOW = D4;
-
-// Pino de identificação de interrupção
-const int INTERRUPTION = D14;
-
-// Configuração de fuso: -3 horas * 3600 segundos
-const long gmtOffset_sec = TZS * 3600;
-// Configuração do horário de verão: 3600 se houver horário de verão
-const int daylightOffset_sec = 0;
-
-bool isCleaningUp = false;
-bool isSimulate = false;
-
+AsyncWebServer *webserver;
 DataMonitor *monitor;
 
-AsyncWebServer server(SERVER_PORT);
+// Page Request
+WebServer *indexRequest;
+WebServer *analysisRequest;
+WebServer *rawRequest;
+WebServer *cleanupRequest;
 
-#define CHECK_DEBUG() if (DEBUG != 1) return
-
-#define STARTING_SERVER_PROCESSING() digitalWrite(LED_PIN, HIGH)
-#define FINISH_SERVER_PROCESSING() digitalWrite(LED_PIN, LOW)
-
-#define VISUAL_INDICATOR_ON() digitalWrite(LED_PIN, HIGH); delay(200)
-#define VISUAL_INDICATOR_OFF() digitalWrite(LED_PIN, LOW); delay(100)
+// Get Request
+WebServer *simulateRequest;
+WebServer *resetRequest;
 
 void settingHardware() {
     Serial.begin(115200);
@@ -109,216 +96,9 @@ void initNTP() {
     Serial.println(&timeinfo, "Current Time: %A, %B %d %Y %H:%M:%S\n");
 }
 
-void indexRequest() {
-    // PAGE 'index' http://[IP-DO-ESP]/index
-    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
-        STARTING_SERVER_PROCESSING();
-
-        Page *indexPage = new IndexPage();
-
-        request->send(200, "text/html", indexPage->page());
-
-        delete indexPage;
-
-        FINISH_SERVER_PROCESSING();
-    });
-}
-
-void analysisRequest() {
-    // PAGE 'analysis data' http://[IP-DO-ESP]/analysis?start={datetime}&end={datetime}
-    server.on("/analysis", HTTP_GET, [](AsyncWebServerRequest *request) {
-        STARTING_SERVER_PROCESSING();
-
-        Page *analysisPage = new AnalysisPage(DATABASE);
-
-        request->send(200, "text/html", analysisPage->page());
-
-        delete analysisPage;
-
-        FINISH_SERVER_PROCESSING();
-    });
-}
-
-void rawRequest() {
-    // PAGE 'raw data' http://[IP-DO-ESP]/raw?page={page}
-    server.on("/raw", HTTP_GET, [](AsyncWebServerRequest *request) {
-        STARTING_SERVER_PROCESSING();
-
-        if (isCleaningUp) {
-            request->redirect("/cleanup");
-            return;
-        }
-
-        if (isSimulate) {
-            request->redirect("/simulate");
-            return;
-        }
-
-        uint16_t limit = 10;
-        uint16_t currentPage = 1;
-
-        if (request->hasParam("page")) {
-            currentPage = request->getParam("page")->value().toInt();
-            if (currentPage < 1) {
-                currentPage = 1;
-            }
-        }
-
-        uint32_t totalPages = monitor->getTotalPages(limit);
-        std::list<Sample> samples = monitor->selectSamples(currentPage, limit);
-
-        Serial.println("Current Page: " + String(currentPage) + " Total Pages: " + String(totalPages));
-
-        Page *rawPage = new RawPage(
-            DATABASE,
-            currentPage,
-            totalPages,
-            limit,
-            samples
-        );
-
-        request->send(200, "text/html", rawPage->page());
-
-        delete rawPage;
-
-        FINISH_SERVER_PROCESSING();
-    });
-}
-
-void simulateTask(void *pvParameters) {
-    isSimulate = true;
-
-    Serial.println("[simulateTask] Starting background simulate....");
-
-    bool result = monitor->insertSamples({ 
-        Sample(10, esp_random() % 2000, esp_random() % 2000)
-    });
-
-    if(!result) {
-        Serial.printf("[simulateTask] An error occurred while inserting a simulation into the database.");
-    } else {
-        Serial.println("[simulateTask] Simulate completed successfully.");
-    }
-
-    isSimulate = false;
-    vTaskDelete(NULL);
-}
-
-void simulateRequest() {
-    CHECK_DEBUG();
-
-    // Rota para simulação de inserção de dados: http://[IP-DO-ESP]/simulate
-    server.on("/simulate", HTTP_GET, [](AsyncWebServerRequest *request) {
-        STARTING_SERVER_PROCESSING();
-
-        WaitingPage *waitingPage = new WaitingPage(
-            "Simulate iniciada! A inserção estará pronto em instantes. Por favor, aguarde.",
-            "/raw"
-        );
-
-        if (isSimulate) {
-            waitingPage->setText("O processo de inserção já está em andamento. Por favor, aguarde.");
-            request->send(422, "text/html", waitingPage->page());
-            delete waitingPage;
-
-            FINISH_SERVER_PROCESSING();
-            return;
-        }
-
-        xTaskCreatePinnedToCore(
-            simulateTask,    // Função da task
-            "simulateTask",  // Nome
-            4096,           // Tamanho da Stack
-            NULL,           // Parâmetros
-            1,              // Prioridade
-            NULL,           // Handle
-            1               // Core (1 é o padrão do Arduino)
-        );
-
-        request->send(200, "text/html", waitingPage->page());
-
-        delete waitingPage;
-
-        FINISH_SERVER_PROCESSING();
-    });
-}
-
-void cleanupTask(void *pvParameters) {
-    isCleaningUp = true;
-
-    Serial.println("[cleanupTask] Starting background cleanup....");
-
-    bool result = monitor->cleanup();
-
-    if(!result) {
-        Serial.printf("[cleanupTask] An error occurred while attempting to perform an database optimized cleanup on the system.");
-    } else {
-        Serial.println("[cleanupTask] Cleaning completed successfully.");
-    }
-
-    isCleaningUp = false;
-    vTaskDelete(NULL);
-}
-
-void cleanupRequest() {
-    // Limpeza de otimização do banco de dados: http://[IP-DO-ESP]/cleanup
-    server.on("/cleanup", HTTP_GET, [](AsyncWebServerRequest *request) {
-        STARTING_SERVER_PROCESSING();
-
-        WaitingPage *waitingPage = new WaitingPage(
-            "Cleanup Optimization Database iniciada! O sistema estará pronto em instantes. Por favor, aguarde.", 
-            "/raw"
-        );
-
-        if (isCleaningUp) {
-            waitingPage->setText("O processo de limpeza já está em andamento. Por favor, aguarde.");
-            request->send(422, "text/html", waitingPage->page());
-            delete waitingPage;
-
-            FINISH_SERVER_PROCESSING();
-            return;
-        }
-
-        xTaskCreatePinnedToCore(
-            cleanupTask,    // Função da task
-            "cleanupTask",  // Nome
-            4096,           // Tamanho da Stack
-            NULL,           // Parâmetros
-            1,              // Prioridade
-            NULL,           // Handle
-            1               // Core (1 é o padrão do Arduino)
-        );
-
-        request->send(200, "text/html", waitingPage->page());
-
-        delete waitingPage;
-
-        FINISH_SERVER_PROCESSING();
-    });
-}
-
-void resetRequest() {
-    // Reset do banco de dados: http://[IP-DO-ESP]/reset
-    server.on("/reset", HTTP_GET, [](AsyncWebServerRequest *request) {
-        STARTING_SERVER_PROCESSING();
-
-        bool result = monitor->reset();
-
-        if(!result) {
-            request->send(404, "text/plain", "An error occurred while attempting to perform an database reset on the system.");
-            FINISH_SERVER_PROCESSING();
-            return;
-        }
-
-        request->redirect("/raw");
-
-        FINISH_SERVER_PROCESSING();
-    });
-}
-
 void downloadRequest() {
     // Rota para baixar o banco de dados: http://[IP-DO-ESP]/download
-    server.on("/download", HTTP_GET, [](AsyncWebServerRequest *request) {
+    webserver->on("/download", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
         
         if (!LittleFS.exists("/" DATABASE)) {
@@ -339,7 +119,7 @@ void downloadRequest() {
 
 void deleteRequest() {
     // Deleta um dado especifico com base no seu ID: http://[IP-DO-ESP]/delete?id={id}
-    server.on("/delete", HTTP_GET, [](AsyncWebServerRequest *request) {
+    webserver->on("/delete", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
         if (!request->hasParam("id")) {
@@ -366,7 +146,7 @@ void deleteRequest() {
 
 void sampleAPIRequest() {
     // t_start ('YYYY-MM-DD HH:MM:SS') and t_end ('YYYY-MM-DD HH:MM:SS')
-    server.on("/api/samples", HTTP_GET, [](AsyncWebServerRequest *request) {
+    webserver->on("/api/samples", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
         if (!(request->hasParam("t_start") && request->hasParam("t_end"))) {
@@ -394,24 +174,34 @@ void sampleAPIRequest() {
 
 void initServer() {
     Serial.println("Server configuration and initialization");
+
+    webserver = new AsyncWebServer(SERVER_PORT);
     monitor = new DataMonitor(DATABASE, CLEANUP);
 
+    indexRequest        = new IndexRequest(webserver, monitor);
+    analysisRequest     = new AnalysisRequest(webserver, monitor);
+    rawRequest          = new RawRequest(webserver, monitor);
+    simulateRequest     = new SimulateRequest(webserver, monitor);
+    cleanupRequest      = new CleanupRequest(webserver, monitor);
+    resetRequest        = new ResetRequest(webserver, monitor);
+
     // PAGE Request
-    indexRequest();
-    analysisRequest();
-    rawRequest();
+    indexRequest->onServer();
+    analysisRequest->onServer();
+    rawRequest->onServer();
 
     // GET Request
-    simulateRequest();
-    cleanupRequest();
-    resetRequest();
+    simulateRequest->onServer();
+    cleanupRequest->onServer();
+    resetRequest->onServer();
+
     downloadRequest();
     deleteRequest();
 
     // API Request
     sampleAPIRequest();
 
-    server.begin();
+    webserver->begin();
 
     Serial.println("Server successfully initialized.\n");
 }
