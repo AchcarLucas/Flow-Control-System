@@ -5,10 +5,10 @@ WITH RECURSIVE
   cnt(n) AS (
      SELECT 1
      UNION ALL
-     SELECT n + 1 FROM cnt WHERE n < 1440
+     SELECT n + 1 FROM cnt WHERE n < (168*2)
   )
 SELECT 
-    datetime('now', printf('-%d hours', 1440 - n)), 
+    datetime('now', printf('-%d hours', (168*2) - n)),
     10, 
     (ABS(RANDOM()) % 10001), 
     (ABS(RANDOM()) % 10001)
