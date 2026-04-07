@@ -22,6 +22,9 @@ void IRAM_ATTR SensorMonitor::interruptionSensor() {
 
 void SensorMonitor::Task(void *pvParameters) {
     SensorMonitor* instance = (SensorMonitor*)pvParameters;
+
+    VISUAL_INDICATOR_ON();
+
     instance->setTaskRunning(true);
 
     bool result;
@@ -35,6 +38,8 @@ void SensorMonitor::Task(void *pvParameters) {
     } else {
         Serial.println("[Task SensorMonitor] Inserted completed successfully.");
     }
+
+    VISUAL_INDICATOR_OFF();
 
     instance->setTaskRunning(false);
     vTaskDelete(NULL);
@@ -52,6 +57,8 @@ void SensorMonitor::routineSensor(struct tm timeinfo) {
         Serial.println("Data Monitor is locked");
         return;
     }
+
+    VISUAL_INDICATOR_ON();
 
     this->lastInFlow = this->inFlow;
     this->lastOutFlow = this->outFlow;
@@ -78,6 +85,8 @@ void SensorMonitor::routineSensor(struct tm timeinfo) {
         NULL,                         // Handle
         1                             // Core (1 é o padrão do Arduino)
     );
+
+    VISUAL_INDICATOR_OFF();
 }
 
 void SensorMonitor::running() {
@@ -86,8 +95,6 @@ void SensorMonitor::running() {
     static int lastMinutesProcessed = -1;
     static uint16_t __inFlow = 0;
     static uint16_t __outFlow = 0;
-
-    VISUAL_INDICATOR_ON();
 
     // Lógica do Relógio (NTP)
     if (getLocalTime(&timeinfo)) {
@@ -139,6 +146,4 @@ void SensorMonitor::running() {
         this->setRoutineRunning(false);
         this->routineSensor(timeinfo);
     }
-
-    VISUAL_INDICATOR_OFF();
 }
