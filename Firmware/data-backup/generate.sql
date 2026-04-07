@@ -5,11 +5,11 @@ WITH RECURSIVE
   cnt(n) AS (
      SELECT 1
      UNION ALL
-     SELECT n + 1 FROM cnt WHERE n < 1440*6 -- Define aqui quantas linhas quer gerar
+     SELECT n + 1 FROM cnt WHERE n < 24*30*2 --24 samples por dia durante 60 (2 * 30) dias
   )
 SELECT 
-    -- Gera datas retroativas (ex: agora menos n segundos)
-    datetime('now', '-' || (n * 60*10) || ' seconds'), 
+    -- Gera datas retroativas (ex: agora menos 1h)
+    datetime('now', '-' || (n * 60*60) || ' seconds'), 
     10, 
     (ABS(RANDOM()) % 10001), -- Simula o (RANDOM > 0.5) gerando 0 ou 1
     (ABS(RANDOM()) % 10001)
