@@ -41,6 +41,7 @@ class DataMonitor {
         std::string fileName;
         std::string cleaningTime;
     private:
+        bool __lock;
     public:
         DataMonitor(
             const std::string fileName="database.db",
@@ -49,6 +50,10 @@ class DataMonitor {
         ~DataMonitor();
 
         void createDatabase();
+
+        bool lock() {
+            return this->__lock;
+        }
 
         SQLiteDAO *getDAO() { return dao; }
 

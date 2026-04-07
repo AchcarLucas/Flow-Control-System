@@ -2,7 +2,10 @@
 #include <esp_task_wdt.h>
 
 DataMonitor::DataMonitor(const std::string fileName, std::string cleaningTime) :
-    dao(nullptr), fileName(fileName), cleaningTime(cleaningTime) {
+    dao(nullptr),
+    fileName(fileName),
+    cleaningTime(cleaningTime),
+    __lock(false) {
     this->createDatabase();
 }
 
@@ -40,6 +43,7 @@ void DataMonitor::createDatabase() {
 }
 
 bool DataMonitor::insertSamples(std::list<Sample> samples) {
+    this->__lock = true;
     for (const auto& sample : samples) {
         std::string SQL = dao->SQLiteQuery(
             "INSERT INTO sample (timestamp, sampling_time, in_flow, out_flow) VALUES (datetime('now'), %u, %u, %u);",
@@ -56,10 +60,12 @@ bool DataMonitor::insertSamples(std::list<Sample> samples) {
         esp_task_wdt_reset();
     }
 
+    this->__lock = false;
     return true;
 }
 
 uint32_t DataMonitor::getTotalPages(uint16_t limit) {
+    this->__lock = true;
     std::string SQL = dao->SQLiteQuery("SELECT COUNT(*) FROM sample;");
 
     Serial.println(SQL.c_str());
@@ -76,10 +82,12 @@ uint32_t DataMonitor::getTotalPages(uint16_t limit) {
 
     dao->SQLiteFinalize(prepare);
 
+    this->__lock = true;
     return (rows + limit - 1) / limit;
 }
 
 std::list<Sample> DataMonitor::selectSamples(uint16_t page, uint16_t limit) {
+    this->__lock = true;
     std::list<Sample> samples;
 
     sqlite3_stmt *res;
@@ -122,10 +130,12 @@ std::list<Sample> DataMonitor::selectSamples(uint16_t page, uint16_t limit) {
 
     dao->SQLiteFinalize(prepare);
 
+    this->__lock = true;
     return samples;
 }
 
 std::list<Sample> DataMonitor::selectSamples(String startDatetime, String endDatetime) {
+    this->__lock = true;
     std::list<Sample> samples;
 
     sqlite3_stmt *res;
@@ -166,10 +176,12 @@ std::list<Sample> DataMonitor::selectSamples(String startDatetime, String endDat
 
     dao->SQLiteFinalize(prepare);
 
+    this->__lock = true;
     return samples;
 }
 
 bool DataMonitor::removeSamplesByID(uint32_t id) {
+    this->__lock = true;
     std::string SQL = dao->SQLiteQuery(
         "DELETE FROM sample WHERE id = %u;",
         id
@@ -183,6 +195,7 @@ bool DataMonitor::removeSamplesByID(uint32_t id) {
 }
 
 bool DataMonitor::removeSamplesByTimestamp(uint64_t timestamp) {
+    this->__lock = true;
     std::string SQL = dao->SQLiteQuery(
         "DELETE FROM sample WHERE timestamp = datetime(%llu, 'unixepoch');",
         timestamp
@@ -192,10 +205,13 @@ bool DataMonitor::removeSamplesByTimestamp(uint64_t timestamp) {
 
     if(!dao->SQLiteExec(SQL)) return false;
 
+    this->__lock = true;
     return true;
 }
 
 bool DataMonitor::cleanup(std::string cleaningTime) {
+    this->__lock = true;
+
     std::string SQL = dao->SQLiteQuery(
         "DELETE FROM sample WHERE timestamp < datetime('now', '%s');",
         cleaningTime.empty() ? this->cleaningTime.c_str() : cleaningTime.c_str()
@@ -207,10 +223,13 @@ bool DataMonitor::cleanup(std::string cleaningTime) {
 
     if(!dao->SQLiteExec("PRAGMA incremental_vacuum(100);")) return false;
 
+    this->__lock = false;
     return true;
 }
 
 bool DataMonitor::reset() {
+    this->__lock = true;
+
     delete this->dao; this->dao = nullptr;
 
     Serial.printf("Deleting database %s file.\n", DATABASE);
@@ -223,6 +242,8 @@ bool DataMonitor::reset() {
     Serial.printf("Recreating database %s file.\n", DATABASE);
 
     this->createDatabase();
+
+    this->__lock = false;
 
     return true;
 }
