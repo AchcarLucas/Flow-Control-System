@@ -6,6 +6,10 @@ void IRAM_ATTR SensorMonitor::interruptionHandler(void* arg) {
 }
 
 void IRAM_ATTR SensorMonitor::interruptionSensor() {
+    if(this->getTaskRunning()) {
+        Serial.println("The task is still in progress.");
+    }
+
     if (digitalRead(this->pInt)) {
         this->inFlow++;
     }
@@ -17,9 +21,51 @@ void IRAM_ATTR SensorMonitor::interruptionSensor() {
     Serial.printf("[Interruption]: InFlow {%u} OutFlow {%u}\n", this->inFlow, this->outFlow);
 }
 
+void SensorMonitor::Task(void *pvParameters) {
+    SensorMonitor* instance = (SensorMonitor*)pvParameters;
+    instance->setTaskRunning(true);
+
+    bool result;
+
+    result = instance->dataMonitor->insertSamples({
+        Sample(instance->step, instance->lastInFlow, instance->lastOutFlow)
+    });
+
+    if(!result) {
+        Serial.println("[Task SensorMonitor] An error occurred while inserting into the database.");
+    } else {
+        Serial.println("[Task SensorMonitor] Inserted completed successfully.");
+    }
+
+    /*
+        result = instance->dataMonitor->cleanup();
+
+        if(!result) {
+            Serial.println("[Task SensorMonitor] An error occurred while attempting to perform an database optimized cleanup on the system.");
+        } else {
+            Serial.println("[Task SensorMonitor] Cleaning completed successfully.");
+        }
+    */
+
+    instance->setTaskRunning(false);
+    vTaskDelete(NULL);
+}
+
 void SensorMonitor::routineSensor(struct tm timeinfo) {
-    uint16_t _inFlow = this->inFlow;
-    uint16_t _outFlow = this->outFlow;
+    Serial.println("Starting routineSensor.");
+
+    if (this->getTaskRunning()) {
+        Serial.println("The task is still in progress.");
+        return;
+    }
+
+    if (this->dataMonitor->lock()) {
+        Serial.println("Data Monitor is locked");
+        return;
+    }
+
+    this->lastInFlow = this->inFlow;
+    this->lastOutFlow = this->outFlow;
 
     this->inFlow = this->outFlow = 0;
 
@@ -30,8 +76,18 @@ void SensorMonitor::routineSensor(struct tm timeinfo) {
         timeinfo.tm_hour,
         timeinfo.tm_min,
         timeinfo.tm_sec,
-        _inFlow,
-        _outFlow
+        this->lastInFlow,
+        this->lastOutFlow
+    );
+
+    xTaskCreatePinnedToCore(
+        SensorMonitor::Task,          // Função da task
+        "sensorMonitorTask",          // Nome
+        4096,                         // Tamanho da Stack
+        this,                         // Parâmetros
+        1,                            // Prioridade
+        NULL,                         // Handle
+        1                             // Core (1 é o padrão do Arduino)
     );
 }
 
@@ -45,7 +101,7 @@ void SensorMonitor::running() {
         int currentMinutes = timeinfo.tm_min;
 
         // Chama a routine a cada 10 minutos
-        if (currentMinutes % 1 == 0) {
+        if ((currentMinutes % this->step) == 0) {
             if (currentMinutes != lastMinutesProcessed) {
                 this->routineSensor(timeinfo);
                 lastMinutesProcessed = currentMinutes;
