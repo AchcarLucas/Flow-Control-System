@@ -8,8 +8,8 @@
 
 class DeleteRequest : public WebServer {
     public:
-        DeleteRequest(AsyncWebServer *server, DataMonitor *monitor) :
-            WebServer(server, monitor) {};
+        DeleteRequest(AsyncWebServer *server, DataMonitor *dataMonitor) :
+            WebServer(server, dataMonitor) {};
         AsyncCallbackWebHandler& onServer() override;
 };
 

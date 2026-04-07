@@ -8,8 +8,8 @@
 
 class SampleAPI : public WebServer {
     public:
-        SampleAPI(AsyncWebServer *server, DataMonitor *monitor) :
-            WebServer(server, monitor) {};
+        SampleAPI(AsyncWebServer *server, DataMonitor *dataMonitor) :
+            WebServer(server, dataMonitor) {};
         AsyncCallbackWebHandler& onServer() override;
 };
 

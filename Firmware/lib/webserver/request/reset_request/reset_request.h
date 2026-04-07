@@ -8,8 +8,8 @@
 
 class ResetRequest : public WebServer {
     public:
-        ResetRequest(AsyncWebServer *server, DataMonitor *monitor) :
-            WebServer(server, monitor) {};
+        ResetRequest(AsyncWebServer *server, DataMonitor *dataMonitor) :
+            WebServer(server, dataMonitor) {};
         AsyncCallbackWebHandler& onServer() override;
 };
 

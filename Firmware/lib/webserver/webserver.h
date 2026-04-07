@@ -9,12 +9,12 @@
 class WebServer {
     protected:
         AsyncWebServer *server;
-        DataMonitor *monitor;
+        DataMonitor *dataMonitor;
     public:
-        WebServer(AsyncWebServer *server, DataMonitor *monitor) :
-            server(server), monitor(monitor) {};
+        WebServer(AsyncWebServer *server, DataMonitor *dataMonitor) :
+            server(server), dataMonitor(dataMonitor) {};
         virtual AsyncCallbackWebHandler& onServer() = 0;
-        DataMonitor *getMonitor() { return monitor; }
+        DataMonitor *getMonitor() { return dataMonitor; }
         AsyncWebServer *getServer() { return server; }
 };
 

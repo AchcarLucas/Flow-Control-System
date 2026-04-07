@@ -13,8 +13,8 @@ class SimulateRequest : public WebServer {
     protected:
         static void Task(void *pvParameters);
     public:
-        SimulateRequest(AsyncWebServer *server, DataMonitor *monitor) :
-            WebServer(server, monitor), taskRunning(false) {};
+        SimulateRequest(AsyncWebServer *server, DataMonitor *dataMonitor) :
+            WebServer(server, dataMonitor), taskRunning(false) {};
         AsyncCallbackWebHandler& onServer() override;
 
         void setTaskRunning(bool taskRunning) { this->taskRunning = taskRunning; }

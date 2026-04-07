@@ -8,8 +8,8 @@
 
 class DownloadRequest : public WebServer {
     public:
-        DownloadRequest(AsyncWebServer *server, DataMonitor *monitor) :
-            WebServer(server, monitor) {};
+        DownloadRequest(AsyncWebServer *server, DataMonitor *dataMonitor) :
+            WebServer(server, dataMonitor) {};
         AsyncCallbackWebHandler& onServer() override;
 };
 

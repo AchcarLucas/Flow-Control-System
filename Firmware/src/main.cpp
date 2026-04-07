@@ -23,7 +23,7 @@
 #include <sample_api.h>
 
 AsyncWebServer *webserver;
-DataMonitor *monitor;
+DataMonitor *dataMonitor;
 
 // WebServer PAGE
 WebServer *indexRequest;
@@ -101,36 +101,36 @@ void initServer() {
     Serial.println("Server configuration and initialization");
 
     webserver = new AsyncWebServer(SERVER_PORT);
-    monitor = new DataMonitor(DATABASE, CLEANUP);
+    dataMonitor = new DataMonitor(DATABASE, CLEANUP);
 
     // WebServer PAGE
-    indexRequest = new IndexRequest(webserver, monitor);
+    indexRequest = new IndexRequest(webserver, dataMonitor);
     indexRequest->onServer();
 
-    analysisRequest = new AnalysisRequest(webserver, monitor);
+    analysisRequest = new AnalysisRequest(webserver, dataMonitor);
     analysisRequest->onServer();
 
-    rawRequest = new RawRequest(webserver, monitor);    
+    rawRequest = new RawRequest(webserver, dataMonitor);
     rawRequest->onServer();
 
     // WebServer GET
-    simulateRequest = new SimulateRequest(webserver, monitor);
+    simulateRequest = new SimulateRequest(webserver, dataMonitor);
     simulateRequest->onServer();
 
-    cleanupRequest = new CleanupRequest(webserver, monitor);
+    cleanupRequest = new CleanupRequest(webserver, dataMonitor);
     cleanupRequest->onServer();
 
-    resetRequest = new ResetRequest(webserver, monitor);
+    resetRequest = new ResetRequest(webserver, dataMonitor);
     resetRequest->onServer();
 
-    downloadRequest = new DownloadRequest(webserver, monitor);
+    downloadRequest = new DownloadRequest(webserver, dataMonitor);
     downloadRequest->onServer();
 
-    deleteRequest = new DeleteRequest(webserver, monitor);
+    deleteRequest = new DeleteRequest(webserver, dataMonitor);
     deleteRequest->onServer();
 
     // WebServer API
-    sampleAPI = new SampleAPI(webserver, monitor);
+    sampleAPI = new SampleAPI(webserver, dataMonitor);
     sampleAPI->onServer();
 
     webserver->begin();
