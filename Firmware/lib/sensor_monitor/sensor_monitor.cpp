@@ -6,9 +6,13 @@ void IRAM_ATTR SensorMonitor::interruptionHandler(void* arg) {
 }
 
 void IRAM_ATTR SensorMonitor::interruptionSensor() {
-    if(this->getTaskRunning()) {
-        Serial.println("The task is still in progress.");
-    }
+    this->setInterruptionRunning(true);
+
+    /*
+        if(this->getTaskRunning()) {
+            Serial.println("The task is still in progress.");
+        }
+    */
 
     if (digitalRead(this->pInt)) {
         this->inFlow++;
@@ -18,7 +22,9 @@ void IRAM_ATTR SensorMonitor::interruptionSensor() {
         this->outFlow++;
     }
 
-    Serial.printf("[Interruption]: InFlow {%u} OutFlow {%u}\n", this->inFlow, this->outFlow);
+    // Serial.printf("[Interruption]: InFlow {%u} OutFlow {%u}\n", this->inFlow, this->outFlow);
+
+    this->setInterruptionRunning(false);
 }
 
 void SensorMonitor::Task(void *pvParameters) {
@@ -95,19 +101,42 @@ void SensorMonitor::running() {
     struct tm timeinfo;
 
     static int lastMinutesProcessed = -1;
+    static uint16_t __inFlow = 0;
+    static uint16_t __outFlow = 0;
 
     // 1. Lógica do Relógio (NTP)
     if (getLocalTime(&timeinfo)) {
         int currentMinutes = timeinfo.tm_min;
 
-        // Chama a routine a cada 10 minutos
+        // Chama a routine a cada STEP minutos, configurável
         if ((currentMinutes % this->step) == 0) {
             if (currentMinutes != lastMinutesProcessed) {
-                this->routineSensor(timeinfo);
+                this->setRoutineRunning(true);
                 lastMinutesProcessed = currentMinutes;
             }
         } else {
             lastMinutesProcessed = -1;
         }
+    }
+
+    if (
+        this->inFlow != __inFlow ||
+        this->outFlow != __outFlow
+    ) {
+        Serial.printf("[Interruption]: InFlow {%u} OutFlow {%u}\n", this->inFlow, this->outFlow);
+        __inFlow = this->inFlow;
+        __outFlow = this->outFlow;
+    }
+
+    // acessa o método routineSensor se tiver no tempo correto e não tiver task rodando
+    if (
+        this->getRoutineRunning() &&
+        !(
+            this->getTaskRunning() ||
+            this->getInterruptionRunning()
+        )
+    ) {
+        this->setRoutineRunning(false);
+        this->routineSensor(timeinfo);
     }
 }
