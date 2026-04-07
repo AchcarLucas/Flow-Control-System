@@ -49,6 +49,8 @@ SQLiteDAO::~SQLiteDAO() {
 }
 
 void SQLiteDAO::close() {
+    printf("DAO closing process\n");
+
     for (auto slpo : this->slpoList) {
         this->SQLiteFinalize(slpo);
     }
@@ -56,6 +58,8 @@ void SQLiteDAO::close() {
     sqlite3_close(this->db);
 
     this->slpoList.clear();
+
+    Serial.printf("DAO closed\n");
 }
 
 bool SQLiteDAO::SQLiteExec(const std::string sql) {
