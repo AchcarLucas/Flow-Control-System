@@ -105,7 +105,7 @@ void initNTP() {
     Serial.println(&timeinfo, "Current Time: %A, %B %d %Y %H:%M:%S\n");
 }
 
-void index_request() {
+void indexRequest() {
     // PAGE 'index' http://[IP-DO-ESP]/index
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
@@ -120,7 +120,7 @@ void index_request() {
     });
 }
 
-void analysis_request() {
+void analysisRequest() {
     // PAGE 'analysis data' http://[IP-DO-ESP]/analysis?start={datetime}&end={datetime}
     server.on("/analysis", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
@@ -135,7 +135,7 @@ void analysis_request() {
     });
 }
 
-void raw_request() {
+void rawRequest() {
     // PAGE 'raw data' http://[IP-DO-ESP]/raw?page={page}
     server.on("/raw", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
@@ -171,7 +171,7 @@ void raw_request() {
     });
 }
 
-void simulate_request() {
+void simulateRequest() {
     CHECK_DEBUG();
 
     // Rota para simulação de inserção de dados: http://[IP-DO-ESP]/simulate
@@ -194,7 +194,7 @@ void simulate_request() {
     });
 }
 
-void cleanup_request() {
+void cleanupRequest() {
     // Limpeza de otimização do banco de dados: http://[IP-DO-ESP]/cleanup
     server.on("/cleanup", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
@@ -213,7 +213,7 @@ void cleanup_request() {
     });
 }
 
-void reset_request() {
+void resetRequest() {
     // Reset do banco de dados: http://[IP-DO-ESP]/reset
     server.on("/reset", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
@@ -232,7 +232,7 @@ void reset_request() {
     });
 }
 
-void download_request() {
+void downloadRequest() {
     // Rota para baixar o banco de dados: http://[IP-DO-ESP]/download
     server.on("/download", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
@@ -253,7 +253,7 @@ void download_request() {
     });
 }
 
-void delete_request() {
+void deleteRequest() {
     // Deleta um dado especifico com base no seu ID: http://[IP-DO-ESP]/delete?id={id}
     server.on("/delete", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
@@ -280,7 +280,7 @@ void delete_request() {
     });
 }
 
-void sample_api_request() {
+void sampleAPIRequest() {
     // t_start ('YYYY-MM-DD HH:MM:SS') and t_end ('YYYY-MM-DD HH:MM:SS')
     server.on("/api/samples", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
@@ -313,19 +313,19 @@ void initServer() {
     monitor = new DataMonitor(DATABASE, CLEANUP);
 
     // PAGE Request
-    index_request();
-    analysis_request();
-    raw_request();
+    indexRequest();
+    analysisRequest();
+    rawRequest();
 
     // GET Request
-    simulate_request();
-    cleanup_request();
-    reset_request();
-    download_request();
-    delete_request();
+    simulateRequest();
+    cleanupRequest();
+    resetRequest();
+    downloadRequest();
+    deleteRequest();
 
     // API Request
-    sample_api_request();
+    sampleAPIRequest();
 
     server.begin();
 
