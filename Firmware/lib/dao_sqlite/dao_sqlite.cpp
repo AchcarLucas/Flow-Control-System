@@ -1,7 +1,7 @@
 #include <dao_sqlite.h>
 #include <esp_task_wdt.h>
 
-#define OPS_LIMIT 2000
+#define OPS_LIMIT 100
 
 HandlerCallback myHandlerCallback = nullptr;
 
@@ -36,18 +36,24 @@ SQLiteDAO::SQLiteDAO(const std::string fileName) {
 
     std::string path_file = "/littlefs/" + fileName;
 
-    if (sqlite3_open(path_file.c_str(), &db) != SQLITE_OK) {
+    if (sqlite3_open(path_file.c_str(), &this->db) != SQLITE_OK) {
         Serial.printf("Error to opening <%s> SQLite file\n", path_file.c_str());
         return;
     }
 
-    sqlite3_progress_handler(db, OPS_LIMIT, SQLiteHandler, NULL);
+    sqlite3_progress_handler(this->db, OPS_LIMIT, SQLiteHandler, NULL);
 }
 
 SQLiteDAO::~SQLiteDAO() {
+    this->close();
+}
+
+void SQLiteDAO::close() {
     for (auto slpo : this->slpoList) {
         this->SQLiteFinalize(slpo);
     }
+
+    sqlite3_close(this->db);
 
     this->slpoList.clear();
 }

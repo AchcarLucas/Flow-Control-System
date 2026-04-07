@@ -35,6 +35,8 @@ class SQLiteDAO {
         SQLiteDAO(const std::string fileName);
         ~SQLiteDAO();
 
+        void close();
+
         sqlite3 *getDB() { return this->db; }
 
         int SQLiteChanges() { return sqlite3_changes(this->db); }
