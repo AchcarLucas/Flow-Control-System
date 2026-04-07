@@ -13,17 +13,25 @@ DataMonitor::~DataMonitor() {
 void DataMonitor::createDatabase() {
     if (this->dao != nullptr) return;
     this->dao = new SQLiteDAO(fileName);
+
+    dao->SQLiteExec("PRAGMA synchronous = NORMAL;");
+    dao->SQLiteExec("PRAGMA journal_mode = WAL;");
+    dao->SQLiteExec("PRAGMA auto_vacuum = INCREMENTAL;");
+    dao->SQLiteExec("PRAGMA cache_size = 100;");
+
     dao->SQLiteExec(
         "CREATE TABLE "
         "IF NOT EXISTS " 
         "sample ("
-                "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                "id INTEGER PRIMARY KEY,"
                 "timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,"
                 "sampling_time INTEGER,"
                 "in_flow INTEGER,"
                 "out_flow INTEGER"
         ");"
     );
+
+    dao->SQLiteExec("CREATE INDEX IF NOT EXISTS index_timestamp ON sample (timestamp);");
 }
 
 bool DataMonitor::insertSamples(std::list<Sample> samples) {
@@ -191,6 +199,8 @@ bool DataMonitor::cleanup(std::string cleaningTime) {
     Serial.println(SQL.c_str());
 
     if(!dao->SQLiteExec(SQL)) return false;
+
+    if(!dao->SQLiteExec("PRAGMA incremental_vacuum(100);")) return false;
 
     return true;
 }
