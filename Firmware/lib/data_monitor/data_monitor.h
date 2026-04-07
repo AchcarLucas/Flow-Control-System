@@ -45,6 +45,8 @@ class DataMonitor {
         DataMonitor(const std::string fileName="database.db", std::string cleaningTime="-3 months");
         ~DataMonitor();
 
+        void createDatabase();
+
         SQLiteDAO *getDAO() { return dao; }
 
         uint32_t getTotalPages(uint16_t limit = 100);

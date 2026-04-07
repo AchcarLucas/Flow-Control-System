@@ -3,6 +3,15 @@
 
 DataMonitor::DataMonitor(const std::string fileName, std::string cleaningTime) 
     : fileName(fileName), cleaningTime(cleaningTime) {
+    this->createDatabase();
+}
+
+DataMonitor::~DataMonitor() {
+    delete this->dao;
+}
+
+void DataMonitor::createDatabase() {
+    if (this->dao != nullptr) return;
     this->dao = new SQLiteDAO(fileName);
     dao->SQLiteExec(
         "CREATE TABLE "
@@ -15,10 +24,6 @@ DataMonitor::DataMonitor(const std::string fileName, std::string cleaningTime)
                 "out_flow INTEGER"
         ");"
     );
-}
-
-DataMonitor::~DataMonitor() {
-    delete this->dao;
 }
 
 bool DataMonitor::insertSamples(std::list<Sample> samples) {
@@ -191,11 +196,18 @@ bool DataMonitor::cleanup(std::string cleaningTime) {
 }
 
 bool DataMonitor::reset() {
-    std::string SQL = dao->SQLiteQuery("DELETE FROM sample WHERE timestamp > 0; DELETE FROM sqlite_sequence WHERE name='sample';");
+    delete this->dao; this->dao = nullptr;
 
-    Serial.println(SQL.c_str());
+    Serial.printf("Deleting database %s file.\n", DATABASE);
 
-    if(!dao->SQLiteExec(SQL)) return false;
+    if (!(LittleFS.exists("/" DATABASE) && LittleFS.remove("/" DATABASE))) {
+        Serial.printf("Failed to remove database %s file.\n", DATABASE);
+        return;
+    }
+
+    Serial.printf("Recreating database %s file.\n", DATABASE);
+
+    this->createDatabase();
 
     return true;
 }
