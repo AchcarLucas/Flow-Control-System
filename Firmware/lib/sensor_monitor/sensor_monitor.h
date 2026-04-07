@@ -15,7 +15,7 @@ class SensorMonitor {
         SensorMonitor(DataMonitor *dataMonitor, const int pIn, const int pOut, const int pInterruption) : 
             dataMonitor(dataMonitor), inFlow(0), outFlow(0) {
                 attachInterruptArg(digitalPinToInterrupt(pInterruption), this->interruptionHandler, this, FALLING);
-                this->pInt = pInt;
+                this->pInt = pIn;
                 this->pOut = pOut;
         };
 
