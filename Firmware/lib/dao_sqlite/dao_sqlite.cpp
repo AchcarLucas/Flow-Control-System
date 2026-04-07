@@ -3,10 +3,10 @@
 
 HandlerCallback myHandlerCallback = nullptr;
 
-uint16_t tickCount = 0;
+uint16_t handlerCount = 0;
 
-void SQLiteHandlerReset() {
-    tickCount = 0;
+void SQLiteResetHandlerCount() {
+    handlerCount = 0;
 }
 
 int SQLiteHandler(void *arg) {
@@ -14,11 +14,13 @@ int SQLiteHandler(void *arg) {
     esp_task_wdt_reset();
     vTaskDelay(1 / portTICK_PERIOD_MS);
 
-    Serial.printf(" - [%u] SQLite is still running. - Watchdog Reset\n", tickCount);
+    Serial.printf(" - [%u] SQLite is still running. - Watchdog Reset\n", handlerCount);
 
     if (myHandlerCallback != nullptr) {
-        myHandlerCallback(tickCount);
+        myHandlerCallback(handlerCount);
     }
+
+    handlerCount++;
 
     return 0; 
 }
@@ -51,7 +53,7 @@ SQLiteDAO::~SQLiteDAO() {
 bool SQLiteDAO::SQLiteExec(const std::string sql) {
     char *zErrMsg = 0;
 
-    SQLiteHandlerReset();
+    SQLiteResetHandlerCount();
     int resultExec = sqlite3_exec(this->db, sql.c_str(), NULL, NULL, &zErrMsg);
 
     if (resultExec != SQLITE_OK) {
@@ -67,7 +69,7 @@ SQLitePrepareObject* SQLiteDAO::SQLitePrepare(const std::string sql) {
     sqlite3_stmt *res = nullptr;
     const char *tail = nullptr;
 
-    SQLiteHandlerReset();
+    SQLiteResetHandlerCount();
     int resultPrepare = sqlite3_prepare_v2(this->db, sql.c_str(), -1, &res, &tail);
 
     if (resultPrepare == SQLITE_OK) {
@@ -83,7 +85,7 @@ bool SQLiteDAO::SQLiteStep(SQLitePrepareObject *slpo) {
     if (slpo == nullptr)
         return false;
 
-    SQLiteHandlerReset();
+    SQLiteResetHandlerCount();
     return sqlite3_step(slpo->getRes()) == SQLITE_ROW;
 }
 
@@ -91,7 +93,7 @@ bool SQLiteDAO::SQLiteFinalize(SQLitePrepareObject *slpo) {
     if (slpo == nullptr)
         return false;
 
-    SQLiteHandlerReset();
+    SQLiteResetHandlerCount();
     int resultFinalize = sqlite3_finalize(slpo->getRes());
 
     if (resultFinalize == SQLITE_OK) {
