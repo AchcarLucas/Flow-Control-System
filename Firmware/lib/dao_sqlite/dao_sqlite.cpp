@@ -42,6 +42,9 @@ SQLiteDAO::SQLiteDAO(const std::string fileName) {
     }
 
     sqlite3_progress_handler(this->db, OPS_LIMIT, SQLiteHandler, NULL);
+
+    this->SQLiteExec("PRAGMA synchronous = NORMAL;");
+    this->SQLiteExec("PRAGMA cache_size = 100;");
 }
 
 SQLiteDAO::~SQLiteDAO() {
