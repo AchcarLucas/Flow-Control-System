@@ -28,12 +28,12 @@ O projeto requer uma partição customizada para acomodar o banco de dados. Reco
 ## 🌐 Endpoints da API Local
 | Rota | Descrição |
 | :--- | :--- |
-| `GET /`           | Página principal do sistema. |
-| `GET /test`       | Página de teste do sistema. |
-| `GET /simulate`   | Simulação de incremento de fluxo (Inserção SQL). |
-| `GET /cleanup`    | Limpeza os dados antigos para otimização do banco de dados. |
-| `GET /reset`      | Limpeza total dos dados do banco de dados |
-| `GET /download`   | Download do arquivo database `.db` do sistema. |
+| `GET /`               | Página principal do sistema. |
+| `GET /simulate`       | Simulação de incremento de fluxo (Inserção SQL). |
+| `GET /cleanup`        | Limpeza os dados antigos para otimização do banco de dados. |
+| `GET /reset`          | Limpeza total dos dados do banco de dados |
+| `GET /download`       | Download do arquivo database `.db` do sistema. |
+| `GET /sample_api`     | Obtém os dados das amostras em relação a uma data inicial e final |
 
 ## 🔧 Configuração de Fuso Horário
 O sistema está configurado para o horário de **Praia Grande/SP (UTC-3)**:
