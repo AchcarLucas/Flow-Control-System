@@ -1,0 +1,33 @@
+#include <sample_api.h>
+
+#include <json.h>
+#include <sample_json.h>
+#include <config.h>
+
+AsyncCallbackWebHandler& SampleAPI::onServer() {
+    // t_start ('YYYY-MM-DD HH:MM:SS') and t_end ('YYYY-MM-DD HH:MM:SS')
+    return this->server->on("/api/samples", HTTP_GET, [this](AsyncWebServerRequest *request) {
+        STARTING_SERVER_PROCESSING();
+
+        if (!(request->hasParam("t_start") && request->hasParam("t_end"))) {
+            request->send(404, "application/json", "{ \"status\": \"failed\" }");
+            FINISH_SERVER_PROCESSING();
+            return;
+        }
+
+        String tStart = request->getParam("t_start")->value();
+        String tEnd = request->getParam("t_end")->value();
+        
+        Serial.printf("t_start %s - t_end %s\n", tStart.c_str(), tEnd.c_str());
+
+        std::list<Sample> samples = this->getMonitor()->selectSamples(tStart, tEnd);
+
+        JSON *json = new SampleJson(samples);
+        
+        request->send(200, "application/json", json->serialize());
+
+        delete json;
+
+        FINISH_SERVER_PROCESSING();
+    });
+}

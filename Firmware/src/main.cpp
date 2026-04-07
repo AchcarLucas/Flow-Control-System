@@ -2,7 +2,6 @@
 #include <ArduinoJson.h>
 #include <WiFi.h>
 #include <ESPAsyncWebServer.h>
-#include <sqlite3.h>
 #include <LittleFS.h>
 #include <esp_task_wdt.h>
 
@@ -10,34 +9,36 @@
 
 #include <data_monitor.h>
 
-#include <page.h>
-#include <analysis_page.h>
-#include <raw_page.h>
-#include <waiting_page.h>
-
 #include <webserver.h>
+
 #include <index_request.h>
 #include <analysis_request.h>
 #include <raw_request.h>
 #include <simulate_request.h>
 #include <cleanup_request.h>
 #include <reset_request.h>
+#include <download_request.h>
+#include <delete_request.h>
 
-#include <json.h>
-#include <sample_json.h>
+#include <sample_api.h>
 
 AsyncWebServer *webserver;
 DataMonitor *monitor;
 
-// Page Request
+// WebServer PAGE
 WebServer *indexRequest;
 WebServer *analysisRequest;
 WebServer *rawRequest;
 WebServer *cleanupRequest;
 
-// Get Request
+// WebServer GET
 WebServer *simulateRequest;
 WebServer *resetRequest;
+WebServer *downloadRequest;
+WebServer *deleteRequest;
+
+// WebServer API
+WebServer *sampleAPI;
 
 void settingHardware() {
     Serial.begin(115200);
@@ -96,110 +97,41 @@ void initNTP() {
     Serial.println(&timeinfo, "Current Time: %A, %B %d %Y %H:%M:%S\n");
 }
 
-void downloadRequest() {
-    // Rota para baixar o banco de dados: http://[IP-DO-ESP]/download
-    webserver->on("/download", HTTP_GET, [](AsyncWebServerRequest *request) {
-        STARTING_SERVER_PROCESSING();
-        
-        if (!LittleFS.exists("/" DATABASE)) {
-            request->send(404, "text/plain", "An error occurred while trying to download the database " DATABASE " file not found");
-            FINISH_SERVER_PROCESSING();
-            return;
-        }
-
-        AsyncWebServerResponse *response = request->beginResponse(LittleFS, "/" DATABASE, "application/octet-stream");
-
-        String attachment = "attachment; filename=\"" + String(DATABASE) + "\"";
-        response->addHeader("Content-Disposition", attachment.c_str());
-        request->send(response);
-
-        FINISH_SERVER_PROCESSING();
-    });
-}
-
-void deleteRequest() {
-    // Deleta um dado especifico com base no seu ID: http://[IP-DO-ESP]/delete?id={id}
-    webserver->on("/delete", HTTP_GET, [](AsyncWebServerRequest *request) {
-        STARTING_SERVER_PROCESSING();
-
-        if (!request->hasParam("id")) {
-            request->send(404, "text/plain", "An error occurred while trying to delete; the id parameter is not present.");
-            FINISH_SERVER_PROCESSING();
-            return;
-        }
-
-        uint32_t id = request->getParam("id")->value().toInt();
-
-        bool result = monitor->removeSamplesByID(id);
-
-        if(!result) {
-            request->send(404, "text/plain", "An error occurred while trying to delete the id " + String(id) + ".");
-            FINISH_SERVER_PROCESSING();
-            return;
-        }
-
-        request->redirect("/raw");
-
-        FINISH_SERVER_PROCESSING();
-    });
-}
-
-void sampleAPIRequest() {
-    // t_start ('YYYY-MM-DD HH:MM:SS') and t_end ('YYYY-MM-DD HH:MM:SS')
-    webserver->on("/api/samples", HTTP_GET, [](AsyncWebServerRequest *request) {
-        STARTING_SERVER_PROCESSING();
-
-        if (!(request->hasParam("t_start") && request->hasParam("t_end"))) {
-            request->send(404, "application/json", "{ \"status\": \"failed\" }");
-            FINISH_SERVER_PROCESSING();
-            return;
-        }
-
-        String tStart = request->getParam("t_start")->value();
-        String tEnd = request->getParam("t_end")->value();
-        
-        Serial.printf("t_start %s - t_end %s\n", tStart.c_str(), tEnd.c_str());
-
-        std::list<Sample> samples = monitor->selectSamples(tStart, tEnd);
-
-        JSON *json = new SampleJson(samples);
-        
-        request->send(200, "application/json", json->serialize());
-
-        delete json;
-
-        FINISH_SERVER_PROCESSING();
-    });
-}
-
 void initServer() {
     Serial.println("Server configuration and initialization");
 
     webserver = new AsyncWebServer(SERVER_PORT);
     monitor = new DataMonitor(DATABASE, CLEANUP);
 
-    indexRequest        = new IndexRequest(webserver, monitor);
-    analysisRequest     = new AnalysisRequest(webserver, monitor);
-    rawRequest          = new RawRequest(webserver, monitor);
-    simulateRequest     = new SimulateRequest(webserver, monitor);
-    cleanupRequest      = new CleanupRequest(webserver, monitor);
-    resetRequest        = new ResetRequest(webserver, monitor);
-
-    // PAGE Request
+    // WebServer PAGE
+    indexRequest = new IndexRequest(webserver, monitor);
     indexRequest->onServer();
+
+    analysisRequest = new AnalysisRequest(webserver, monitor);
     analysisRequest->onServer();
+
+    rawRequest = new RawRequest(webserver, monitor);    
     rawRequest->onServer();
 
-    // GET Request
+    // WebServer GET
+    simulateRequest = new SimulateRequest(webserver, monitor);
     simulateRequest->onServer();
+
+    cleanupRequest = new CleanupRequest(webserver, monitor);
     cleanupRequest->onServer();
+
+    resetRequest = new ResetRequest(webserver, monitor);
     resetRequest->onServer();
 
-    downloadRequest();
-    deleteRequest();
+    downloadRequest = new DownloadRequest(webserver, monitor);
+    downloadRequest->onServer();
 
-    // API Request
-    sampleAPIRequest();
+    deleteRequest = new DeleteRequest(webserver, monitor);
+    deleteRequest->onServer();
+
+    // WebServer API
+    sampleAPI = new SampleAPI(webserver, monitor);
+    sampleAPI->onServer();
 
     webserver->begin();
 

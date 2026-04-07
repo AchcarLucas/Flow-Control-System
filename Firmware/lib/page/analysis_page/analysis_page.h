@@ -4,7 +4,6 @@
 #include <Arduino.h>
 
 #include <page.h>
-#include <data_monitor.h>
 
 #include <list>
 
