@@ -23,7 +23,7 @@ class SensorMonitor {
         void IRAM_ATTR interruptionSensor();
 
         void routineSensor(struct tm);
-        void runningSensor();
+        void running();
 };
 
 #endif

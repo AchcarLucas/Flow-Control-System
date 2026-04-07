@@ -174,6 +174,6 @@ void setup() {
 }
 
 void loop() {
-    sensorMonitor->runningSensor();
+    sensorMonitor->running();
     delay(250);
 }

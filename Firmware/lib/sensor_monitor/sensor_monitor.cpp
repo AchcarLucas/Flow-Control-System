@@ -35,7 +35,7 @@ void SensorMonitor::routineSensor(struct tm timeinfo) {
     );
 }
 
-void SensorMonitor::runningSensor() {
+void SensorMonitor::running() {
     struct tm timeinfo;
 
     static int lastMinutesProcessed = -1;
