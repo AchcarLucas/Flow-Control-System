@@ -36,16 +36,6 @@ void SensorMonitor::Task(void *pvParameters) {
         Serial.println("[Task SensorMonitor] Inserted completed successfully.");
     }
 
-    /*
-        result = instance->dataMonitor->cleanup();
-
-        if(!result) {
-            Serial.println("[Task SensorMonitor] An error occurred while attempting to perform an database optimized cleanup on the system.");
-        } else {
-            Serial.println("[Task SensorMonitor] Cleaning completed successfully.");
-        }
-    */
-
     instance->setTaskRunning(false);
     vTaskDelete(NULL);
 }
@@ -99,7 +89,7 @@ void SensorMonitor::running() {
 
     VISUAL_INDICATOR_ON();
 
-    // 1. Lógica do Relógio (NTP)
+    // Lógica do Relógio (NTP)
     if (getLocalTime(&timeinfo)) {
         int currentMinutes = timeinfo.tm_min;
         int currentHours = timeinfo.tm_hour;
