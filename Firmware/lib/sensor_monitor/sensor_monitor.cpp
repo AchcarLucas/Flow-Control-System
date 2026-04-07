@@ -1,4 +1,5 @@
 #include <sensor_monitor.h>
+#include <config.h>
 
 void IRAM_ATTR SensorMonitor::interruptionHandler(void* arg) {
     SensorMonitor* instance = static_cast<SensorMonitor*>(arg);
@@ -8,12 +9,6 @@ void IRAM_ATTR SensorMonitor::interruptionHandler(void* arg) {
 void IRAM_ATTR SensorMonitor::interruptionSensor() {
     this->setInterruptionRunning(true);
 
-    /*
-        if(this->getTaskRunning()) {
-            Serial.println("The task is still in progress.");
-        }
-    */
-
     if (digitalRead(this->pInt)) {
         this->inFlow++;
     }
@@ -21,8 +16,6 @@ void IRAM_ATTR SensorMonitor::interruptionSensor() {
     if (digitalRead(this->pOut)) {
         this->outFlow++;
     }
-
-    // Serial.printf("[Interruption]: InFlow {%u} OutFlow {%u}\n", this->inFlow, this->outFlow);
 
     this->setInterruptionRunning(false);
 }
@@ -104,12 +97,29 @@ void SensorMonitor::running() {
     static uint16_t __inFlow = 0;
     static uint16_t __outFlow = 0;
 
+    VISUAL_INDICATOR_ON();
+
     // 1. Lógica do Relógio (NTP)
     if (getLocalTime(&timeinfo)) {
         int currentMinutes = timeinfo.tm_min;
+        int currentHours = timeinfo.tm_hour;
 
+        // Meia noite, chama a rotina de cleanup
+        if (timeinfo.tm_hour == 0 &&
+            timeinfo.tm_min == 0 &&
+            timeinfo.tm_sec == 0
+        ) {
+            Serial.println("Starting cleanup");
+            bool result = this->dataMonitor->cleanup();
+
+            if(!result) {
+                Serial.println("[Task SensorMonitor] An error occurred while attempting to perform an database optimized cleanup on the system.");
+            } else {
+                Serial.println("[Task SensorMonitor] Cleaning completed successfully.");
+            }
+        }
         // Chama a routine a cada STEP minutos, configurável
-        if ((currentMinutes % this->step) == 0) {
+        else if ((currentMinutes % this->step) == 0) {
             if (currentMinutes != lastMinutesProcessed) {
                 this->setRoutineRunning(true);
                 lastMinutesProcessed = currentMinutes;
@@ -139,4 +149,6 @@ void SensorMonitor::running() {
         this->setRoutineRunning(false);
         this->routineSensor(timeinfo);
     }
+
+    VISUAL_INDICATOR_OFF();
 }
