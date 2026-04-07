@@ -112,7 +112,10 @@ String RawPage::pagination() {
     }
 
     // Status
-    html += "<li><a class='active'>" + String(this->currentPage) + " / " + String(this->totalPages) + "</a></li>";
+    if (this->totalPages != 0)
+        html += "<li><a class='active'>" + String(this->currentPage) + " / " + String(this->totalPages) + "</a></li>";
+    else
+        html += "<li><a class='active'> - </a></li>";
 
     // Botão próximo
     if (currentPage < totalPages) {
