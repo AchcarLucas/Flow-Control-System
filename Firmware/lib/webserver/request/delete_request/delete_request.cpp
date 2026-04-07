@@ -14,7 +14,7 @@ AsyncCallbackWebHandler& DeleteRequest::onServer() {
 
         uint32_t id = request->getParam("id")->value().toInt();
 
-        bool result = this->getMonitor()->removeSamplesByID(id);
+        bool result = this->getDataMonitor()->removeSamplesByID(id);
 
         if(!result) {
             request->send(404, "text/plain", "An error occurred while trying to delete the id " + String(id) + ".");

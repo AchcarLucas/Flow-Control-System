@@ -6,7 +6,7 @@ AsyncCallbackWebHandler& ResetRequest::onServer() {
     return this->webServer->on("/reset", HTTP_GET, [this](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
-        bool result = this->getMonitor()->reset();
+        bool result = this->getDataMonitor()->reset();
 
         if(!result) {
             request->send(404, "text/plain", "An error occurred while attempting to perform an database reset on the system.");

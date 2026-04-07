@@ -14,8 +14,8 @@ class WebServer {
         WebServer(AsyncWebServer *webServer, DataMonitor *dataMonitor) :
             webServer(webServer), dataMonitor(dataMonitor) {};
         virtual AsyncCallbackWebHandler& onServer() = 0;
-        DataMonitor *getMonitor() { return dataMonitor; }
-        AsyncWebServer *getServer() { return webServer; }
+        DataMonitor *getDataMonitor() { return dataMonitor; }
+        AsyncWebServer *getWebServer() { return webServer; }
 };
 
 #endif

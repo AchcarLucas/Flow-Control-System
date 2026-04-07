@@ -11,7 +11,7 @@ void CleanupRequest::Task(void *pvParameters) {
 
     Serial.println("[Task CleanupRequest] Starting background cleanup....");
 
-    bool result = instance->getMonitor()->cleanup();
+    bool result = instance->getDataMonitor()->cleanup();
 
     if(!result) {
         Serial.println("[Task CleanupRequest] An error occurred while attempting to perform an database optimized cleanup on the system.");

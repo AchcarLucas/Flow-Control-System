@@ -11,7 +11,7 @@ void SimulateRequest::Task(void *pvParameters) {
 
     Serial.println("[Task SimulateRequest] Starting background simulate....");
 
-    bool result = instance->getMonitor()->insertSamples({ 
+    bool result = instance->getDataMonitor()->insertSamples({
         Sample(10, esp_random() % 2000, esp_random() % 2000)
     });
 

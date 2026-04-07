@@ -19,8 +19,8 @@ AsyncCallbackWebHandler& RawRequest::onServer() {
             }
         }
 
-        uint32_t totalPages = this->getMonitor()->getTotalPages(limit);
-        std::list<Sample> samples = this->getMonitor()->selectSamples(currentPage, limit);
+        uint32_t totalPages = this->getDataMonitor()->getTotalPages(limit);
+        std::list<Sample> samples = this->getDataMonitor()->selectSamples(currentPage, limit);
 
         Serial.println("Current Page: " + String(currentPage) + " Total Pages: " + String(totalPages));
 

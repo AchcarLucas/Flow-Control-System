@@ -20,7 +20,7 @@ AsyncCallbackWebHandler& SampleAPI::onServer() {
         
         Serial.printf("t_start %s - t_end %s\n", tStart.c_str(), tEnd.c_str());
 
-        std::list<Sample> samples = this->getMonitor()->selectSamples(tStart, tEnd);
+        std::list<Sample> samples = this->getDataMonitor()->selectSamples(tStart, tEnd);
 
         JSON *json = new SampleJson(samples);
         
