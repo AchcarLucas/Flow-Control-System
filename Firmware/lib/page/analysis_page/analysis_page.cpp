@@ -200,7 +200,12 @@ String AnalysisPage::script() {
 
             window.onload = () => {
                 const now = new Date();
-                document.getElementById('t_base').value = now.toISOString().slice(0, 16);
+
+                // Ajusta o fuso horário manualmente para compensar o deslocamento (offset)
+                const offset = now.getTimezoneOffset() * 60000; // converte minutos para milissegundos
+                const localISOTime = new Date(now - offset).toISOString().slice(0, 16);
+
+                document.getElementById('t_base').value = localISOTime;
             };
         </script>
     )";
