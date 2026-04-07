@@ -144,7 +144,7 @@ void initServer() {
 
 void initSensor() {
     Serial.println("Sensor configuration and initialization");
-    sensorMonitor = new SensorMonitor(dataMonitor, IN_FLOW, OUT_FLOW, INTERRUPTION, 1);
+    sensorMonitor = new SensorMonitor(dataMonitor, IN_FLOW, OUT_FLOW, INTERRUPTION, SAMPLE_STEP);
     Serial.println("Sensor successfully initialized.\n");
 }
 
