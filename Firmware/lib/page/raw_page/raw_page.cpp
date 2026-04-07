@@ -134,7 +134,7 @@ String RawPage::tools() {
 
     html += "<div style='text-align: center; margin: 20px 0; width: 100%;'>";
     html += DEBUG ? "<a href='/simulate' class='button'>Simulate Flow</a>" : "";
-    html += "<a href='/cleanup' class='button'>Cleanup Optimization Database (" + String(CLEANUP) + ")</a>";
+    html += DEBUG ? "<a href='/cleanup' class='button'>Cleanup Optimization Database (" + String(CLEANUP) + ")</a>" : "";
     html += "<a href='/reset' class='button'>Reset Database</a>";
     html += "<a href='/download' class='button'>Download Database</a>";
     html += "</div>";
