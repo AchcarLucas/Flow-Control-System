@@ -12,6 +12,7 @@
 #include <index_page.h>
 #include <analysis_page.h>
 #include <raw_page.h>
+#include <waiting_page.h>
 
 #include <json.h>
 #include <sample_json.h>
@@ -35,6 +36,9 @@ const int INTERRUPTION = D14;
 const long gmtOffset_sec = TZS * 3600;
 // Configuração do horário de verão: 3600 se houver horário de verão
 const int daylightOffset_sec = 0;
+
+bool isCleaningUp = false;
+bool isSimulate = false;
 
 DataMonitor *monitor;
 
@@ -140,6 +144,16 @@ void rawRequest() {
     server.on("/raw", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
+        if (isCleaningUp) {
+            request->redirect("/cleanup");
+            return;
+        }
+
+        if (isSimulate) {
+            request->redirect("/simulate");
+            return;
+        }
+
         uint16_t limit = 10;
         uint16_t currentPage = 1;
 
@@ -171,6 +185,25 @@ void rawRequest() {
     });
 }
 
+void simulateTask(void *pvParameters) {
+    isSimulate = true;
+
+    Serial.println("[simulateTask] Starting background simulate....");
+
+    bool result = monitor->insertSamples({ 
+        Sample(10, esp_random() % 2000, esp_random() % 2000)
+    });
+
+    if(!result) {
+        Serial.printf("[simulateTask] An error occurred while inserting a simulation into the database.");
+    } else {
+        Serial.println("[simulateTask] Simulate completed successfully.");
+    }
+
+    isSimulate = false;
+    vTaskDelete(NULL);
+}
+
 void simulateRequest() {
     CHECK_DEBUG();
 
@@ -178,20 +211,53 @@ void simulateRequest() {
     server.on("/simulate", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
-        bool result = monitor->insertSamples({ 
-            Sample(10, esp_random() % 2000, esp_random() % 2000)
-        });
+        WaitingPage *waitingPage = new WaitingPage(
+            "Simulate iniciada! A inserção estará pronto em instantes. Por favor, aguarde.",
+            "/raw"
+        );
 
-        if(!result) {
-            request->send(404, "text/plain", "An error occurred while inserting a simulation into the database.");
+        if (isSimulate) {
+            waitingPage->setText("O processo de inserção já está em andamento. Por favor, aguarde.");
+            request->send(422, "text/html", waitingPage->page());
+            delete waitingPage;
+
             FINISH_SERVER_PROCESSING();
             return;
         }
 
-        request->redirect("/raw");
+        xTaskCreatePinnedToCore(
+            simulateTask,    // Função da task
+            "simulateTask",  // Nome
+            4096,           // Tamanho da Stack
+            NULL,           // Parâmetros
+            1,              // Prioridade
+            NULL,           // Handle
+            1               // Core (1 é o padrão do Arduino)
+        );
+
+        request->send(200, "text/html", waitingPage->page());
+
+        delete waitingPage;
 
         FINISH_SERVER_PROCESSING();
     });
+}
+
+void cleanupTask(void *pvParameters) {
+    isCleaningUp = true;
+
+    Serial.println("[cleanupTask] Starting background cleanup....");
+
+    bool result = monitor->cleanup();
+
+    if(!result) {
+        Serial.printf("[cleanupTask] An error occurred while attempting to perform an database optimized cleanup on the system.");
+    } else {
+        Serial.println("[cleanupTask] Cleaning completed successfully.");
+    }
+
+    isCleaningUp = false;
+    vTaskDelete(NULL);
 }
 
 void cleanupRequest() {
@@ -199,15 +265,33 @@ void cleanupRequest() {
     server.on("/cleanup", HTTP_GET, [](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
-        bool result = monitor->cleanup();
+        WaitingPage *waitingPage = new WaitingPage(
+            "Cleanup Optimization Database iniciada! O sistema estará pronto em instantes. Por favor, aguarde.", 
+            "/raw"
+        );
 
-        if(!result) {
-            request->send(404, "text/plain", "An error occurred while attempting to perform an database optimized cleanup on the system.");
+        if (isCleaningUp) {
+            waitingPage->setText("O processo de limpeza já está em andamento. Por favor, aguarde.");
+            request->send(422, "text/html", waitingPage->page());
+            delete waitingPage;
+
             FINISH_SERVER_PROCESSING();
             return;
         }
 
-        request->redirect("/raw");
+        xTaskCreatePinnedToCore(
+            cleanupTask,    // Função da task
+            "cleanupTask",  // Nome
+            4096,           // Tamanho da Stack
+            NULL,           // Parâmetros
+            1,              // Prioridade
+            NULL,           // Handle
+            1               // Core (1 é o padrão do Arduino)
+        );
+
+        request->send(200, "text/html", waitingPage->page());
+
+        delete waitingPage;
 
         FINISH_SERVER_PROCESSING();
     });
