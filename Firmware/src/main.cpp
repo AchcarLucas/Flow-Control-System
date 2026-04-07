@@ -40,6 +40,39 @@ WebServer *deleteRequest;
 // WebServer API
 WebServer *sampleAPI;
 
+volatile uint16_t inFlow = 0;
+volatile uint16_t outFlow = 0;
+
+void IRAM_ATTR interruptionThrow() {
+    if (digitalRead(IN_FLOW)) {
+        inFlow++;
+    }
+
+    if (digitalRead(OUT_FLOW)) {
+        outFlow++;
+    }
+
+    Serial.printf("[Interruption]: InFlow {%u} OutFlow {%u}\n", inFlow, outFlow);
+}
+
+void routineThrow(struct tm timeinfo) {
+    uint16_t _inFlow = inFlow;
+    uint16_t _outFlow = outFlow;
+
+    inFlow = outFlow = 0;
+
+    Serial.printf("[Routine]: (%02d/%02d/%d - %02d:%02d:%02d) InFlow {%u} OutFlow {%u}\n",
+        timeinfo.tm_mday,
+        timeinfo.tm_mon + 1,
+        timeinfo.tm_year + 1900,
+        timeinfo.tm_hour,
+        timeinfo.tm_min,
+        timeinfo.tm_sec,
+        _inFlow,
+        _outFlow
+    );
+}
+
 void settingHardware() {
     Serial.begin(115200);
 
@@ -49,6 +82,8 @@ void settingHardware() {
     pinMode(IN_FLOW, INPUT);
     pinMode(OUT_FLOW, INPUT);
     pinMode(INTERRUPTION, INPUT);
+
+    attachInterrupt(digitalPinToInterrupt(INTERRUPTION), interruptionThrow, FALLING);
 
     esp_task_wdt_init(60, true);
 }
@@ -163,19 +198,24 @@ void setup() {
 }
 
 void loop() {
-    // O AsyncWebServer não precisa de nada no loop!
-    // Realiza a leitura digital de cada pino
-    int statusD15 = digitalRead(D15);
-    int statusD4  = digitalRead(D4);
-    int statusD14 = digitalRead(D14);
+    struct tm timeinfo;
 
-    // Exibe os valores no Monitor Serial
-    /*
-    Serial.print("D15: "); Serial.print(statusD15);
-    Serial.print(" | D4: "); Serial.print(statusD4);
-    Serial.print(" | D14: "); Serial.println(statusD14);
-    */
+    static int lastMinutesProcessed = -1;
 
-    // Pequeno atraso para facilitar a leitura humana no monitor
+    // 1. Lógica do Relógio (NTP)
+    if (getLocalTime(&timeinfo)) {
+        int currentMinutes = timeinfo.tm_min;
+
+        // Chama a routine a cada 10 minutos
+        if (currentMinutes % 1 == 0) {
+            if (currentMinutes != lastMinutesProcessed) {
+                routineThrow(timeinfo);
+                lastMinutesProcessed = currentMinutes;
+            }
+        } else {
+            lastMinutesProcessed = -1;
+        }
+    }
+
     delay(250);
 }
