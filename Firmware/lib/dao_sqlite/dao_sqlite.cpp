@@ -1,7 +1,7 @@
 #include <dao_sqlite.h>
 #include <esp_task_wdt.h>
 
-#define OPS_LIMIT 100
+#define OPS_LIMIT 250
 #define MUTEX_TIMEBLOCK 5000
 
 HandlerCallback myHandlerCallback = nullptr;
@@ -137,14 +137,11 @@ bool SQLiteDAO::SQLiteStep(SQLitePrepareObject *slpo) {
         esp_task_wdt_reset();
     }
 
-    Serial.printf("[%s] Mutex locked.\n", __func__);
-
     bool __success = false;
 
     SQLiteResetHandlerCount();
     __success = sqlite3_step(slpo->getRes()) == SQLITE_ROW;
 
-    Serial.printf("[%s] Mutex released.\n", __func__);
     xSemaphoreGive(this->sqliteMutex);
 
     return __success;
