@@ -97,6 +97,10 @@ String IndexPage::body() {
                     <div class="painel-header">Route: /raw</div>
                     <iframe src="/raw" title="Raw Data"></iframe>
                 </div>
+                <div class="painel" style="min-height: 550px;">
+                    <div class="painel-header">Route: /stats</div>
+                    <iframe src="/stats" title="Raw Data"></iframe>
+                </div>
             </div>
     )";
 
