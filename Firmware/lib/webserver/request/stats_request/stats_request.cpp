@@ -6,7 +6,7 @@
 
 AsyncCallbackWebHandler& StatsRequest::onServer() {
     // PAGE 'stats data' http://[IP-DO-ESP]/stats
-    return this->webServer->on("/raw", HTTP_GET, [this](AsyncWebServerRequest *request) {
+    return this->webServer->on("/stats", HTTP_GET, [this](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
         Page *statsPage = new StatsPage();
