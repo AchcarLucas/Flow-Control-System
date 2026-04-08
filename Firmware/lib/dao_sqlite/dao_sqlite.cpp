@@ -72,11 +72,11 @@ void SQLiteDAO::close() {
 
 bool SQLiteDAO::SQLiteExec(const std::string sql) {
     while (xSemaphoreTake(this->sqliteMutex, pdMS_TO_TICKS(MUTEX_TIMEBLOCK)) != pdTRUE) {
-        Serial.printf("[%s] Waiting for Mutex to be released.", __func__);
+        Serial.printf("[%s] Waiting for Mutex to be released.\n", __func__);
         esp_task_wdt_reset();
     }
 
-    Serial.printf("[%s] Mutex locked.", __func__);
+    Serial.printf("[%s] Mutex locked.\n", __func__);
 
     bool __success = true;
 
@@ -91,7 +91,7 @@ bool SQLiteDAO::SQLiteExec(const std::string sql) {
         __success = false;
     }
 
-    Serial.printf("[%s] Mutex released.", __func__);
+    Serial.printf("[%s] Mutex released.\n", __func__);
     xSemaphoreGive(this->sqliteMutex);
 
     return __success;
@@ -99,11 +99,11 @@ bool SQLiteDAO::SQLiteExec(const std::string sql) {
 
 SQLitePrepareObject* SQLiteDAO::SQLitePrepare(const std::string sql) {
     while (xSemaphoreTake(this->sqliteMutex, pdMS_TO_TICKS(MUTEX_TIMEBLOCK)) != pdTRUE) {
-        Serial.printf("[%s] Waiting for Mutex to be released.", __func__);
+        Serial.printf("[%s] Waiting for Mutex to be released.\n", __func__);
         esp_task_wdt_reset();
     }
 
-    Serial.printf("[%s] Mutex locked.", __func__);
+    Serial.printf("[%s] Mutex locked.\n", __func__);
 
     SQLitePrepareObject *slpo = nullptr;
     sqlite3_stmt *res = nullptr;
@@ -117,7 +117,7 @@ SQLitePrepareObject* SQLiteDAO::SQLitePrepare(const std::string sql) {
         this->slpoList.push_back(slpo);
     }
 
-    Serial.printf("[%s] Mutex released.", __func__);
+    Serial.printf("[%s] Mutex released.\n", __func__);
     xSemaphoreGive(this->sqliteMutex);
 
     return slpo;
@@ -128,18 +128,18 @@ bool SQLiteDAO::SQLiteStep(SQLitePrepareObject *slpo) {
         return false;
 
     while (xSemaphoreTake(this->sqliteMutex, pdMS_TO_TICKS(MUTEX_TIMEBLOCK)) != pdTRUE) {
-        Serial.printf("[%s] Waiting for Mutex to be released.", __func__);
+        Serial.printf("[%s] Waiting for Mutex to be released.\n", __func__);
         esp_task_wdt_reset();
     }
 
-    Serial.printf("[%s] Mutex locked.", __func__);
+    Serial.printf("[%s] Mutex locked.\n", __func__);
 
     bool __success = false;
 
     SQLiteResetHandlerCount();
     __success = sqlite3_step(slpo->getRes()) == SQLITE_ROW;
 
-    Serial.printf("[%s] Mutex released.", __func__);
+    Serial.printf("[%s] Mutex released.\n", __func__);
     xSemaphoreGive(this->sqliteMutex);
 
     return __success;
@@ -150,11 +150,11 @@ bool SQLiteDAO::SQLiteFinalize(SQLitePrepareObject *slpo) {
         return false;
 
     while (xSemaphoreTake(this->sqliteMutex, pdMS_TO_TICKS(MUTEX_TIMEBLOCK)) != pdTRUE) {
-        Serial.printf("[%s] Waiting for Mutex to be released.", __func__);
+        Serial.printf("[%s] Waiting for Mutex to be released.\n", __func__);
         esp_task_wdt_reset();
     }
 
-    Serial.printf("[%s] Mutex locked.", __func__);
+    Serial.printf("[%s] Mutex locked.\n", __func__);
 
     bool __success = false;
 
@@ -167,7 +167,7 @@ bool SQLiteDAO::SQLiteFinalize(SQLitePrepareObject *slpo) {
         __success = true;
     }
 
-    Serial.printf("[%s] Mutex released.", __func__);
+    Serial.printf("[%s] Mutex released.\n", __func__);
     xSemaphoreGive(this->sqliteMutex);
 
     return __success;
