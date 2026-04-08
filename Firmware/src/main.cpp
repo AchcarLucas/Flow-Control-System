@@ -15,6 +15,8 @@
 #include <index_request.h>
 #include <analysis_request.h>
 #include <raw_request.h>
+#include <stats_request.h>
+
 #include <simulate_request.h>
 #include <cleanup_request.h>
 #include <reset_request.h>
@@ -22,6 +24,7 @@
 #include <delete_request.h>
 
 #include <sample_api.h>
+#include <stats_api.h>
 
 AsyncWebServer *webServer;
 
@@ -32,16 +35,18 @@ RoutineMonitor *routineMonitor;
 WebServer *indexRequest;
 WebServer *analysisRequest;
 WebServer *rawRequest;
-WebServer *cleanupRequest;
+WebServer *statsRequest;
 
 // WebServer GET
 WebServer *simulateRequest;
+WebServer *cleanupRequest;
 WebServer *resetRequest;
 WebServer *downloadRequest;
 WebServer *deleteRequest;
 
 // WebServer API
 WebServer *sampleAPI;
+WebServer *statsAPI;
 
 void settingHardware() {
     Serial.begin(115200);
@@ -117,6 +122,9 @@ void initServer() {
     rawRequest = new RawRequest(webServer, dataMonitor);
     rawRequest->onServer();
 
+    statsRequest = new StatsRequest(webServer, dataMonitor);
+    statsRequest->onServer();
+
     // WebServer GET
     simulateRequest = new SimulateRequest(webServer, dataMonitor);
     simulateRequest->onServer();
@@ -136,6 +144,9 @@ void initServer() {
     // WebServer API
     sampleAPI = new SampleAPI(webServer, dataMonitor);
     sampleAPI->onServer();
+
+    statsAPI = new StatsAPI(webServer, dataMonitor);
+    statsAPI->onServer();
 
     webServer->begin();
 
