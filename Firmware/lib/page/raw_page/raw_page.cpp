@@ -124,8 +124,6 @@ String RawPage::pagination() {
         html += "<li><a class='disabled'>Próxima</a></li>";
     }
 
-    html += "<li><a href='javascript:location.reload();'>&#x21BB;</a></li>";
-
     html += "</ul><br>";
 
     return html;
@@ -135,6 +133,7 @@ String RawPage::tools() {
     String html;
 
     html += "<div style='text-align: center; margin: 20px 0; width: 100%;'>";
+    html += "<a href='javascript:location.reload();' class='button'>↻</a></li>";
     html += DEBUG ? "<a href='/simulate' class='button'>Simulate Flow</a>" : "";
     html += DEBUG ? "<a href='/cleanup' class='button'>Cleanup Optimization Database (" + String(CLEANUP) + ")</a>" : "";
     html += "<a href='/reset' class='button'>Reset Database</a>";
