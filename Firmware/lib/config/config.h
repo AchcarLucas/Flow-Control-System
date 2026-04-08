@@ -31,8 +31,6 @@ const int daylightOffset_sec = 0;
     #define SerialPrintf(...)
 #endif
 
-#define PRINT_FREE_RAM() Serial.printf("Free RAM: %d bytes\n", esp_get_free_heap_size())
-
 #define CHECK_DEBUG() if (DEBUG != 1) return
 
 #define STARTING_SERVER_PROCESSING() digitalWrite(LED_PIN, HIGH)
