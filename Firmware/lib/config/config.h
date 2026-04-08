@@ -21,6 +21,16 @@ const long gmtOffset_sec = TZS * 3600;
 // Configuração do horário de verão: 3600 se houver horário de verão
 const int daylightOffset_sec = 0;
 
+#if DEBUG != 0
+    #define SerialPrint(x) Serial.print(x)
+    #define SerialPrintln(x) Serial.println(x)
+    #define SerialPrintf(...) Serial.printf(__VA_ARGS__)
+#else
+    #define SerialPrint(x)
+    #define SerialPrintln(x)
+    #define SerialPrintf(...)
+#endif
+
 #define CHECK_DEBUG() if (DEBUG != 1) return
 
 #define STARTING_SERVER_PROCESSING() digitalWrite(LED_PIN, HIGH)
