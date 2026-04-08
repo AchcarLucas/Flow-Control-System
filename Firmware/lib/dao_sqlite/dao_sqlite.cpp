@@ -44,7 +44,12 @@ SQLiteDAO::SQLiteDAO(const std::string fileName) {
 
     std::string path_file = "/littlefs/" + fileName;
 
-    if (sqlite3_open(path_file.c_str(), &this->db) != SQLITE_OK) {
+    int flags =
+            SQLITE_OPEN_READWRITE |
+            SQLITE_OPEN_CREATE    |
+            SQLITE_OPEN_FULLMUTEX;
+
+    if (sqlite3_open_v2(path_file.c_str(), &this->db, flags, NULL) != SQLITE_OK) {
         Serial.printf("An error occurred while opening the SQLite file <%s> \n", path_file.c_str());
         return;
     }
