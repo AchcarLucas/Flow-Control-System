@@ -1,4 +1,5 @@
-DELETE FROM sample; DELETE FROM sqlite_sequence WHERE name='sample';
+DELETE FROM sample; 
+-- DELETE FROM sqlite_sequence WHERE name='sample';
 
 INSERT INTO sample (timestamp, sampling_time, in_flow, out_flow)
 WITH RECURSIVE
