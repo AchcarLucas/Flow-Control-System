@@ -8,9 +8,9 @@
 
 class SampleJson : public JSON {
     private:
-        std::list<Sample> samples;
+        std::list<Sample> *samples;
     public:
-        SampleJson(std::list<Sample> samples) : samples(samples) {}
+        SampleJson(std::list<Sample> *samples=nullptr) : samples(samples) {}
         virtual String serialize() override;
 };
 

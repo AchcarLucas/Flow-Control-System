@@ -3,10 +3,12 @@
 #include <ArduinoJson.h>
 
 String SampleJson::serialize() {
+    if (this->samples == nullptr) return String("");
+
     JsonDocument doc;
     JsonArray array = doc.createNestedArray("data");
 
-    for (const auto& sample : this->samples) {
+    for (const auto& sample : *this->samples) {
         JsonObject obj = array.add<JsonObject>();
 
         obj["id"] = sample.id;
@@ -16,7 +18,7 @@ String SampleJson::serialize() {
         obj["out"] = sample.out;
     }
 
-    doc["total"] = this->samples.size();
+    doc["total"] = this->samples->size();
     doc["status"] = "success";
 
     // Serializar para string

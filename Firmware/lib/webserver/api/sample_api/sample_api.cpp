@@ -22,7 +22,7 @@ AsyncCallbackWebHandler& SampleAPI::onServer() {
 
         std::list<Sample> samples = this->getDataMonitor()->selectSamples(tStart, tEnd);
 
-        JSON *json = new SampleJson(samples);
+        JSON *json = new SampleJson(&samples);
         
         request->send(200, "application/json", json->serialize());
 
