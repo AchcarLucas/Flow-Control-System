@@ -70,27 +70,29 @@ void SQLiteDAO::close() {
 }
 
 bool SQLiteDAO::SQLiteExec(const std::string sql) {
-    char *zErrMsg = 0;
+    bool __success = true;
 
     // Faz o Mutex aguardar até ser possível chamar o 'sqlite3_exec' novamente
     if (xSemaphoreTake(this->sqliteMutex, portMAX_DELAY) == pdTRUE) {
         SQLiteResetHandlerCount();
+
+        char *zErrMsg = 0;
         int resultExec = sqlite3_exec(this->db, sql.c_str(), NULL, NULL, &zErrMsg);
 
         if (resultExec != SQLITE_OK) {
             Serial.printf("[SQL Error] <%s> when did you try to execute the SQL command <%s>\n", zErrMsg, sql.c_str());
             sqlite3_free(zErrMsg);
-            return false;
+            __success = false;
         }
 
         // Liberação do Mutex
         xSemaphoreGive(this->sqliteMutex);
     } else {
-        Serial.printf("[Mutex Error] <%s> when did you try to execute the SQL command <%s>\n", zErrMsg, sql.c_str());
+        Serial.printf("[Mutex Error] when did you try to execute the SQL command <%s>\n", sql.c_str());
         return false;
     }
 
-    return true;
+    return __success;
 }
 
 SQLitePrepareObject* SQLiteDAO::SQLitePrepare(const std::string sql) {
