@@ -30,6 +30,7 @@ class SQLiteDAO {
     protected:
         sqlite3 *db;
         std::list<SQLitePrepareObject *> slpoList;
+        SemaphoreHandle_t sqliteMutex;
     private:
     public:
         SQLiteDAO(const std::string fileName);

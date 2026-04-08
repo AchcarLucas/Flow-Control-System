@@ -32,12 +32,19 @@ void SQLiteDAO::handlerCallback(HandlerCallback &handlerCallback) {
 }
 
 SQLiteDAO::SQLiteDAO(const std::string fileName) {
+    this->sqliteMutex = xSemaphoreCreateMutex();
+
+    if (this->sqliteMutex == NULL) {
+        Serial.printf("An error occurred while trying to create the mutex.\n");
+        return;
+    }
+
     sqlite3_initialize();
 
     std::string path_file = "/littlefs/" + fileName;
 
     if (sqlite3_open(path_file.c_str(), &this->db) != SQLITE_OK) {
-        Serial.printf("Error to opening <%s> SQLite file\n", path_file.c_str());
+        Serial.printf("An error occurred while opening the SQLite file <%s> \n", path_file.c_str());
         return;
     }
 
@@ -65,12 +72,21 @@ void SQLiteDAO::close() {
 bool SQLiteDAO::SQLiteExec(const std::string sql) {
     char *zErrMsg = 0;
 
-    SQLiteResetHandlerCount();
-    int resultExec = sqlite3_exec(this->db, sql.c_str(), NULL, NULL, &zErrMsg);
+    // Faz o Mutex aguardar até ser possível chamar o 'sqlite3_exec' novamente
+    if (xSemaphoreTake(this->sqliteMutex, portMAX_DELAY) == pdTRUE) {
+        SQLiteResetHandlerCount();
+        int resultExec = sqlite3_exec(this->db, sql.c_str(), NULL, NULL, &zErrMsg);
 
-    if (resultExec != SQLITE_OK) {
-        Serial.printf("Error <%s> when did you try to execute the SQL command <%s>\n", zErrMsg, sql.c_str());
-        sqlite3_free(zErrMsg);
+        if (resultExec != SQLITE_OK) {
+            Serial.printf("[SQL Error] <%s> when did you try to execute the SQL command <%s>\n", zErrMsg, sql.c_str());
+            sqlite3_free(zErrMsg);
+            return false;
+        }
+
+        // Liberação do Mutex
+        xSemaphoreGive(this->sqliteMutex);
+    } else {
+        Serial.printf("[Mutex Error] <%s> when did you try to execute the SQL command <%s>\n", zErrMsg, sql.c_str());
         return false;
     }
 
