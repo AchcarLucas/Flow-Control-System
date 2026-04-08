@@ -15,7 +15,7 @@ class StatsPage : public Page {
         String footer();
     private:
     public:
-        StatsPage();
+        StatsPage() { };
         
         String page() override;
 };
