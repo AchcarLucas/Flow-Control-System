@@ -8,7 +8,7 @@
 #include <config.h>
 
 #include <data_monitor.h>
-#include <sensor_monitor.h>
+#include <routine_monitor.h>
 
 #include <webserver.h>
 
@@ -26,7 +26,7 @@
 AsyncWebServer *webServer;
 
 DataMonitor *dataMonitor;
-SensorMonitor *sensorMonitor;
+RoutineMonitor *routineMonitor;
 
 // WebServer PAGE
 WebServer *indexRequest;
@@ -142,10 +142,10 @@ void initServer() {
     Serial.println("Server successfully initialized.\n");
 }
 
-void initSensor() {
-    Serial.println("Sensor configuration and initialization");
-    sensorMonitor = new SensorMonitor(dataMonitor, IN_FLOW, OUT_FLOW, INTERRUPTION, SAMPLE_STEP);
-    Serial.println("Sensor successfully initialized.\n");
+void initRoutine() {
+    Serial.println("Routine configuration and initialization");
+    routineMonitor = new RoutineMonitor(dataMonitor, IN_FLOW, OUT_FLOW, INTERRUPTION, SAMPLE_STEP);
+    Serial.println("Routine successfully initialized.\n");
 }
 
 void setup() {
@@ -168,12 +168,12 @@ void setup() {
     initWifi();
     initNTP();
     initServer();
-    initSensor();
+    initRoutine();
 
     VISUAL_INDICATOR_OFF();
 }
 
 void loop() {
-    sensorMonitor->running();
+    routineMonitor->running();
     delay(250);
 }
