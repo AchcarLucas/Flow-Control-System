@@ -124,6 +124,8 @@ String RawPage::pagination() {
         html += "<li><a class='disabled'>Próxima</a></li>";
     }
 
+    html += "<li><a href='javascript:location.reload();'>&#x21BB;</a></li>";
+
     html += "</ul><br>";
 
     return html;
