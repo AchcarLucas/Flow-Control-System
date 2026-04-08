@@ -24,7 +24,7 @@ void RoutineMonitor::insertionTask(void *pvParameters) {
     RoutineMonitor* instance = (RoutineMonitor*)pvParameters;
     instance->setInsertionTaskRunning(true);
 
-    Serial.println("Starting insertionTask.");
+    Serial.println("[Task " + String(__func__) + "] Starting insertionTask.");
 
     VISUAL_INDICATOR_ON();
 
@@ -33,9 +33,9 @@ void RoutineMonitor::insertionTask(void *pvParameters) {
     });
 
     if(!result) {
-        Serial.println("[Task RoutineMonitor] An error occurred while inserting into the database.");
+        Serial.println("[Task " + String(__func__) + "] An error occurred while inserting into the database.");
     } else {
-        Serial.println("[Task RoutineMonitor] Inserted completed successfully.");
+        Serial.println("[Task " + String(__func__) + "] Inserted completed successfully.");
     }
 
     VISUAL_INDICATOR_OFF();
@@ -48,16 +48,16 @@ void RoutineMonitor::cleanupTask(void *pvParameters) {
     RoutineMonitor* instance = (RoutineMonitor*)pvParameters;
     instance->setCleanupTaskRunning(true);
 
-    Serial.println("Starting cleanupTask.");
+    Serial.println("[Task " + String(__func__) + "] Starting cleanupTask.");
 
     VISUAL_INDICATOR_ON();
 
     bool result = instance->dataMonitor->cleanup();
 
     if(!result) {
-        Serial.println("[Task RoutineMonitor] An error occurred while attempting to perform an database optimized cleanup on the system.");
+        Serial.println("[Task " + String(__func__) + "] An error occurred while attempting to perform an database optimized cleanup on the system.");
     } else {
-        Serial.println("[Task RoutineMonitor] Cleaning completed successfully.");
+        Serial.println("[Task " + String(__func__) + "] Cleaning completed successfully.");
     }
     VISUAL_INDICATOR_OFF();
 
@@ -66,24 +66,24 @@ void RoutineMonitor::cleanupTask(void *pvParameters) {
 }
 
 void RoutineMonitor::insertionRoutine(struct tm timeinfo) {
-    this->setInsertionRoutineRunning(true);
-
-    Serial.println("Starting insertionRoutine.");
+    Serial.println("[Routine " + String(__func__) + "] Starting insertionRoutine.");
 
     if (this->getInsertionTaskRunning()) {
-        Serial.println("The insertion task is still in progress.");
+        Serial.println("[Routine " + String(__func__) + "] The insertion task is still in progress.");
         return;
     }
 
     if (this->getCleanupTaskRunning()) {
-        Serial.println("The cleanup task is still in progress.");
+        Serial.println("[Routine " + String(__func__) + "] The cleanup task is still in progress.");
         return;
     }
 
     if (this->dataMonitor->lock()) {
-        Serial.println("Data Monitor is locked");
+        Serial.println("[Routine " + String(__func__) + "] Data Monitor is locked");
         return;
     }
+
+    this->setInsertionRoutineRunning(true);
 
     VISUAL_INDICATOR_ON();
 
@@ -92,7 +92,8 @@ void RoutineMonitor::insertionRoutine(struct tm timeinfo) {
 
     this->inFlow = this->outFlow = 0;
 
-    Serial.printf("[InsertionRoutine]: (%02d/%02d/%d - %02d:%02d:%02d) InFlow {%u} OutFlow {%u}\n",
+    Serial.printf("[Routine %s] (%02d/%02d/%d - %02d:%02d:%02d) InFlow {%u} OutFlow {%u}\n",
+        __func__,
         timeinfo.tm_mday,
         timeinfo.tm_mon + 1,
         timeinfo.tm_year + 1900,
@@ -118,28 +119,29 @@ void RoutineMonitor::insertionRoutine(struct tm timeinfo) {
 }
 
 void RoutineMonitor::cleanupRoutine(struct tm timeinfo) {
-    this->setCleanupRoutineRunning(true);
-
-    Serial.println("Starting cleanupRoutine.");
+    Serial.println("[Routine " + String(__func__) + "] Starting cleanupRoutine.");
 
     if (this->getInsertionTaskRunning()) {
-        Serial.println("The insertion task is still in progress.");
+        Serial.println("[Routine " + String(__func__) + "] The insertion task is still in progress.");
         return;
     }
 
     if (this->getCleanupTaskRunning()) {
-        Serial.println("The cleanup task is still in progress.");
+        Serial.println("[Routine " + String(__func__) + "] The cleanup task is still in progress.");
         return;
     }
 
     if (this->dataMonitor->lock()) {
-        Serial.println("Data Monitor is locked");
+        Serial.println("[Routine " + String(__func__) + "] Data Monitor is locked");
         return;
     }
 
+    this->setCleanupRoutineRunning(true);
+
     VISUAL_INDICATOR_ON();
 
-    Serial.printf("[CleanupRoutine]: (%02d/%02d/%d - %02d:%02d:%02d)\n",
+    Serial.printf("[Routine %s] (%02d/%02d/%d - %02d:%02d:%02d)\n",
+        __func__,
         timeinfo.tm_mday,
         timeinfo.tm_mon + 1,
         timeinfo.tm_year + 1900,
@@ -180,7 +182,7 @@ void RoutineMonitor::running() {
         int currentHour = timeinfo.tm_hour;
 
         // Chama a rotina de cleanup em um horário especifico
-        if (currentHour == 0) {
+        if (currentHour == 7) {
             if (currentHour != lastHourProcessed) {
                 cleanupCanRun = true;
                 lastHourProcessed = currentHour;
