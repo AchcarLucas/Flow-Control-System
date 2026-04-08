@@ -91,6 +91,9 @@ String AnalysisPage::script() {
 
                     const dIn = [], dOut = [], dDiff = [];
 
+                    let sumIn = 0;
+                    let sumOut = 0;
+
                     json.data.forEach(s => {
                         const p = s.timestamp.split(' ');
                         const d = p[0].split('/');
@@ -104,6 +107,9 @@ String AnalysisPage::script() {
                             dIn.push({ x: minAbs, y: s.in, dt: `${d[2]}:${d[1]}:${d[0]} ${p[1]}` });
                             dOut.push({ x: minAbs, y: s.out, dt: `${d[2]}:${d[1]}:${d[0]} ${p[1]}` });
                             dDiff.push({ x: minAbs, y: s.out - s.in, dt: `${d[2]}:${d[1]}:${d[0]} ${p[1]}` });
+
+                            sumIn += parseFloat(s.in || 0);
+                            sumOut += parseFloat(s.out || 0);
                         }
                     });
 
@@ -170,6 +176,21 @@ String AnalysisPage::script() {
                                 y: { beginAtZero: true }
                             },
                             plugins: {
+                                legend: {
+                                    position: 'top'
+                                },
+                                subtitle: {
+                                    display: true,
+                                    text: `Total Entrada: ${sumIn.toLocaleString()} | Total Saída: ${sumOut.toLocaleString()}`,
+                                    color: '#555',
+                                    font: {
+                                        size: 14,
+                                        weight: 'bold'
+                                    },
+                                    padding: {
+                                        bottom: 10
+                                    }
+                                },
                                 tooltip: {
                                     callbacks: {
                                         title: (items) => {
