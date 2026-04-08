@@ -15,7 +15,6 @@ DataMonitor::~DataMonitor() {
 
 void DataMonitor::createDatabase() {
     if (this->dao != nullptr) return;
-    this->__lock = true;
 
     Serial.println("Creating SQLiteDAO");
     this->dao = new SQLiteDAO(fileName);
@@ -41,7 +40,6 @@ void DataMonitor::createDatabase() {
     );
 
     // dao->SQLiteExec("CREATE INDEX IF NOT EXISTS index_timestamp ON sample (timestamp);");
-    this->__lock = false;
 }
 
 bool DataMonitor::insertSamples(std::list<Sample> samples) {
@@ -56,7 +54,10 @@ bool DataMonitor::insertSamples(std::list<Sample> samples) {
 
         Serial.println(SQL.c_str());
 
-        if(!dao->SQLiteExec(SQL)) return false;
+        if(!dao->SQLiteExec(SQL)) {
+            this->__lock = false;
+            return false;
+        }
 
         // reset do watchdog para não derrubar a aplicação
         esp_task_wdt_reset();
@@ -191,7 +192,10 @@ bool DataMonitor::removeSamplesByID(uint32_t id) {
 
     Serial.println(SQL.c_str());
 
-    if(!dao->SQLiteExec(SQL)) return false;
+    if(!dao->SQLiteExec(SQL)) {
+        this->__lock = false;
+        return false;
+    }
 
     this->__lock = false;
     return true;
@@ -206,7 +210,10 @@ bool DataMonitor::removeSamplesByTimestamp(uint64_t timestamp) {
 
     Serial.println(SQL.c_str());
 
-    if(!dao->SQLiteExec(SQL)) return false;
+    if(!dao->SQLiteExec(SQL)) {
+        this->__lock = false;
+        return false;
+    }
 
     this->__lock = false;
     return true;
@@ -222,9 +229,15 @@ bool DataMonitor::cleanup(std::string cleaningTime) {
 
     Serial.println(SQL.c_str());
 
-    if(!dao->SQLiteExec(SQL)) return false;
+    if(!dao->SQLiteExec(SQL)) {
+        this->__lock = false;
+        return false;
+    }
 
-    if(!dao->SQLiteExec("PRAGMA incremental_vacuum(100);")) return false;
+    if(!dao->SQLiteExec("PRAGMA incremental_vacuum(100);")) {
+        this->__lock = false;
+        return false;
+    }
 
     this->__lock = false;
     return true;
@@ -239,6 +252,7 @@ bool DataMonitor::reset() {
 
     if (!(LittleFS.exists("/" DATABASE) && LittleFS.remove("/" DATABASE))) {
         Serial.printf("Failed to remove database %s file.\n", DATABASE);
+        this->__lock = false;
         return false;
     }
 
