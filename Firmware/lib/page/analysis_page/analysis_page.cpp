@@ -82,6 +82,8 @@ String AnalysisPage::script() {
 
                 const url = `/api/samples?t_start=${encodeURIComponent(startGMT)}&t_end=${encodeURIComponent(endGMT)}`;
 
+                console.log(`API URL: ${url}`);
+
                 try {
                     const res = await fetch(url);
                     const json = await res.json();
