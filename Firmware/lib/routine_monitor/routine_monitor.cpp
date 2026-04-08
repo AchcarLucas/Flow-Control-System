@@ -182,7 +182,7 @@ void RoutineMonitor::running() {
         int currentHour = timeinfo.tm_hour;
 
         // Chama a rotina de cleanup em um horário especifico
-        if (currentHour == 7) {
+        if (currentHour % 24 == 0) {
             if (currentHour != lastHourProcessed) {
                 cleanupCanRun = true;
                 lastHourProcessed = currentHour;
