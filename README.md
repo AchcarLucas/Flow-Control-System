@@ -13,7 +13,7 @@
 | ----------------------------------------- | -------- |
 | Livia Santos Paes                         | 2216192  |
 | Lucas Campos Achcar                       | 23207401 |
-| Livia Santos Paes                         | 2226810  |
+| Luiz Fernando Sales Lemos                 | 2226810  |
 | Maria Francisca Bezerra da Conceição      | 2010316  |
 
 ---
