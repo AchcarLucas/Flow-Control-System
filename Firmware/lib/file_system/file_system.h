@@ -21,7 +21,7 @@ class FileSystem {
             return instance;
         }
 
-        std::list<String> listFile(String, uint8_t);
+        std::list<String> listFile(String, uint8_t levels = 3);
         bool deleteFile(std::list<String>, std::list<String>);
         bool deleteFile(String file);
         bool fileExist(String file);

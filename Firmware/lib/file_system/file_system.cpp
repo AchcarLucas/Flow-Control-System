@@ -23,17 +23,17 @@ std::list<String> FileSystem::listFile(String directory, uint8_t levels) {
 
     while (file) {
         if (file.isDirectory()) {
-            Serial.printf("  [DIR]  %s\n", file.name());
+            // Serial.printf("  [DIR]  %s\n", file.name());
             dirFile.push_back(" [DIR] " + String(file.name()));
             
             if (levels) {
                 std::list<String> _dirFile = listFile(file.path(), levels - 1);
-                dirFile.insert(_dirFile.end(), _dirFile.begin(), _dirFile.end());
+                dirFile.splice(dirFile.end(), _dirFile);
             }
         }
         else {
-            Serial.printf("  [FILE] %s  |  SIZE: %u bytes\n", file.name(), file.size());
-            dirFile.push_back(String(" [FILE] " + directory + "/" + String(file.name()) + "  |  SIZE " + String(file.size()) + " bytes"));
+            // Serial.printf("  [FILE] %s  |  SIZE: %u bytes\n", file.name(), file.size());
+            dirFile.push_back("[FILE] " + directory + String(file.name()) + "  |  SIZE " + String(file.size()) + " bytes");
         }
         file = root.openNextFile();
     }
