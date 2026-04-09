@@ -9,6 +9,8 @@ AsyncCallbackWebHandler& SampleAPI::onServer() {
     return this->webServer->on("/api/samples", HTTP_GET, [this](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
+        PRINT_FREE_HEAP_SIZE();
+
         if (!(request->hasParam("t_start") && request->hasParam("t_end"))) {
             request->send(404, "application/json", "{ \"status\": \"failed\" }");
             FINISH_SERVER_PROCESSING();
@@ -27,6 +29,8 @@ AsyncCallbackWebHandler& SampleAPI::onServer() {
         request->send(200, "application/json", json->serialize());
 
         delete json;
+
+        PRINT_FREE_HEAP_SIZE();
 
         FINISH_SERVER_PROCESSING();
     });
