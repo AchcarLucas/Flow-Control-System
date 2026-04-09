@@ -22,11 +22,11 @@ void IRAM_ATTR RoutineMonitor::interruptionRoutine() {
 
 void RoutineMonitor::insertionTask(void *pvParameters) {
     RoutineMonitor* instance = (RoutineMonitor*)pvParameters;
+
     instance->setInsertionTaskRunning(true);
+    VISUAL_INDICATOR_ON();
 
     Serial.println("[Task " + String(__func__) + "] Starting insertionTask.");
-
-    VISUAL_INDICATOR_ON();
 
     bool result = instance->dataMonitor->insertSamples({
         Sample(instance->step, instance->lastInFlow, instance->lastOutFlow)
@@ -38,19 +38,19 @@ void RoutineMonitor::insertionTask(void *pvParameters) {
         Serial.println("[Task " + String(__func__) + "] Inserted completed successfully.");
     }
 
+    instance->setInsertionTaskRunning(false);
     VISUAL_INDICATOR_OFF();
 
-    instance->setInsertionTaskRunning(false);
     vTaskDelete(NULL);
 }
 
 void RoutineMonitor::cleanupTask(void *pvParameters) {
     RoutineMonitor* instance = (RoutineMonitor*)pvParameters;
+
     instance->setCleanupTaskRunning(true);
+    VISUAL_INDICATOR_ON();
 
     Serial.println("[Task " + String(__func__) + "] Starting cleanupTask.");
-
-    VISUAL_INDICATOR_ON();
 
     bool result = instance->dataMonitor->cleanup();
 
@@ -59,32 +59,66 @@ void RoutineMonitor::cleanupTask(void *pvParameters) {
     } else {
         Serial.println("[Task " + String(__func__) + "] Cleaning completed successfully.");
     }
-    VISUAL_INDICATOR_OFF();
 
     instance->setCleanupTaskRunning(false);
+    VISUAL_INDICATOR_OFF();
+
     vTaskDelete(NULL);
 }
 
-void RoutineMonitor::insertionRoutine(struct tm timeinfo) {
+void RoutineMonitor::systemTask(void *pvParameters) {
+    RoutineMonitor* instance = (RoutineMonitor*)pvParameters;
+
+    instance->setSystemTaskRunning(true);
+    VISUAL_INDICATOR_ON();
+
+    Serial.println("[Task " + String(__func__) + "] Starting systemTask.");
+
+    uint32_t freeHeap = esp_get_free_heap_size();
+    uint32_t minFreeHeap = esp_get_minimum_free_heap_size();
+    uint32_t largestBlock = heap_caps_get_largest_free_block(MALLOC_CAP_8BIT);
+
+    size_t flashTotal = LittleFS.totalBytes();
+    size_t flashUsed = LittleFS.usedBytes();
+
+    Serial.printf(" - freeHeap %u - minFreeHeap %u - largestBlock %u - flashTotal %u - flashUsed %u\n",
+        freeHeap,
+        minFreeHeap,
+        largestBlock,
+        flashTotal,
+        flashUsed
+    );
+
+    instance->setSystemTaskRunning(false);
+    VISUAL_INDICATOR_ON();
+
+    vTaskDelete(NULL);
+}
+
+bool RoutineMonitor::insertionRoutine(struct tm timeinfo) {
     Serial.println("[Routine " + String(__func__) + "] Starting insertionRoutine.");
 
     if (this->getInsertionTaskRunning()) {
         Serial.println("[Routine " + String(__func__) + "] The insertion task is still in progress.");
-        return;
+        return false;
     }
 
     if (this->getCleanupTaskRunning()) {
         Serial.println("[Routine " + String(__func__) + "] The cleanup task is still in progress.");
-        return;
+        return false;
+    }
+
+    if (this->getSystemRoutineRunning()) {
+        Serial.println("[Routine " + String(__func__) + "] The system task is still in progress.");
+        return false;
     }
 
     if (this->dataMonitor->lock()) {
         Serial.println("[Routine " + String(__func__) + "] Data Monitor is locked");
-        return;
+        return false;
     }
 
     this->setInsertionRoutineRunning(true);
-
     VISUAL_INDICATOR_ON();
 
     this->lastInFlow = this->inFlow;
@@ -114,30 +148,36 @@ void RoutineMonitor::insertionRoutine(struct tm timeinfo) {
         1                                       // Core (1 é o padrão do Arduino)
     );
 
-    VISUAL_INDICATOR_OFF();
     this->setInsertionRoutineRunning(false);
+    VISUAL_INDICATOR_OFF();
+
+    return true;
 }
 
-void RoutineMonitor::cleanupRoutine(struct tm timeinfo) {
+bool RoutineMonitor::cleanupRoutine(struct tm timeinfo) {
     Serial.println("[Routine " + String(__func__) + "] Starting cleanupRoutine.");
 
     if (this->getInsertionTaskRunning()) {
         Serial.println("[Routine " + String(__func__) + "] The insertion task is still in progress.");
-        return;
+        return false;
     }
 
     if (this->getCleanupTaskRunning()) {
         Serial.println("[Routine " + String(__func__) + "] The cleanup task is still in progress.");
-        return;
+        return false;
+    }
+
+    if (this->getSystemRoutineRunning()) {
+        Serial.println("[Routine " + String(__func__) + "] The system task is still in progress.");
+        return false;
     }
 
     if (this->dataMonitor->lock()) {
         Serial.println("[Routine " + String(__func__) + "] Data Monitor is locked");
-        return;
+        return false;
     }
 
     this->setCleanupRoutineRunning(true);
-
     VISUAL_INDICATOR_ON();
 
     Serial.printf("[Routine %s] (%02d/%02d/%d - %02d:%02d:%02d)\n",
@@ -160,8 +200,62 @@ void RoutineMonitor::cleanupRoutine(struct tm timeinfo) {
         1                                       // Core (1 é o padrão do Arduino)
     );
 
-    VISUAL_INDICATOR_OFF();
     this->setCleanupRoutineRunning(false);
+    VISUAL_INDICATOR_OFF();
+
+    return true;
+}
+
+bool RoutineMonitor::systemRoutine(struct tm timeinfo) {
+    Serial.println("[Routine " + String(__func__) + "] Starting systemRoutine.");
+
+    if (this->getInsertionTaskRunning()) {
+        Serial.println("[Routine " + String(__func__) + "] The insertion task is still in progress.");
+        return false;
+    }
+
+    if (this->getCleanupTaskRunning()) {
+        Serial.println("[Routine " + String(__func__) + "] The cleanup task is still in progress.");
+        return false;
+    }
+
+    if (this->getSystemRoutineRunning()) {
+        Serial.println("[Routine " + String(__func__) + "] The system task is still in progress.");
+        return false;
+    }
+
+    if (this->dataMonitor->lock()) {
+        Serial.println("[Routine " + String(__func__) + "] Data Monitor is locked");
+        return false;
+    }
+
+    this->setSystemRoutineRunning(true);
+    VISUAL_INDICATOR_ON();
+
+    Serial.printf("[Routine %s] (%02d/%02d/%d - %02d:%02d:%02d)\n",
+        __func__,
+        timeinfo.tm_mday,
+        timeinfo.tm_mon + 1,
+        timeinfo.tm_year + 1900,
+        timeinfo.tm_hour,
+        timeinfo.tm_min,
+        timeinfo.tm_sec
+    );
+
+    xTaskCreatePinnedToCore(
+        RoutineMonitor::systemTask,             // Função da task
+        "systemTask",                           // Nome
+        4096,                                   // Tamanho da Stack
+        this,                                   // Parâmetros
+        1,                                      // Prioridade
+        NULL,                                   // Handle
+        1                                       // Core (1 é o padrão do Arduino)
+    );
+
+    this->setSystemRoutineRunning(false);
+    VISUAL_INDICATOR_OFF();
+
+    return true;
 }
 
 void RoutineMonitor::running() {
@@ -188,6 +282,13 @@ void RoutineMonitor::running() {
                 this->processedInsertion.setLastProcessed(-1, currentMinute, currentSecond);
             }
         }
+
+        if (currentMinute % 1 == 0 && currentSecond == 0) {
+            if (this->processedSystem.canProcessed(-1, currentMinute, currentSecond)) {
+                this->processedSystem.trigger();
+                this->processedSystem.setLastProcessed(-1, currentMinute, currentSecond);
+            }
+        }
     }
 
     static uint16_t __inFlow = 0;
@@ -205,17 +306,24 @@ void RoutineMonitor::running() {
     // Executa as routine se nenhuma task e interrupção estiver rodando
     if 
     (
-            !this->getInsertionTaskRunning() ||
-            !this->getCleanupTaskRunning() ||
-            !this->getInterruptionRunning()
+        !(
+            this->getInsertionTaskRunning() ||
+            this->getCleanupTaskRunning() ||
+            this->getSystemTaskRunning() ||
+            this->getInterruptionRunning()
+        )
     ) {
         if (!this->getInsertionRoutineRunning() && this->processedCleanup.isTrigger()) {
-            this->cleanupRoutine(timeinfo);
-            this->processedCleanup.resetTrigger();
+            if (this->cleanupRoutine(timeinfo))
+                this->processedCleanup.resetTrigger();
         } 
         else if (!this->getCleanupRoutineRunning() && this->processedInsertion.isTrigger()) {
-            this->insertionRoutine(timeinfo);
-            this->processedInsertion.resetTrigger();
+            if (this->insertionRoutine(timeinfo))
+                this->processedInsertion.resetTrigger();
+        }
+        else if(!this->getSystemRoutineRunning() && this->processedSystem.isTrigger()) {
+            if (this->systemRoutine(timeinfo))
+                this->processedSystem.resetTrigger();
         }
     }
 }

@@ -53,7 +53,7 @@ class RoutineMonitor {
 
         ProcessedRoutine processedCleanup;
         ProcessedRoutine processedInsertion;
-        ProcessedRoutine processedFile;
+        ProcessedRoutine processedSystem;
 
         int pInt, pOut;
         uint16_t step;
@@ -65,6 +65,9 @@ class RoutineMonitor {
 
         bool cleanupTaskRunning;
         bool cleanupRoutineRunning;
+
+        bool systemTaskRunning;
+        bool systemRoutineRunning;
     private:
         volatile uint16_t inFlow, outFlow;
         u_int16_t lastInFlow, lastOutFlow;
@@ -106,11 +109,21 @@ class RoutineMonitor {
         void setCleanupRoutineRunning(bool cleanupRoutineRunning) { this->cleanupRoutineRunning = cleanupRoutineRunning; }
         bool getCleanupRoutineRunning() { return this->cleanupRoutineRunning; }
 
+        // SYSTEM
+        void setSystemTaskRunning(bool systemTaskRunning) { this->systemTaskRunning = systemTaskRunning; }
+        bool getSystemTaskRunning() { return this->systemTaskRunning; }
+
+        void setSystemRoutineRunning(bool systemRoutineRunning) { this->systemRoutineRunning = systemRoutineRunning; }
+        bool getSystemRoutineRunning() { return this->systemRoutineRunning; }
+
         static void insertionTask(void *pvParameters);
-        void insertionRoutine(struct tm);
+        bool insertionRoutine(struct tm);
 
         static void cleanupTask(void *pvParameters);
-        void cleanupRoutine(struct tm);
+        bool cleanupRoutine(struct tm);
+
+        static void systemTask(void *pvParameters);
+        bool systemRoutine(struct tm);
 
         void running();
 };
