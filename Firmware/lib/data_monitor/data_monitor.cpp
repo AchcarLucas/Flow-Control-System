@@ -19,6 +19,9 @@ void DataMonitor::createDatabase() {
 
     this->dao = new SQLiteDAO(fileName);
 
+    dao->SQLiteExec("PRAGMA journal_mode = MEMORY;");
+    dao->SQLiteExec("PRAGMA temp_store = MEMORY;");
+
     dao->SQLiteExec(
         "CREATE TABLE "
         "IF NOT EXISTS " 
