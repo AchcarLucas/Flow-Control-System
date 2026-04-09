@@ -59,7 +59,6 @@ class RoutineMonitor {
         void setCleanupRoutineRunning(bool cleanupRoutineRunning) { this->cleanupRoutineRunning = cleanupRoutineRunning; }
         bool getCleanupRoutineRunning() { return this->cleanupRoutineRunning; }
 
-        
         static void insertionTask(void *pvParameters);
         void insertionRoutine(struct tm);
 
