@@ -74,19 +74,41 @@ Este projeto consiste em um sistema de monitoramento de fluxo capaz de identific
 ## 📑 Documentação Técnica
 
 ### 1. Módulo de Aquisição de Sinal
+
+<img src="./Signal Acquisition Circuit/signal-acquisition-circuit.png" width="500">
+
 O objetivo deste estágio é converter a interrupção física de um feixe óptico em um sinal digital limpo, imune a interferências externas.
 
 #### 1.1. Modulação e Portadora (Osciladores 555)
+
+<div style="display: flex; gap: 10px;">
+  <img src="./Signal%20Acquisition%20Circuit/freq-osc-1khz.png" width="400">
+  <img src="./Signal%20Acquisition%20Circuit/freq-osc-58khz.png" width="400">
+</div>
+
 * **High-Freq-Osc (58 kHz):** Gera a frequência de modulação para os LEDs. Isso garante que o sistema ignore a luz ambiente (contínua) ou lâmpadas fluorescentes (60 Hz).
-* **Low-Freq-Osc:** Provê a base de tempo para a lógica de multiplexação.
+* **Low-Freq-Osc(1KHz):** Provê a base de tempo para a lógica de multiplexação.
+
+<div style="display: flex; gap: 10px;">
+  <img src="./Signal%20Acquisition%20Circuit/demux-circuit.png" width="400">
+  <img src="./Signal%20Acquisition%20Circuit/demux-signal.png" width="400">
+</div>
+
+
+
 * **Demultiplexação (74HC238):** Gerencia a ativação sequencial dos sensores para evitar interferência mútua (*cross-talk*).
 
 #### 1.2. Condicionamento (Filtro RC)
+<img src="./Signal%20Acquisition%20Circuit/filters.png" width="400">
+
 O sinal recebido passa por um filtro passivo para integração dos pulsos de 58 kHz:
 $$fc = \frac{1}{2 \cdot \pi \cdot R \cdot C}$$
 Entrega um nível lógico estável (**HIGH** para feixe livre, **LOW** para feixe interrompido).
 
 ### 2. Lógica de Identificação de Fluxo
+
+<img src="./Signal Conditioning and Flow Identification Circuit/signal-conditioning-and-flow-identification.png" width="400">
+
 Processa a sequência de ativação dos sensores para determinar o sentido do movimento através da detecção de borda.
 
 #### 2.1. Detecção de Sequência (Flip-Flops D)
@@ -101,6 +123,10 @@ Utiliza um Timer 555 para evitar múltiplas contagens (repique) e garantir o pro
 O sistema ignora novas entradas durante este intervalo e reseta a lógica para o próximo evento de fluxo.
 
 ### 3. Definição das Saídas (Interface com ESP32)
+
+<img src="./Processing e Server/processing-server-esp32-circuit.png" width="400">
+
+
 
 | Saída | Tipo | Descrição Operacional |
 | :--- | :--- | :--- |
