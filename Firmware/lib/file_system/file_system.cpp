@@ -1,18 +1,22 @@
 #include <file_system.h>
 
-std::list<String> FileSystem::listDirFile(String dirname, uint8_t levels) {
+#include <LittleFS.h>
+
+std::list<String> FileSystem::listFile(String directory, uint8_t levels) {
     std::list<String> dirFile;
 
-    Serial.printf("\nExploring directory: %s\n", dirname);
+    Serial.printf("\nExploring directory: %s\n", directory);
+
+    File root = LittleFS.open(directory);
 
     if (!root) {
         Serial.println(" - Failed to open directory.");
-        return;
+        return std::list<String>();
     }
 
     if (!root.isDirectory()) {
         Serial.println(" - Not a directory");
-        return;
+        return std::list<String>();
     }
 
     File file = root.openNextFile();
@@ -20,16 +24,16 @@ std::list<String> FileSystem::listDirFile(String dirname, uint8_t levels) {
     while (file) {
         if (file.isDirectory()) {
             Serial.printf("  [DIR]  %s\n", file.name());
-            dirFile.push_back(" [DIR] " + file.name())
+            dirFile.push_back(" [DIR] " + String(file.name()));
             
             if (levels) {
                 std::list<String> _dirFile = listFile(file.path(), levels - 1);
-                dirFile.insert(dirfile.end(), _dirFile.begin(), _dirFile.end());
+                dirFile.insert(_dirFile.end(), _dirFile.begin(), _dirFile.end());
             }
-        }   
+        }
         else {
             Serial.printf("  [FILE] %s  |  SIZE: %u bytes\n", file.name(), file.size());
-            dirfile.push_back(String(" [FILE] " + file.name() + "  |  SIZE " + file.size() + " bytes"))     
+            dirFile.push_back(String(" [FILE] " + directory + "/" + String(file.name()) + "  |  SIZE " + String(file.size()) + " bytes"));
         }
         file = root.openNextFile();
     }
@@ -40,6 +44,7 @@ std::list<String> FileSystem::listDirFile(String dirname, uint8_t levels) {
 bool FileSystem::deleteFile(std::list<String> lStartsWith, std::list<String> lEndsWith) {
     bool resultDeleteFile = true;
 
+    File root = LittleFS.open("/");
     File file = root.openNextFile();
 
     while (file) {
@@ -84,4 +89,8 @@ bool FileSystem::deleteFile(String file) {
     }
     Serial.printf(" - Delete: %s\n", file.c_str());
     return true;
+}
+
+bool FileSystem::fileExist(String file) {
+    return LittleFS.exists(file);
 }
