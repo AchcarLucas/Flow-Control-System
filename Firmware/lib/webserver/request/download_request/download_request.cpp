@@ -1,4 +1,5 @@
 #include <download_request.h>
+#include <file_system.h>
 #include <config.h>
 
 AsyncCallbackWebHandler& DownloadRequest::onServer() {
@@ -6,7 +7,7 @@ AsyncCallbackWebHandler& DownloadRequest::onServer() {
     return this->webServer->on("/download", HTTP_GET, [this](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
         
-        if (!LittleFS.exists("/" DATABASE)) {
+        if (FileSystem::getInstance().fileExist("/" DATABASE)) {
             request->send(404, "text/plain", "An error occurred while trying to download the database " DATABASE " file not found");
             FINISH_SERVER_PROCESSING();
             return;
