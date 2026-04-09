@@ -167,40 +167,31 @@ void RoutineMonitor::cleanupRoutine(struct tm timeinfo) {
 void RoutineMonitor::running() {
     struct tm timeinfo;
 
-    static int lastMinuteProcessed = -1;
-    static int lastHourProcessed = -1;
-
-    static bool cleanupCanRun = false;
-    static bool insertionCanRun = false;
-
-    static uint16_t __inFlow = 0;
-    static uint16_t __outFlow = 0;
-
     // Lógica do Relógio (NTP)
     if (getLocalTime(&timeinfo)) {
-        int currentMinute = timeinfo.tm_min;
         int currentHour = timeinfo.tm_hour;
+        int currentMinute = timeinfo.tm_min;
+        int currentSecond = timeinfo.tm_sec;
 
         // Chama a rotina de cleanup em um horário especifico
-        if (currentHour % 24 == 0) {
-            if (currentHour != lastHourProcessed) {
-                cleanupCanRun = true;
-                lastHourProcessed = currentHour;
+        if (currentHour == 7 && currentMinute == 35) {
+            if (this->processedCleanup.canProcessed(currentHour, currentMinute, -1)) {
+                this->processedCleanup.trigger();
+                this->processedCleanup.setLastProcessed(currentHour, currentMinute, -1);
             }
-        } else {
-            lastHourProcessed = -1;
         }
 
         // Chama a routine a cada X minutos, configurável
-        if (currentMinute % this->step == 0) {
-            if (currentMinute != lastMinuteProcessed) {
-                insertionCanRun = true;
-                lastMinuteProcessed = currentMinute;
+        if (currentMinute % this->step == 0 && currentSecond == 0) {
+            if (this->processedInsertion.canProcessed(-1, currentMinute, currentSecond)) {
+                this->processedInsertion.trigger();
+                this->processedInsertion.setLastProcessed(-1, currentMinute, currentSecond);
             }
-        } else {
-            lastMinuteProcessed = -1;
         }
     }
+
+    static uint16_t __inFlow = 0;
+    static uint16_t __outFlow = 0;
 
     if (
         this->inFlow != __inFlow ||
@@ -218,13 +209,13 @@ void RoutineMonitor::running() {
             !this->getCleanupTaskRunning() ||
             !this->getInterruptionRunning()
     ) {
-        if (!this->getInsertionRoutineRunning() && cleanupCanRun) {
+        if (!this->getInsertionRoutineRunning() && this->processedCleanup.isTrigger()) {
             this->cleanupRoutine(timeinfo);
-            cleanupCanRun = false;
+            this->processedCleanup.resetTrigger();
         } 
-        else if (!this->getCleanupRoutineRunning() && insertionCanRun) {
+        else if (!this->getCleanupRoutineRunning() && this->processedInsertion.isTrigger()) {
             this->insertionRoutine(timeinfo);
-            insertionCanRun = false;
+            this->processedInsertion.resetTrigger();
         }
     }
 }

@@ -4,9 +4,56 @@
 #include <data_monitor.h>
 #include <config.h>
 
+class ProcessedRoutine {
+    private:
+        int lastHourProcessed;
+        int lastMinuteProcessed;
+        int lastSecondProcessed;
+        bool __trigger;
+    public:
+        ProcessedRoutine() :
+            lastHourProcessed(-1), lastMinuteProcessed(-1), lastSecondProcessed(-1) { }
+        void setLastHourProcessed(int lastHourProcessed) { this->lastHourProcessed = lastHourProcessed; }
+        void setLastMinuteProcessed(int lastMinuteProcessed) { this->lastMinuteProcessed = lastMinuteProcessed; }
+        void setLastSecondProcessed(int lastSecondProcessed) { this->lastSecondProcessed = lastSecondProcessed; }
+
+        int getLastHourProcessed() { return this->lastHourProcessed; }
+        int getLastMinuteProcessed() { return this->lastMinuteProcessed; }
+        int getLastSecondProcessed() { return this->lastSecondProcessed; }
+
+        void setLastProcessed(int hour, int minute, int second) {
+            this->lastHourProcessed = hour;
+            this->lastMinuteProcessed = minute;
+            this->lastSecondProcessed = second;
+        }
+
+        bool canProcessed(int hour, int minute, int second) {
+            return  (this->lastHourProcessed != hour) ||
+                    (this->lastMinuteProcessed != minute) ||
+                    (this->lastSecondProcessed != second);
+        }
+
+        void trigger(bool _trigger = true) { this->__trigger = _trigger; }
+
+        bool isTrigger() { return this->__trigger; }
+
+        void resetLastProcessed() {
+            this->lastHourProcessed = this->lastMinuteProcessed = this->lastSecondProcessed = -1;
+            this->__trigger = false;
+        }
+
+        void resetTrigger() {
+            this->trigger(false);
+        }
+};
+
 class RoutineMonitor {
     protected:
         DataMonitor *dataMonitor;
+
+        ProcessedRoutine processedCleanup;
+        ProcessedRoutine processedInsertion;
+        ProcessedRoutine processedFile;
 
         int pInt, pOut;
         uint16_t step;
