@@ -21,7 +21,7 @@ AsyncCallbackWebHandler& StatsAPI::onServer() {
         size_t flashTotal = LittleFS.totalBytes();
         size_t flashUsed = LittleFS.usedBytes();
 
-        Serial.printf("\n\n  - freeHeap %u\n  - minFreeHeap %u\n  - largestBlock %u\n  - flashTotal %u\n  - flashUsed %u\n\n",
+        Serial.printf(" - freeHeap %u - minFreeHeap %u - largestBlock %u - flashTotal %u - flashUsed %u\n",
             freeHeap,
             minFreeHeap,
             largestBlock,
