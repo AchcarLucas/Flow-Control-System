@@ -83,11 +83,10 @@ bool SQLiteDAO::SQLiteExec(const std::string sql) {
 
     Serial.printf("[%s] Mutex locked.\n", __func__);
 
+    char *zErrMsg = 0;
     bool __success = true;
 
     SQLiteResetHandlerCount();
-
-    char *zErrMsg = 0;
     int resultExec = sqlite3_exec(this->db, sql.c_str(), NULL, NULL, &zErrMsg);
 
     if (resultExec != SQLITE_OK) {
@@ -139,7 +138,6 @@ bool SQLiteDAO::SQLiteStep(SQLitePrepareObject *slpo) {
 
     bool __success = false;
 
-    SQLiteResetHandlerCount();
     __success = sqlite3_step(slpo->getRes()) == SQLITE_ROW;
 
     xSemaphoreGive(this->sqliteMutex);
@@ -158,16 +156,17 @@ bool SQLiteDAO::SQLiteFinalize(SQLitePrepareObject *slpo) {
 
     Serial.printf("[%s] Mutex locked.\n", __func__);
 
-    bool __success = false;
+    bool __success = true;
 
-    SQLiteResetHandlerCount();
     int resultFinalize = sqlite3_finalize(slpo->getRes());
 
-    if (resultFinalize == SQLITE_OK) {
-        this->slpoList.remove(slpo);
-        delete slpo;
-        __success = true;
+    if (resultFinalize != SQLITE_OK) {
+        Serial.printf("[%s] An error occurred while executing sqlite3_finalize..\n", __func__);
+        __success = false;
     }
+
+    this->slpoList.remove(slpo);
+    delete slpo;
 
     Serial.printf("[%s] Mutex released.\n", __func__);
     xSemaphoreGive(this->sqliteMutex);
