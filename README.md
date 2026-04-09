@@ -56,12 +56,15 @@ Diferente de soluções dependentes de nuvem, este projeto foca em **Edge Comput
 - [x] Desenvolvimento do firmware para monitoramento em tempo real via sensores (simulados).
 - [x] Armazenamento dos dados em banco de dados local usando SQLite.
 - [x] Servidor Web embarcado para consulta de dados.
-- [ ] Integração com Dashboard via Godot (Em breve).
+- [ ] Desenvolvimento do circuitos de aquisição de sinal
+- [ ] Desenvolvimento do circuitos de condicionamento de sinal
+- [ ] Desenvolvimento do circuitos de identificação de sinal
 
 ## 📂 Estrutura do Projeto
 Para facilitar a navegação, o projeto está dividido da seguinte forma:
 
 ```text
+└── README.md                                           # [Detalhes do Projeto](./README.md)
 ├── Building Blocks/                                    # Prototipagem Geral do Sistema via CAD (SimulIDE)
     └── Processing e Server/                                    # Prototipação do ESP32 como WebServer e Processamento de Dados
     └── Signal Acquisition Circuit                              # Prototipação do Circuito de Aquisição de Sinais
@@ -71,6 +74,7 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
     └── README.md                                               # [Detalhes do Firmware](./Firmware/README.md)
 ├── Hardware - Aspecto Geral (Diagrama de Blocos)/      # Idealização e Diagramação do Projeto Completo
 ├── Idea/                                               # Idealização da Ideia Inicial
+├── Previa/                                             # GIFs e Imagens de Previa do Projeto
 ```
 
 ## 🚀 Previa de Desenvolvimento
