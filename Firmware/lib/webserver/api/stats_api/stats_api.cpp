@@ -12,8 +12,6 @@ AsyncCallbackWebHandler& StatsAPI::onServer() {
     return this->webServer->on("/api/stats", HTTP_GET, [this](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
-        PRINT_FREE_HEAP_SIZE();
-
         uint32_t freeHeap = esp_get_free_heap_size();
         uint32_t minFreeHeap = esp_get_minimum_free_heap_size();
         uint32_t largestBlock = heap_caps_get_largest_free_block(MALLOC_CAP_8BIT);
@@ -40,8 +38,6 @@ AsyncCallbackWebHandler& StatsAPI::onServer() {
         request->send(200, "application/json", json->serialize());
 
         delete json;
-
-        PRINT_FREE_HEAP_SIZE();
     
         FINISH_SERVER_PROCESSING();
     });
