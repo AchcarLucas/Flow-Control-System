@@ -36,7 +36,7 @@ std::list<std::pair<String, size_t>> FileSystem::listFile(String directory, uint
     return dirFile;
 }
 
-bool FileSystem::deleteFile(std::list<String> lStartsWith, std::list<String> lEndsWith) {
+bool FileSystem::deleteFileWith(std::list<String> lStartsWith, std::list<String> lEndsWith) {
     bool resultDeleteFile = true;
 
     File root = LittleFS.open("/");

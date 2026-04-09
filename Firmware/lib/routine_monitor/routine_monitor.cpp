@@ -90,6 +90,13 @@ void RoutineMonitor::systemTask(void *pvParameters) {
         flashUsed
     );
 
+    FileSystem::getInstance().deleteFileWith(
+        {
+            "tmp_"
+        },
+        {}
+    );
+
     std::list<std::pair<String, size_t>> _file = FileSystem::getInstance().listFile("/");
 
     Serial.printf("Exploring directory: /\n");
