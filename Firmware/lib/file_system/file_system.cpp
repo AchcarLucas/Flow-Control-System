@@ -5,8 +5,6 @@
 std::list<String> FileSystem::listFile(String directory, uint8_t levels) {
     std::list<String> dirFile;
 
-    Serial.printf("\nExploring directory: %s\n", directory);
-
     File root = LittleFS.open(directory);
 
     if (!root) {
@@ -23,16 +21,13 @@ std::list<String> FileSystem::listFile(String directory, uint8_t levels) {
 
     while (file) {
         if (file.isDirectory()) {
-            // Serial.printf("  [DIR]  %s\n", file.name());
             dirFile.push_back(" [DIR] " + String(file.name()));
             
             if (levels) {
                 std::list<String> _dirFile = listFile(file.path(), levels - 1);
                 dirFile.splice(dirFile.end(), _dirFile);
             }
-        }
-        else {
-            // Serial.printf("  [FILE] %s  |  SIZE: %u bytes\n", file.name(), file.size());
+        } else {
             dirFile.push_back("[FILE] " + directory + String(file.name()) + "  |  SIZE " + String(file.size()) + " bytes");
         }
         file = root.openNextFile();
