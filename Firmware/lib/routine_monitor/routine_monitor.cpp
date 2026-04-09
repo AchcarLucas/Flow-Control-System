@@ -305,7 +305,7 @@ void RoutineMonitor::running() {
             }
         }
 
-        if (currentMinute % 1 == 0 && currentSecond == 0) {
+        if (currentMinute % 15 == 0 && currentSecond == 0) {
             if (this->processedSystem.canProcessed(-1, currentMinute, currentSecond)) {
                 this->processedSystem.trigger();
                 this->processedSystem.setLastProcessed(-1, currentMinute, currentSecond);
