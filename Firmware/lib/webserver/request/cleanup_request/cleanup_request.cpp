@@ -38,13 +38,12 @@ AsyncCallbackWebHandler& CleanupRequest::onServer() {
         }
 
         if (this->getTaskRunning()) {
-            WaitingPage *waitingPage = new WaitingPage(
+            WaitingPage waitingPage = WaitingPage(
                 "O processo de limpeza já está em andamento. Por favor, aguarde.", 
                 "/cleanup"
             );
 
-            request->send(422, "text/html", waitingPage->page());
-            delete waitingPage;
+            request->send(422, "text/html", waitingPage.page());
 
             FINISH_SERVER_PROCESSING();
             return;
@@ -62,13 +61,12 @@ AsyncCallbackWebHandler& CleanupRequest::onServer() {
 
         this->setTaskStarted(true);
 
-        WaitingPage *waitingPage = new WaitingPage(
+        WaitingPage waitingPage = WaitingPage(
             "Cleanup Optimization Database iniciada! O sistema estará pronto em instantes. Por favor, aguarde.",
             "/cleanup"
         );
 
-        request->send(200, "text/html", waitingPage->page());
-        delete waitingPage;
+        request->send(200, "text/html", waitingPage.page());
 
         FINISH_SERVER_PROCESSING();
     });

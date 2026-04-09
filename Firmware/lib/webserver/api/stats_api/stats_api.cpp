@@ -19,7 +19,7 @@ AsyncCallbackWebHandler& StatsAPI::onServer() {
         size_t flashTotal = LittleFS.totalBytes();
         size_t flashUsed = LittleFS.usedBytes();
 
-        JSON *json = new StatsJson(
+        StatsJson json = StatsJson(
             freeHeap,
             minFreeHeap,
             largestBlock,
@@ -27,9 +27,7 @@ AsyncCallbackWebHandler& StatsAPI::onServer() {
             flashUsed
         );
         
-        request->send(200, "application/json", json->serialize());
-
-        delete json;
+        request->send(200, "application/json", json.serialize());
     
         FINISH_SERVER_PROCESSING();
     });

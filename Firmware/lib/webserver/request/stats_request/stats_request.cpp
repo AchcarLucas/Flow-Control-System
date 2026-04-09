@@ -9,11 +9,9 @@ AsyncCallbackWebHandler& StatsRequest::onServer() {
     return this->webServer->on("/stats", HTTP_GET, [this](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
-        Page *statsPage = new StatsPage();
+        StatsPage statsPage = StatsPage();
 
-        request->send(200, "text/html", statsPage->page());
-
-        delete statsPage;
+        request->send(200, "text/html", statsPage.page());
 
         FINISH_SERVER_PROCESSING();
     });

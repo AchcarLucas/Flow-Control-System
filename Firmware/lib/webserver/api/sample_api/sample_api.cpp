@@ -24,11 +24,9 @@ AsyncCallbackWebHandler& SampleAPI::onServer() {
 
         std::list<Sample> samples = this->getDataMonitor()->selectSamples(tStart, tEnd);
 
-        JSON *json = new SampleJson(&samples);
+        SampleJson json = SampleJson(&samples);
         
-        request->send(200, "application/json", json->serialize());
-
-        delete json;
+        request->send(200, "application/json", json.serialize());
 
         PRINT_FREE_HEAP_SIZE();
 

@@ -40,13 +40,12 @@ AsyncCallbackWebHandler& SimulateRequest::onServer() {
         }
 
         if (this->getTaskRunning()) {
-            WaitingPage *waitingPage = new WaitingPage(
+            WaitingPage waitingPage = WaitingPage(
                 "O processo de inserção já está em andamento. Por favor, aguarde.", 
                 "/simulate"
             );
 
-            request->send(422, "text/html", waitingPage->page());
-            delete waitingPage;
+            request->send(422, "text/html", waitingPage.page());
 
             FINISH_SERVER_PROCESSING();
             return;
@@ -64,13 +63,12 @@ AsyncCallbackWebHandler& SimulateRequest::onServer() {
 
         this->setTaskStarted(true);
 
-        WaitingPage *waitingPage = new WaitingPage(
+        WaitingPage waitingPage = WaitingPage(
             "Simulate iniciada! A inserção estará pronto em instantes. Por favor, aguarde.",
             "/simulate"
         );
 
-        request->send(200, "text/html", waitingPage->page());
-        delete waitingPage;
+        request->send(200, "text/html", waitingPage.page());
 
         FINISH_SERVER_PROCESSING();
     });

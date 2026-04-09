@@ -9,11 +9,9 @@ AsyncCallbackWebHandler& AnalysisRequest::onServer() {
     return this->webServer->on("/analysis", HTTP_GET, [this](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
-        Page *analysisPage = new AnalysisPage(DATABASE);
+        AnalysisPage analysisPage = AnalysisPage(DATABASE);
 
-        request->send(200, "text/html", analysisPage->page());
-
-        delete analysisPage;
+        request->send(200, "text/html", analysisPage.page());
 
         FINISH_SERVER_PROCESSING();
     });

@@ -9,11 +9,9 @@ AsyncCallbackWebHandler& IndexRequest::onServer() {
     return this->webServer->on("/", HTTP_GET, [this](AsyncWebServerRequest *request) {
         STARTING_SERVER_PROCESSING();
 
-        Page *indexPage = new IndexPage();
+        IndexPage indexPage = IndexPage();
 
-        request->send(200, "text/html", indexPage->page());
-
-        delete indexPage;
+        request->send(200, "text/html", indexPage.page());
 
         FINISH_SERVER_PROCESSING();
     });
