@@ -21,6 +21,8 @@ void DataMonitor::createDatabase() {
 
     dao->SQLiteExec("PRAGMA journal_mode = MEMORY;");
     dao->SQLiteExec("PRAGMA temp_store = MEMORY;");
+    dao->SQLiteExec("PRAGMA temp_store = 2;");
+    dao->SQLiteExec("PRAGMA cache_size = 200;");
 
     dao->SQLiteExec(
         "CREATE TABLE "
@@ -33,6 +35,8 @@ void DataMonitor::createDatabase() {
                 "out_flow INTEGER"
         ");"
     );
+
+    dao->SQLiteExec("CREATE INDEX IF NOT EXISTS index_timestamp ON sample (timestamp);");
 }
 
 bool DataMonitor::insertSamples(std::list<Sample> samples) {
