@@ -1,4 +1,5 @@
 #include <routine_monitor.h>
+#include <file_system.h>
 #include <config.h>
 
 void IRAM_ATTR RoutineMonitor::interruptionHandler(void* arg) {
@@ -88,6 +89,15 @@ void RoutineMonitor::systemTask(void *pvParameters) {
         flashTotal,
         flashUsed
     );
+
+    std::list<String> _file = FileSystem::getInstance().listFile("/");
+
+    Serial.printf("Exploring directory: /\n",);
+
+    for (auto file : _file)
+        Serial.printf("%s\n", file.c_str());
+
+    _file.clear();
 
     instance->setSystemTaskRunning(false);
     VISUAL_INDICATOR_ON();
@@ -268,10 +278,10 @@ void RoutineMonitor::running() {
         int currentSecond = timeinfo.tm_sec;
 
         // Chama a rotina de cleanup em um horário especifico
-        if (currentHour % 1 == 0) {
-            if (this->processedCleanup.canProcessed(currentHour, currentMinute, -1)) {
+        if (currentHour % 1 == 0 && currentMinute == 0 && currentSecond == 0) {
+            if (this->processedCleanup.canProcessed(currentHour, currentMinute, currentSecond)) {
                 this->processedCleanup.trigger();
-                this->processedCleanup.setLastProcessed(currentHour, currentMinute, -1);
+                this->processedCleanup.setLastProcessed(currentHour, currentMinute, currentSecond);
             }
         }
 
