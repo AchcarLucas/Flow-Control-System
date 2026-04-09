@@ -45,7 +45,10 @@ O projeto requer uma partição customizada para acomodar o banco de dados. Reco
 | `GET /sample_api`     | Obtém os dados das amostras em relação a uma data inicial e final |
 | `GET /stats_api`      | Obtém os dados de memória e armazenamento do ESP32 |
 
-## 🔧 Configuração de Fuso Horário
+## 🔧 Configurações
+
+A rede `WIFI_SSID` e `WIFI_PASSWORD` devem ser configurado no `env/.env`, faça uma copia do `env/.env-example` com o nome `env/.env` e adicione sua rede wifi
+
+Outras configurações podem ser feitas via ```platformio.ini```
+
 O sistema está configurado para o horário de **São Paulo/SP (UTC-3)**:
-```cpp
-configTime(-3 * 3600, 0, "pool.ntp.org", "time.google.com", "a.ntp.br");
