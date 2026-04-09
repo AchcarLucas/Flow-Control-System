@@ -2,33 +2,33 @@
 
 #include <LittleFS.h>
 
-std::list<String> FileSystem::listFile(String directory, uint8_t levels) {
-    std::list<String> dirFile;
+std::list<std::pair<String, size_t>> FileSystem::listFile(String directory, uint8_t levels) {
+    std::list<std::pair<String, size_t>> dirFile;
 
     File root = LittleFS.open(directory);
 
     if (!root) {
         Serial.println(" - Failed to open directory.");
-        return std::list<String>();
+        return dirFile;
     }
 
     if (!root.isDirectory()) {
         Serial.println(" - Not a directory");
-        return std::list<String>();
+        return dirFile;
     }
 
     File file = root.openNextFile();
 
     while (file) {
         if (file.isDirectory()) {
-            dirFile.push_back(" [DIR] " + String(file.name()));
+            dirFile.push_back(std::make_pair(String(file.name()), -1));
             
             if (levels) {
-                std::list<String> _dirFile = listFile(file.path(), levels - 1);
+                std::list<std::pair<String, size_t>> _dirFile = listFile(file.path(), levels - 1);
                 dirFile.splice(dirFile.end(), _dirFile);
             }
         } else {
-            dirFile.push_back("[FILE] " + directory + String(file.name()) + "  |  SIZE " + String(file.size()) + " bytes");
+            dirFile.push_back(std::make_pair(directory + String(file.name()), file.size()));
         }
         file = root.openNextFile();
     }

@@ -90,12 +90,17 @@ void RoutineMonitor::systemTask(void *pvParameters) {
         flashUsed
     );
 
-    std::list<String> _file = FileSystem::getInstance().listFile("/");
+    std::list<std::pair<String, size_t>> _file = FileSystem::getInstance().listFile("/");
 
-    Serial.printf("Exploring directory: /\n",);
+    Serial.printf("Exploring directory: /\n");
 
-    for (auto file : _file)
-        Serial.printf("%s\n", file.c_str());
+    for (auto file : _file) {
+        if(file.second == -1) {
+            Serial.printf(" [DIR] %s\n", file.first.c_str());
+        } else {
+            Serial.printf(" [FILE] %s | SIZE %u\n", file.first.c_str(), file.second);
+        }
+    }
 
     _file.clear();
 
