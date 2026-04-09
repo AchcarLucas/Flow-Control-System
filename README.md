@@ -19,12 +19,17 @@
 ---
 
 ## 📌 Sumário
+
 * [Sobre o Projeto](#-sobre-o-projeto)
 * [Tecnologias e Ferramentas](#-tecnologias-e-ferramentas)
 * [Progresso do Desenvolvimento](#-progresso-do-desenvolvimento)
 * [Estrutura do Projeto](#-estrutura-do-projeto)
 * [Previa de Desenvolvimento](#-previa-de-desenvolvimento)
 * [Histórico de Tarefas](#-histórico-de-tarefas)
+
+> 💡 **README Extra:**
+> - [README Firmware](./Firmware/README.md)
+> - [README Building Blocks](<./Building Blocks/README.md>)
 
 ---
 

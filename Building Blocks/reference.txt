@@ -1,4 +1,0 @@
-- https://www.newtoncbraga.com.br/index.php/como-funciona/592-o-circuito-integrado-555-art011
-- https://www.newtoncbraga.com.br/como-funciona/2416-art370.html
-- https://www.build-electronic-circuits.com/7400-series-integrated-circuits/74hc139-74ls139/
-- https://esp32.implrust.com/esp32-intro/pinout.html
