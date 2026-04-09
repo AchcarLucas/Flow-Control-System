@@ -7,7 +7,7 @@
 
 ---
 
-## 📌 Integrantes do Grupo
+## 🔗 Integrantes do Grupo
 
 |               Nome Completo               |    NA    |
 | ----------------------------------------- | -------- |
@@ -33,13 +33,17 @@
 
 ---
 
-## 📝 Sobre o Projeto
+## 🧩 Sobre o Projeto
 
 O **Monitor de Fluxo de Pessoas** é uma solução de sistemas embarcados projetada para automatizar a contagem e o monitoramento de tráfego em ambientes fechados de forma autônoma e de baixo custo. O sistema utiliza um par de sensores ópticos infravermelhos para detectar não apenas a presença, mas a **direcionalidade do movimento**, permitindo distinguir com precisão entre entradas e saídas.
 
 Diferente de soluções dependentes de nuvem, este projeto foca em **Edge Computing** (Processamento na Borda), onde a lógica de identificação de fluxo e o armazenamento dos registros ocorrem integralmente dentro do microcontrolador ESP32, garantindo privacidade e operabilidade mesmo sem conexão constante com a internet.
 
-### ✨ Principais Funcionalidades
+### 🧠 Diagrama de Blocos do Sistema
+
+<img src="./Hardware - Aspecto Geral (Diagrama de Blocos)/block-diagram-hardware-flow-control-system-detail-2026-03-23.png" width="800">
+
+### ⚙️ Principais Funcionalidades
 
 | Recurso | Descrição |
 | :--- | :--- |
@@ -57,7 +61,7 @@ Diferente de soluções dependentes de nuvem, este projeto foca em **Edge Comput
 * **Banco de Dados:** [SQLite]
 * **Simulações:** [SimulIDE]
 
-## ✨ Progresso do Desenvolvimento
+## 🔧 Progresso do Desenvolvimento
 - [x] Desenvolvimento do firmware para monitoramento em tempo real via sensores (simulados).
 - [x] Armazenamento dos dados em banco de dados local usando SQLite.
 - [x] Servidor Web embarcado para consulta de dados.
