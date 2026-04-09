@@ -19,14 +19,6 @@ AsyncCallbackWebHandler& StatsAPI::onServer() {
         size_t flashTotal = LittleFS.totalBytes();
         size_t flashUsed = LittleFS.usedBytes();
 
-        Serial.printf(" - freeHeap %u - minFreeHeap %u - largestBlock %u - flashTotal %u - flashUsed %u\n",
-            freeHeap,
-            minFreeHeap,
-            largestBlock,
-            flashTotal,
-            flashUsed
-        );
-
         JSON *json = new StatsJson(
             freeHeap,
             minFreeHeap,
