@@ -1,0 +1,51 @@
+# 🚀 Monitor de Fluxo de Pessoas - ESP32 & SQLite3
+
+Sistema de monitoramento de fluxo de pessoas desenvolvido para o **Projeto Integrador Univesp**. O projeto utiliza um ESP32 para contagem via sensores ópticos, com persistência de dados em banco de dados relacional **SQLite3** e interface de gerenciamento via Web.
+
+## 📋 Funcionalidades
+* **Contagem em Tempo Real:** Detecção de passagem via interrupções de hardware.
+* **Banco de Dados Local:** Armazenamento robusto com SQLite3 sobre a partição LittleFS.
+* **Interface Web Assíncrona:** Visualização de dados e comandos via navegador sem travar o processador.
+* **Sincronização NTP:** Registro automático de data/hora real (Fuso Brasília UTC-3).
+* **Auto-Limpeza:** Rotina automática que remove registros com mais de X meses para otimização de espaço.
+* **Exportação de Dados:** Rota direta para download do arquivo `.db` para análise no PC.
+
+## 📚 Bibliotecas Necessárias (Dependencies)
+
+Independente da IDE utilizada (PlatformIO ou Arduino IDE), as seguintes bibliotecas são obrigatórias:
+
+1.  **Sqlite3Esp32** (por Siara-cc): Motor do banco de dados.
+2.  **ESPAsyncWebServer** (por me-no-dev): Servidor Web de alta performance.
+3.  **AsyncTCP** (por me-no-dev): Base para o servidor assíncrono.
+4.  **LittleFS** (Nativa do Core ESP32): Gerenciamento da memória Flash.
+5.  **Time** (Nativa do C): Sincronização e manipulação de data/hora.
+
+## 🛠️ Estrutura de Partições (partitions.csv)
+O projeto requer uma partição customizada para acomodar o banco de dados. Recomendado:
+* **App (Firmware):** 3MB
+* **SPIFFS/LittleFS (Data):** ~944KB
+
+## 🌐 Endpoints Page Local
+| Rota | Descrição |
+| :--- | :--- |
+| `GET /`               | Página principal do sistema. |
+| `GET /analysis`       | Filtro e gráfico de análise dos dados do sistema. |
+| `GET /raw`            | Tabulação com os dados brutos do sistema. |
+| `GET /stats`          | Exibição do estado (saúde) do sistema. |
+## 🌐 Endpoints Request Local
+| Rota | Descrição |
+| :--- | :--- |
+| `GET /simulate`       | Simulação de incremento de fluxo (Inserção SQL). |
+| `GET /cleanup`        | Limpeza os dados antigos para otimização do banco de dados. |
+| `GET /reset`          | Limpeza total dos dados do banco de dados |
+| `GET /download`       | Download do arquivo database `.db` do sistema. |
+## 🌐 Endpoints da API Local
+| Rota | Descrição |
+| :--- | :--- |
+| `GET /sample_api`     | Obtém os dados das amostras em relação a uma data inicial e final |
+| `GET /stats_api`      | Obtém os dados de memória e armazenamento do ESP32 |
+
+## 🔧 Configuração de Fuso Horário
+O sistema está configurado para o horário de **São Paulo/SP (UTC-3)**:
+```cpp
+configTime(-3 * 3600, 0, "pool.ntp.org", "time.google.com", "a.ntp.br");
