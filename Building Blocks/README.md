@@ -7,7 +7,7 @@ Este projeto consiste em um sistema de monitoramento de fluxo capaz de identific
 ## 🛠️ Ferramentas e Tecnologias
 
 ### Software
-* **[SimulIDE 1.0.0](https://simulide.com/p/)**: Simulação do circuito de Aquisição e circuito Condicionamento dos Sinais.
+* **[SimulIDE 1.0.0](https://simulide.com/p/)**: Software para a simulação dos circuitos.
 * **[Visual Studio Code](https://code.visualstudio.com/)**: IDE para Programação do Firmware.
 * **[PlatformIO](https://platformio.org/)**: Embedded Software Development para ESP32.
 * **[ESP-IDF / Arduino](https://www.arduino.cc/en/software/)**: Ambiente de compilação do Firmware ESP32.
