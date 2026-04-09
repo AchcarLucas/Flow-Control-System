@@ -1,5 +1,6 @@
 #include <data_monitor.h>
 #include <esp_task_wdt.h>
+#include <file_system.h>
 
 DataMonitor::DataMonitor(const std::string fileName, std::string cleaningTime) :
     dao(nullptr),
@@ -234,7 +235,7 @@ bool DataMonitor::reset() {
 
     Serial.printf("Deleting database %s file.\n", DATABASE);
 
-    if (!(LittleFS.exists("/" DATABASE) && LittleFS.remove("/" DATABASE))) {
+    if (!FileSystem::getInstance().deleteFile("/" DATABASE)) {
         Serial.printf("Failed to remove database %s file.\n", DATABASE);
         this->__lock = false;
         return false;
