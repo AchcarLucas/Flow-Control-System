@@ -24,17 +24,15 @@ AsyncCallbackWebHandler& RawRequest::onServer() {
 
         Serial.println("Current Page: " + String(currentPage) + " Total Pages: " + String(totalPages));
 
-        Page *rawPage = new RawPage(
+        RawPage rawPage = RawPage(
             DATABASE,
             currentPage,
             totalPages,
             limit,
-            samples
+            &samples
         );
 
-        request->send(200, "text/html", rawPage->page());
-
-        delete rawPage;
+        request->send(200, "text/html", rawPage.page());
 
         FINISH_SERVER_PROCESSING();
     });

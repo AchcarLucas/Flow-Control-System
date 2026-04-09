@@ -78,7 +78,7 @@ String RawPage::table() {
                 </tr>
             )";
 
-    for (const auto& sample : this->samples) {
+    for (const auto& sample : *this->samples) {
         html += "<tr>";
         html += "<td>" + String(sample.id) + "</td>";
         html += "<td>" + String(sample.timestamp.c_str()) + "</td>";

@@ -28,14 +28,14 @@ class RawPage : public Page {
         uint16_t totalPages;
         uint16_t limit;
 
-        std::list<Sample> samples;
+        std::list<Sample> *samples;
     public:
         RawPage(
                 String database,
                 uint32_t currentPage,
                 uint16_t totalPages,
                 uint16_t limit,
-                std::list<Sample> samples
+                std::list<Sample> *samples
         ) : database(database),
             currentPage(currentPage),
             totalPages(totalPages),
