@@ -93,7 +93,7 @@ void initNTP() {
     Serial.print("Waiting for NTP synchronization...");
 
     // Sincroniza com os servidores NTP
-    configTime(gmtOffset_sec, daylightOffset_sec, "pool.ntp.org", "time.google.com");
+    configTime(gmtOffset_sec, daylightOffset_sec, "pool.ntp.org", "time.google.com", "a.ntp.br");
 
     struct tm timeinfo;
     while (!getLocalTime(&timeinfo)) {
