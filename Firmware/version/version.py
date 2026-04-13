@@ -23,4 +23,6 @@ env.Append(CPPDEFINES=[
     ("BUILD_VERSION", f"\\\"{version_string}\\\"")
 ])
 
+print(f" - BUILD_VERSION: {version_string}")
+
 print("-" * 80)
