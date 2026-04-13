@@ -112,7 +112,7 @@ void RoutineMonitor::systemTask(void *pvParameters) {
     _file.clear();
 
     instance->setSystemTaskRunning(false);
-    VISUAL_INDICATOR_ON();
+    VISUAL_INDICATOR_OFF();
 
     vTaskDelete(NULL);
 }
