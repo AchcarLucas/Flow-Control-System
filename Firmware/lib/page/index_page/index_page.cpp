@@ -78,7 +78,7 @@ String IndexPage::header() {
             "</head>";
 
     String mode = DEBUG ? "[Debug Mode]" : "[Production Mode]";
-    html += "<header><h2>" + String(TITLE) + " - Univesp - PI V</h2><h3 style=\"text-align: center;\">" + mode + "</h3></header>";
+    html += "<header><h2>" + String(TITLE) + " - Univesp - PI V</h2><h3 style=\"text-align: center;\">" + mode + " [VERSION] " + BUILD_VERSION + "</h3></header>";
 
     return html;
 }
