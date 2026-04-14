@@ -19,12 +19,15 @@ AsyncCallbackWebHandler& StatsAPI::onServer() {
         size_t flashTotal = LittleFS.totalBytes();
         size_t flashUsed = LittleFS.usedBytes();
 
+        ulong uptimeMillis = millis();
+
         StatsJson json = StatsJson(
             freeHeap,
             minFreeHeap,
             largestBlock,
             flashTotal,
-            flashUsed
+            flashUsed,
+            uptimeMillis
         );
         
         request->send(200, "application/json", json.serialize());

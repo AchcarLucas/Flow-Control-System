@@ -16,7 +16,7 @@ String StatsJson::serialize() {
     flash["used"] = this->flashUsed;
     flash["free"] = this->flashTotal - this->flashUsed;
 
-    doc["uptime_ms"] = millis();
+    doc["uptime_ms"] = this->uptimeMillis;
     doc["status"] = "online";
 
     // 3. Serialização e Envio

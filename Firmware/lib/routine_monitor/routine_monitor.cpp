@@ -161,7 +161,7 @@ bool RoutineMonitor::insertionRoutine(struct tm timeinfo) {
     );
 
     xTaskCreatePinnedToCore(
-        RoutineMonitor::insertionTask,           // Função da task
+        RoutineMonitor::insertionTask,          // Função da task
         "insertionTask",                        // Nome
         4096,                                   // Tamanho da Stack
         this,                                   // Parâmetros
@@ -213,8 +213,8 @@ bool RoutineMonitor::cleanupRoutine(struct tm timeinfo) {
     );
 
     xTaskCreatePinnedToCore(
-        RoutineMonitor::cleanupTask,           // Função da task
-        "cleanupTask",                        // Nome
+        RoutineMonitor::cleanupTask,            // Função da task
+        "cleanupTask",                          // Nome
         4096,                                   // Tamanho da Stack
         this,                                   // Parâmetros
         1,                                      // Prioridade
