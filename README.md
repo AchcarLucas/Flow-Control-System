@@ -65,9 +65,10 @@ Diferente de soluções dependentes de nuvem, este projeto foca em **Edge Comput
 - [x] Desenvolvimento do firmware para monitoramento em tempo real via sensores (simulados).
 - [x] Armazenamento dos dados em banco de dados local usando SQLite.
 - [x] Servidor Web embarcado para consulta de dados.
-- [ ] Desenvolvimento do circuitos de aquisição de sinal
-- [ ] Desenvolvimento do circuitos de condicionamento de sinal
-- [ ] Desenvolvimento do circuitos de identificação de sinal
+- [x] Desenvolvimento do circuito de fotosensor
+- [ ] Desenvolvimento do circuito de aquisição de sinal
+- [ ] Desenvolvimento do circuito de condicionamento de sinal
+- [ ] Desenvolvimento do circuito de identificação de sinal
 
 ## 📂 Estrutura do Projeto
 Para facilitar a navegação, o projeto está dividido da seguinte forma:
@@ -76,6 +77,7 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 └── README.md                                           # [Detalhes do Projeto](./README.md)
 ├── Building Blocks/                                    # Prototipagem Geral do Sistema via CAD (SimulIDE)
     └── Processing e Server/                                    # Prototipação do ESP32 como WebServer e Processamento de Dados
+    └── Sensors and Receivers                                   # Prototipação do Circuito do Fotosensor
     └── Signal Acquisition Circuit                              # Prototipação do Circuito de Aquisição de Sinais
     └── Signal Conditioning and Flow Identification Circuit     # Prototipação do Circuito de Condicionamento e Identificação de Fluxo
     └── README.md                                               # [Detalhes do Building Blocks](./Building Blocks/README.md)
@@ -116,7 +118,9 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 | ✅ Concluído | Prototipação do Projeto utilizando CAD (Computer-Aided Design) |
 | ✅ Concluído | Desenvolvimento do Firmware |
 | ✅ Concluído | Alterações e Correções do Firmware |
-| 🟡 Desenvolvimento | Testes do Firmware para Identificação de Bugs e Leak de Memória |
+| ✅ Concluído | Testes do Firmware para Identificação de Bugs e Leak de Memória |
+| ✅ Concluído  | Projeto e Prototipagem do Fotosensor |
+| 🟡 Desenvolvimento | Desenvolvimento da Enclusure para o Fotosensor |
 | 🔴 Pendente | Desenvolvimento do Circuito de Aquisição de Sinal |
 | 🔴 Pendente | Desenvolvimento do Circuito de Condicionamento e Identificação de Fluxo |
 
