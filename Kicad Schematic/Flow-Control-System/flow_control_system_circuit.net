@@ -1,0 +1,7684 @@
+(export
+	(version "E")
+	(design
+		(source "/home/achcarlucas/Documentos/Projeto Integrador em Computação V/Projeto - Sistema de Controle de Fluxo/Kicad Schematic/Flow-Control-System/signal_acquisition_circuit.kicad_sch")
+		(date "2026-04-24T17:08:08")
+		(tool "Eeschema 10.0.0")
+		(sheet
+			(number "1")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title "Emitter and Receiver Circuit")
+				(company "Emitter and Receiver Circuit")
+				(rev "1.0.0")
+				(date "2026-04-02")
+				(source "emitter_and_receiver_circuit.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+		(sheet
+			(number "2")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title "Signal Acquisition Circuit")
+				(company "Signal Acquisition Circuit")
+				(rev "1.0.0")
+				(date "2026-04-02")
+				(source "signal_acquisition_circuit.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+		(sheet
+			(number "3")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title "Signal Conditioning and Flow Identification Circuit")
+				(company "Signal Conditioning and Flow Identification Circuit")
+				(rev "1.0.0")
+				(date "2026-04-02")
+				(source "signal_conditioning_and_flow_identification_circuit.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+	)
+	(components
+		(comp
+			(ref "J1")
+			(value "GND")
+			(description "Generic connector, single row, 01x01, script generated")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x01, script generated")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Conn_01x01_Pin")
+				(description "Generic connector, single row, 01x01, script generated")
+			)
+			(property
+				(name "Sheetname")
+				(value "Emitter and Receiver Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "fc043c8a-f487-4ed3-9547-8aa00b6e55a1")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J2")
+			(value "+5V")
+			(description "Generic connector, single row, 01x01, script generated")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x01, script generated")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Conn_01x01_Pin")
+				(description "Generic connector, single row, 01x01, script generated")
+			)
+			(property
+				(name "Sheetname")
+				(value "Emitter and Receiver Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "03dd41a1-6c05-478b-9f27-cbdab3fc9096")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J3")
+			(value "receiver_signal")
+			(description "Generic connector, single row, 01x01, script generated")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x01, script generated")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Conn_01x01_Pin")
+				(description "Generic connector, single row, 01x01, script generated")
+			)
+			(property
+				(name "Sheetname")
+				(value "Emitter and Receiver Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "7d5f0ebc-9c7e-46dd-b641-547c7765f67f")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J4")
+			(value "emitter_signal")
+			(description "Generic connector, single row, 01x01, script generated")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x01, script generated")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Conn_01x01_Pin")
+				(description "Generic connector, single row, 01x01, script generated")
+			)
+			(property
+				(name "Sheetname")
+				(value "Emitter and Receiver Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "6ca32099-e896-42c3-8c0f-6f5b318de083")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "KY_1")
+			(value "Conn_01x03")
+			(description "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(libsource
+				(lib "Connector_Generic")
+				(part "Conn_01x03")
+				(description "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(property
+				(name "Sheetname")
+				(value "Emitter and Receiver Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "67e60b31-e2d7-4f3d-9a9e-be2be2267ef9")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "Q1")
+			(value "TIL78")
+			(footprint "LED_THT:LED_D5.0mm_Clear")
+			(datasheet "https://www.rcscomponents.kiev.ua/datasheets/bpw40.pdf")
+			(description "Phototransistor NPN")
+			(fields
+				(field
+					(name "Footprint") "LED_THT:LED_D5.0mm_Clear")
+				(field
+					(name "Datasheet") "https://www.rcscomponents.kiev.ua/datasheets/bpw40.pdf")
+				(field
+					(name "Description") "Phototransistor NPN")
+			)
+			(libsource
+				(lib "Sensor_Optical")
+				(part "BPW40")
+				(description "Phototransistor NPN")
+			)
+			(property
+				(name "Sheetname")
+				(value "Emitter and Receiver Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "npn phototransistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "LED*D5.0mm*Clear*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "f58f3fe5-ced5-4f28-96d2-e1374c915a48")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "Q2")
+			(value "BC547")
+			(datasheet "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_BJTs")
+			(description "Bipolar transistor symbol for simulation only, substrate tied to the emitter")
+			(fields
+				(field
+					(name "Sim.Device") "NPN")
+				(field
+					(name "Sim.Type") "GUMMELPOON")
+				(field
+					(name "Sim.Pins") "1=C 2=B 3=E")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet") "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_BJTs")
+				(field
+					(name "Description") "Bipolar transistor symbol for simulation only, substrate tied to the emitter")
+			)
+			(libsource
+				(lib "Simulation_SPICE")
+				(part "NPN")
+				(description "Bipolar transistor symbol for simulation only, substrate tied to the emitter")
+			)
+			(property
+				(name "Sim.Device")
+				(value "NPN")
+			)
+			(property
+				(name "Sim.Type")
+				(value "GUMMELPOON")
+			)
+			(property
+				(name "Sim.Pins")
+				(value "1=C 2=B 3=E")
+			)
+			(property
+				(name "Sheetname")
+				(value "Emitter and Receiver Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "simulation")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "b43dec59-b04d-4d71-a6c4-41a0a26445db")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R1")
+			(value "200R")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Emitter and Receiver Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "5981d969-5e3b-452f-ba85-83601aa040ba")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R2")
+			(value "10k")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Emitter and Receiver Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "fe841d52-4c7a-4c94-a542-d80c2677b982")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C1")
+			(value "100nF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "ebc9f8e7-564e-4e95-80eb-b6541ae659ae")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C2")
+			(value "1nF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "e2d233a3-b8dc-4282-b8a1-fb725e3a8bac")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C3")
+			(value "100nF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "a6d03d3b-75e3-40db-aa5d-1a9ad522b3a1")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C4")
+			(value "100nF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "217feb46-5394-4153-bc35-799634d46ab4")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C5")
+			(value "100nF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "df6d4a5e-23e9-45d5-8e2f-f33965d6dfae")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C6")
+			(value "100nF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "2cc454ae-d246-40db-a64e-edf1efa503e7")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C8")
+			(value "33nF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "e0e78b7d-5597-439e-8b16-92fedc8f5939")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C9")
+			(value "100nF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "6478708b-ec34-4055-b1b2-7ff8f3dde247")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C10")
+			(value "100nF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "93533924-9c62-422e-bdc0-e578213ec22e")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C11")
+			(value "33nF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "e26ffecd-c745-46d0-ab38-17d51c1ccffd")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C16")
+			(value "100nF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "048b4427-9ce2-41b9-a17e-58cd22e07cec")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C17")
+			(value "100nF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "019cb01b-73ef-417e-a6f3-aac10fd879c3")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D1")
+			(value "1N4148")
+			(footprint "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+			(datasheet "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+			(description "100V 0.15A standard switching diode, DO-35")
+			(fields
+				(field
+					(name "Sim.Device") "D")
+				(field
+					(name "Sim.Pins") "1=K 2=A")
+				(field
+					(name "Footprint") "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+				(field
+					(name "Datasheet") "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+				(field
+					(name "Description") "100V 0.15A standard switching diode, DO-35")
+			)
+			(libsource
+				(lib "Diode")
+				(part "1N4148")
+				(description "50V 1A General Purpose Rectifier Diode, DO-41")
+			)
+			(property
+				(name "Sim.Device")
+				(value "D")
+			)
+			(property
+				(name "Sim.Pins")
+				(value "1=K 2=A")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "diode")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "D*DO?35*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "07cf4d8d-5cf7-46b7-8054-ff26f849b281")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D2")
+			(value "1N4148")
+			(footprint "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+			(datasheet "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+			(description "100V 0.15A standard switching diode, DO-35")
+			(fields
+				(field
+					(name "Sim.Device") "D")
+				(field
+					(name "Sim.Pins") "1=K 2=A")
+				(field
+					(name "Footprint") "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+				(field
+					(name "Datasheet") "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+				(field
+					(name "Description") "100V 0.15A standard switching diode, DO-35")
+			)
+			(libsource
+				(lib "Diode")
+				(part "1N4148")
+				(description "50V 1A General Purpose Rectifier Diode, DO-41")
+			)
+			(property
+				(name "Sim.Device")
+				(value "D")
+			)
+			(property
+				(name "Sim.Pins")
+				(value "1=K 2=A")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "diode")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "D*DO?35*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "2a27dd9d-e54c-4f5c-825c-2e796da53086")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D3")
+			(value "1N4148")
+			(footprint "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+			(datasheet "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+			(description "100V 0.15A standard switching diode, DO-35")
+			(fields
+				(field
+					(name "Sim.Device") "D")
+				(field
+					(name "Sim.Pins") "1=K 2=A")
+				(field
+					(name "Footprint") "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+				(field
+					(name "Datasheet") "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+				(field
+					(name "Description") "100V 0.15A standard switching diode, DO-35")
+			)
+			(libsource
+				(lib "Diode")
+				(part "1N4148")
+				(description "50V 1A General Purpose Rectifier Diode, DO-41")
+			)
+			(property
+				(name "Sim.Device")
+				(value "D")
+			)
+			(property
+				(name "Sim.Pins")
+				(value "1=K 2=A")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "diode")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "D*DO?35*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "8e64a44e-a1cb-4c98-b2e2-6887fd63911d")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D4")
+			(value "1N4148")
+			(footprint "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+			(datasheet "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+			(description "100V 0.15A standard switching diode, DO-35")
+			(fields
+				(field
+					(name "Sim.Device") "D")
+				(field
+					(name "Sim.Pins") "1=K 2=A")
+				(field
+					(name "Footprint") "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+				(field
+					(name "Datasheet") "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+				(field
+					(name "Description") "100V 0.15A standard switching diode, DO-35")
+			)
+			(libsource
+				(lib "Diode")
+				(part "1N4148")
+				(description "50V 1A General Purpose Rectifier Diode, DO-41")
+			)
+			(property
+				(name "Sim.Device")
+				(value "D")
+			)
+			(property
+				(name "Sim.Pins")
+				(value "1=K 2=A")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "diode")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "D*DO?35*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "53507b95-937e-4f8e-b89a-9c920503d4e3")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D5")
+			(value "LED")
+			(description "Light emitting diode")
+			(fields
+				(field
+					(name "Sim.Pins") "1=K 2=A")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Light emitting diode")
+			)
+			(libsource
+				(lib "Device")
+				(part "LED")
+				(description "Light emitting diode")
+			)
+			(property
+				(name "Sim.Pins")
+				(value "1=K 2=A")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "LED diode")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "LED* LED_SMD:* LED_THT:*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "3df7c181-cf0e-4d2d-99d0-a03bf0d12abe")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D6")
+			(value "LED")
+			(description "Light emitting diode")
+			(fields
+				(field
+					(name "Sim.Pins") "1=K 2=A")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Light emitting diode")
+			)
+			(libsource
+				(lib "Device")
+				(part "LED")
+				(description "Light emitting diode")
+			)
+			(property
+				(name "Sim.Pins")
+				(value "1=K 2=A")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "LED diode")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "LED* LED_SMD:* LED_THT:*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "ba503640-5ed7-472d-add4-dbd02571845a")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J5")
+			(value "GND")
+			(description "Generic connector, single row, 01x01, script generated")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x01, script generated")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Conn_01x01_Pin")
+				(description "Generic connector, single row, 01x01, script generated")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "55d172d1-e5d4-45de-a985-016367dfc953")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J6")
+			(value "+5V")
+			(description "Generic connector, single row, 01x01, script generated")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x01, script generated")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Conn_01x01_Pin")
+				(description "Generic connector, single row, 01x01, script generated")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "2bbc76cc-bc8e-4b40-bea9-4836e916b08c")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J7")
+			(value "LF")
+			(description "Generic connector, single row, 01x01, script generated")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x01, script generated")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Conn_01x01_Pin")
+				(description "Generic connector, single row, 01x01, script generated")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "3d2f1989-59e9-432a-aeb0-dcef61f58ff1")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J8")
+			(value "HF")
+			(description "Generic connector, single row, 01x01, script generated")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x01, script generated")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Conn_01x01_Pin")
+				(description "Generic connector, single row, 01x01, script generated")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "7c713ad2-5c0d-4ee2-92fb-0ccf0701133a")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J9")
+			(value "receiver_signal_b")
+			(description "Generic connector, single row, 01x01, script generated")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x01, script generated")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Conn_01x01_Pin")
+				(description "Generic connector, single row, 01x01, script generated")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "529dd8ea-c30d-4d7f-af61-a69f9b0833b3")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J10")
+			(value "receiver_signal_a")
+			(description "Generic connector, single row, 01x01, script generated")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x01, script generated")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Conn_01x01_Pin")
+				(description "Generic connector, single row, 01x01, script generated")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "d2d7085a-2eaf-4a55-9ff4-8891681cfe1c")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J11")
+			(value "emitter_signal_a")
+			(description "Generic connector, single row, 01x01, script generated")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x01, script generated")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Conn_01x01_Pin")
+				(description "Generic connector, single row, 01x01, script generated")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "37ca8cb9-05aa-4667-ae66-c774d1e0dba1")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J12")
+			(value "emitter_signal_b")
+			(description "Generic connector, single row, 01x01, script generated")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x01, script generated")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Conn_01x01_Pin")
+				(description "Generic connector, single row, 01x01, script generated")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "24c868f8-3ff2-4a3b-9f4f-3c641bbc907a")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R3")
+			(value "5k1")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "04df3634-cc98-4f52-9940-6d36742c27ea")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R4")
+			(value "5k1")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "73248c1c-f141-4dca-b9c1-cbbfd094e8d8")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R5")
+			(value "2.2k")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "5c860076-6972-4501-bf4c-96a74aa71c49")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R6")
+			(value "12k")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "39bf49c2-6a38-4259-b830-07d526e4f5c7")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R7")
+			(value "1k")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "60360521-f20c-47bf-be4b-83a0b06c2bd6")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R8")
+			(value "1k")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "cc99231a-a1ac-4d2c-b1ed-d6b5a67de384")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R9")
+			(value "R")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "1d78f7dd-4568-422e-bb0d-82b501cc73cd")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R10")
+			(value "R")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "ce9b99b3-d145-4d1c-9dcf-0c65555bbc90")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R11")
+			(value "200R")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "e090f583-f530-42c8-b25f-f2560010a27f")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R12")
+			(value "1k")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "fef75cb0-50f2-4864-b639-d8bed410232d")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R13")
+			(value "200R")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "c54e4e33-88d9-4f4f-a286-50450ba97ee2")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R14")
+			(value "1k")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "71e76583-be6f-4832-8321-19936fad085b")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R22")
+			(value "1k")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "2fe01ffb-2a2a-4174-8fc2-8ac4bab0d2b7")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R23")
+			(value "1k")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "ad0c4878-3385-446a-a087-34b5afb0a187")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U1")
+			(value "NE555P")
+			(footprint "Package_DIP:DIP-8_W7.62mm")
+			(datasheet "http://www.ti.com/lit/ds/symlink/ne555.pdf")
+			(description "Precision Timers, 555 compatible, PDIP-8")
+			(fields
+				(field
+					(name "Footprint") "Package_DIP:DIP-8_W7.62mm")
+				(field
+					(name "Datasheet") "http://www.ti.com/lit/ds/symlink/ne555.pdf")
+				(field
+					(name "Description") "Precision Timers, 555 compatible, PDIP-8")
+			)
+			(libsource
+				(lib "Timer")
+				(part "NE555P")
+				(description "Precision Timers, 555 compatible, SOIC-8")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "single timer 555")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "DIP*W7.62mm*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "3405f905-42aa-4f71-8c06-763f53f9f55a")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U2")
+			(value "NE555P")
+			(footprint "Package_DIP:DIP-8_W7.62mm")
+			(datasheet "http://www.ti.com/lit/ds/symlink/ne555.pdf")
+			(description "Precision Timers, 555 compatible, PDIP-8")
+			(fields
+				(field
+					(name "Footprint") "Package_DIP:DIP-8_W7.62mm")
+				(field
+					(name "Datasheet") "http://www.ti.com/lit/ds/symlink/ne555.pdf")
+				(field
+					(name "Description") "Precision Timers, 555 compatible, PDIP-8")
+			)
+			(libsource
+				(lib "Timer")
+				(part "NE555P")
+				(description "Precision Timers, 555 compatible, SOIC-8")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "single timer 555")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "DIP*W7.62mm*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "8053a06e-76d6-4689-9349-2676e46e73d4")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U3")
+			(value "74HC238")
+			(datasheet "https://www.ti.com/lit/ds/symlink/cd74hc238.pdf")
+			(description "3-to-8 line decoder/multiplexer, DIP-16/SOIC-16/SSOP-16")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet") "https://www.ti.com/lit/ds/symlink/cd74hc238.pdf")
+				(field
+					(name "Description") "3-to-8 line decoder/multiplexer, DIP-16/SOIC-16/SSOP-16")
+			)
+			(libsource
+				(lib "74xx")
+				(part "74HC238")
+				(description "3-to-8 line decoder/multiplexer, DIP-16/SOIC-16/SSOP-16")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "demux")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "DIP*W7.62mm* SOIC*3.9x9.9mm*P1.27mm* TSSOP*4.4x5mm*P0.65mm*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "1134004d-5739-4c46-a0fb-64b71800ccf6")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "16")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "15")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "13")
+						)
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "11")
+						)
+						(pin
+							(num "10")
+						)
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "7")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U4")
+			(value "74LS08")
+			(datasheet "http://www.ti.com/lit/gpn/sn74LS08")
+			(description "Quad And2")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet") "http://www.ti.com/lit/gpn/sn74LS08")
+				(field
+					(name "Description") "Quad And2")
+			)
+			(libsource
+				(lib "74xx")
+				(part "74LS08")
+				(description "Quad And2")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "TTL and2")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "DIP*W7.62mm*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "ee18415e-3146-4122-8aa6-fd9a7e740340" "e8fe849a-105b-4f72-9c2a-18f4b39b7f3e"
+				"1d39092b-9558-42e1-879d-85e8f6a4ef86" "86653485-83d9-4c18-b257-abb35c367b4e"
+				"0b05deed-89df-48e8-a8c7-de7509d8173f"
+			)
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+				(unit
+					(name "B")
+					(pins
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+					)
+				)
+				(unit
+					(name "C")
+					(pins
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "10")
+						)
+						(pin
+							(num "8")
+						)
+					)
+				)
+				(unit
+					(name "D")
+					(pins
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "13")
+						)
+						(pin
+							(num "11")
+						)
+					)
+				)
+				(unit
+					(name "E")
+					(pins
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "7")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U5")
+			(value "74HC14")
+			(datasheet "http://www.ti.com/lit/gpn/sn74HC14")
+			(description "Hex inverter schmitt trigger")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet") "http://www.ti.com/lit/gpn/sn74HC14")
+				(field
+					(name "Description") "Hex inverter schmitt trigger")
+			)
+			(libsource
+				(lib "74xx")
+				(part "74HC14")
+				(description "Hex inverter schmitt trigger")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Acquisition Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "signal_acquisition_circuit.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "HCMOS not inverter")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "DIP*W7.62mm*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "798559eb-cc87-4778-a3fa-e6f478b94fae" "5943c31f-5583-4849-b528-a3db42c6ec45"
+				"b057d415-56eb-402d-93b4-195c9a82bc46" "56a20bfa-65c2-4b0b-b3bb-0a6b8e2b7022"
+				"2cd4e81f-a70d-4d32-9eaa-9f76dfc61f87" "703282db-929a-45f3-8a7a-e0ac6c0abb0f"
+				"1d1d7543-6ada-487e-add0-eb1070eb542f"
+			)
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+				(unit
+					(name "B")
+					(pins
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+				(unit
+					(name "C")
+					(pins
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+					)
+				)
+				(unit
+					(name "D")
+					(pins
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "8")
+						)
+					)
+				)
+				(unit
+					(name "E")
+					(pins
+						(pin
+							(num "11")
+						)
+						(pin
+							(num "10")
+						)
+					)
+				)
+				(unit
+					(name "F")
+					(pins
+						(pin
+							(num "13")
+						)
+						(pin
+							(num "12")
+						)
+					)
+				)
+				(unit
+					(name "G")
+					(pins
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "7")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C7")
+			(value "100nF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "95e6f2bd-f9fb-4d68-a76e-392441f1579d")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C12")
+			(value "10nF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "d27fc85c-67a0-4bcd-9352-561ee0351361")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C13")
+			(value "270uF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "f3a7845e-b5f9-4a90-861a-77bb0c02bc27")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C14")
+			(value "10uF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "5a471eb3-63b8-4bf5-a7d2-43ea3a13b4d4")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C15")
+			(value "10uF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "ebeaa765-2b96-4d04-b2a6-0d787761889d")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C18")
+			(value "100nF")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "144dc223-48c0-4ac3-974a-186258bb283c")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D7")
+			(value "LED")
+			(description "Light emitting diode")
+			(fields
+				(field
+					(name "Sim.Pins") "1=K 2=A")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Light emitting diode")
+			)
+			(libsource
+				(lib "Device")
+				(part "LED")
+				(description "Light emitting diode")
+			)
+			(property
+				(name "Sim.Pins")
+				(value "1=K 2=A")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "LED diode")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "LED* LED_SMD:* LED_THT:*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "e3d84a01-0699-4f0a-b646-7ef2cc5af92d")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D8")
+			(value "LED")
+			(description "Light emitting diode")
+			(fields
+				(field
+					(name "Sim.Pins") "1=K 2=A")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Light emitting diode")
+			)
+			(libsource
+				(lib "Device")
+				(part "LED")
+				(description "Light emitting diode")
+			)
+			(property
+				(name "Sim.Pins")
+				(value "1=K 2=A")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "LED diode")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "LED* LED_SMD:* LED_THT:*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "9b90079b-c9c5-4bed-afc2-bd5ba2383f28")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D9")
+			(value "LED")
+			(description "Light emitting diode")
+			(fields
+				(field
+					(name "Sim.Pins") "1=K 2=A")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Light emitting diode")
+			)
+			(libsource
+				(lib "Device")
+				(part "LED")
+				(description "Light emitting diode")
+			)
+			(property
+				(name "Sim.Pins")
+				(value "1=K 2=A")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "LED diode")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "LED* LED_SMD:* LED_THT:*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "75209995-a7c0-4016-9d79-3430cde8cb03")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J13")
+			(value "+5V")
+			(description "Generic connector, single row, 01x01, script generated")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x01, script generated")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Conn_01x01_Pin")
+				(description "Generic connector, single row, 01x01, script generated")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "b075d167-c6ee-45a1-80f4-6c5d253881de")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J14")
+			(value "GND")
+			(description "Generic connector, single row, 01x01, script generated")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x01, script generated")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Conn_01x01_Pin")
+				(description "Generic connector, single row, 01x01, script generated")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "4453d8af-34e3-41c0-9f26-77fe0a8c5fd5")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R15")
+			(value "1k")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "9933a18d-69e4-477d-bf9c-6c29b985367a")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R16")
+			(value "1k")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "11290f8f-5c37-45a6-adf5-21ff581843c2")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R17")
+			(value "200R")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "21b58191-c6a5-4282-b72d-dc0aebac3545")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R18")
+			(value "100R")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "49289d3c-65e3-4a9c-a441-96304dc1224d")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R19")
+			(value "100R")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "689b1c46-8c8f-450c-b543-cc8a117e1b93")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R20")
+			(value "10k")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "59cabacc-575f-46de-a60d-1a2b4c5eb02a")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R21")
+			(value "10k")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "a5bc3e08-e89d-455f-9adf-ea1b41f0359a")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U6")
+			(value "NE555P")
+			(footprint "Package_DIP:DIP-8_W7.62mm")
+			(datasheet "http://www.ti.com/lit/ds/symlink/ne555.pdf")
+			(description "Precision Timers, 555 compatible, PDIP-8")
+			(fields
+				(field
+					(name "Footprint") "Package_DIP:DIP-8_W7.62mm")
+				(field
+					(name "Datasheet") "http://www.ti.com/lit/ds/symlink/ne555.pdf")
+				(field
+					(name "Description") "Precision Timers, 555 compatible, PDIP-8")
+			)
+			(libsource
+				(lib "Timer")
+				(part "NE555P")
+				(description "Precision Timers, 555 compatible, SOIC-8")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "single timer 555")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "DIP*W7.62mm*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "315de898-59b5-4dd4-84eb-82b370f0e334")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U7")
+			(value "4093")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "4xxx_IEEE")
+				(part "4093")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "f1862912-6e65-4388-a558-bd7901508473" "9f15ba99-d003-4a72-bbdc-68a41b2463ee"
+				"ace18b15-d93e-4681-b83a-6325be4dd4cc" "17415eba-c505-4eef-98c5-39b02f7ba4b0"
+			)
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+				(unit
+					(name "B")
+					(pins
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+				(unit
+					(name "C")
+					(pins
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "10")
+						)
+					)
+				)
+				(unit
+					(name "D")
+					(pins
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "13")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "11")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U8")
+			(value "74HC74")
+			(datasheet "74xx/74hc_hct74.pdf")
+			(description "Dual D Flip-flop, Set & Reset")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet") "74xx/74hc_hct74.pdf")
+				(field
+					(name "Description") "Dual D Flip-flop, Set & Reset")
+			)
+			(libsource
+				(lib "74xx")
+				(part "74HC74")
+				(description "Dual D Flip-flop, Set & Reset")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(property
+				(name "ki_keywords")
+				(value "TTL DFF")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "DIP*W7.62mm*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "78e305ab-52c9-4c16-b370-dfb23e981162" "cdbd08da-bb77-4184-97b3-0f05fc08f0aa"
+				"05ca1c60-f396-4b08-817b-f841a173ea0c"
+			)
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+					)
+				)
+				(unit
+					(name "B")
+					(pins
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "11")
+						)
+						(pin
+							(num "10")
+						)
+						(pin
+							(num "13")
+						)
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "8")
+						)
+					)
+				)
+				(unit
+					(name "C")
+					(pins
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "7")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U9")
+			(value "4093")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "4xxx_IEEE")
+				(part "4093")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "Signal Conditioning and Flow Identification Circuit")
+			)
+			(property
+				(name "Sheetfile")
+				(value "")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "f0644bb4-a3a7-49b4-947d-f28b1ffb924c" "d4ab8b20-1f7b-4f8c-b6d8-a70e1a57756e"
+				"b9379d38-58fa-4aa8-b0b2-91161eea9d52" "9a52944c-b586-48ac-9e76-3f2ddc199b41"
+			)
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+				(unit
+					(name "B")
+					(pins
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+				(unit
+					(name "C")
+					(pins
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "10")
+						)
+					)
+				)
+				(unit
+					(name "D")
+					(pins
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "13")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "11")
+						)
+					)
+				)
+			)
+		)
+	)
+	(groups
+		(group
+			(name "")
+			(uuid "12823d02-5c59-4337-bcca-09f9ed08ee99")
+			(lib_id "")
+			(members
+				(member
+					(uuid "eb8b5639-c2be-4fbc-aaab-36ca41abd6d7")
+				)
+				(member
+					(uuid "7cedb1ec-e6ad-4c0f-bfba-f4f8f093ac59")
+				)
+				(member
+					(uuid "fc043c8a-f487-4ed3-9547-8aa00b6e55a1")
+				)
+				(member
+					(uuid "03dd41a1-6c05-478b-9f27-cbdab3fc9096")
+				)
+			)
+		)
+		(group
+			(name "")
+			(uuid "3e5c2974-897f-4d2e-886a-4f5132e49181")
+			(lib_id "")
+			(members
+				(member
+					(uuid "f58f3fe5-ced5-4f28-96d2-e1374c915a48")
+				)
+				(member
+					(uuid "a48d9f9a-e9ac-4081-ba50-9bb5753194a7")
+				)
+				(member
+					(uuid "ab980f07-6717-4767-b126-8016211a9283")
+				)
+				(member
+					(uuid "7d5f0ebc-9c7e-46dd-b641-547c7765f67f")
+				)
+				(member
+					(uuid "5981d969-5e3b-452f-ba85-83601aa040ba")
+				)
+			)
+		)
+		(group
+			(name "")
+			(uuid "65544f02-48ee-4f59-9573-02b7cf62a67b")
+			(lib_id "")
+			(members
+				(member
+					(uuid "fe841d52-4c7a-4c94-a542-d80c2677b982")
+				)
+				(member
+					(uuid "6ca32099-e896-42c3-8c0f-6f5b318de083")
+				)
+				(member
+					(uuid "e696e066-1fe9-4a82-ba74-5675739f7077")
+				)
+				(member
+					(uuid "67e60b31-e2d7-4f3d-9a9e-be2be2267ef9")
+				)
+				(member
+					(uuid "0701bf07-267c-48d0-887b-aabece998665")
+				)
+				(member
+					(uuid "b43dec59-b04d-4d71-a6c4-41a0a26445db")
+				)
+			)
+		)
+		(group
+			(name "")
+			(uuid "81b4a009-6611-450f-907e-36334744e6f0")
+			(lib_id "")
+			(members
+				(member
+					(uuid "3405f905-42aa-4f71-8c06-763f53f9f55a")
+				)
+				(member
+					(uuid "2a27dd9d-e54c-4f5c-825c-2e796da53086")
+				)
+				(member
+					(uuid "801c67f0-4b5c-4210-8fcc-277bf8b49050")
+				)
+				(member
+					(uuid "5f6326f5-bb9d-45b4-a466-a0917bf87919")
+				)
+				(member
+					(uuid "a88f6119-f670-44fd-a581-cf77cc1b6ebb")
+				)
+				(member
+					(uuid "fe24b064-1c89-4956-b8c6-858fcf277374")
+				)
+				(member
+					(uuid "a2f6deca-1286-4cd2-8550-ac25b5799299")
+				)
+				(member
+					(uuid "ebc9f8e7-564e-4e95-80eb-b6541ae659ae")
+				)
+				(member
+					(uuid "df6d4a5e-23e9-45d5-8e2f-f33965d6dfae")
+				)
+				(member
+					(uuid "73248c1c-f141-4dca-b9c1-cbbfd094e8d8")
+				)
+				(member
+					(uuid "b98c7dde-1392-4cc4-9406-39a9c6430cc2")
+				)
+				(member
+					(uuid "04df3634-cc98-4f52-9940-6d36742c27ea")
+				)
+				(member
+					(uuid "07cf4d8d-5cf7-46b7-8054-ff26f849b281")
+				)
+				(member
+					(uuid "3d2f1989-59e9-432a-aeb0-dcef61f58ff1")
+				)
+			)
+		)
+		(group
+			(name "")
+			(uuid "96a37e13-6e8e-46fe-9758-b6f1e6a10f17")
+			(lib_id "")
+			(members
+				(member
+					(uuid "6495957e-e2fb-483f-b328-f82600947183")
+				)
+				(member
+					(uuid "5ae6df54-fdcc-440f-a4ba-870969f55592")
+				)
+				(member
+					(uuid "a6d03d3b-75e3-40db-aa5d-1a9ad522b3a1")
+				)
+				(member
+					(uuid "1134004d-5739-4c46-a0fb-64b71800ccf6")
+				)
+				(member
+					(uuid "22bce976-6a12-4a7d-a252-7430eef54f7b")
+				)
+				(member
+					(uuid "19b04fc4-1139-41df-9840-fc1c5391d266")
+				)
+				(member
+					(uuid "24c868f8-3ff2-4a3b-9f4f-3c641bbc907a")
+				)
+				(member
+					(uuid "37ca8cb9-05aa-4667-ae66-c774d1e0dba1")
+				)
+				(member
+					(uuid "3b1afc02-a5d3-429e-88f4-2699788888c2")
+				)
+			)
+		)
+		(group
+			(name "")
+			(uuid "c374866a-b687-46b0-b908-715a74963c11")
+			(lib_id "")
+			(members)
+		)
+		(group
+			(name "")
+			(uuid "b6fed486-763b-4512-82d2-1aa6c921bc37")
+			(lib_id "")
+			(members
+				(member
+					(uuid "217feb46-5394-4153-bc35-799634d46ab4")
+				)
+				(member
+					(uuid "8f93437b-966e-4bc6-9ecd-e1e1758c48d6")
+				)
+				(member
+					(uuid "81d831ab-8de9-4fca-8e3e-588b0e18ddd9")
+				)
+				(member
+					(uuid "55d172d1-e5d4-45de-a985-016367dfc953")
+				)
+				(member
+					(uuid "2bbc76cc-bc8e-4b40-bea9-4836e916b08c")
+				)
+			)
+		)
+		(group
+			(name "")
+			(uuid "5007d77f-a9ba-48f4-989b-eace8d7de01e")
+			(lib_id "")
+			(members
+				(member
+					(uuid "3d682ef2-621e-4e35-b4c7-30439681bd04")
+				)
+				(member
+					(uuid "5c860076-6972-4501-bf4c-96a74aa71c49")
+				)
+				(member
+					(uuid "39bf49c2-6a38-4259-b830-07d526e4f5c7")
+				)
+				(member
+					(uuid "534a0873-08a3-404c-b57d-29d4ce487da0")
+				)
+				(member
+					(uuid "43f3fb74-e800-4a0c-98ce-e26d63992294")
+				)
+				(member
+					(uuid "e2d233a3-b8dc-4282-b8a1-fb725e3a8bac")
+				)
+				(member
+					(uuid "b2468af3-0fe7-49ee-8e0f-24c06252f817")
+				)
+				(member
+					(uuid "7c713ad2-5c0d-4ee2-92fb-0ccf0701133a")
+				)
+				(member
+					(uuid "48883ee0-3247-4354-8e54-610a6977a6cf")
+				)
+				(member
+					(uuid "bc48d40c-5d6e-42d2-b75f-1089e2c96ed0")
+				)
+				(member
+					(uuid "8053a06e-76d6-4689-9349-2676e46e73d4")
+				)
+				(member
+					(uuid "2cc454ae-d246-40db-a64e-edf1efa503e7")
+				)
+			)
+		)
+		(group
+			(name "")
+			(uuid "909b5755-8a75-4b78-8f09-9a42058412d0")
+			(lib_id "")
+			(members
+				(member
+					(uuid "4c81a19a-8996-4c8b-8ac0-d7a993887602")
+				)
+				(member
+					(uuid "af8d957c-1dc0-4a39-8209-8d842254e49e")
+				)
+				(member
+					(uuid "fef75cb0-50f2-4864-b639-d8bed410232d")
+				)
+				(member
+					(uuid "0b05deed-89df-48e8-a8c7-de7509d8173f")
+				)
+				(member
+					(uuid "042a64fa-284b-441f-8961-0161e63e5b51")
+				)
+				(member
+					(uuid "529dd8ea-c30d-4d7f-af61-a69f9b0833b3")
+				)
+				(member
+					(uuid "e0e78b7d-5597-439e-8b16-92fedc8f5939")
+				)
+				(member
+					(uuid "408e8ddf-948e-4b11-a0a5-d50cc98b5df6")
+				)
+				(member
+					(uuid "688a1c14-fa54-4116-9680-b7f194aa7fb7")
+				)
+				(member
+					(uuid "2fe01ffb-2a2a-4174-8fc2-8ac4bab0d2b7")
+				)
+				(member
+					(uuid "56a20bfa-65c2-4b0b-b3bb-0a6b8e2b7022")
+				)
+				(member
+					(uuid "53507b95-937e-4f8e-b89a-9c920503d4e3")
+				)
+				(member
+					(uuid "71e76583-be6f-4832-8321-19936fad085b")
+				)
+				(member
+					(uuid "87fdc177-c43d-4a19-9a12-d92b45784482")
+				)
+				(member
+					(uuid "93533924-9c62-422e-bdc0-e578213ec22e")
+				)
+				(member
+					(uuid "c54e4e33-88d9-4f4f-a286-50450ba97ee2")
+				)
+				(member
+					(uuid "cc99231a-a1ac-4d2c-b1ed-d6b5a67de384")
+				)
+				(member
+					(uuid "acb29b72-83ab-47ef-8215-6c04e48082ac")
+				)
+				(member
+					(uuid "1d1d7543-6ada-487e-add0-eb1070eb542f")
+				)
+				(member
+					(uuid "902884a4-0717-4758-8760-d53304f9a9cf")
+				)
+				(member
+					(uuid "ad0c4878-3385-446a-a087-34b5afb0a187")
+				)
+				(member
+					(uuid "86653485-83d9-4c18-b257-abb35c367b4e")
+				)
+				(member
+					(uuid "e090f583-f530-42c8-b25f-f2560010a27f")
+				)
+				(member
+					(uuid "3df7c181-cf0e-4d2d-99d0-a03bf0d12abe")
+				)
+				(member
+					(uuid "1d78f7dd-4568-422e-bb0d-82b501cc73cd")
+				)
+				(member
+					(uuid "60360521-f20c-47bf-be4b-83a0b06c2bd6")
+				)
+				(member
+					(uuid "048b4427-9ce2-41b9-a17e-58cd22e07cec")
+				)
+				(member
+					(uuid "798559eb-cc87-4778-a3fa-e6f478b94fae")
+				)
+				(member
+					(uuid "ba503640-5ed7-472d-add4-dbd02571845a")
+				)
+				(member
+					(uuid "8e64a44e-a1cb-4c98-b2e2-6887fd63911d")
+				)
+				(member
+					(uuid "d2d7085a-2eaf-4a55-9ff4-8891681cfe1c")
+				)
+				(member
+					(uuid "6478708b-ec34-4055-b1b2-7ff8f3dde247")
+				)
+				(member
+					(uuid "cfa3d8ef-38d7-4ca4-a0ff-4eb9eaf9e4dd")
+				)
+				(member
+					(uuid "b2e67e88-04bd-49ee-b8c5-a30e898cb6ff")
+				)
+				(member
+					(uuid "703282db-929a-45f3-8a7a-e0ac6c0abb0f")
+				)
+				(member
+					(uuid "b057d415-56eb-402d-93b4-195c9a82bc46")
+				)
+				(member
+					(uuid "2cd4e81f-a70d-4d32-9eaa-9f76dfc61f87")
+				)
+				(member
+					(uuid "e26ffecd-c745-46d0-ab38-17d51c1ccffd")
+				)
+				(member
+					(uuid "ce9b99b3-d145-4d1c-9dcf-0c65555bbc90")
+				)
+				(member
+					(uuid "019cb01b-73ef-417e-a6f3-aac10fd879c3")
+				)
+			)
+		)
+		(group
+			(name "")
+			(uuid "ded04da1-d4bd-4276-8e97-333d405ca2fb")
+			(lib_id "")
+			(members
+				(member
+					(uuid "ebe075de-0aae-4aa0-9c7f-427c5e160799")
+				)
+				(member
+					(uuid "a0b8ef58-68e8-468c-9c3d-3927762e8517")
+				)
+				(member
+					(uuid "94dd6306-ca9e-4ecb-a1a2-ee73c41a0a3f")
+				)
+				(member
+					(uuid "f0644bb4-a3a7-49b4-947d-f28b1ffb924c")
+				)
+				(member
+					(uuid "315de898-59b5-4dd4-84eb-82b370f0e334")
+				)
+				(member
+					(uuid "c050caee-2864-41b7-9155-192ea9089bf1")
+				)
+				(member
+					(uuid "b9379d38-58fa-4aa8-b0b2-91161eea9d52")
+				)
+				(member
+					(uuid "d27fc85c-67a0-4bcd-9352-561ee0351361")
+				)
+				(member
+					(uuid "afad047d-7575-4fa7-b35e-ea9ddcbe3a3b")
+				)
+				(member
+					(uuid "b9c0924b-76bc-4f20-a68c-7e767361096f")
+				)
+				(member
+					(uuid "6e688648-b0c5-4a64-8ea9-f8aecebf9c01")
+				)
+				(member
+					(uuid "a1c225de-ff11-454a-b95d-1f925de315b6")
+				)
+				(member
+					(uuid "9bb13da2-cbab-4031-b237-868efd24e8f8")
+				)
+				(member
+					(uuid "11290f8f-5c37-45a6-adf5-21ff581843c2")
+				)
+				(member
+					(uuid "9933a18d-69e4-477d-bf9c-6c29b985367a")
+				)
+				(member
+					(uuid "202d86b7-9cb4-4283-b65b-ef39fb202b39")
+				)
+				(member
+					(uuid "d4ab8b20-1f7b-4f8c-b6d8-a70e1a57756e")
+				)
+				(member
+					(uuid "3600b13b-d746-4d1e-8707-9eb5bafc2d20")
+				)
+				(member
+					(uuid "f3a7845e-b5f9-4a90-861a-77bb0c02bc27")
+				)
+				(member
+					(uuid "144dc223-48c0-4ac3-974a-186258bb283c")
+				)
+				(member
+					(uuid "8473f4a4-ee28-4d90-98ca-f19e1f4027d0")
+				)
+				(member
+					(uuid "2a498c58-2ade-4906-a84d-54c970b485bf")
+				)
+				(member
+					(uuid "14583180-4af6-4711-b192-3801dc73b74f")
+				)
+				(member
+					(uuid "e3d84a01-0699-4f0a-b646-7ef2cc5af92d")
+				)
+				(member
+					(uuid "21b58191-c6a5-4282-b72d-dc0aebac3545")
+				)
+			)
+		)
+		(group
+			(name "")
+			(uuid "6f1e4fa8-dace-422e-bc48-62c26dfbbf44")
+			(lib_id "")
+			(members
+				(member
+					(uuid "9b90079b-c9c5-4bed-afc2-bd5ba2383f28")
+				)
+				(member
+					(uuid "1116c165-348d-4853-bda5-fe44cd7680c0")
+				)
+				(member
+					(uuid "de77b0fe-6165-44d8-a4dc-93efd0dfe355")
+				)
+				(member
+					(uuid "689b1c46-8c8f-450c-b543-cc8a117e1b93")
+				)
+				(member
+					(uuid "a5bc3e08-e89d-455f-9adf-ea1b41f0359a")
+				)
+				(member
+					(uuid "05ca1c60-f396-4b08-817b-f841a173ea0c")
+				)
+				(member
+					(uuid "e7359336-23d6-46c9-9ac2-5a923df39aff")
+				)
+				(member
+					(uuid "ec7730b8-e0c8-4f83-add3-c72baf1edd5e")
+				)
+				(member
+					(uuid "49289d3c-65e3-4a9c-a441-96304dc1224d")
+				)
+				(member
+					(uuid "75209995-a7c0-4016-9d79-3430cde8cb03")
+				)
+				(member
+					(uuid "04a26440-e3d2-43ab-9f10-314670c9d19f")
+				)
+				(member
+					(uuid "fb604dec-de5b-4506-8527-38c814b40582")
+				)
+				(member
+					(uuid "ace18b15-d93e-4681-b83a-6325be4dd4cc")
+				)
+				(member
+					(uuid "967efbb0-3853-4289-b8c3-300702533049")
+				)
+				(member
+					(uuid "5a471eb3-63b8-4bf5-a7d2-43ea3a13b4d4")
+				)
+				(member
+					(uuid "bda6912b-2679-4ec2-b6c8-eb6a5de38657")
+				)
+				(member
+					(uuid "359654d9-8f93-4e21-a26c-e345f1ef7df2")
+				)
+				(member
+					(uuid "ebeaa765-2b96-4d04-b2a6-0d787761889d")
+				)
+				(member
+					(uuid "489735dd-a484-497f-8a4d-adb358c3eb30")
+				)
+				(member
+					(uuid "7b1b9790-6cbc-4b35-93bd-ba5ab103cabe")
+				)
+				(member
+					(uuid "cdbd08da-bb77-4184-97b3-0f05fc08f0aa")
+				)
+				(member
+					(uuid "e11aedc6-dcf1-4d3c-b045-b2668d7cd5f4")
+				)
+				(member
+					(uuid "59cabacc-575f-46de-a60d-1a2b4c5eb02a")
+				)
+				(member
+					(uuid "f1862912-6e65-4388-a558-bd7901508473")
+				)
+				(member
+					(uuid "9f15ba99-d003-4a72-bbdc-68a41b2463ee")
+				)
+			)
+		)
+	)
+	(variants)
+	(libparts
+		(libpart
+			(lib "4xxx_IEEE")
+			(part "4093")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "4093")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "2")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "3")
+					(name "")
+					(type "output")
+				)
+				(pin
+					(num "4")
+					(name "")
+					(type "output")
+				)
+				(pin
+					(num "5")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "6")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "7")
+					(name "Vss")
+					(type "power_in")
+				)
+				(pin
+					(num "8")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "9")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "10")
+					(name "")
+					(type "output")
+				)
+				(pin
+					(num "11")
+					(name "")
+					(type "output")
+				)
+				(pin
+					(num "12")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "13")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "14")
+					(name "Vdd")
+					(type "power_in")
+				)
+			)
+		)
+		(libpart
+			(lib "74xx")
+			(part "74HC14")
+			(description "Hex inverter schmitt trigger")
+			(docs "http://www.ti.com/lit/gpn/sn74HC14")
+			(footprints
+				(fp "DIP*W7.62mm*")
+			)
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "74HC14")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet") "http://www.ti.com/lit/gpn/sn74HC14")
+				(field
+					(name "Description") "Hex inverter schmitt trigger")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "2")
+					(name "")
+					(type "output")
+				)
+				(pin
+					(num "3")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "4")
+					(name "")
+					(type "output")
+				)
+				(pin
+					(num "5")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "6")
+					(name "")
+					(type "output")
+				)
+				(pin
+					(num "7")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "8")
+					(name "")
+					(type "output")
+				)
+				(pin
+					(num "9")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "10")
+					(name "")
+					(type "output")
+				)
+				(pin
+					(num "11")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "12")
+					(name "")
+					(type "output")
+				)
+				(pin
+					(num "13")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "14")
+					(name "VCC")
+					(type "power_in")
+				)
+			)
+		)
+		(libpart
+			(lib "74xx")
+			(part "74HC238")
+			(description "3-to-8 line decoder/multiplexer, DIP-16/SOIC-16/SSOP-16")
+			(docs "https://www.ti.com/lit/ds/symlink/cd74hc238.pdf")
+			(footprints
+				(fp "DIP*W7.62mm*")
+				(fp "SOIC*3.9x9.9mm*P1.27mm*")
+				(fp "TSSOP*4.4x5mm*P0.65mm*")
+			)
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "74HC238")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet") "https://www.ti.com/lit/ds/symlink/cd74hc238.pdf")
+				(field
+					(name "Description") "3-to-8 line decoder/multiplexer, DIP-16/SOIC-16/SSOP-16")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "A0")
+					(type "input")
+				)
+				(pin
+					(num "2")
+					(name "A1")
+					(type "input")
+				)
+				(pin
+					(num "3")
+					(name "A2")
+					(type "input")
+				)
+				(pin
+					(num "4")
+					(name "~{E1}")
+					(type "input")
+				)
+				(pin
+					(num "5")
+					(name "~{E2}")
+					(type "input")
+				)
+				(pin
+					(num "6")
+					(name "E3")
+					(type "input")
+				)
+				(pin
+					(num "7")
+					(name "Y7")
+					(type "output")
+				)
+				(pin
+					(num "8")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "9")
+					(name "Y6")
+					(type "output")
+				)
+				(pin
+					(num "10")
+					(name "Y5")
+					(type "output")
+				)
+				(pin
+					(num "11")
+					(name "Y4")
+					(type "output")
+				)
+				(pin
+					(num "12")
+					(name "Y3")
+					(type "output")
+				)
+				(pin
+					(num "13")
+					(name "Y2")
+					(type "output")
+				)
+				(pin
+					(num "14")
+					(name "Y1")
+					(type "output")
+				)
+				(pin
+					(num "15")
+					(name "Y0")
+					(type "output")
+				)
+				(pin
+					(num "16")
+					(name "VCC")
+					(type "power_in")
+				)
+			)
+		)
+		(libpart
+			(lib "74xx")
+			(part "74HC74")
+			(description "Dual D Flip-flop, Set & Reset")
+			(docs "74xx/74hc_hct74.pdf")
+			(footprints
+				(fp "DIP*W7.62mm*")
+			)
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "74HC74")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet") "74xx/74hc_hct74.pdf")
+				(field
+					(name "Description") "Dual D Flip-flop, Set & Reset")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "~{R}")
+					(type "input")
+				)
+				(pin
+					(num "2")
+					(name "D")
+					(type "input")
+				)
+				(pin
+					(num "3")
+					(name "C")
+					(type "input")
+				)
+				(pin
+					(num "4")
+					(name "~{S}")
+					(type "input")
+				)
+				(pin
+					(num "5")
+					(name "Q")
+					(type "output")
+				)
+				(pin
+					(num "6")
+					(name "~{Q}")
+					(type "output")
+				)
+				(pin
+					(num "7")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "8")
+					(name "~{Q}")
+					(type "output")
+				)
+				(pin
+					(num "9")
+					(name "Q")
+					(type "output")
+				)
+				(pin
+					(num "10")
+					(name "~{S}")
+					(type "input")
+				)
+				(pin
+					(num "11")
+					(name "C")
+					(type "input")
+				)
+				(pin
+					(num "12")
+					(name "D")
+					(type "input")
+				)
+				(pin
+					(num "13")
+					(name "~{R}")
+					(type "input")
+				)
+				(pin
+					(num "14")
+					(name "VCC")
+					(type "power_in")
+				)
+			)
+		)
+		(libpart
+			(lib "74xx")
+			(part "74LS08")
+			(description "Quad And2")
+			(docs "http://www.ti.com/lit/gpn/sn74LS08")
+			(footprints
+				(fp "DIP*W7.62mm*")
+			)
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "74LS08")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet") "http://www.ti.com/lit/gpn/sn74LS08")
+				(field
+					(name "Description") "Quad And2")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "2")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "3")
+					(name "")
+					(type "output")
+				)
+				(pin
+					(num "4")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "5")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "6")
+					(name "")
+					(type "output")
+				)
+				(pin
+					(num "7")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "8")
+					(name "")
+					(type "output")
+				)
+				(pin
+					(num "9")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "10")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "11")
+					(name "")
+					(type "output")
+				)
+				(pin
+					(num "12")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "13")
+					(name "")
+					(type "input")
+				)
+				(pin
+					(num "14")
+					(name "VCC")
+					(type "power_in")
+				)
+			)
+		)
+		(libpart
+			(lib "Connector")
+			(part "Conn_01x01_Pin")
+			(description "Generic connector, single row, 01x01, script generated")
+			(footprints
+				(fp "Connector*:*_1x??_*")
+			)
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "Conn_01x01_Pin")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x01, script generated")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "Pin_1")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Connector_Generic")
+			(part "Conn_01x03")
+			(description "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(footprints
+				(fp "Connector*:*_1x??_*")
+			)
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "Conn_01x03")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "Pin_1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "Pin_2")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "Pin_3")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "C")
+			(description "Unpolarized capacitor")
+			(footprints
+				(fp "C_*")
+			)
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "C")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "LED")
+			(description "Light emitting diode")
+			(footprints
+				(fp "LED*")
+				(fp "LED_SMD:*")
+				(fp "LED_THT:*")
+			)
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "LED")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Light emitting diode")
+				(field
+					(name "Sim.Pins") "1=K 2=A")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "K")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "A")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "R")
+			(description "Resistor")
+			(footprints
+				(fp "R_*")
+			)
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "R")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Diode")
+			(part "1N4148")
+			(description "100V 0.15A standard switching diode, DO-35")
+			(docs "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+			(footprints
+				(fp "D*DO?35*")
+			)
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "1N4148")
+				(field
+					(name "Footprint") "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+				(field
+					(name "Datasheet") "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+				(field
+					(name "Description") "100V 0.15A standard switching diode, DO-35")
+				(field
+					(name "Sim.Device") "D")
+				(field
+					(name "Sim.Pins") "1=K 2=A")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "K")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "A")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Sensor_Optical")
+			(part "BPW40")
+			(description "Phototransistor NPN")
+			(docs "https://www.rcscomponents.kiev.ua/datasheets/bpw40.pdf")
+			(footprints
+				(fp "LED*D5.0mm*Clear*")
+			)
+			(fields
+				(field
+					(name "Reference") "Q")
+				(field
+					(name "Value") "BPW40")
+				(field
+					(name "Footprint") "LED_THT:LED_D5.0mm_Clear")
+				(field
+					(name "Datasheet") "https://www.rcscomponents.kiev.ua/datasheets/bpw40.pdf")
+				(field
+					(name "Description") "Phototransistor NPN")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "C")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "E")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Simulation_SPICE")
+			(part "NPN")
+			(description "Bipolar transistor symbol for simulation only, substrate tied to the emitter")
+			(docs "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_BJTs")
+			(fields
+				(field
+					(name "Reference") "Q")
+				(field
+					(name "Value") "NPN")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet") "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_BJTs")
+				(field
+					(name "Description") "Bipolar transistor symbol for simulation only, substrate tied to the emitter")
+				(field
+					(name "Sim.Device") "NPN")
+				(field
+					(name "Sim.Type") "GUMMELPOON")
+				(field
+					(name "Sim.Pins") "1=C 2=B 3=E")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "C")
+					(type "open_collector")
+				)
+				(pin
+					(num "2")
+					(name "B")
+					(type "input")
+				)
+				(pin
+					(num "3")
+					(name "E")
+					(type "open_emitter")
+				)
+			)
+		)
+		(libpart
+			(lib "Timer")
+			(part "NE555P")
+			(description "Precision Timers, 555 compatible, PDIP-8")
+			(docs "http://www.ti.com/lit/ds/symlink/ne555.pdf")
+			(footprints
+				(fp "DIP*W7.62mm*")
+			)
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "NE555P")
+				(field
+					(name "Footprint") "Package_DIP:DIP-8_W7.62mm")
+				(field
+					(name "Datasheet") "http://www.ti.com/lit/ds/symlink/ne555.pdf")
+				(field
+					(name "Description") "Precision Timers, 555 compatible, PDIP-8")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "2")
+					(name "TRIG")
+					(type "input")
+				)
+				(pin
+					(num "3")
+					(name "OUT")
+					(type "output")
+				)
+				(pin
+					(num "4")
+					(name "~{RST}")
+					(type "input")
+				)
+				(pin
+					(num "5")
+					(name "CONT")
+					(type "passive")
+				)
+				(pin
+					(num "6")
+					(name "THRES")
+					(type "input")
+				)
+				(pin
+					(num "7")
+					(name "DISCH")
+					(type "input")
+				)
+				(pin
+					(num "8")
+					(name "VCC")
+					(type "power_in")
+				)
+			)
+		)
+	)
+	(libraries
+		(library
+			(logical "4xxx_IEEE")
+			(uri "${KICAD10_SYMBOL_DIR}/4xxx_IEEE.kicad_symdir")
+		)
+		(library
+			(logical "74xx")
+			(uri "${KICAD10_SYMBOL_DIR}/74xx.kicad_symdir")
+		)
+		(library
+			(logical "Connector")
+			(uri "${KICAD10_SYMBOL_DIR}/Connector.kicad_symdir")
+		)
+		(library
+			(logical "Connector_Generic")
+			(uri "${KICAD10_SYMBOL_DIR}/Connector_Generic.kicad_symdir")
+		)
+		(library
+			(logical "Device")
+			(uri "${KICAD10_SYMBOL_DIR}/Device.kicad_symdir")
+		)
+		(library
+			(logical "Diode")
+			(uri "${KICAD10_SYMBOL_DIR}/Diode.kicad_symdir")
+		)
+		(library
+			(logical "Sensor_Optical")
+			(uri "${KICAD10_SYMBOL_DIR}/Sensor_Optical.kicad_symdir")
+		)
+		(library
+			(logical "Simulation_SPICE")
+			(uri "${KICAD10_SYMBOL_DIR}/Simulation_SPICE.kicad_symdir")
+		)
+		(library
+			(logical "Timer")
+			(uri "${KICAD10_SYMBOL_DIR}/Timer.kicad_symdir")
+		)
+	)
+	(nets
+		(net
+			(code "1")
+			(name "/demux_a")
+			(class "Default")
+			(node
+				(ref "J11")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U3")
+				(pin "15")
+				(pinfunction "Y0_15")
+				(pintype "output")
+			)
+			(node
+				(ref "U4")
+				(pin "1")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "2")
+			(name "/demux_b")
+			(class "Default")
+			(node
+				(ref "J12")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U3")
+				(pin "14")
+				(pinfunction "Y1_14")
+				(pintype "output")
+			)
+			(node
+				(ref "U4")
+				(pin "4")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "3")
+			(name "/high_freq")
+			(class "Default")
+			(node
+				(ref "J8")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U2")
+				(pin "3")
+				(pinfunction "OUT_3")
+				(pintype "output")
+			)
+			(node
+				(ref "U3")
+				(pin "6")
+				(pinfunction "E3_6")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "4")
+			(name "/in_flow_esp32")
+			(class "Default")
+			(node
+				(ref "D8")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R18")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U7")
+				(pin "5")
+				(pintype "input")
+			)
+			(node
+				(ref "U7")
+				(pin "6")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "5")
+			(name "/int_esp32")
+			(class "Default")
+			(node
+				(ref "U7")
+				(pin "10")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "6")
+			(name "/low_freq")
+			(class "Default")
+			(node
+				(ref "J7")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "3")
+				(pinfunction "OUT_3")
+				(pintype "output")
+			)
+			(node
+				(ref "U3")
+				(pin "1")
+				(pinfunction "A0_1")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "7")
+			(name "/out_flow_esp32")
+			(class "Default")
+			(node
+				(ref "D9")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R19")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U7")
+				(pin "1")
+				(pintype "input")
+			)
+			(node
+				(ref "U7")
+				(pin "2")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "8")
+			(name "/reset_flow")
+			(class "Default")
+			(node
+				(ref "C14")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C15")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R17")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U6")
+				(pin "3")
+				(pinfunction "OUT_3")
+				(pintype "output")
+			)
+			(node
+				(ref "U8")
+				(pin "1")
+				(pinfunction "~{R}_1")
+				(pintype "input")
+			)
+			(node
+				(ref "U8")
+				(pin "13")
+				(pinfunction "~{R}_13")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "9")
+			(name "/sensor_a")
+			(class "Default")
+			(node
+				(ref "R23")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "10")
+				(pintype "output")
+			)
+			(node
+				(ref "U8")
+				(pin "11")
+				(pinfunction "C_11")
+				(pintype "input")
+			)
+			(node
+				(ref "U8")
+				(pin "2")
+				(pinfunction "D_2")
+				(pintype "input")
+			)
+			(node
+				(ref "U9")
+				(pin "1")
+				(pintype "input")
+			)
+			(node
+				(ref "U9")
+				(pin "2")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "10")
+			(name "/sensor_b")
+			(class "Default")
+			(node
+				(ref "R22")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "12")
+				(pintype "output")
+			)
+			(node
+				(ref "U8")
+				(pin "12")
+				(pinfunction "D_12")
+				(pintype "input")
+			)
+			(node
+				(ref "U8")
+				(pin "3")
+				(pinfunction "C_3")
+				(pintype "input")
+			)
+			(node
+				(ref "U9")
+				(pin "5")
+				(pintype "input")
+			)
+			(node
+				(ref "U9")
+				(pin "6")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "11")
+			(name "GND")
+			(class "Default")
+			(node
+				(ref "C1")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C11")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C12")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C13")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C14")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C15")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C16")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C17")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C18")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C2")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C3")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C4")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C5")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C6")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C7")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C8")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "D2")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "D5")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "D6")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "D7")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "D8")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "D9")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J14")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J5")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "Q1")
+				(pin "2")
+				(pinfunction "E_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "Q2")
+				(pin "3")
+				(pinfunction "E_3")
+				(pintype "open_emitter")
+			)
+			(node
+				(ref "R10")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R22")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R23")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R9")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "1")
+				(pinfunction "GND_1")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U1")
+				(pin "2")
+				(pinfunction "TRIG_2")
+				(pintype "input")
+			)
+			(node
+				(ref "U1")
+				(pin "6")
+				(pinfunction "THRES_6")
+				(pintype "input")
+			)
+			(node
+				(ref "U2")
+				(pin "1")
+				(pinfunction "GND_1")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U3")
+				(pin "2")
+				(pinfunction "A1_2")
+				(pintype "input")
+			)
+			(node
+				(ref "U3")
+				(pin "3")
+				(pinfunction "A2_3")
+				(pintype "input")
+			)
+			(node
+				(ref "U3")
+				(pin "4")
+				(pinfunction "~{E1}_4")
+				(pintype "input")
+			)
+			(node
+				(ref "U3")
+				(pin "5")
+				(pinfunction "~{E2}_5")
+				(pintype "input")
+			)
+			(node
+				(ref "U3")
+				(pin "8")
+				(pinfunction "GND_8")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U4")
+				(pin "10")
+				(pintype "input")
+			)
+			(node
+				(ref "U4")
+				(pin "12")
+				(pintype "input")
+			)
+			(node
+				(ref "U4")
+				(pin "13")
+				(pintype "input")
+			)
+			(node
+				(ref "U4")
+				(pin "7")
+				(pinfunction "GND_7")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U4")
+				(pin "9")
+				(pintype "input")
+			)
+			(node
+				(ref "U5")
+				(pin "7")
+				(pinfunction "GND_7")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U6")
+				(pin "1")
+				(pinfunction "GND_1")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U7")
+				(pin "12")
+				(pintype "input")
+			)
+			(node
+				(ref "U7")
+				(pin "13")
+				(pintype "input")
+			)
+			(node
+				(ref "U7")
+				(pin "7")
+				(pinfunction "Vss_7")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U8")
+				(pin "7")
+				(pinfunction "GND_7")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U9")
+				(pin "12")
+				(pintype "input")
+			)
+			(node
+				(ref "U9")
+				(pin "13")
+				(pintype "input")
+			)
+			(node
+				(ref "U9")
+				(pin "7")
+				(pinfunction "Vss_7")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "12")
+			(name "Net-(C8-Pad1)")
+			(class "Default")
+			(node
+				(ref "C8")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R7")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "1")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "13")
+			(name "Net-(C11-Pad1)")
+			(class "Default")
+			(node
+				(ref "C11")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R8")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "5")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "14")
+			(name "Net-(C16-Pad1)")
+			(class "Default")
+			(node
+				(ref "C16")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R12")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "11")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "15")
+			(name "Net-(C17-Pad1)")
+			(class "Default")
+			(node
+				(ref "C17")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R14")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "13")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "16")
+			(name "Net-(D1-A)")
+			(class "Default")
+			(node
+				(ref "C1")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "D1")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "17")
+			(name "Net-(D1-K)")
+			(class "Default")
+			(node
+				(ref "D1")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R4")
+				(pin "2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "18")
+			(name "Net-(D2-A)")
+			(class "Default")
+			(node
+				(ref "D2")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R3")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R4")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "7")
+				(pinfunction "DISCH_7")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "19")
+			(name "Net-(D3-A)")
+			(class "Default")
+			(node
+				(ref "C9")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "D3")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "20")
+			(name "Net-(D3-K)")
+			(class "Default")
+			(node
+				(ref "D3")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R9")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U4")
+				(pin "2")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "21")
+			(name "Net-(D4-A)")
+			(class "Default")
+			(node
+				(ref "C10")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "D4")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "22")
+			(name "Net-(D4-K)")
+			(class "Default")
+			(node
+				(ref "D4")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R10")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U4")
+				(pin "5")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "23")
+			(name "Net-(D5-A)")
+			(class "Default")
+			(node
+				(ref "D5")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R11")
+				(pin "1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "24")
+			(name "Net-(D6-A)")
+			(class "Default")
+			(node
+				(ref "D6")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R13")
+				(pin "1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "25")
+			(name "Net-(D7-A)")
+			(class "Default")
+			(node
+				(ref "D7")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R17")
+				(pin "2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "26")
+			(name "Net-(J3-Pin_1)")
+			(class "Default")
+			(node
+				(ref "J3")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "Q1")
+				(pin "1")
+				(pinfunction "C_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R1")
+				(pin "1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "27")
+			(name "Net-(J4-Pin_1)")
+			(class "Default")
+			(node
+				(ref "J4")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R2")
+				(pin "1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "28")
+			(name "Net-(J9-Pin_1)")
+			(class "Default")
+			(node
+				(ref "C10")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J9")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "29")
+			(name "Net-(J10-Pin_1)")
+			(class "Default")
+			(node
+				(ref "C9")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J10")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "30")
+			(name "Net-(KY_1-Pin_3)")
+			(class "Default")
+			(node
+				(ref "KY_1")
+				(pin "3")
+				(pinfunction "Pin_3_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "Q2")
+				(pin "1")
+				(pinfunction "C_1")
+				(pintype "open_collector")
+			)
+		)
+		(net
+			(code "31")
+			(name "Net-(Q2-B)")
+			(class "Default")
+			(node
+				(ref "Q2")
+				(pin "2")
+				(pinfunction "B_2")
+				(pintype "input")
+			)
+			(node
+				(ref "R2")
+				(pin "2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "32")
+			(name "Net-(R7-Pad1)")
+			(class "Default")
+			(node
+				(ref "R7")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U4")
+				(pin "3")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "33")
+			(name "Net-(R8-Pad1)")
+			(class "Default")
+			(node
+				(ref "R8")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U4")
+				(pin "6")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "34")
+			(name "Net-(R11-Pad2)")
+			(class "Default")
+			(node
+				(ref "R11")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R12")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "4")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "35")
+			(name "Net-(R13-Pad2)")
+			(class "Default")
+			(node
+				(ref "R13")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R14")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U5")
+				(pin "8")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "36")
+			(name "Net-(U2-DISCH)")
+			(class "Default")
+			(node
+				(ref "R5")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R6")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U2")
+				(pin "7")
+				(pinfunction "DISCH_7")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "37")
+			(name "Net-(U2-THRES)")
+			(class "Default")
+			(node
+				(ref "C2")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R6")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U2")
+				(pin "2")
+				(pinfunction "TRIG_2")
+				(pintype "input")
+			)
+			(node
+				(ref "U2")
+				(pin "6")
+				(pinfunction "THRES_6")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "38")
+			(name "Net-(U5-Pad2)")
+			(class "Default")
+			(node
+				(ref "U5")
+				(pin "2")
+				(pintype "output")
+			)
+			(node
+				(ref "U5")
+				(pin "3")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "39")
+			(name "Net-(U5-Pad6)")
+			(class "Default")
+			(node
+				(ref "U5")
+				(pin "6")
+				(pintype "output")
+			)
+			(node
+				(ref "U5")
+				(pin "9")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "40")
+			(name "Net-(U6-CONT)")
+			(class "Default")
+			(node
+				(ref "C12")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U6")
+				(pin "5")
+				(pinfunction "CONT_5")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "41")
+			(name "Net-(U6-DISCH)")
+			(class "Default")
+			(node
+				(ref "C13")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R16")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U6")
+				(pin "6")
+				(pinfunction "THRES_6")
+				(pintype "input")
+			)
+			(node
+				(ref "U6")
+				(pin "7")
+				(pinfunction "DISCH_7")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "42")
+			(name "Net-(U6-TRIG)")
+			(class "Default")
+			(node
+				(ref "R15")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U6")
+				(pin "2")
+				(pinfunction "TRIG_2")
+				(pintype "input")
+			)
+			(node
+				(ref "U9")
+				(pin "10")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "43")
+			(name "Net-(U7-Pad3)")
+			(class "Default")
+			(node
+				(ref "U7")
+				(pin "3")
+				(pintype "output")
+			)
+			(node
+				(ref "U7")
+				(pin "8")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "44")
+			(name "Net-(U7-Pad4)")
+			(class "Default")
+			(node
+				(ref "U7")
+				(pin "4")
+				(pintype "output")
+			)
+			(node
+				(ref "U7")
+				(pin "9")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "45")
+			(name "Net-(U8A-Q)")
+			(class "Default")
+			(node
+				(ref "R18")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U8")
+				(pin "5")
+				(pinfunction "Q_5")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "46")
+			(name "Net-(U8A-~{S})")
+			(class "Default")
+			(node
+				(ref "R21")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U8")
+				(pin "4")
+				(pinfunction "~{S}_4")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "47")
+			(name "Net-(U8B-Q)")
+			(class "Default")
+			(node
+				(ref "R19")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U8")
+				(pin "9")
+				(pinfunction "Q_9")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "48")
+			(name "Net-(U8B-~{S})")
+			(class "Default")
+			(node
+				(ref "R20")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U8")
+				(pin "10")
+				(pinfunction "~{S}_10")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "49")
+			(name "Net-(U9-Pad3)")
+			(class "Default")
+			(node
+				(ref "U9")
+				(pin "3")
+				(pintype "output")
+			)
+			(node
+				(ref "U9")
+				(pin "8")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "50")
+			(name "Net-(U9-Pad4)")
+			(class "Default")
+			(node
+				(ref "U9")
+				(pin "4")
+				(pintype "output")
+			)
+			(node
+				(ref "U9")
+				(pin "9")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "51")
+			(name "VCC")
+			(class "Default")
+			(node
+				(ref "C18")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C3")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C4")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C5")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C6")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C7")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J13")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J2")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J6")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "KY_1")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "KY_1")
+				(pin "2")
+				(pinfunction "Pin_2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R1")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R15")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R16")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R20")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R21")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R3")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R5")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "4")
+				(pinfunction "~{RST}_4")
+				(pintype "input")
+			)
+			(node
+				(ref "U1")
+				(pin "8")
+				(pinfunction "VCC_8")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U2")
+				(pin "4")
+				(pinfunction "~{RST}_4")
+				(pintype "input")
+			)
+			(node
+				(ref "U2")
+				(pin "8")
+				(pinfunction "VCC_8")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U3")
+				(pin "16")
+				(pinfunction "VCC_16")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U4")
+				(pin "14")
+				(pinfunction "VCC_14")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U5")
+				(pin "14")
+				(pinfunction "VCC_14")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U6")
+				(pin "4")
+				(pinfunction "~{RST}_4")
+				(pintype "input")
+			)
+			(node
+				(ref "U6")
+				(pin "8")
+				(pinfunction "VCC_8")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U7")
+				(pin "14")
+				(pinfunction "Vdd_14")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U8")
+				(pin "14")
+				(pinfunction "VCC_14")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U9")
+				(pin "14")
+				(pinfunction "Vdd_14")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "52")
+			(name "unconnected-(U1-CONT-Pad5)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "5")
+				(pinfunction "CONT_5")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "53")
+			(name "unconnected-(U2-CONT-Pad5)")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "5")
+				(pinfunction "CONT_5")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "54")
+			(name "unconnected-(U3-Y2-Pad13)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "13")
+				(pinfunction "Y2_13")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "55")
+			(name "unconnected-(U3-Y3-Pad12)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "12")
+				(pinfunction "Y3_12")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "56")
+			(name "unconnected-(U3-Y4-Pad11)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "11")
+				(pinfunction "Y4_11")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "57")
+			(name "unconnected-(U3-Y5-Pad10)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "10")
+				(pinfunction "Y5_10")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "58")
+			(name "unconnected-(U3-Y6-Pad9)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "9")
+				(pinfunction "Y6_9")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "59")
+			(name "unconnected-(U3-Y7-Pad7)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "7")
+				(pinfunction "Y7_7")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "60")
+			(name "unconnected-(U4-Pad8)")
+			(class "Default")
+			(node
+				(ref "U4")
+				(pin "8")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "61")
+			(name "unconnected-(U4-Pad11)")
+			(class "Default")
+			(node
+				(ref "U4")
+				(pin "11")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "62")
+			(name "unconnected-(U7-Pad11)")
+			(class "Default")
+			(node
+				(ref "U7")
+				(pin "11")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "63")
+			(name "unconnected-(U8A-~{Q}-Pad6)")
+			(class "Default")
+			(node
+				(ref "U8")
+				(pin "6")
+				(pinfunction "~{Q}_6")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "64")
+			(name "unconnected-(U8B-~{Q}-Pad8)")
+			(class "Default")
+			(node
+				(ref "U8")
+				(pin "8")
+				(pinfunction "~{Q}_8")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "65")
+			(name "unconnected-(U9-Pad11)")
+			(class "Default")
+			(node
+				(ref "U9")
+				(pin "11")
+				(pintype "output")
+			)
+		)
+	)
+)
