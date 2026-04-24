@@ -77,7 +77,7 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 └── README.md                                           # [Detalhes do Projeto](./README.md)
 ├── Building Blocks/                                    # Prototipagem Geral do Sistema via CAD (SimulIDE)
     └── Processing e Server/                                    # Prototipação do ESP32 como WebServer e Processamento de Dados
-    └── Sensors and Receivers                                   # Prototipação do Circuito do Fotosensor
+    └── Emitter and Receiver                                    # Prototipação do Circuito do Fotosensor
     └── Signal Acquisition Circuit                              # Prototipação do Circuito de Aquisição de Sinais
     └── Signal Conditioning and Flow Identification Circuit     # Prototipação do Circuito de Condicionamento e Identificação de Fluxo
     └── README.md                                               # [Detalhes do Building Blocks](./Building Blocks/README.md)
