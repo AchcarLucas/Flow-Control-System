@@ -67,7 +67,7 @@ Diferente de soluções dependentes de nuvem, este projeto foca em **Edge Comput
 - [x] Armazenamento dos dados em banco de dados local usando SQLite.
 - [x] Servidor Web embarcado para consulta de dados.
 - [x] Desenvolvimento do circuito de fotosensor
-- [-] Desenvolvimento do circuito de aquisição de sinal
+- [ ] Desenvolvimento do circuito de aquisição de sinal
 - [ ] Desenvolvimento do circuito de condicionamento de sinal
 - [ ] Desenvolvimento do circuito de identificação de sinal
 
@@ -85,7 +85,7 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 ├── Firmware/                                           # Código Fonte do Firmware do ESP32, Contém o WebServer e o Processamento de Sinais
     └── README.md                                               # [Detalhes do Firmware](./Firmware/README.md)
 ├── Hardware - Aspecto Geral (Diagrama de Blocos)/      # Idealização e Diagramação do Projeto Completo
-├── Idea/                                               # Idealização da Ideia Inicial
+├── Brainstorm/                                         # Brainstorm da Ideia Inicial
 ├── Previa/                                             # GIFs e Imagens de Previa do Projeto
 ├── Enclosure/                                          # Projeto das Cases Feito via FreeCAD
     └── FotosensorEnclosure                                     # Projeto da Case do Fotosensor feito em FreeCAD
