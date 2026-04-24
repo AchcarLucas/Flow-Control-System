@@ -30,6 +30,7 @@
 > 💡 **README Extra:**
 > - [README Firmware](./Firmware/README.md)
 > - [README Building Blocks](<./Building Blocks/README.md>)
+> - [README Kicad Schematic](<./Kicad Schematic/README.md>)
 
 ---
 
