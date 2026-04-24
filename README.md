@@ -66,7 +66,7 @@ Diferente de soluções dependentes de nuvem, este projeto foca em **Edge Comput
 - [x] Armazenamento dos dados em banco de dados local usando SQLite.
 - [x] Servidor Web embarcado para consulta de dados.
 - [x] Desenvolvimento do circuito de fotosensor
-- [ ] Desenvolvimento do circuito de aquisição de sinal
+- [-] Desenvolvimento do circuito de aquisição de sinal
 - [ ] Desenvolvimento do circuito de condicionamento de sinal
 - [ ] Desenvolvimento do circuito de identificação de sinal
 
@@ -86,6 +86,9 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 ├── Hardware - Aspecto Geral (Diagrama de Blocos)/      # Idealização e Diagramação do Projeto Completo
 ├── Idea/                                               # Idealização da Ideia Inicial
 ├── Previa/                                             # GIFs e Imagens de Previa do Projeto
+├── Enclosure/                                          # Projeto das Cases Feito via FreeCAD
+    └── FotosensorEnclosure                                     # Projeto da Case do Fotosensor feito em FreeCAD
+├── Kicad Schematic                                     # Schematic do Circuito Feito via Kicad
 ```
 
 ## 🚀 Previa de Desenvolvimento
@@ -120,8 +123,9 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 | ✅ Concluído | Alterações e Correções do Firmware |
 | ✅ Concluído | Testes do Firmware para Identificação de Bugs e Leak de Memória |
 | ✅ Concluído  | Projeto e Prototipagem do Fotosensor |
-| 🟡 Desenvolvimento | Desenvolvimento da Enclusure para o Fotosensor |
-| 🔴 Pendente | Desenvolvimento do Circuito de Aquisição de Sinal |
+| ✅ Concluído | Desenvolvimento da Enclusure para o Fotosensor |
+| ✅ Concluído | Desenvolvimento do Schematic via Kicad |
+| 🟡 Desenvolvimento | Desenvolvimento do Circuito de Aquisição de Sinal |
 | 🔴 Pendente | Desenvolvimento do Circuito de Condicionamento e Identificação de Fluxo |
 
 <!--
