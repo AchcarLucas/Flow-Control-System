@@ -16,61 +16,6 @@ Este projeto consiste em um sistema de monitoramento de fluxo capaz de identific
 * **Microcontrolador**: ESP32 (Servidor e Processamento).
 * **Arquitetura**: Circuitos integrados CMOS/TTL para processamento de sinal em tempo real.
 
----
-
-## 📦 Lista de Componentes Detalhada
-
-### 1. Módulo de Aquisição de Sinal
-| Categoria | Componente / Valor | Detalhes Técnicos | Qtd |
-| :--- | :--- | :--- | :--- |
-| **CIs** | NE555 | Temporizador / Oscilador | 02 |
-| **CIs** | 74HC08 | Quad 2-Input AND Gate | 01 |
-| **CIs** | 74HC14 | Hex Inverting Schmitt Trigger (Buffer) | 01 |
-| **CIs** | 74HC238 | Demultiplexador 3-para-8 | 01 |
-| **Sensores** | E39-R1 / TD-08 | Espelho Prismático | 02 |
-| **Sensores** | KY-008 | Emissor Laser | 02 |
-| **Sensores** | TIL78 | Fototransistor NPN | 02 |
-| **Semicond.** | BC547 | Transistor NPN | 02 |
-| **Semicond.** | BC557 | Transistor PNP | 02 |
-| **Semicond.** | 1N4148 | Diodo de sinal rápido | 02 |
-| **Indicador** | LED Azul | Sinalização de feixe | 02 |
-| **Resistor** | 12k $\Omega$ | Resistor de filme de carbono | 01 |
-| **Resistor** | 10k $\Omega$ | Resistor de filme de carbono | 02 |
-| **Resistor** | 5k $\Omega$ | Resistor de filme de carbono | 02 |
-| **Resistor** | 2k2 $\Omega$ | Resistor de filme de carbono | 01 |
-| **Resistor** | 1k $\Omega$ | Resistor de filme de carbono | 04 |
-| **Resistor** | 200 $\Omega$ | Resistor de filme de carbono | 02 |
-| **Capacitor** | 100uF | Eletrolítico (10-16V) | 02 |
-| **Capacitor** | 100nF | Cerâmico (Desacoplamento) | 05 |
-| **Capacitor** | 33nF | Cerâmico / Poliéster | 02 |
-| **Capacitor** | 1nF | Cerâmico / Poliéster | 01 |
-| **Extras** | Cabo Blindado | 22 AWG - 2 Vias | 02 |
-
-### 2. Condicionamento e Identificação de Fluxo
-| Categoria | Componente / Valor | Detalhes Técnicos | Qtd |
-| :--- | :--- | :--- | :--- |
-| **CIs** | NE555 | Temporizador (Monoestável) | 01 |
-| **CIs** | CD4093 | Quad 2-Input NAND Schmitt Trigger | 02 |
-| **CIs** | 74HC74 | Dual D-Type Flip-Flop | 01 |
-| **Indicador** | LED Vermelho | Indicador In-Flow | 01 |
-| **Indicador** | LED Verde | Indicador de Status | 01 |
-| **Resistor** | 10k $\Omega$ | Resistor de filme de carbono | 01 |
-| **Resistor** | 1k $\Omega$ | Resistor de filme de carbono | 04 |
-| **Resistor** | 200 $\Omega$ | Resistor de filme de carbono | 01 |
-| **Resistor** | 100 $\Omega$ | Resistor de filme de carbono | 02 |
-| **Capacitor** | 270uF | Eletrolítico (25V) - Reset Timer | 01 |
-| **Capacitor** | 100nF | Cerâmico (Desacoplamento) | 04 |
-| **Capacitor** | 10uF | Eletrolítico (10-16V) | 02 |
-| **Capacitor** | 10nF | Cerâmico | 01 |
-
-### 3. Servidor e Processamento
-| Categoria | Componente / Valor | Detalhes Técnicos | Qtd |
-| :--- | :--- | :--- | :--- |
-| **MCU** | ESP32 | Microcontrolador com Wi-Fi/BT | 01 |
-| **Capacitor** | 100nF | Cerâmico (Desacoplamento ESP32) | 01 |
-
----
-
 ## 📑 Documentação Técnica
 
 ### 1. Módulo de Aquisição de Sinal
