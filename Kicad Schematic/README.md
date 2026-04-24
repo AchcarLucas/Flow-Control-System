@@ -15,11 +15,19 @@ O projeto é composto por três estágios principais, detalhados nos arquivos de
 3.  **Condicionamento e Identificação de Fluxo (`signal_conditioning_and_flow_identification_schematic.png`)**:
     * Lógica de detecção de sentido (In/Out) utilizando Flip-Flops **74HC74**.
     * Tratamento de sinal com portas NAND Schmitt Trigger **4093** para debouncing e interface limpa com microcontroladores.
+4.  **Processamento e Servidor (`processing-server-esp32-circuit.png`)**:
+    * Receber o sinal de sentido (In-Flow/Out-Flow) nas portas do ESP32
+    * Utilização de firmware para o sistema processamento e disponbilidade dos dados via web
 
 <div style="display: flex; gap: 10px;">
     <img src="emitter_and_receiver_schematic.png" alt="Emissor e Receptor" width="600">
     <img src="signal_acquisition_schematic.png" alt="Aquisição de Sinal" width="600">
+    
+</div>
+
+<div style="display: flex; gap: 10px;">
     <img src="signal_conditioning_and_flow_identification_schematic.png" alt="Condicionamento" width="600">
+    <img src="../Building Blocks/Processing e Server/processing-server-esp32-circuit.png" alt="Condicionamento" width="600">
 </div>
 
 ---
@@ -44,13 +52,9 @@ Lista baseada no projeto de hardware, excluindo conectores de barra de pinos (Te
 | **Semicond.** | **BC547** | Transistor NPN | Q2 | 02 |
 | **Resistor** | **200 $\Omega$** | Filme de Carbono | R1 | 02 |
 | **Resistor** | **10k $\Omega$** | Filme de Carbono | R2 | 02 |
-
-### 3. Interface de Conexão (Duplicado)
-| Categoria | Componente / Valor | Detalhes Técnicos | Referências | Qtd |
-| :--- | :--- | :--- | :--- | :--- |
 | **Conector** | **Conn_01x03** | Interface para Módulo Laser | KY_1 | 02 |
 
-### 1. Módulo de Aquisição e Lógica de Sinal
+### 2. Módulo de Aquisição e Lógica de Sinal
 | Categoria | Componente / Valor | Detalhes Técnicos | Referências | Qtd |
 | :--- | :--- | :--- | :--- | :--- |
 | **CIs** | **NE555P** | Temporizador / Oscilador | U1, U2, U6 | 03 |
@@ -69,7 +73,7 @@ Lista baseada no projeto de hardware, excluindo conectores de barra de pinos (Te
 | **Resistor** | **1k $\Omega$** | Filme de Carbono | R7, R8, R12, R14-R16, R22, R23 | 08 |
 | **Resistor** | **200 $\Omega$** | Filme de Carbono | R11, R13, R17 | 03 |
 
-### 2. Condicionamento e Identificação de Fluxo
+### 3. Condicionamento e Identificação de Fluxo
 | Categoria | Componente / Valor | Detalhes Técnicos | Referências | Qtd |
 | :--- | :--- | :--- | :--- | :--- |
 | **CIs** | **CD4093** | Quad 2-Input NAND Schmitt Trigger | U7, U9 | 02 |
@@ -79,6 +83,16 @@ Lista baseada no projeto de hardware, excluindo conectores de barra de pinos (Te
 | **Resistor** | **Valor R** | Resistores de ajuste/calibração | R9, R10 | 02 |
 | **Capacitor** | **270uF** | Eletrolítico (Filtro/Reset) | C13 | 01 |
 | **Capacitor** | **10uF** | Eletrolítico (Estabilização) | C14, C15 | 02 |
+
+### 4. Processamento e Servidor (IoT)
+Módulo responsável pela leitura dos pulsos lógicos, processamento dos dados de contagem e transmissão via rede.
+
+| Categoria | Componente / Valor | Detalhes Técnicos | Qtd |
+| :--- | :--- | :--- | :--- |
+| **MCU** | **ESP32** | Microcontrolador com Wi-Fi/Bluetooth | 01 |
+| **Resistor** | **20k $\Omega$** | Divisor de tensão / Condicionamento | 03 |
+| **Resistor** | **10k $\Omega$** | Pull-up / Pull-down de interface | 03 |
+| **Capacitor** | **100nF** | Cerâmico (Desacoplamento ESP32) | 01 |
 
 ---
 *Nota: Os esquemáticos foram desenvolvidos em KiCad. Terminais de alimentação e pontos de teste (J1-J14) estão presentes nos desenhos técnicos, mas foram omitidos desta lista de componentes para simplificação da compra de materiais.*
