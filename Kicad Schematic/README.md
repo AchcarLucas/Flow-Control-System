@@ -57,32 +57,39 @@ Lista baseada no projeto de hardware, excluindo conectores de barra de pinos (Te
 ### 2. Módulo de Aquisição e Lógica de Sinal
 | Categoria | Componente / Valor | Detalhes Técnicos | Referências | Qtd |
 | :--- | :--- | :--- | :--- | :--- |
-| **CIs** | **NE555P** | Temporizador / Oscilador | U1, U2, U6 | 03 |
+| **CIs** | **NE555P** | Temporizador / Oscilador | U1, U2 | 02 |
 | **CIs** | **74HC238** | Demultiplexador 3-para-8 | U3 | 01 |
 | **CIs** | **74LS08** | Quad 2-Input AND Gate | U4 | 01 |
 | **CIs** | **74HC14** | Hex Inverting Schmitt Trigger | U5 | 01 |
-| **Semicond.** | **1N4148** | Diodo de sinal rápido | D1, D2, D3, D4 | 04 |
-| **Capacitor** | **100nF** | Cerâmico (Desacoplamento) | C1, C3-C7, C9, C10, C16-C18 | 11 |
+| **Semicond.** | **BC557** | Transistor PNP | Q3, Q4 | 02 |
+| **Semicond.** | **1N4148** | Diodo de sinal rápido | D1, D2 | 02 |
+| **Indicador** | **LED** | Sinalização de Feixe/Status | D5, D6 | 02 |
+| **Capacitor** | **100nF** | Cerâmico (Desacoplamento) | C1, C3-C6, C9, C10, C16, C17 | 09 |
 | **Capacitor** | **33nF** | Cerâmico / Poliéster | C8, C11 | 02 |
-| **Capacitor** | **10nF** | Cerâmico | C12 | 01 |
 | **Capacitor** | **1nF** | Cerâmico | C2 | 01 |
 | **Resistor** | **12k $\Omega$** | Filme de Carbono | R6 | 01 |
-| **Resistor** | **10k $\Omega$** | Filme de Carbono | R20, R21 | 02 |
+| **Resistor** | **10k $\Omega$** | Filme de Carbono | R9, R25 | 02 |
 | **Resistor** | **5k1 $\Omega$** | Filme de Carbono | R3, R4 | 02 |
+| **Resistor** | **4k7 $\Omega$** | Filme de Carbono | R24, R25 | 02 |
 | **Resistor** | **2k2 $\Omega$** | Filme de Carbono | R5 | 01 |
-| **Resistor** | **1k $\Omega$** | Filme de Carbono | R7, R8, R12, R14-R16, R22, R23 | 08 |
-| **Resistor** | **200 $\Omega$** | Filme de Carbono | R11, R13, R17 | 03 |
+| **Resistor** | **1k $\Omega$** | Filme de Carbono | R7, R8, R12, R14, R27, R28 | 06 |
+| **Resistor** | **200 $\Omega$** | Filme de Carbono | R11, R13 | 02 |
 
 ### 3. Condicionamento e Identificação de Fluxo
 | Categoria | Componente / Valor | Detalhes Técnicos | Referências | Qtd |
 | :--- | :--- | :--- | :--- | :--- |
+| **CIs** | **NE555P** | Temporizador / Oscilador | U6 | 01 |
 | **CIs** | **CD4093** | Quad 2-Input NAND Schmitt Trigger | U7, U9 | 02 |
 | **CIs** | **74HC74** | Dual D-Type Flip-Flop | U8 | 01 |
-| **Indicador** | **LED** | Sinalização de Feixe/Status | D5, D6, D7, D8, D9 | 05 |
+| **Indicador** | **LED** | Sinalização de Feixe/Status | D7, D8, D9 | 03 |
+| **Resistor** | **10k $\Omega$** | Filme de Carbono | R20, R21 | 02 |
+| **Resistor** | **1k $\Omega$** | Limitação de corrente LED | R15, R16 | 02 |
+| **Resistor** | **200 $\Omega$** | Filme de Carbono | R17 | 01 |
 | **Resistor** | **100 $\Omega$** | Limitação de corrente LED | R18, R19 | 02 |
-| **Resistor** | **Valor R** | Resistores de ajuste/calibração | R9, R10 | 02 |
 | **Capacitor** | **270uF** | Eletrolítico (Filtro/Reset) | C13 | 01 |
 | **Capacitor** | **10uF** | Eletrolítico (Estabilização) | C14, C15 | 02 |
+| **Capacitor** | **100nF** | Cerâmico (Desacoplamento) | C7, C18 | 02 |
+| **Capacitor** | **10nF** | Cerâmico (Desacoplamento) | C12 | 01 |
 
 ### 4. Processamento e Servidor (IoT)
 Módulo responsável pela leitura dos pulsos lógicos, processamento dos dados de contagem e transmissão via rede.
