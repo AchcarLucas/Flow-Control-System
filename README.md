@@ -25,7 +25,6 @@
 * [Progresso do Desenvolvimento](#-progresso-do-desenvolvimento)
 * [Estrutura do Projeto](#-estrutura-do-projeto)
 * [Previa de Desenvolvimento](#-previa-de-desenvolvimento)
-* [Histórico de Tarefas](#-histórico-de-tarefas)
 
 > 💡 **README Extra:**
 > - [README Firmware](./Firmware/README.md)
@@ -64,20 +63,31 @@ Diferente de soluções dependentes de nuvem, este projeto foca em **Edge Comput
 * **CAD:** [Kicad e DIY Layout Creator]
 
 ## 🔧 Progresso do Desenvolvimento
-- [x] Desenvolvimento do firmware para monitoramento em tempo real via sensores (simulados).
-- [x] Armazenamento dos dados em banco de dados local usando SQLite.
-- [x] Servidor Web embarcado para consulta de dados.
+|Status | Descrição |
+| :--- | :--- |
+| ✅ Concluído | Idealização do Projeto |
+| ✅ Concluído | Prototipação do Projeto utilizando CAD (Computer-Aided Design) |
+| ✅ Concluído | Desenvolvimento do Firmware |
+| ✅ Concluído | Alterações e Correções do Firmware |
+| ✅ Concluído | Testes do Firmware para Identificação de Bugs e Leak de Memória |
+| ✅ Concluído  | Projeto e Prototipagem do Fotosensor |
+| ✅ Concluído | Desenvolvimento da Enclusure para o Fotosensor |
+| ✅ Concluído | Desenvolvimento do Schematic via Kicad |
 
-- [x] Teste do circuito de fotosensor na protoboard
-- [x] Desenvolvimento do circuito de fotosensor na placa padboard
+| 🟡 Desenvolvimento | Desenho dos Circuitos para Placa PadBoard usando a ferramenta DIY Layout Creator |
 
-- [ ] Desenhando os circuitos da placa padboard na ferramenta DIY Layout Creator
+| ✅ Concluído | Teste do Circuito de Processamento na Protoboard|
+| ✅ Concluído | Teste do Circuito de Aquisição de Sinal na Protoboard |
+| 🟡 Desenvolvimento | Teste do Circuito de Condicionamento, Identificação de Fluxo na Protoboard|
 
-- [ ] Teste do circuito de aquisição de sinal na protoboard
-- [ ] Desenvolvimento do circuito de aquisição de sinal na placa padboard
+| 🔴 Pendente | Desenvolvimento do Circuito de Aquisição de Sinal na Placa PadBoard |
+| 🔴 Pendente | Desenvolvimento do Circuito de Condicionamento, Identificação de Fluxo e Processamento na Placa PadBoard|
 
-- [ ] Teste do circuito de condicionamento de sinal na proboard
-- [ ] Desenvolvimento do circuito de identificação de sinal na placa padboard
+<!--
+| ✅ Concluído | Text |
+| 🟡 Desenvolvimento | Text |
+| 🔴 Pendente | Text |
+-->
 
 ## 📂 Estrutura do Projeto
 Para facilitar a navegação, o projeto está dividido da seguinte forma:
@@ -123,30 +133,3 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 > - Atualização em tempo real dos registros armazenados no SQLite.
 > - Dashboard possui um sistema de stats para avaliação de desempenho do ESP32
 
-## 📝 Histórico de Tarefas
-
-|Status | Descrição |
-| :--- | :--- |
-| ✅ Concluído | Idealização do Projeto |
-| ✅ Concluído | Prototipação do Projeto utilizando CAD (Computer-Aided Design) |
-| ✅ Concluído | Desenvolvimento do Firmware |
-| ✅ Concluído | Alterações e Correções do Firmware |
-| ✅ Concluído | Testes do Firmware para Identificação de Bugs e Leak de Memória |
-| ✅ Concluído  | Projeto e Prototipagem do Fotosensor |
-| ✅ Concluído | Desenvolvimento da Enclusure para o Fotosensor |
-| ✅ Concluído | Desenvolvimento do Schematic via Kicad |
-
-| 🟡 Desenvolvimento | Desenho dos Circuitos para Placa PadBoard usando a ferramenta DIY Layout Creator |
-
-| ✅ Concluído | Teste do Circuito de Processamento na Protoboard|
-| ✅ Concluído | Teste do Circuito de Aquisição de Sinal na Protoboard |
-| 🟡 Desenvolvimento | Teste do Circuito de Condicionamento, Identificação de Fluxo na Protoboard|
-
-| 🔴 Pendente | Desenvolvimento do Circuito de Aquisição de Sinal na Placa PadBoard |
-| 🔴 Pendente | Desenvolvimento do Circuito de Condicionamento, Identificação de Fluxo e Processamento na Placa PadBoard|
-
-<!--
-| ✅ Concluído | Text |
-| 🟡 Desenvolvimento | Text |
-| 🔴 Pendente | Text |
--->
