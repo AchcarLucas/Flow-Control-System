@@ -86,7 +86,8 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
     └── README.md                                               # [Detalhes do Firmware](./Firmware/README.md)
 ├── Hardware - Aspecto Geral (Diagrama de Blocos)/      # Idealização e Diagramação do Projeto Completo
 ├── Brainstorm/                                         # Brainstorm da Ideia Inicial
-├── Previa/                                             # GIFs e Imagens de Previa do Projeto
+├── Previa/                                             # Imagens e Animações de Previa do Projeto
+├── LTSpice/                                            # Simulações feitas via LTSpice para Auxilio do Desenvolvimento e Ajustes do Protótipo
 ├── Enclosure/                                          # Projeto das Cases Feito via FreeCAD
     └── FotosensorEnclosure                                     # Projeto da Case do Fotosensor feito em FreeCAD
 ├── Kicad Schematic                                     # Schematic do Circuito Feito via Kicad
