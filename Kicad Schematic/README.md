@@ -62,11 +62,12 @@ Lista baseada no projeto de hardware, excluindo conectores de barra de pinos (Te
 | **CIs** | **74LS08** | Quad 2-Input AND Gate | U4 | 01 |
 | **CIs** | **74HC14** | Hex Inverting Schmitt Trigger | U5 | 01 |
 | **Semicond.** | **BC557** | Transistor PNP | Q3, Q4 | 02 |
-| **Semicond.** | **1N4148** | Diodo de sinal rápido | D1, D2 | 02 |
+| **Semicond.** | **1N4148** | Diodo de sinal rápido | D1, D2, D3, D4 | 04 |
 | **Indicador** | **LED** | Sinalização de Feixe/Status | D5, D6 | 02 |
 | **Capacitor** | **100nF** | Cerâmico (Desacoplamento) | C1, C3-C6, C9, C10, C16, C17 | 09 |
 | **Capacitor** | **33nF** | Cerâmico / Poliéster | C8, C11 | 02 |
 | **Capacitor** | **1nF** | Cerâmico | C2 | 01 |
+| **Resistor** | **100k $\Omega$** | Filme de Carbono | R10, R29 | 02 |
 | **Resistor** | **12k $\Omega$** | Filme de Carbono | R6 | 01 |
 | **Resistor** | **10k $\Omega$** | Filme de Carbono | R9, R25 | 02 |
 | **Resistor** | **5k1 $\Omega$** | Filme de Carbono | R3, R4 | 02 |
