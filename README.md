@@ -73,13 +73,10 @@ Diferente de soluções dependentes de nuvem, este projeto foca em **Edge Comput
 | ✅ Concluído  | Projeto e Prototipagem do Fotosensor |
 | ✅ Concluído | Desenvolvimento da Enclusure para o Fotosensor |
 | ✅ Concluído | Desenvolvimento do Schematic via Kicad |
-
 | 🟡 Desenvolvimento | Desenho dos Circuitos para Placa PadBoard usando a ferramenta DIY Layout Creator |
-
 | ✅ Concluído | Teste do Circuito de Processamento na Protoboard|
 | ✅ Concluído | Teste do Circuito de Aquisição de Sinal na Protoboard |
 | 🟡 Desenvolvimento | Teste do Circuito de Condicionamento, Identificação de Fluxo na Protoboard|
-
 | 🔴 Pendente | Desenvolvimento do Circuito de Aquisição de Sinal na Placa PadBoard |
 | 🔴 Pendente | Desenvolvimento do Circuito de Condicionamento, Identificação de Fluxo e Processamento na Placa PadBoard|
 
