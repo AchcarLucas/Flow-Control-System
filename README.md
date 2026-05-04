@@ -77,6 +77,7 @@ Diferente de soluções dependentes de nuvem, este projeto foca em **Edge Comput
 | ✅ Concluído | Teste do Circuito de Processamento na Protoboard|
 | ✅ Concluído | Teste do Circuito de Aquisição de Sinal na Protoboard |
 | 🟡 Desenvolvimento | Teste do Circuito de Condicionamento, Identificação de Fluxo na Protoboard|
+| ✅ Concluído | Desenvolvimento do Circuito de Fotosensor Placa PadBoard |
 | 🔴 Pendente | Desenvolvimento do Circuito de Aquisição de Sinal na Placa PadBoard |
 | 🔴 Pendente | Desenvolvimento do Circuito de Condicionamento, Identificação de Fluxo e Processamento na Placa PadBoard|
 
