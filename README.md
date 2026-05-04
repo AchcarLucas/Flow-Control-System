@@ -61,15 +61,23 @@ Diferente de soluções dependentes de nuvem, este projeto foca em **Edge Comput
 * **Linguagens:** [C++]
 * **Banco de Dados:** [SQLite]
 * **Simulações:** [SimulIDE]
+* **CAD:** [Kicad e DIY Layout Creator]
 
 ## 🔧 Progresso do Desenvolvimento
 - [x] Desenvolvimento do firmware para monitoramento em tempo real via sensores (simulados).
 - [x] Armazenamento dos dados em banco de dados local usando SQLite.
 - [x] Servidor Web embarcado para consulta de dados.
-- [x] Desenvolvimento do circuito de fotosensor
-- [ ] Desenvolvimento do circuito de aquisição de sinal
-- [ ] Desenvolvimento do circuito de condicionamento de sinal
-- [ ] Desenvolvimento do circuito de identificação de sinal
+
+- [x] Teste do circuito de fotosensor na protoboard
+- [x] Desenvolvimento do circuito de fotosensor na placa padboard
+
+- [ ] Desenhando os circuitos da placa padboard na ferramenta DIY Layout Creator
+
+- [ ] Teste do circuito de aquisição de sinal na protoboard
+- [ ] Desenvolvimento do circuito de aquisição de sinal na placa padboard
+
+- [ ] Teste do circuito de condicionamento de sinal na proboard
+- [ ] Desenvolvimento do circuito de identificação de sinal na placa padboard
 
 ## 📂 Estrutura do Projeto
 Para facilitar a navegação, o projeto está dividido da seguinte forma:
@@ -127,8 +135,15 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 | ✅ Concluído  | Projeto e Prototipagem do Fotosensor |
 | ✅ Concluído | Desenvolvimento da Enclusure para o Fotosensor |
 | ✅ Concluído | Desenvolvimento do Schematic via Kicad |
-| 🟡 Desenvolvimento | Desenvolvimento do Circuito de Aquisição de Sinal |
-| 🔴 Pendente | Desenvolvimento do Circuito de Condicionamento e Identificação de Fluxo |
+
+| 🟡 Desenvolvimento | Desenho dos Circuitos para Placa PadBoard usando a ferramenta DIY Layout Creator |
+
+| ✅ Concluído | Teste do Circuito de Processamento na Protoboard|
+| ✅ Concluído | Teste do Circuito de Aquisição de Sinal na Protoboard |
+| 🟡 Desenvolvimento | Teste do Circuito de Condicionamento, Identificação de Fluxo na Protoboard|
+
+| 🔴 Pendente | Desenvolvimento do Circuito de Aquisição de Sinal na Placa PadBoard |
+| 🔴 Pendente | Desenvolvimento do Circuito de Condicionamento, Identificação de Fluxo e Processamento na Placa PadBoard|
 
 <!--
 | ✅ Concluído | Text |
