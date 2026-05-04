@@ -84,7 +84,7 @@ Lista baseada no projeto de hardware, excluindo conectores de barra de pinos (Te
 | **CIs** | **74HC74** | Dual D-Type Flip-Flop | U8 | 01 |
 | **Indicador** | **LED** | Sinalização de Feixe/Status | D7, D8, D9 | 03 |
 | **Resistor** | **10k $\Omega$** | Filme de Carbono | R20, R21 | 02 |
-| **Resistor** | **1k $\Omega$** | Limitação de corrente LED | R15, R16 | 02 |
+| **Resistor** | **1k $\Omega$** | Limitação de corrente LED | R16 | 01 |
 | **Resistor** | **200 $\Omega$** | Filme de Carbono | R17 | 01 |
 | **Resistor** | **100 $\Omega$** | Limitação de corrente LED | R18, R19 | 02 |
 | **Capacitor** | **270uF** | Eletrolítico (Filtro/Reset) | C13 | 01 |
