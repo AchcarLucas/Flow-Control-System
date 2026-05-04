@@ -69,7 +69,7 @@ Lista baseada no projeto de hardware, excluindo conectores de barra de pinos (Te
 | **Capacitor** | **1nF** | Cerâmico | C2 | 01 |
 | **Resistor** | **100k $\Omega$** | Filme de Carbono | R10, R29 | 02 |
 | **Resistor** | **12k $\Omega$** | Filme de Carbono | R6 | 01 |
-| **Resistor** | **10k $\Omega$** | Filme de Carbono | R9, R25 | 02 |
+| **Resistor** | **10k $\Omega$** | Filme de Carbono | R9, R25, R22, R23 | 04 |
 | **Resistor** | **5k1 $\Omega$** | Filme de Carbono | R3, R4 | 02 |
 | **Resistor** | **4k7 $\Omega$** | Filme de Carbono | R24, R25 | 02 |
 | **Resistor** | **2k2 $\Omega$** | Filme de Carbono | R5 | 01 |
