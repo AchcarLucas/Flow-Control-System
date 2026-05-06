@@ -4286,9 +4286,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="7.4" y="2.1"/>
+        <point x="7.5" y="2.1"/>
         <point x="7.2" y="2.1"/>
-        <point x="7.3" y="2.1"/>
+        <point x="7.35" y="2.1"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -4308,9 +4308,9 @@
         <value>75</value>
       </alphaPercent>
       <points>
-        <point x="7.4" y="2.7"/>
-        <point x="7.4" y="2.9"/>
-        <point x="7.4" y="2.8"/>
+        <point x="7.5" y="2.7"/>
+        <point x="7.5" y="2.9"/>
+        <point x="7.5" y="2.8"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -6813,9 +6813,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="7.4" y="1.8"/>
-        <point x="7.4" y="2.1"/>
-        <point x="7.4" y="1.95"/>
+        <point x="7.5" y="1.9"/>
+        <point x="7.5" y="2.1"/>
+        <point x="7.5" y="2.0"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -6967,9 +6967,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="6.7" y="1.8"/>
-        <point x="7.4" y="1.8"/>
-        <point x="7.05" y="1.8"/>
+        <point x="6.7" y="1.9"/>
+        <point x="7.5" y="1.9"/>
+        <point x="7.1" y="1.9"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -7297,9 +7297,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="7.3" y="2.2"/>
+        <point x="7.4" y="2.2"/>
         <point x="7.2" y="2.2"/>
-        <point x="7.25" y="2.2"/>
+        <point x="7.3" y="2.2"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -7542,8 +7542,8 @@
       <width value="2.5" unit="mm"/>
       <points>
         <point x="7.2" y="1.5"/>
-        <point x="7.2" y="1.8"/>
-        <point x="7.2" y="1.65"/>
+        <point x="7.2" y="1.9"/>
+        <point x="7.2" y="1.7"/>
       </points>
       <bodyColor hex="e0c68b"/>
       <borderColor hex="a59268"/>
@@ -7569,8 +7569,8 @@
       <width value="2.5" unit="mm"/>
       <points>
         <point x="6.7" y="1.4"/>
-        <point x="6.7" y="1.8"/>
-        <point x="6.7" y="1.6"/>
+        <point x="6.7" y="1.9"/>
+        <point x="6.7" y="1.65"/>
       </points>
       <bodyColor hex="e0c68b"/>
       <borderColor hex="a59268"/>
@@ -7638,8 +7638,8 @@
       </alphaPercent>
       <points>
         <point x="7.2" y="2.5"/>
+        <point x="7.4" y="2.5"/>
         <point x="7.3" y="2.5"/>
-        <point x="7.25" y="2.5"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -7835,9 +7835,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="7.4" y="2.9"/>
+        <point x="7.5" y="2.9"/>
         <point x="9.0" y="2.9"/>
-        <point x="8.2" y="2.9"/>
+        <point x="8.249999999999998" y="2.9"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -7857,9 +7857,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="7.4" y="2.1"/>
-        <point x="7.4" y="2.7"/>
-        <point x="7.4" y="2.4"/>
+        <point x="7.5" y="2.1"/>
+        <point x="7.5" y="2.7"/>
+        <point x="7.5" y="2.4"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -7879,9 +7879,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="8.4" y="2.4"/>
+        <point x="8.5" y="2.4"/>
         <point x="8.9" y="2.4"/>
-        <point x="8.65" y="2.4"/>
+        <point x="8.7" y="2.4"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -7901,9 +7901,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="8.4" y="2.4"/>
-        <point x="8.4" y="2.0"/>
-        <point x="8.4" y="2.2"/>
+        <point x="8.5" y="2.4"/>
+        <point x="8.5" y="2.2"/>
+        <point x="8.5" y="2.3000000000000003"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -7923,9 +7923,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="8.0" y="2.0"/>
         <point x="8.1" y="2.0"/>
-        <point x="8.05" y="2.0"/>
+        <point x="8.2" y="2.0"/>
+        <point x="8.15" y="2.0"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -7945,9 +7945,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="8.0" y="2.2"/>
         <point x="8.1" y="2.2"/>
-        <point x="8.05" y="2.2"/>
+        <point x="8.2" y="2.2"/>
+        <point x="8.15" y="2.2"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -7967,9 +7967,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="8.0" y="2.4"/>
         <point x="8.1" y="2.4"/>
-        <point x="8.05" y="2.4"/>
+        <point x="8.2" y="2.4"/>
+        <point x="8.15" y="2.4"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -7989,9 +7989,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="7.6" y="2.4"/>
         <point x="7.7" y="2.4"/>
-        <point x="7.65" y="2.4"/>
+        <point x="7.8" y="2.4"/>
+        <point x="7.75" y="2.4"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -8011,9 +8011,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="7.6" y="2.2"/>
         <point x="7.7" y="2.2"/>
-        <point x="7.65" y="2.2"/>
+        <point x="7.8" y="2.2"/>
+        <point x="7.75" y="2.2"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -8034,8 +8034,8 @@
       </alphaPercent>
       <points>
         <point x="7.6" y="2.0"/>
+        <point x="7.8" y="2.0"/>
         <point x="7.7" y="2.0"/>
-        <point x="7.65" y="2.0"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -8078,8 +8078,8 @@
       </alphaPercent>
       <points>
         <point x="8.3" y="2.5"/>
-        <point x="7.7" y="2.5"/>
-        <point x="8.0" y="2.5"/>
+        <point x="7.8" y="2.5"/>
+        <point x="8.05" y="2.5"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -8099,9 +8099,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="7.7" y="2.5"/>
-        <point x="7.7" y="2.4"/>
-        <point x="7.7" y="2.45"/>
+        <point x="7.8" y="2.5"/>
+        <point x="7.8" y="2.4"/>
+        <point x="7.8" y="2.45"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -8144,8 +8144,8 @@
       </alphaPercent>
       <points>
         <point x="8.4" y="1.9"/>
-        <point x="7.8" y="1.9"/>
-        <point x="8.1" y="1.9"/>
+        <point x="7.9" y="1.9"/>
+        <point x="8.15" y="1.9"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -8165,9 +8165,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="7.8" y="1.9"/>
-        <point x="7.8" y="2.1"/>
-        <point x="7.8" y="2.0"/>
+        <point x="7.9" y="1.9"/>
+        <point x="7.9" y="2.1"/>
+        <point x="7.9" y="2.0"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -8187,9 +8187,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
+        <point x="7.9" y="2.1"/>
         <point x="7.8" y="2.1"/>
-        <point x="7.7" y="2.1"/>
-        <point x="7.75" y="2.1"/>
+        <point x="7.85" y="2.1"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -8209,9 +8209,9 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="7.7" y="2.1"/>
-        <point x="7.7" y="2.2"/>
-        <point x="7.7" y="2.15"/>
+        <point x="7.8" y="2.1"/>
+        <point x="7.8" y="2.2"/>
+        <point x="7.8" y="2.15"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -8254,8 +8254,8 @@
       </alphaPercent>
       <points>
         <point x="8.2" y="1.8"/>
-        <point x="7.7" y="1.8"/>
-        <point x="7.95" y="1.8"/>
+        <point x="7.8" y="1.8"/>
+        <point x="8.0" y="1.8"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -8275,36 +8275,14 @@
         <value>100</value>
       </alphaPercent>
       <points>
-        <point x="7.7" y="1.8"/>
-        <point x="7.7" y="2.0"/>
-        <point x="7.7" y="1.9"/>
+        <point x="7.8" y="1.8"/>
+        <point x="7.8" y="2.0"/>
+        <point x="7.8" y="1.9"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
       <labelColor hex="000000"/>
       <leadColor hex="0000ff"/>
-      <display>NAME</display>
-      <flipStanding>false</flipStanding>
-      <labelOriantation>Directional</labelOriantation>
-      <moveLabel>false</moveLabel>
-      <hideShortLeads>false</hideShortLeads>
-      <style>SOLID</style>
-    </diylc.connectivity.Jumper>
-    <diylc.connectivity.Jumper>
-      <id>90e2d782-178a-4704-8c4f-eef5bee9eac4</id>
-      <name>J284</name>
-      <alphaPercent>
-        <value>100</value>
-      </alphaPercent>
-      <points>
-        <point x="6.9" y="1.8"/>
-        <point x="6.9" y="1.9"/>
-        <point x="6.9" y="1.85"/>
-      </points>
-      <bodyColor hex="ffffff"/>
-      <borderColor hex="000000"/>
-      <labelColor hex="000000"/>
-      <leadColor hex="ff002e"/>
       <display>NAME</display>
       <flipStanding>false</flipStanding>
       <labelOriantation>Directional</labelOriantation>
@@ -8445,40 +8423,6 @@
       <style>SOLID</style>
     </diylc.connectivity.Jumper>
     <diylc.semiconductors.DIL__IC>
-      <id>a1e12b67-243e-4657-98b5-733999671be4</id>
-      <name>74HC74</name>
-      <alphaPercent>
-        <value>75</value>
-      </alphaPercent>
-      <value></value>
-      <orientation>DEFAULT</orientation>
-      <pinCount>_14</pinCount>
-      <pinSpacing value="0.1" unit="in"/>
-      <rowSpacing value="0.3" unit="in"/>
-      <controlPoints>
-        <point x="6.8" y="1.1"/>
-        <point x="6.8" y="1.2"/>
-        <point x="6.8" y="1.3"/>
-        <point x="6.8" y="1.4"/>
-        <point x="6.8" y="1.5"/>
-        <point x="6.8" y="1.6"/>
-        <point x="6.8" y="1.7"/>
-        <point x="7.1" y="1.1"/>
-        <point x="7.1" y="1.2"/>
-        <point x="7.1" y="1.3"/>
-        <point x="7.1" y="1.4"/>
-        <point x="7.1" y="1.5"/>
-        <point x="7.1" y="1.6"/>
-        <point x="7.1" y="1.7"/>
-      </controlPoints>
-      <display>BOTH</display>
-      <bodyColor hex="808080"/>
-      <borderColor hex="595959"/>
-      <labelColor hex="ffffff"/>
-      <indentColor hex="595959"/>
-      <displayNumbers>NO</displayNumbers>
-    </diylc.semiconductors.DIL__IC>
-    <diylc.semiconductors.DIL__IC>
       <id>e8af4f7e-3ed0-40dc-9366-b7ab21bcd800</id>
       <name>CD4093</name>
       <alphaPercent>
@@ -8583,9 +8527,9 @@
       <length value="7.0" unit="mm"/>
       <width value="2.5" unit="mm"/>
       <points>
-        <point x="7.6" y="2.4"/>
-        <point x="7.3" y="2.5"/>
-        <point x="7.45" y="2.45"/>
+        <point x="7.7" y="2.4"/>
+        <point x="7.4" y="2.5"/>
+        <point x="7.55" y="2.45"/>
       </points>
       <bodyColor hex="e0c68b"/>
       <borderColor hex="a59268"/>
@@ -8610,9 +8554,9 @@
       <length value="7.0" unit="mm"/>
       <width value="2.5" unit="mm"/>
       <points>
-        <point x="7.6" y="2.2"/>
-        <point x="7.3" y="2.2"/>
-        <point x="7.45" y="2.2"/>
+        <point x="7.7" y="2.2"/>
+        <point x="7.4" y="2.2"/>
+        <point x="7.55" y="2.2"/>
       </points>
       <bodyColor hex="e0c68b"/>
       <borderColor hex="a59268"/>
@@ -8664,9 +8608,9 @@
       <length value="7.0" unit="mm"/>
       <width value="2.5" unit="mm"/>
       <points>
-        <point x="8.0" y="2.0"/>
-        <point x="7.7" y="2.0"/>
-        <point x="7.85" y="2.0"/>
+        <point x="8.1" y="2.0"/>
+        <point x="7.8" y="2.0"/>
+        <point x="7.95" y="2.0"/>
       </points>
       <bodyColor hex="e0c68b"/>
       <borderColor hex="a59268"/>
@@ -8691,9 +8635,9 @@
       <length value="7.0" unit="mm"/>
       <width value="2.5" unit="mm"/>
       <points>
-        <point x="8.4" y="2.0"/>
-        <point x="8.1" y="2.0"/>
-        <point x="8.25" y="2.0"/>
+        <point x="8.5" y="2.0"/>
+        <point x="8.2" y="2.0"/>
+        <point x="8.35" y="2.0"/>
       </points>
       <bodyColor hex="e0c68b"/>
       <borderColor hex="a59268"/>
@@ -8718,9 +8662,9 @@
       <length value="7.0" unit="mm"/>
       <width value="2.5" unit="mm"/>
       <points>
-        <point x="8.0" y="2.2"/>
-        <point x="7.7" y="2.2"/>
-        <point x="7.85" y="2.2"/>
+        <point x="8.1" y="2.2"/>
+        <point x="7.8" y="2.2"/>
+        <point x="7.95" y="2.2"/>
       </points>
       <bodyColor hex="e0c68b"/>
       <borderColor hex="a59268"/>
@@ -8745,9 +8689,9 @@
       <length value="7.0" unit="mm"/>
       <width value="2.5" unit="mm"/>
       <points>
-        <point x="8.4" y="2.2"/>
-        <point x="8.1" y="2.2"/>
-        <point x="8.25" y="2.2"/>
+        <point x="8.5" y="2.2"/>
+        <point x="8.2" y="2.2"/>
+        <point x="8.35" y="2.2"/>
       </points>
       <bodyColor hex="e0c68b"/>
       <borderColor hex="a59268"/>
@@ -8772,9 +8716,9 @@
       <length value="7.0" unit="mm"/>
       <width value="2.5" unit="mm"/>
       <points>
-        <point x="8.0" y="2.4"/>
-        <point x="7.7" y="2.4"/>
-        <point x="7.85" y="2.4"/>
+        <point x="8.1" y="2.4"/>
+        <point x="7.8" y="2.4"/>
+        <point x="7.95" y="2.4"/>
       </points>
       <bodyColor hex="e0c68b"/>
       <borderColor hex="a59268"/>
@@ -8799,9 +8743,9 @@
       <length value="7.0" unit="mm"/>
       <width value="2.5" unit="mm"/>
       <points>
-        <point x="8.4" y="2.4"/>
-        <point x="8.1" y="2.4"/>
-        <point x="8.25" y="2.4"/>
+        <point x="8.5" y="2.4"/>
+        <point x="8.2" y="2.4"/>
+        <point x="8.35" y="2.4"/>
       </points>
       <bodyColor hex="e0c68b"/>
       <borderColor hex="a59268"/>
@@ -8945,6 +8889,160 @@
       <hideShortLeads>false</hideShortLeads>
       <style>SOLID</style>
     </diylc.connectivity.Jumper>
+    <diylc.connectivity.Jumper>
+      <id>7d68e9a6-8ff0-4aef-a37d-5c4b280c87bf</id>
+      <name>J290</name>
+      <alphaPercent>
+        <value>100</value>
+      </alphaPercent>
+      <points>
+        <point x="6.5" y="2.9"/>
+        <point x="6.5" y="2.4"/>
+        <point x="6.5" y="2.65"/>
+      </points>
+      <bodyColor hex="ffffff"/>
+      <borderColor hex="000000"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="0000ff"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <style>SOLID</style>
+    </diylc.connectivity.Jumper>
+    <diylc.connectivity.Jumper>
+      <id>b948fd27-0759-47cd-8269-97607174ec67</id>
+      <name>J291</name>
+      <alphaPercent>
+        <value>100</value>
+      </alphaPercent>
+      <points>
+        <point x="6.7" y="2.2"/>
+        <point x="6.8" y="2.2"/>
+        <point x="6.75" y="2.2"/>
+      </points>
+      <bodyColor hex="ffffff"/>
+      <borderColor hex="000000"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="0000ff"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <style>SOLID</style>
+    </diylc.connectivity.Jumper>
+    <diylc.connectivity.Jumper>
+      <id>8ff6db3b-8347-4c58-a999-dd0e324801ee</id>
+      <name>J284</name>
+      <alphaPercent>
+        <value>100</value>
+      </alphaPercent>
+      <points>
+        <point x="6.8" y="1.7"/>
+        <point x="7.0" y="1.7"/>
+        <point x="6.9" y="1.7"/>
+      </points>
+      <bodyColor hex="ffffff"/>
+      <borderColor hex="000000"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="010101"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <style>SOLID</style>
+    </diylc.connectivity.Jumper>
+    <diylc.connectivity.Jumper>
+      <id>cd9ced51-bf3e-410f-b12b-701e9106709b</id>
+      <name>J292</name>
+      <alphaPercent>
+        <value>100</value>
+      </alphaPercent>
+      <points>
+        <point x="7.0" y="1.7"/>
+        <point x="7.0" y="1.8"/>
+        <point x="7.0" y="1.75"/>
+      </points>
+      <bodyColor hex="ffffff"/>
+      <borderColor hex="000000"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="010101"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <style>SOLID</style>
+    </diylc.connectivity.Jumper>
+    <diylc.connectivity.Jumper>
+      <id>f9ab9bfb-fdbc-417d-8849-951d50b93c10</id>
+      <name>J293</name>
+      <alphaPercent>
+        <value>100</value>
+      </alphaPercent>
+      <points>
+        <point x="8.5" y="2.2"/>
+        <point x="8.5" y="2.0"/>
+        <point x="8.5" y="2.1"/>
+      </points>
+      <bodyColor hex="ffffff"/>
+      <borderColor hex="000000"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="010101"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <style>SOLID</style>
+    </diylc.connectivity.Jumper>
+    <diylc.connectivity.Jumper>
+      <id>02525b13-7220-483d-94e5-0b9f8e64d26d</id>
+      <name>J294</name>
+      <alphaPercent>
+        <value>100</value>
+      </alphaPercent>
+      <points>
+        <point x="7.3" y="2.6"/>
+        <point x="7.4" y="2.6"/>
+        <point x="7.35" y="2.6"/>
+      </points>
+      <bodyColor hex="ffffff"/>
+      <borderColor hex="000000"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="0000ff"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <style>SOLID</style>
+    </diylc.connectivity.Jumper>
+    <diylc.connectivity.Jumper>
+      <id>f3eb309f-f3da-4ace-b86f-d3311602489d</id>
+      <name>J288</name>
+      <alphaPercent>
+        <value>100</value>
+      </alphaPercent>
+      <points>
+        <point x="6.5" y="2.9"/>
+        <point x="7.2" y="2.9"/>
+        <point x="6.85" y="2.9"/>
+      </points>
+      <bodyColor hex="ffffff"/>
+      <borderColor hex="000000"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="0000ff"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <style>SOLID</style>
+    </diylc.connectivity.Jumper>
     <diylc.electromechanical.PinHeader>
       <id>da26476f-1bc8-4062-9e29-abc89242b47b</id>
       <name>PH3</name>
@@ -9007,6 +9105,142 @@
       <bodyColor hex="808080"/>
       <shroudColor hex="595959"/>
     </diylc.electromechanical.PinHeader>
+    <diylc.semiconductors.LED>
+      <id>a1fbd52f-dbc9-476c-8d46-8c0579d55230</id>
+      <name>D8</name>
+      <alphaPercent>
+        <value>75</value>
+      </alphaPercent>
+      <length value="3.0" unit="mm"/>
+      <width value="5.0" unit="mm"/>
+      <points>
+        <point x="7.2" y="2.9"/>
+        <point x="7.3" y="2.8"/>
+        <point x="7.25" y="2.85"/>
+      </points>
+      <bodyColor hex="0b11f7"/>
+      <borderColor hex="f50243"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="cccccc"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <value></value>
+    </diylc.semiconductors.LED>
+    <diylc.passive.Resistor>
+      <id>20ca2d0b-484f-48fe-b6f1-9326917cc1f0</id>
+      <name>R34</name>
+      <alphaPercent>
+        <value>75</value>
+      </alphaPercent>
+      <length value="7.0" unit="mm"/>
+      <width value="2.5" unit="mm"/>
+      <points>
+        <point x="6.5" y="2.4"/>
+        <point x="6.7" y="2.2"/>
+        <point x="6.6" y="2.3"/>
+      </points>
+      <bodyColor hex="e0c68b"/>
+      <borderColor hex="a59268"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="cccccc"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <value value="200.0" unit="R"/>
+      <power>HALF</power>
+      <colorCode>_5_BAND</colorCode>
+      <shape>Standard</shape>
+    </diylc.passive.Resistor>
+    <diylc.passive.Resistor>
+      <id>178d386f-0525-490b-bd0c-acde9353a78a</id>
+      <name>R35</name>
+      <alphaPercent>
+        <value>75</value>
+      </alphaPercent>
+      <length value="7.0" unit="mm"/>
+      <width value="2.5" unit="mm"/>
+      <points>
+        <point x="7.3" y="2.6"/>
+        <point x="7.3" y="2.3"/>
+        <point x="7.3" y="2.45"/>
+      </points>
+      <bodyColor hex="e0c68b"/>
+      <borderColor hex="a59268"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="cccccc"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <value value="200.0" unit="R"/>
+      <power>HALF</power>
+      <colorCode>_5_BAND</colorCode>
+      <shape>Standard</shape>
+    </diylc.passive.Resistor>
+    <diylc.semiconductors.LED>
+      <id>9ff0dec5-9558-44b3-8771-94a67ba9212f</id>
+      <name>D9</name>
+      <alphaPercent>
+        <value>75</value>
+      </alphaPercent>
+      <length value="3.0" unit="mm"/>
+      <width value="5.0" unit="mm"/>
+      <points>
+        <point x="7.4" y="2.6"/>
+        <point x="7.4" y="2.8"/>
+        <point x="7.4" y="2.7"/>
+      </points>
+      <bodyColor hex="0b11f7"/>
+      <borderColor hex="f50243"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="cccccc"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <value></value>
+    </diylc.semiconductors.LED>
+    <diylc.semiconductors.DIL__IC>
+      <id>a1e12b67-243e-4657-98b5-733999671be4</id>
+      <name>74HC74</name>
+      <alphaPercent>
+        <value>75</value>
+      </alphaPercent>
+      <value></value>
+      <orientation>DEFAULT</orientation>
+      <pinCount>_14</pinCount>
+      <pinSpacing value="0.1" unit="in"/>
+      <rowSpacing value="0.3" unit="in"/>
+      <controlPoints>
+        <point x="6.8" y="1.1"/>
+        <point x="6.8" y="1.2"/>
+        <point x="6.8" y="1.3"/>
+        <point x="6.8" y="1.4"/>
+        <point x="6.8" y="1.5"/>
+        <point x="6.8" y="1.6"/>
+        <point x="6.8" y="1.7"/>
+        <point x="7.1" y="1.1"/>
+        <point x="7.1" y="1.2"/>
+        <point x="7.1" y="1.3"/>
+        <point x="7.1" y="1.4"/>
+        <point x="7.1" y="1.5"/>
+        <point x="7.1" y="1.6"/>
+        <point x="7.1" y="1.7"/>
+      </controlPoints>
+      <display>BOTH</display>
+      <bodyColor hex="808080"/>
+      <borderColor hex="595959"/>
+      <labelColor hex="ffffff"/>
+      <indentColor hex="595959"/>
+      <displayNumbers>NO</displayNumbers>
+    </diylc.semiconductors.DIL__IC>
   </components>
   <groups/>
   <groupsEx>
@@ -9218,12 +9452,12 @@
         <uuid>b25027c4-10dc-46d6-8d34-4dde1401b77a</uuid>
         <uuid>6bea0be1-394e-471b-8c51-5a1a78a8f0ac</uuid>
         <uuid>436c460d-337f-443b-99e2-d600ecb28c67</uuid>
-        <uuid>1c050509-98d4-4f69-8e26-d1fa7337f349</uuid>
-        <uuid>1abab051-6b7b-4127-8dcc-e7ddc285c730</uuid>
         <uuid>5677011e-5276-461d-a8b2-61fb24447a1c</uuid>
-        <uuid>d2c6fd55-faba-4afb-9460-ee8daef3edd8</uuid>
-        <uuid>3cdbf244-b33a-4041-a15a-bcee75aa79ee</uuid>
+        <uuid>1abab051-6b7b-4127-8dcc-e7ddc285c730</uuid>
+        <uuid>1c050509-98d4-4f69-8e26-d1fa7337f349</uuid>
         <uuid>8561cd9d-0fe8-48b5-9f45-0bfe1a1bc615</uuid>
+        <uuid>3cdbf244-b33a-4041-a15a-bcee75aa79ee</uuid>
+        <uuid>d2c6fd55-faba-4afb-9460-ee8daef3edd8</uuid>
         <uuid>643afabe-fadf-4704-982e-e7ddaa008db9</uuid>
         <uuid>e8fa129f-d32e-4013-b485-cb851322fc6c</uuid>
         <uuid>2f4eec05-82ff-4060-950a-6aa13337815f</uuid>
@@ -9231,25 +9465,27 @@
         <uuid>4b78d579-393f-4067-a7b4-260795a21f53</uuid>
         <uuid>0273d67f-ad9f-4cf0-a79e-9ae8461ad42e</uuid>
         <uuid>fef720be-a6bf-4320-96d5-b147ff48cb2f</uuid>
-        <uuid>d4640482-18a3-4515-982c-248217f6ba2c</uuid>
         <uuid>2bb40c51-c2b9-4ca6-aaf4-e267f512765f</uuid>
+        <uuid>d4640482-18a3-4515-982c-248217f6ba2c</uuid>
         <uuid>0d3558e7-e768-48a3-9937-c9adbd5da9f8</uuid>
-        <uuid>4ee02b24-721d-4aa0-958f-704c2350efc3</uuid>
+        <uuid>0dee25cc-3e52-41a6-9f89-77c3237b4ace</uuid>
         <uuid>64d6b4ab-9fd4-4065-8575-ff9c14988394</uuid>
         <uuid>cf4ff080-be59-4fbc-8d5b-41a8169dfb6d</uuid>
-        <uuid>0dee25cc-3e52-41a6-9f89-77c3237b4ace</uuid>
+        <uuid>4ee02b24-721d-4aa0-958f-704c2350efc3</uuid>
+        <uuid>20ca2d0b-484f-48fe-b6f1-9326917cc1f0</uuid>
         <uuid>07cfb99c-7b5a-4447-a36d-431946bbe7ad</uuid>
+        <uuid>02525b13-7220-483d-94e5-0b9f8e64d26d</uuid>
         <uuid>23826645-3d66-4a43-939e-a147d6542540</uuid>
         <uuid>bbaa8e9c-fba9-4e3e-a9bf-ef38eaa162b7</uuid>
         <uuid>5e5d7707-2e1f-4127-bad8-ca136b3caea4</uuid>
         <uuid>08247235-eb8b-4ba4-836b-552bf8768139</uuid>
-        <uuid>0b1644b2-0bcf-4a73-aa07-2d7f135cfa0a</uuid>
         <uuid>38318b94-5da7-4b95-9450-b576855befdc</uuid>
+        <uuid>0b1644b2-0bcf-4a73-aa07-2d7f135cfa0a</uuid>
         <uuid>a9760b4a-4ec5-41e9-b76f-cfe5061334be</uuid>
         <uuid>c15f620b-609b-4e49-bca2-e63bdbe133c7</uuid>
         <uuid>da26476f-1bc8-4062-9e29-abc89242b47b</uuid>
-        <uuid>9307b3d2-4890-4db1-8a0a-fbf5c5928fd9</uuid>
         <uuid>d7d3a70d-af88-4041-a541-17fc8c865d6c</uuid>
+        <uuid>9307b3d2-4890-4db1-8a0a-fbf5c5928fd9</uuid>
         <uuid>7fb21655-1171-488f-a307-ac262e63c819</uuid>
         <uuid>bc99acc7-97d3-46ef-a58d-0a8d1bdfbdfb</uuid>
         <uuid>bf9c75f6-a60f-4bcc-97c8-87ab42aac026</uuid>
@@ -9258,66 +9494,70 @@
         <uuid>86c89781-d34a-477b-98aa-659890d694d0</uuid>
         <uuid>b22f0740-c0bc-46d2-ab15-862c7d233b55</uuid>
         <uuid>c93ea267-b293-4c17-a5a2-906853f7f3af</uuid>
-        <uuid>3d09fb7c-bb66-4760-91dc-4b3cb91a66db</uuid>
         <uuid>19ba431a-9856-4bc5-aa56-8b3731282828</uuid>
+        <uuid>3d09fb7c-bb66-4760-91dc-4b3cb91a66db</uuid>
+        <uuid>cd9ced51-bf3e-410f-b12b-701e9106709b</uuid>
         <uuid>5953cbd6-1eb9-4237-9b97-feab20c7d3a4</uuid>
+        <uuid>7d68e9a6-8ff0-4aef-a37d-5c4b280c87bf</uuid>
         <uuid>07a1dfe4-0ee1-4ca6-b505-fcce59c54959</uuid>
         <uuid>2ed70f6d-31fc-4efd-ad3e-38e2bd7fb942</uuid>
         <uuid>843fd132-0589-4353-9cc8-7b349054b323</uuid>
-        <uuid>04a821d7-42c5-4123-9938-91f9158f1489</uuid>
         <uuid>2eb30761-9db1-4367-a751-ab4b1dd7b197</uuid>
+        <uuid>04a821d7-42c5-4123-9938-91f9158f1489</uuid>
         <uuid>e9e8c0ad-e3dd-4ba6-aca7-ed578d52d1ff</uuid>
         <uuid>4ea0cbee-6140-4b31-9394-32941011b74b</uuid>
         <uuid>e458898e-3ca3-444b-ad10-28f92b616fd0</uuid>
-        <uuid>acc32ae3-d2d7-46d1-a63a-3e41a72d9c17</uuid>
         <uuid>68e4a609-4d73-4967-be33-3bfcf0bca6ed</uuid>
+        <uuid>acc32ae3-d2d7-46d1-a63a-3e41a72d9c17</uuid>
         <uuid>234e20cb-2c92-42d1-9047-bd3ac955e189</uuid>
+        <uuid>f9ab9bfb-fdbc-417d-8849-951d50b93c10</uuid>
         <uuid>54f440bd-cca3-4351-939c-af21b87f3917</uuid>
         <uuid>e71db6ae-c5a7-4564-ae94-f0dd89b814ee</uuid>
-        <uuid>4b779bb4-6624-4c53-81b7-953948b823f3</uuid>
         <uuid>1119108d-a891-471f-b320-5db6f70f19f2</uuid>
+        <uuid>4b779bb4-6624-4c53-81b7-953948b823f3</uuid>
         <uuid>3b41795f-04ea-4cb9-8c70-521cccb9e3ea</uuid>
         <uuid>7cdefbc7-42f9-45bc-a332-e3fd0fb6c951</uuid>
         <uuid>2e05bb43-9c1c-4fbe-b9fd-39bb90be8069</uuid>
-        <uuid>90e2d782-178a-4704-8c4f-eef5bee9eac4</uuid>
         <uuid>88ea2dfe-daa3-44fa-bf97-e802b3d8f679</uuid>
         <uuid>576a8994-94b9-40fe-9200-80ecc7a90680</uuid>
         <uuid>892e6c04-b5c2-4f4e-a857-1ccdab628223</uuid>
-        <uuid>82a0c826-320a-4558-bc00-36dda98dfdfa</uuid>
-        <uuid>d4f761d1-4c03-42cb-a97e-e220b8c74809</uuid>
-        <uuid>32c568d0-6581-4631-8193-26e043891d21</uuid>
         <uuid>14d80266-ac9a-417c-a1ce-40c7ed1f1830</uuid>
-        <uuid>6ea98faa-63e8-4908-bd5b-318ec7461ef7</uuid>
+        <uuid>d4f761d1-4c03-42cb-a97e-e220b8c74809</uuid>
+        <uuid>82a0c826-320a-4558-bc00-36dda98dfdfa</uuid>
+        <uuid>32c568d0-6581-4631-8193-26e043891d21</uuid>
         <uuid>53eb3f2e-05cf-448f-b582-0661a6b98e58</uuid>
+        <uuid>6ea98faa-63e8-4908-bd5b-318ec7461ef7</uuid>
         <uuid>bb666297-ac89-406a-8193-76609561e609</uuid>
-        <uuid>7c41b855-4d10-4755-9944-9beed926ee56</uuid>
         <uuid>fc382b49-6f1a-44cd-a733-43f653719799</uuid>
+        <uuid>7c41b855-4d10-4755-9944-9beed926ee56</uuid>
         <uuid>497a16bd-f9b5-4cf5-911a-341a08c056ca</uuid>
+        <uuid>9ff0dec5-9558-44b3-8771-94a67ba9212f</uuid>
         <uuid>8704290b-dcff-45ed-ab9f-f078c445ce2f</uuid>
         <uuid>c052a88d-2525-4274-aa88-336a5c1afce7</uuid>
         <uuid>1b48762f-109b-4138-96f8-5876fe0c77d4</uuid>
         <uuid>a0348858-7682-4c4b-8dbf-1fbf4ce054d0</uuid>
-        <uuid>4b0bd66a-ba80-425b-8565-d4e36390ff3b</uuid>
         <uuid>c4a000bb-0d64-4855-86cb-d5dd2f5c2ef7</uuid>
+        <uuid>4b0bd66a-ba80-425b-8565-d4e36390ff3b</uuid>
         <uuid>83659192-e094-4737-b9bb-756905d38fcd</uuid>
         <uuid>e7e0d7ff-c658-4ecf-aff2-15a44d653424</uuid>
+        <uuid>f3eb309f-f3da-4ace-b86f-d3311602489d</uuid>
         <uuid>eec799ab-9db3-436b-858a-aa817e063f18</uuid>
         <uuid>81f4af88-213a-467d-91c9-c09a34e4362f</uuid>
         <uuid>8582ba62-8c40-4cf7-8165-eb42ca60f6bb</uuid>
-        <uuid>7f38fbfe-379e-4293-8912-a052f56a294a</uuid>
         <uuid>8ce596ce-2bc7-4f85-ba83-c719a9ee4fb6</uuid>
+        <uuid>7f38fbfe-379e-4293-8912-a052f56a294a</uuid>
         <uuid>46668e27-ad75-40c5-ad3e-fde059abec28</uuid>
         <uuid>e8af4f7e-3ed0-40dc-9366-b7ab21bcd800</uuid>
-        <uuid>c1774446-5595-431f-8bff-1ec0b014653e</uuid>
         <uuid>c2ca4a01-aadd-4bb8-b745-42ee1faf6d04</uuid>
+        <uuid>c1774446-5595-431f-8bff-1ec0b014653e</uuid>
         <uuid>4222f16a-d081-4223-bed7-3a10517c02ff</uuid>
         <uuid>f5d39d93-be57-4f5a-9103-b8cc94b2769f</uuid>
         <uuid>497797e9-bd5b-49d7-b36d-bc7871b99d0e</uuid>
         <uuid>dd088d8a-6811-4529-a1a6-c5355e3cfea4</uuid>
         <uuid>73e5e86e-fef2-4064-b1f2-dafd5bf88558</uuid>
         <uuid>d075d114-30e1-494e-b748-1d41ee4e633b</uuid>
-        <uuid>4022c1cb-6071-461d-bf21-f30b5bc2c2de</uuid>
         <uuid>e024932a-adef-4435-a9f8-f23b52d8f57c</uuid>
+        <uuid>4022c1cb-6071-461d-bf21-f30b5bc2c2de</uuid>
         <uuid>fc2fb198-b989-49b5-b7ea-a4b4f24ac42c</uuid>
         <uuid>1b96c55d-7efc-407a-bbdc-31cfa3e28408</uuid>
         <uuid>2dbffc4b-19c0-4fbd-b229-31d53d0f37cf</uuid>
@@ -9334,17 +9574,18 @@
         <uuid>586357db-1a76-473b-a321-0c500704303f</uuid>
         <uuid>90d82f10-5cfb-4f2a-89e1-37afc4f7e061</uuid>
         <uuid>76475ab6-43b1-4cd4-b59e-0a706c2ab691</uuid>
-        <uuid>fcbed0a1-9285-420d-89c9-eddd8f9ec1de</uuid>
         <uuid>5bc81ed6-daca-46e5-91af-bd3b2981d0e7</uuid>
+        <uuid>fcbed0a1-9285-420d-89c9-eddd8f9ec1de</uuid>
         <uuid>e2c3ad08-094d-4690-86c9-f55eb69f6cda</uuid>
         <uuid>af9a17f4-ce49-47e8-a5cc-00754f7b36c8</uuid>
         <uuid>c05a2afb-cf30-4e4d-8aaa-a453233c6adf</uuid>
-        <uuid>8e6c8dd2-b65b-43a9-bea5-722c7ee527e7</uuid>
         <uuid>f6dd6934-9105-4f13-ba8b-a7f167c9098b</uuid>
         <uuid>1873cfa9-8bd5-4d39-a3f8-df2cd18e20ab</uuid>
+        <uuid>8e6c8dd2-b65b-43a9-bea5-722c7ee527e7</uuid>
+        <uuid>178d386f-0525-490b-bd0c-acde9353a78a</uuid>
         <uuid>0fb8dd85-daba-436d-bc1d-d00c01650156</uuid>
-        <uuid>5bc39ec0-12f0-42be-b5ff-baa63733c3ee</uuid>
         <uuid>0567fa73-95f4-4518-ac9b-d9e806ac10ee</uuid>
+        <uuid>5bc39ec0-12f0-42be-b5ff-baa63733c3ee</uuid>
         <uuid>c1759308-5cd9-4c49-b140-a383403a2bde</uuid>
         <uuid>deebe878-9951-41ed-bcfb-8a2477a30f98</uuid>
         <uuid>aa69920c-fd3b-4f44-8045-bc737dac7c4c</uuid>
@@ -9356,34 +9597,37 @@
         <uuid>0f18d23c-7f84-4d60-9b32-94032dd488f1</uuid>
         <uuid>c358463e-b25b-4dc8-a122-517d6779f806</uuid>
         <uuid>ff59d31c-2fda-4314-bad0-8c2e2c6059c3</uuid>
-        <uuid>247ef477-5c57-455f-93b5-66ce751b5eb9</uuid>
-        <uuid>e5d22bf2-0aa3-4c62-bd1e-eb8c3fc90d62</uuid>
+        <uuid>a1fbd52f-dbc9-476c-8d46-8c0579d55230</uuid>
         <uuid>dedf1631-dec2-4d46-8982-7f7ff9e633a9</uuid>
+        <uuid>e5d22bf2-0aa3-4c62-bd1e-eb8c3fc90d62</uuid>
+        <uuid>247ef477-5c57-455f-93b5-66ce751b5eb9</uuid>
         <uuid>07d5de6c-faa7-488f-8310-21efc260cfd4</uuid>
-        <uuid>7510a591-4f57-4973-8203-b8e31785a61a</uuid>
         <uuid>13aa1b77-3a1a-4f2f-83ed-f05aa1ac1729</uuid>
+        <uuid>7510a591-4f57-4973-8203-b8e31785a61a</uuid>
         <uuid>9f61b268-dade-45ad-88a2-efb0ddfcdc49</uuid>
         <uuid>cb414eff-cc38-416e-8dea-62fe61c323e0</uuid>
         <uuid>a1e12b67-243e-4657-98b5-733999671be4</uuid>
+        <uuid>b948fd27-0759-47cd-8269-97607174ec67</uuid>
         <uuid>ae7d1069-b618-4224-b34a-b49083f276e2</uuid>
+        <uuid>8ff6db3b-8347-4c58-a999-dd0e324801ee</uuid>
         <uuid>4906ff66-be4f-41b6-b5ed-3e81a1861b96</uuid>
         <uuid>10bac82f-2e70-472d-8f3f-ffa978c5417c</uuid>
-        <uuid>a20178dd-a124-49cc-b74b-01909ed0bbd6</uuid>
         <uuid>6561cecd-59d6-4430-9429-9a0a68936a13</uuid>
+        <uuid>a20178dd-a124-49cc-b74b-01909ed0bbd6</uuid>
         <uuid>c62304e4-8cc5-4123-b853-030f4c448ed5</uuid>
-        <uuid>b54d9d66-3f2b-4ef1-8ea0-a5a4eb542d4c</uuid>
         <uuid>90cf2311-0fa0-4359-9e03-5ae7ae84a5aa</uuid>
         <uuid>e9e2a4e2-9cba-4020-932d-246e0928191c</uuid>
+        <uuid>b54d9d66-3f2b-4ef1-8ea0-a5a4eb542d4c</uuid>
         <uuid>d489fc24-41c3-4df2-97ab-262b9cb2b541</uuid>
         <uuid>63555d06-5040-49ef-b68d-51d19f462915</uuid>
         <uuid>a1fc9a60-1d4e-48e7-b23e-2676f0c6664f</uuid>
-        <uuid>ce9ca00f-8997-4f9d-8315-adb5fda37d6f</uuid>
         <uuid>aeda14db-cd9c-4fbb-9ae2-7734da99739c</uuid>
+        <uuid>ce9ca00f-8997-4f9d-8315-adb5fda37d6f</uuid>
         <uuid>5c61a7d1-4610-4506-9892-af8826b4c1ff</uuid>
         <uuid>18e86622-2e3c-4ad0-b9ab-a65858218203</uuid>
         <uuid>b1d354f3-2987-4a70-8b3d-9766310fb47a</uuid>
-        <uuid>5ef81ea6-9186-4ee1-9499-61188852ea11</uuid>
         <uuid>7983868a-cb48-47c1-a8c6-1434947ab6f3</uuid>
+        <uuid>5ef81ea6-9186-4ee1-9499-61188852ea11</uuid>
         <uuid>f3694c88-163f-43fd-80fe-0bf939d70408</uuid>
         <uuid>f65a2b59-6e63-4765-89c7-062cc7204232</uuid>
         <uuid>065f8b01-60b1-477a-8ae1-cb6230ac6f44</uuid>
