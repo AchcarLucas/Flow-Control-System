@@ -88,7 +88,7 @@ Lista baseada no projeto de hardware, excluindo conectores de barra de pinos (Te
 | **Resistor** | **200 $\Omega$** | Filme de Carbono | R17 | 01 |
 | **Resistor** | **100 $\Omega$** | Limitação de corrente LED | R18, R19 | 02 |
 | **Capacitor** | **270uF** | Eletrolítico (Filtro/Reset) | C13 | 01 |
-| **Capacitor** | **10uF** | Eletrolítico (Estabilização) | C14, C15 | 02 |
+| **Capacitor** | **10uF** | Eletrolítico (Estabilização) | C19 | 01 |
 | **Capacitor** | **100nF** | Cerâmico (Desacoplamento) | C7, C18 | 02 |
 | **Capacitor** | **10nF** | Cerâmico (Desacoplamento) | C12 | 01 |
 
