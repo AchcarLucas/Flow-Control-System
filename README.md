@@ -30,6 +30,7 @@
 > - [README Firmware](./Firmware/README.md)
 > - [README Building Blocks](<./Building Blocks/README.md>)
 > - [README Kicad Schematic](<./Kicad Schematic/README.md>)
+> - [README Stripboard Schematic](<./Stripboard Schematic/README.md>)
 
 ---
 
@@ -102,11 +103,12 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
     └── README.md                                               # [Detalhes do Firmware](./Firmware/README.md)
 ├── Hardware - Aspecto Geral (Diagrama de Blocos)/      # Idealização e Diagramação do Projeto Completo
 ├── Brainstorm/                                         # Brainstorm da Ideia Inicial
-├── Previa/                                             # Imagens e Animações de Previa do Projeto
 ├── LTSpice/                                            # Simulações feitas via LTSpice para Auxilio do Desenvolvimento e Ajustes do Protótipo
+├── Previa/                                             # Imagens e Animações de Previa do Projeto
 ├── Enclosure/                                          # Projeto das Cases Feito via FreeCAD
     └── FotosensorEnclosure                                     # Projeto da Case do Fotosensor feito em FreeCAD
 ├── Kicad Schematic                                     # Schematic do Circuito Feito via Kicad
+├── Stripboard Schematic/                               # Schematic do Circuito via DIY Layout Creator
 ```
 
 ## 🚀 Previa de Desenvolvimento
@@ -131,11 +133,11 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 > - Atualização em tempo real dos registros armazenados no SQLite.
 > - Dashboard possui um sistema de stats para avaliação de desempenho do ESP32
 
-* ### Prototipo do Circuito Completo em Protoboard
+* ### Protótipo do Circuito Completo em Protoboard
 
 <img src="./Previa/Protoboard-Prototype.jpg" width="500">
 
-> 💡 **Detalhes da Placa de Teste:**
+> 💡 **Detalhes do Protótipo:**
 > - No canto esquerdo da imagem temos os dois fotosensores
 > - No canto direito da imagem temos o prototipo do circuito de processamento
 > - No centro superior da imagem temos o prototipo do circuito de condicionamento, identificação de fluxo 
