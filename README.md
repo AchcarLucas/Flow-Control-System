@@ -73,12 +73,12 @@ Diferente de soluções dependentes de nuvem, este projeto foca em **Edge Comput
 | ✅ Concluído  | Projeto e Prototipagem do Fotosensor |
 | ✅ Concluído | Desenvolvimento da Enclusure para o Fotosensor |
 | ✅ Concluído | Desenvolvimento do Schematic via Kicad |
-| 🟡 Desenvolvimento | Desenho dos Circuitos para Placa PadBoard usando a ferramenta DIY Layout Creator |
+| ✅ Concluído | Desenho dos Circuitos para Placa PadBoard usando a ferramenta DIY Layout Creator |
 | ✅ Concluído | Teste do Circuito de Processamento na Protoboard|
 | ✅ Concluído | Teste do Circuito de Aquisição de Sinal na Protoboard |
-| 🟡 Desenvolvimento | Teste do Circuito de Condicionamento, Identificação de Fluxo na Protoboard|
+| ✅ Concluído | Teste do Circuito de Condicionamento, Identificação de Fluxo na Protoboard|
 | ✅ Concluído | Desenvolvimento do Circuito de Fotosensor Placa PadBoard |
-| 🔴 Pendente | Desenvolvimento do Circuito de Aquisição de Sinal na Placa PadBoard |
+| 🟡 Desenvolvimento | Desenvolvimento do Circuito de Aquisição de Sinal na Placa PadBoard |
 | 🔴 Pendente | Desenvolvimento do Circuito de Condicionamento, Identificação de Fluxo e Processamento na Placa PadBoard|
 
 <!--
@@ -131,3 +131,12 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 > - Atualização em tempo real dos registros armazenados no SQLite.
 > - Dashboard possui um sistema de stats para avaliação de desempenho do ESP32
 
+* ### Prototipo do Circuito Completo em Protoboard
+
+<img src="./Previa/Protoboard-Prototype.jpg" width="500">
+
+> 💡 **Detalhes da Placa de Teste:**
+> - No canto esquerdo da imagem temos os dois fotosensores
+> - No canto direito da imagem temos o prototipo do circuito de processamento
+> - No centro superior da imagem temos o prototipo do circuito de condicionamento, identificação de fluxo 
+> - No centro inferior da imagem temos o prototipo do circuito de aquisição de sinal
