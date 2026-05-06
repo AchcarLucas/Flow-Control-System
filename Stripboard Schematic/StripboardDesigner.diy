@@ -6259,62 +6259,6 @@
       <displayNumbers>NO</displayNumbers>
     </diylc.semiconductors.DIL__IC>
     <diylc.semiconductors.DIL__IC>
-      <id>132fb1eb-4d56-434d-86ab-f89e2bf63a24</id>
-      <name>555NE</name>
-      <alphaPercent>
-        <value>75</value>
-      </alphaPercent>
-      <value></value>
-      <orientation>_270</orientation>
-      <pinCount>_8</pinCount>
-      <pinSpacing value="0.1" unit="in"/>
-      <rowSpacing value="0.3" unit="in"/>
-      <controlPoints>
-        <point x="3.4" y="1.1"/>
-        <point x="3.5" y="1.1"/>
-        <point x="3.6" y="1.1"/>
-        <point x="3.7" y="1.1"/>
-        <point x="3.4" y="0.8"/>
-        <point x="3.5" y="0.8"/>
-        <point x="3.6" y="0.8"/>
-        <point x="3.7" y="0.8"/>
-      </controlPoints>
-      <display>BOTH</display>
-      <bodyColor hex="808080"/>
-      <borderColor hex="595959"/>
-      <labelColor hex="ffffff"/>
-      <indentColor hex="595959"/>
-      <displayNumbers>NO</displayNumbers>
-    </diylc.semiconductors.DIL__IC>
-    <diylc.semiconductors.DIL__IC>
-      <id>e41fbbee-b90a-4aa6-b16e-a85bc8b0674a</id>
-      <name>555NE</name>
-      <alphaPercent>
-        <value>75</value>
-      </alphaPercent>
-      <value></value>
-      <orientation>_270</orientation>
-      <pinCount>_8</pinCount>
-      <pinSpacing value="0.1" unit="in"/>
-      <rowSpacing value="0.3" unit="in"/>
-      <controlPoints>
-        <point x="2.6" y="1.1"/>
-        <point x="2.7" y="1.1"/>
-        <point x="2.8" y="1.1"/>
-        <point x="2.9" y="1.1"/>
-        <point x="2.6" y="0.8"/>
-        <point x="2.7" y="0.8"/>
-        <point x="2.8" y="0.8"/>
-        <point x="2.9" y="0.8"/>
-      </controlPoints>
-      <display>BOTH</display>
-      <bodyColor hex="808080"/>
-      <borderColor hex="595959"/>
-      <labelColor hex="ffffff"/>
-      <indentColor hex="595959"/>
-      <displayNumbers>NO</displayNumbers>
-    </diylc.semiconductors.DIL__IC>
-    <diylc.semiconductors.DIL__IC>
       <id>6c90a112-6c8f-440f-b4a2-598a852f4cc8</id>
       <name>SN74HC14N</name>
       <alphaPercent>
@@ -6390,40 +6334,6 @@
       <striped>false</striped>
       <stripeColor hex="ffff00"/>
     </diylc.connectivity.HookupWire>
-    <diylc.semiconductors.DIL__IC>
-      <id>ef68e6a6-ef3d-49a4-987b-5c287460089e</id>
-      <name>SN74HC08N</name>
-      <alphaPercent>
-        <value>75</value>
-      </alphaPercent>
-      <value></value>
-      <orientation>_180</orientation>
-      <pinCount>_14</pinCount>
-      <pinSpacing value="0.1" unit="in"/>
-      <rowSpacing value="0.3" unit="in"/>
-      <controlPoints>
-        <point x="3.9" y="2.5"/>
-        <point x="3.9" y="2.4"/>
-        <point x="3.9" y="2.3"/>
-        <point x="3.9" y="2.2"/>
-        <point x="3.9" y="2.1"/>
-        <point x="3.9" y="2.0"/>
-        <point x="3.9" y="1.9"/>
-        <point x="3.6" y="2.5"/>
-        <point x="3.6" y="2.4"/>
-        <point x="3.6" y="2.3"/>
-        <point x="3.6" y="2.2"/>
-        <point x="3.6" y="2.1"/>
-        <point x="3.6" y="2.0"/>
-        <point x="3.6" y="1.9"/>
-      </controlPoints>
-      <display>BOTH</display>
-      <bodyColor hex="808080"/>
-      <borderColor hex="595959"/>
-      <labelColor hex="ffffff"/>
-      <indentColor hex="595959"/>
-      <displayNumbers>NO</displayNumbers>
-    </diylc.semiconductors.DIL__IC>
     <diylc.semiconductors.TransistorTO92>
       <id>a8f14555-08f1-4a79-975f-59665eb69b5c</id>
       <name>Q2</name>
@@ -9469,6 +9379,28 @@
       <hideShortLeads>false</hideShortLeads>
       <style>SOLID</style>
     </diylc.connectivity.Jumper>
+    <diylc.connectivity.Jumper>
+      <id>ae286dde-d6cd-461c-badf-34ca918111a6</id>
+      <name>J303</name>
+      <alphaPercent>
+        <value>100</value>
+      </alphaPercent>
+      <points>
+        <point x="4.1" y="2.3"/>
+        <point x="3.9" y="2.3"/>
+        <point x="4.0" y="2.3"/>
+      </points>
+      <bodyColor hex="ffffff"/>
+      <borderColor hex="000000"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="0000ff"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <style>SOLID</style>
+    </diylc.connectivity.Jumper>
     <diylc.semiconductors.DiodeGlass>
       <id>ac7eea37-399b-4fac-9d40-6f510bea70c8</id>
       <name>D1</name>
@@ -9493,48 +9425,103 @@
       <markerColor hex="808080"/>
       <insideColor hex="e66e31"/>
     </diylc.semiconductors.DiodeGlass>
+    <diylc.semiconductors.DIL__IC>
+      <id>ef68e6a6-ef3d-49a4-987b-5c287460089e</id>
+      <name>SN74HC08N</name>
+      <alphaPercent>
+        <value>75</value>
+      </alphaPercent>
+      <value></value>
+      <orientation>_180</orientation>
+      <pinCount>_14</pinCount>
+      <pinSpacing value="0.1" unit="in"/>
+      <rowSpacing value="0.3" unit="in"/>
+      <controlPoints>
+        <point x="3.9" y="2.5"/>
+        <point x="3.9" y="2.4"/>
+        <point x="3.9" y="2.3"/>
+        <point x="3.9" y="2.2"/>
+        <point x="3.9" y="2.1"/>
+        <point x="3.9" y="2.0"/>
+        <point x="3.9" y="1.9"/>
+        <point x="3.6" y="2.5"/>
+        <point x="3.6" y="2.4"/>
+        <point x="3.6" y="2.3"/>
+        <point x="3.6" y="2.2"/>
+        <point x="3.6" y="2.1"/>
+        <point x="3.6" y="2.0"/>
+        <point x="3.6" y="1.9"/>
+      </controlPoints>
+      <display>BOTH</display>
+      <bodyColor hex="808080"/>
+      <borderColor hex="595959"/>
+      <labelColor hex="ffffff"/>
+      <indentColor hex="595959"/>
+      <displayNumbers>NO</displayNumbers>
+    </diylc.semiconductors.DIL__IC>
+    <diylc.semiconductors.DIL__IC>
+      <id>e41fbbee-b90a-4aa6-b16e-a85bc8b0674a</id>
+      <name>555NE</name>
+      <alphaPercent>
+        <value>75</value>
+      </alphaPercent>
+      <value></value>
+      <orientation>_270</orientation>
+      <pinCount>_8</pinCount>
+      <pinSpacing value="0.1" unit="in"/>
+      <rowSpacing value="0.3" unit="in"/>
+      <controlPoints>
+        <point x="2.6" y="1.1"/>
+        <point x="2.7" y="1.1"/>
+        <point x="2.8" y="1.1"/>
+        <point x="2.9" y="1.1"/>
+        <point x="2.6" y="0.8"/>
+        <point x="2.7" y="0.8"/>
+        <point x="2.8" y="0.8"/>
+        <point x="2.9" y="0.8"/>
+      </controlPoints>
+      <display>BOTH</display>
+      <bodyColor hex="808080"/>
+      <borderColor hex="595959"/>
+      <labelColor hex="ffffff"/>
+      <indentColor hex="595959"/>
+      <displayNumbers>NO</displayNumbers>
+    </diylc.semiconductors.DIL__IC>
+    <diylc.semiconductors.DIL__IC>
+      <id>132fb1eb-4d56-434d-86ab-f89e2bf63a24</id>
+      <name>555NE</name>
+      <alphaPercent>
+        <value>75</value>
+      </alphaPercent>
+      <value></value>
+      <orientation>_270</orientation>
+      <pinCount>_8</pinCount>
+      <pinSpacing value="0.1" unit="in"/>
+      <rowSpacing value="0.3" unit="in"/>
+      <controlPoints>
+        <point x="3.4" y="1.1"/>
+        <point x="3.5" y="1.1"/>
+        <point x="3.6" y="1.1"/>
+        <point x="3.7" y="1.1"/>
+        <point x="3.4" y="0.8"/>
+        <point x="3.5" y="0.8"/>
+        <point x="3.6" y="0.8"/>
+        <point x="3.7" y="0.8"/>
+      </controlPoints>
+      <display>BOTH</display>
+      <bodyColor hex="808080"/>
+      <borderColor hex="595959"/>
+      <labelColor hex="ffffff"/>
+      <indentColor hex="595959"/>
+      <displayNumbers>NO</displayNumbers>
+    </diylc.semiconductors.DIL__IC>
   </components>
   <groups/>
   <groupsEx>
     <group>
       <componentIds>
-        <uuid>f192f641-c0c3-4ab7-bfe6-734976edad65</uuid>
-        <uuid>fc802589-91ee-4e2d-9a16-c3b2ece3264f</uuid>
-        <uuid>efbf23d7-d4d5-49b0-a205-04ec71f27b54</uuid>
-        <uuid>66e4f4d5-b5ca-4edf-81b3-3bd82716ffdc</uuid>
-        <uuid>6af565e0-e44d-4916-bace-0211629584c3</uuid>
-        <uuid>376efe96-3c12-435d-a36b-e1772c19543a</uuid>
-        <uuid>329a8650-69dc-4aa1-ade1-c99bdae12c66</uuid>
-        <uuid>1aa74924-9b28-42bf-b0e5-72ba00d23dd2</uuid>
-        <uuid>f469cb9e-2dbf-45f9-ad70-bd812d3558f9</uuid>
-        <uuid>134d2f4e-b295-470c-900a-6d76d398e773</uuid>
-        <uuid>a293a21e-c975-442c-b51e-8fcd00de5957</uuid>
-        <uuid>8ea94abd-3ca5-4a19-a20e-24037f25c392</uuid>
-        <uuid>cb151cce-bb8e-457e-891e-8b51d6933923</uuid>
-        <uuid>eec49f4d-353e-4f74-a233-d46f311bf4d3</uuid>
-        <uuid>944d69b0-fded-46c1-a7d9-c47ad3ed6c48</uuid>
-        <uuid>62532e05-4583-4afe-b876-ea307b0dad37</uuid>
-        <uuid>9b37f243-ae1e-48e9-b1a8-20ea6bc002db</uuid>
-        <uuid>da9c19ab-089d-475f-b741-b1329bc8b495</uuid>
-        <uuid>da23da42-9c55-43e8-aaf9-3afb901b4298</uuid>
-        <uuid>9066fdc2-6f46-41d5-883c-aceb3333d032</uuid>
-        <uuid>2c7e605f-6d15-4f24-aa33-bb93443e03ac</uuid>
-        <uuid>76e0b175-38a1-4356-85f7-e9910660868d</uuid>
-        <uuid>b935952c-c2d0-4668-ba68-bb7b35fe37e7</uuid>
-        <uuid>ff266fb2-7ec6-407a-b777-a187f01f33aa</uuid>
-        <uuid>2e48499b-220f-4d62-960d-ce185db8ec3d</uuid>
-        <uuid>25c415f5-d7d9-4576-9fa5-f23444ff765f</uuid>
-        <uuid>61ca9a53-96f6-4f0d-a5a0-c286b50d9166</uuid>
-        <uuid>48fcedd1-8863-4b01-bf7d-948dc9a56fac</uuid>
-        <uuid>c17f30f2-92ea-47d9-b211-cee1e5c282b1</uuid>
-        <uuid>e9ae503f-ec4f-45b3-8f9e-2bbcc73ce74c</uuid>
-      </componentIds>
-      <name>circuit_1</name>
-    </group>
-    <group>
-      <componentIds>
-        <uuid>99426a48-5b10-4838-b634-45798ba106c6</uuid>
         <uuid>28c7e841-e3c8-44a5-bbde-458428a80711</uuid>
+        <uuid>99426a48-5b10-4838-b634-45798ba106c6</uuid>
         <uuid>48f961f8-2a69-4cb3-a8ca-2f872baaa736</uuid>
         <uuid>c43a2330-a02f-477e-8c2a-afcd1bc67876</uuid>
         <uuid>e9d21ed8-43c9-484f-bcde-399103965a59</uuid>
@@ -9543,13 +9530,13 @@
         <uuid>8591d813-94c8-4cac-bde8-74c6ed41f387</uuid>
         <uuid>ee5ce057-030f-4f60-b700-81b50f5ddd83</uuid>
         <uuid>68897166-5227-40d7-842b-628955dfb276</uuid>
-        <uuid>7b693be9-aeaf-4b34-9105-e612b24d8657</uuid>
         <uuid>85398547-034e-4f1b-808b-a2984511633f</uuid>
+        <uuid>7b693be9-aeaf-4b34-9105-e612b24d8657</uuid>
         <uuid>d8fcb440-b242-41cc-be2d-2d6f18745a13</uuid>
         <uuid>8f59943c-cfb4-424b-9183-21330f68c55a</uuid>
         <uuid>3396d7ef-4c71-4cec-95b5-fcb6418dfa73</uuid>
-        <uuid>83bb6ab4-473e-4b3e-b31f-753cd5e9fadf</uuid>
         <uuid>67956f8e-325d-4458-9fbf-32fc20af89e8</uuid>
+        <uuid>83bb6ab4-473e-4b3e-b31f-753cd5e9fadf</uuid>
         <uuid>7722ce0a-8f08-4f0f-a520-ef25f0466170</uuid>
         <uuid>cfbb661b-576b-4c58-bb90-18036235c915</uuid>
         <uuid>fe49fdca-d12b-4f01-8089-bddac3b70f6c</uuid>
@@ -9562,28 +9549,28 @@
         <uuid>eadac337-f0bb-4cc7-a863-30f4b18fd8bb</uuid>
         <uuid>38af969d-051f-4c25-89ad-588c450b4f10</uuid>
         <uuid>a386cd06-a1e2-4301-9cef-6fea26ea85bf</uuid>
-        <uuid>9d234947-1371-4736-9c81-9d82ddb61ea2</uuid>
         <uuid>d047fbf0-9412-47f2-ad5b-d7bf82c72640</uuid>
+        <uuid>9d234947-1371-4736-9c81-9d82ddb61ea2</uuid>
         <uuid>2c79b9e1-b31d-4895-bc9d-7f4beccb2f35</uuid>
         <uuid>efff557d-d698-478f-82b7-b74796de1680</uuid>
         <uuid>5c84de69-6513-425e-bd3f-3883c6ab9c89</uuid>
         <uuid>1d3b47db-ba3c-40b4-a216-2ae02919dbc2</uuid>
         <uuid>ea67c642-4211-4eba-8615-01e9bf96aca3</uuid>
-        <uuid>fb8c29ca-bebf-4f3c-91e9-19cece194fb3</uuid>
         <uuid>d31f2279-01b9-4622-b0da-579a4564f691</uuid>
+        <uuid>fb8c29ca-bebf-4f3c-91e9-19cece194fb3</uuid>
         <uuid>c146f18a-532f-4972-81d5-0279e1c190b5</uuid>
         <uuid>2098f521-78e2-40b5-aee4-5d19f3c45599</uuid>
         <uuid>fdb6295a-e6fa-4bc9-904d-f7dd7ec41ac4</uuid>
-        <uuid>9fd19892-aa0a-49f9-8a8b-8b2b303b3d7c</uuid>
         <uuid>27fb8a13-7d3c-4281-99e7-13b7d630b062</uuid>
+        <uuid>9fd19892-aa0a-49f9-8a8b-8b2b303b3d7c</uuid>
         <uuid>e1d06c92-ffa6-44c5-b43c-6c9649861d57</uuid>
         <uuid>35324190-fc9d-4ae9-ba25-d5e04e1ff550</uuid>
         <uuid>0ae1976e-82bb-442e-b0a6-09cf6703f114</uuid>
         <uuid>ac8d94ab-9199-499e-8402-ddc1b9ea8461</uuid>
         <uuid>b91655cc-aa3f-4885-96ea-48f00cd636dc</uuid>
         <uuid>2cc78e59-fd7e-49ae-8423-da6fd540e333</uuid>
-        <uuid>b004f9fd-0e48-40cf-83a6-52a4cb65a56d</uuid>
         <uuid>cdad4de7-5f6b-4008-ae67-b00de99b28ac</uuid>
+        <uuid>b004f9fd-0e48-40cf-83a6-52a4cb65a56d</uuid>
         <uuid>93ac7086-bb8f-4de2-8d95-f93d38e4e77e</uuid>
         <uuid>56d19fe6-84bb-49a3-b5e4-188d27f3b2c0</uuid>
         <uuid>57d71067-6f8f-4941-817d-cf56af30a213</uuid>
@@ -9597,8 +9584,8 @@
         <uuid>e41fbbee-b90a-4aa6-b16e-a85bc8b0674a</uuid>
         <uuid>e1726d8c-cd17-4ad2-bded-1e27d7aa8dc8</uuid>
         <uuid>f7737ec7-9bd8-49bb-9bbf-f623b2a5027a</uuid>
-        <uuid>5e2afc4e-666e-49c0-93a5-0f4c69dc4e66</uuid>
         <uuid>0b332451-49f8-4396-9ae4-01d4abf8d35d</uuid>
+        <uuid>5e2afc4e-666e-49c0-93a5-0f4c69dc4e66</uuid>
         <uuid>7d9216c8-dce9-450e-b83e-6e62d1ace7d1</uuid>
         <uuid>67dd1a7c-364f-4f74-98a6-584470bf985b</uuid>
         <uuid>d5004a5a-09a2-4c97-9865-5308784591da</uuid>
@@ -9607,11 +9594,11 @@
         <uuid>a4cc7e97-1db9-48af-8115-d2b538b264fc</uuid>
         <uuid>69be4378-ec7e-4c96-960e-4ce0808224e6</uuid>
         <uuid>e4388ab6-9abe-4528-812d-fe519a51d890</uuid>
-        <uuid>f96ef664-9e1b-4dbf-bf3d-4a86a2e7ff42</uuid>
         <uuid>b31056c9-eb6a-433f-9ada-d36830bdc233</uuid>
+        <uuid>f96ef664-9e1b-4dbf-bf3d-4a86a2e7ff42</uuid>
         <uuid>125eac55-bf10-43f2-8fd7-6648010646c1</uuid>
-        <uuid>f6e33b41-cfd3-41ab-845c-4e4d5747303f</uuid>
         <uuid>120c9dec-da02-4808-80ac-ea05c6e1f111</uuid>
+        <uuid>f6e33b41-cfd3-41ab-845c-4e4d5747303f</uuid>
         <uuid>69bd105c-c0e5-41d2-ae8b-c64e24e01847</uuid>
         <uuid>6572ba20-92c7-4872-9b34-edd894e0e75d</uuid>
         <uuid>624154cf-f217-48b4-a784-646430b145c5</uuid>
@@ -9623,9 +9610,9 @@
         <uuid>ce5cc4b2-7cea-4214-b546-515e231da1db</uuid>
         <uuid>5ba19308-e8c6-4540-8c14-2c52c527e680</uuid>
         <uuid>564cfef5-d889-44cd-9d7e-43e40c7d6ec9</uuid>
+        <uuid>7d02bc68-4702-4612-997f-851a4af22838</uuid>
         <uuid>57514f2a-296a-4cbe-9bfa-8a805b35e135</uuid>
         <uuid>96aae30f-5724-4138-919c-d8c18b89ebb8</uuid>
-        <uuid>7d02bc68-4702-4612-997f-851a4af22838</uuid>
         <uuid>bcef91b6-405b-410e-bca5-99d4ed883023</uuid>
         <uuid>a0c7e9c5-1a5e-4ae4-aa9c-44919b7d4812</uuid>
         <uuid>3b9b6d0e-f1bf-4e5b-8bdf-4ea575be736e</uuid>
@@ -9633,25 +9620,26 @@
         <uuid>89c07bbb-a787-47b2-bc7f-623c625e68b2</uuid>
         <uuid>13d88005-bac7-452b-9420-c2b55c0f8841</uuid>
         <uuid>109f35a1-2715-41e5-b08e-0769d5cbcd09</uuid>
-        <uuid>d485d33a-1708-48c2-9159-bba70e9ddae6</uuid>
         <uuid>4aa39271-4c00-4931-9faf-a49fa113fb30</uuid>
+        <uuid>d485d33a-1708-48c2-9159-bba70e9ddae6</uuid>
         <uuid>d7e9046a-2f6a-4070-906d-e1bb6a5493ea</uuid>
-        <uuid>2b766874-d5fb-4414-a06a-e1104bf52a90</uuid>
-        <uuid>047e473b-5fc3-4007-9aba-a501e88a8b42</uuid>
         <uuid>65d4cdf2-ffa6-45f7-b99c-61765d25534a</uuid>
         <uuid>f327bb97-04b7-4639-a6c6-66255d44d96b</uuid>
+        <uuid>047e473b-5fc3-4007-9aba-a501e88a8b42</uuid>
+        <uuid>2b766874-d5fb-4414-a06a-e1104bf52a90</uuid>
         <uuid>e5fc7f3f-2527-447f-a0f0-fd80b119a10a</uuid>
         <uuid>d4ddc799-5de5-4ee2-bd5c-dfe09f4abf4a</uuid>
         <uuid>a04e0ae5-1654-4f0b-9cfc-baa23c717324</uuid>
         <uuid>a8f14555-08f1-4a79-975f-59665eb69b5c</uuid>
         <uuid>94e07e1d-4764-4d1d-9ee9-7682874fbea1</uuid>
-        <uuid>91ff6d60-53f6-41ff-a62d-f4956cb86793</uuid>
         <uuid>845a4ca6-f035-41ae-8a71-549579fc817a</uuid>
+        <uuid>91ff6d60-53f6-41ff-a62d-f4956cb86793</uuid>
         <uuid>cdf98e65-6ea0-4d90-98b4-20279f56e260</uuid>
         <uuid>4ec2bc1b-96ac-4d83-975b-30219a3b85bd</uuid>
         <uuid>e519f7c4-a907-4e31-9fdd-fc0a7b0a943a</uuid>
         <uuid>8932546b-9e6e-45f7-91ab-c25c2e94e2af</uuid>
         <uuid>42724a62-4863-407a-a191-bf1e58ae593c</uuid>
+        <uuid>ae286dde-d6cd-461c-badf-34ca918111a6</uuid>
         <uuid>197a1e2f-ef6e-4eb3-88f6-b213f4134d64</uuid>
         <uuid>6acca2b2-a65e-432a-b4ac-aa410eaf0454</uuid>
         <uuid>ad178e46-42f4-469c-8750-19abcaab504a</uuid>
@@ -9663,13 +9651,13 @@
         <uuid>632216e1-59cf-44de-8ca3-0b040870ee33</uuid>
         <uuid>132fb1eb-4d56-434d-86ab-f89e2bf63a24</uuid>
         <uuid>03046a13-3eee-4bec-a422-859cc817ee87</uuid>
-        <uuid>28039844-098f-495e-948d-12f19e85392d</uuid>
         <uuid>b9151023-3b22-4c07-b2e2-80dc7896a1f9</uuid>
+        <uuid>28039844-098f-495e-948d-12f19e85392d</uuid>
         <uuid>5c5d53a0-8b9b-4fab-99ee-2ca1e3532696</uuid>
-        <uuid>3416af9b-4de2-413a-b43e-ce687ad4c89c</uuid>
         <uuid>b492cbc9-e1eb-4c46-945c-c5b71c8c02da</uuid>
-        <uuid>ac7eea37-399b-4fac-9d40-6f510bea70c8</uuid>
+        <uuid>3416af9b-4de2-413a-b43e-ce687ad4c89c</uuid>
         <uuid>ad895154-6f02-4bb4-aee4-a6f1e0e57dd6</uuid>
+        <uuid>ac7eea37-399b-4fac-9d40-6f510bea70c8</uuid>
         <uuid>e2aae8cb-d5a0-4899-88a3-e12116d57d5d</uuid>
         <uuid>bb4cf479-654b-405b-9f9c-95f05072e769</uuid>
         <uuid>94c95f81-e8ae-4dd6-8908-f48e0e4394a2</uuid>
@@ -9677,8 +9665,8 @@
         <uuid>34c1acbd-3d3e-471a-b464-62753c68117c</uuid>
         <uuid>562c1515-fc70-4731-a846-8821ad9dbedc</uuid>
         <uuid>467beca6-5e94-4c95-8ee7-d52adb49df3c</uuid>
-        <uuid>ed98bb08-b948-4242-a782-ec4ef98f08bf</uuid>
         <uuid>ce6e443c-5d11-485c-87d0-a58eb3da5bfd</uuid>
+        <uuid>ed98bb08-b948-4242-a782-ec4ef98f08bf</uuid>
         <uuid>bbaef54e-abb6-492d-b9ca-94f80f57af76</uuid>
         <uuid>5577bcb8-46e1-4223-b1e4-916813058ded</uuid>
         <uuid>374d0e4e-eb8d-407a-9df8-5ad8871147a9</uuid>
@@ -9693,8 +9681,8 @@
         <uuid>6f86a809-1824-41d8-9e35-9566f46524d6</uuid>
         <uuid>cf49e5e8-5fde-4671-b704-94a6a389fab1</uuid>
         <uuid>bc79bc84-f99b-4db6-b801-dfe4c5e1334e</uuid>
-        <uuid>e5ce8c4b-6b4d-497e-91bc-b34c6738f9e5</uuid>
         <uuid>c16c0dba-7b05-496f-95a2-64d66e9eb8cd</uuid>
+        <uuid>e5ce8c4b-6b4d-497e-91bc-b34c6738f9e5</uuid>
         <uuid>4d910835-eb59-4800-95fa-75f54f8f08dd</uuid>
         <uuid>4375e7be-7968-42d8-b198-625408869197</uuid>
         <uuid>ce264fca-bc89-439c-945e-430a4d736b79</uuid>
@@ -9708,13 +9696,13 @@
         <uuid>2db93b2f-fc41-4374-a5f5-446c1b1370ef</uuid>
         <uuid>b6e94743-bae6-4b1d-8f31-d996de9c2fa3</uuid>
         <uuid>6d6e87c1-e1fa-4d0b-bf81-702d3d9333a8</uuid>
-        <uuid>039ff553-e5e3-41e7-bb9b-9e976422562b</uuid>
-        <uuid>fed1cde9-7124-45f1-b95a-bbc059f97b43</uuid>
         <uuid>6c90a112-6c8f-440f-b4a2-598a852f4cc8</uuid>
+        <uuid>fed1cde9-7124-45f1-b95a-bbc059f97b43</uuid>
+        <uuid>039ff553-e5e3-41e7-bb9b-9e976422562b</uuid>
         <uuid>77e92407-0160-4bda-a2ac-81c07e54fda3</uuid>
         <uuid>b3bca76e-b1ec-4366-815b-204ca5c85156</uuid>
-        <uuid>3e762767-ed00-4c96-b5a6-e3ac21e886b7</uuid>
         <uuid>d6eff11e-a9c9-4e59-a57b-9b7f052e5a99</uuid>
+        <uuid>3e762767-ed00-4c96-b5a6-e3ac21e886b7</uuid>
         <uuid>a5bf116c-d803-440f-9ede-5861ae28879b</uuid>
         <uuid>7c65bfee-79dd-4be4-b526-f285ada35666</uuid>
         <uuid>06b1eec8-fa28-4f62-ab66-b73ac6ef4a55</uuid>
@@ -9933,6 +9921,41 @@
         <uuid>45bc0ab1-4ef2-41df-9927-c61ffe06dce1</uuid>
       </componentIds>
       <name>circuit_3</name>
+    </group>
+    <group>
+      <componentIds>
+        <uuid>f192f641-c0c3-4ab7-bfe6-734976edad65</uuid>
+        <uuid>fc802589-91ee-4e2d-9a16-c3b2ece3264f</uuid>
+        <uuid>efbf23d7-d4d5-49b0-a205-04ec71f27b54</uuid>
+        <uuid>66e4f4d5-b5ca-4edf-81b3-3bd82716ffdc</uuid>
+        <uuid>6af565e0-e44d-4916-bace-0211629584c3</uuid>
+        <uuid>376efe96-3c12-435d-a36b-e1772c19543a</uuid>
+        <uuid>329a8650-69dc-4aa1-ade1-c99bdae12c66</uuid>
+        <uuid>1aa74924-9b28-42bf-b0e5-72ba00d23dd2</uuid>
+        <uuid>f469cb9e-2dbf-45f9-ad70-bd812d3558f9</uuid>
+        <uuid>134d2f4e-b295-470c-900a-6d76d398e773</uuid>
+        <uuid>a293a21e-c975-442c-b51e-8fcd00de5957</uuid>
+        <uuid>8ea94abd-3ca5-4a19-a20e-24037f25c392</uuid>
+        <uuid>cb151cce-bb8e-457e-891e-8b51d6933923</uuid>
+        <uuid>eec49f4d-353e-4f74-a233-d46f311bf4d3</uuid>
+        <uuid>944d69b0-fded-46c1-a7d9-c47ad3ed6c48</uuid>
+        <uuid>62532e05-4583-4afe-b876-ea307b0dad37</uuid>
+        <uuid>9b37f243-ae1e-48e9-b1a8-20ea6bc002db</uuid>
+        <uuid>da9c19ab-089d-475f-b741-b1329bc8b495</uuid>
+        <uuid>da23da42-9c55-43e8-aaf9-3afb901b4298</uuid>
+        <uuid>9066fdc2-6f46-41d5-883c-aceb3333d032</uuid>
+        <uuid>2c7e605f-6d15-4f24-aa33-bb93443e03ac</uuid>
+        <uuid>76e0b175-38a1-4356-85f7-e9910660868d</uuid>
+        <uuid>b935952c-c2d0-4668-ba68-bb7b35fe37e7</uuid>
+        <uuid>ff266fb2-7ec6-407a-b777-a187f01f33aa</uuid>
+        <uuid>2e48499b-220f-4d62-960d-ce185db8ec3d</uuid>
+        <uuid>25c415f5-d7d9-4576-9fa5-f23444ff765f</uuid>
+        <uuid>61ca9a53-96f6-4f0d-a5a0-c286b50d9166</uuid>
+        <uuid>48fcedd1-8863-4b01-bf7d-948dc9a56fac</uuid>
+        <uuid>c17f30f2-92ea-47d9-b211-cee1e5c282b1</uuid>
+        <uuid>e9ae503f-ec4f-45b3-8f9e-2bbcc73ce74c</uuid>
+      </componentIds>
+      <name>circuit_1</name>
     </group>
   </groupsEx>
   <lockedLayers/>
