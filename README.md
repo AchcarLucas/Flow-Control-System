@@ -31,7 +31,6 @@
 > - [README Building Blocks](<./Building Blocks/README.md>)
 > - [README Kicad Schematic](<./Kicad Schematic/README.md>)
 > - [README Stripboard Schematic](<./Stripboard Schematic/README.md>)
-
 ---
 
 ## 🧩 Sobre o Projeto
@@ -67,11 +66,11 @@ Diferente de soluções dependentes de nuvem, este projeto foca em **Edge Comput
 |Status | Descrição |
 | :--- | :--- |
 | ✅ Concluído | Idealização do Projeto |
-| ✅ Concluído | Prototipação do Projeto utilizando CAD (Computer-Aided Design) |
+| ✅ Concluído | Prototipação do Enclosure do Fotosensor Utilizando CAD (Computer-Aided Design) |
 | ✅ Concluído | Desenvolvimento do Firmware |
 | ✅ Concluído | Alterações e Correções do Firmware |
 | ✅ Concluído | Testes do Firmware para Identificação de Bugs e Leak de Memória |
-| ✅ Concluído  | Projeto e Prototipagem do Fotosensor |
+| ✅ Concluído | Projeto e Prototipagem do Fotosensor |
 | ✅ Concluído | Desenvolvimento da Enclusure para o Fotosensor |
 | ✅ Concluído | Desenvolvimento do Schematic via Kicad |
 | ✅ Concluído | Desenho dos Circuitos para Placa PadBoard usando a ferramenta DIY Layout Creator |
@@ -79,8 +78,11 @@ Diferente de soluções dependentes de nuvem, este projeto foca em **Edge Comput
 | ✅ Concluído | Teste do Circuito de Aquisição de Sinal na Protoboard |
 | ✅ Concluído | Teste do Circuito de Condicionamento, Identificação de Fluxo na Protoboard|
 | ✅ Concluído | Desenvolvimento do Circuito de Fotosensor Placa PadBoard |
-| 🟡 Desenvolvimento | Desenvolvimento do Circuito de Aquisição de Sinal na Placa PadBoard |
-| 🔴 Pendente | Desenvolvimento do Circuito de Condicionamento, Identificação de Fluxo e Processamento na Placa PadBoard|
+| ✅ Concluído | Desenvolvimento do Circuito de Aquisição de Sinal na Placa PadBoard |
+| 🟡 Desenvolvimento | Desenvolvimento do Circuito de Condicionamento, Identificação de Fluxo e Processamento na Placa PadBoard|
+| ✅ Concluído | Prototipação do Enclosure da Mainboard Utilizando CAD |
+| 🔴 Pendente | Teste Final do Projeto na Todalidade |
+| 🔴 Pendente | Montagem Final do Projeto |
 
 <!--
 | ✅ Concluído | Text |
@@ -107,6 +109,7 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 ├── Previa/                                             # Imagens e Animações de Previa do Projeto
 ├── Enclosure/                                          # Projeto das Cases Feito via FreeCAD
     └── FotosensorEnclosure                                     # Projeto da Case do Fotosensor feito em FreeCAD
+    └── MainboardEnclosure                                      # Projeto da Case da Mainboard feito em FreeCAD
 ├── Kicad Schematic                                     # Schematic do Circuito Feito via Kicad
 ├── Stripboard Schematic/                               # Schematic do Circuito via DIY Layout Creator
 ```
@@ -142,3 +145,27 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 > - No canto direito da imagem temos o prototipo do circuito de processamento
 > - No centro superior da imagem temos o prototipo do circuito de condicionamento, identificação de fluxo 
 > - No centro inferior da imagem temos o prototipo do circuito de aquisição de sinal
+
+* ### Previa do Circuito Mainboard (Incompleto)
+
+<img src="./Previa/Mainboard.jpg" width="500">
+
+> 💡 **Detalhes do Circuito:**
+> - Na esquerda, temos o circuito que faz a aquisição do sinal
+> - Na direita, temos o circuito que faz o condicionamento e identificação do sentido além circuito de processamento (ESP32)
+> - 📢 O circuito na direita ainda não esta completo
+
+
+* ### Enclosure do Fotosensor
+
+<img src="./Enclosure/FotosensorEnclosure/FotosensorEnclosure.png" width="500">
+
+> 💡 **Detalhes do Enclosure:**
+> - [README FotosensorEnclosure](<./Enclosure/FotosensorEnclosure/README.md>)
+
+* ### Enclosure da Mainboard
+
+<img src="./Enclosure/MainboardEnclosure/assembly-wireframe.png" width="500">
+
+> 💡 **Detalhes do Enclosure:**
+> - [README FotosensorEnclosure](<./Enclosure/MainboardEnclosure/README.md>)
