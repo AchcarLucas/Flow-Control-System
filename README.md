@@ -150,6 +150,11 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 
 <img src="./Previa/Mainboard.jpg" width="500">
 
+<div style="display: flex; gap: 10px;">
+  <img src="./Previa/Mainboard-Top.jpg" width="400">
+  <img src="./Previa/Mainboard-Bottom.jpg" width="400">
+</div>
+
 > 💡 **Detalhes do Circuito:**
 > - Na esquerda, temos o circuito que faz a aquisição do sinal
 > - Na direita, temos o circuito que faz o condicionamento e identificação do sentido além circuito de processamento (ESP32)
