@@ -158,7 +158,7 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 
 * ### Enclosure do Fotosensor
 
-<img src="./Enclosure/FotosensorEnclosure/FotosensorEnclosure.png" width="500">
+<img src="./Enclosure/FotosensorEnclosure/fotosensor-enclosure-wireframe.png" width="500">
 
 > 💡 **Detalhes do Enclosure:**
 > - [README FotosensorEnclosure](<./Enclosure/FotosensorEnclosure/README.md>)

@@ -5,13 +5,15 @@ Esta pasta contém o design da carcaça (enclosure) para o fotosensor do Sistema
 ## Arquivos
 
 - `FotosensorEnclosure.FCStd`: Arquivo de projeto do FreeCAD contendo o design 3D da carcaça.
-- `FotosensorEnclosure.png`: Imagem de referência do design da carcaça.
+- `fotosensor-enclosure-normal.png`: Imagem de referência do design da carcaça.
+- `fotosensor-enclosure-wireframe.png`: Imagem de referência do design da carcaça em wireframe.
 - `FotosensorEnclosure-Body-Bottom.obj`: Modelo 3D da parte inferior da carcaça (formato OBJ).
 - `FotosensorEnclosure-Body-Top.obj`: Modelo 3D da parte superior da carcaça (formato OBJ).
 
 ## Imagem de Referência
 
-![FotosensorEnclosure](FotosensorEnclosure.png)
+![Fotosensor Enclosure Normal](fotosensor-enclosure-normal.png)
+![Fotosensor Enclosure Wireframe](fotosensor-enclosure-wireframe.png)
 
 ## Descrição
 
