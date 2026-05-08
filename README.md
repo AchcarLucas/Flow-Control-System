@@ -148,8 +148,6 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 
 * ### Previa do Circuito Mainboard (Incompleto)
 
-<img src="./Previa/Mainboard.jpg" width="500">
-
 <div style="display: flex; gap: 10px;">
   <img src="./Previa/Mainboard-Top.jpg" width="400">
   <img src="./Previa/Mainboard-Bottom.jpg" width="400">
