@@ -32,4 +32,4 @@ A carcaça da placa principal é projetada para proteger e fixar a placa de circ
 
 ## Montagem
 
-Para montar a carcaça, utilize 4 parafusos M3.5x20. Os parafusos criam rosca diretamente no plástico, não sendo necessários insertos ou porcas adicionais.
+Para montar a carcaça, utilize 4 parafusos M3x20 ou M3.5x20 (Recomendado). Os parafusos criam rosca diretamente no plástico, não sendo necessários insertos ou porcas adicionais.
