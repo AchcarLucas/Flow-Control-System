@@ -158,14 +158,20 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 
 * ### Enclosure do Fotosensor
 
-<img src="./Enclosure/FotosensorEnclosure/fotosensor-enclosure-wireframe.png" width="500">
+<div style="display: flex; gap: 10px;">
+  <img src="./Enclosure/FotosensorEnclosure/fotosensor-enclosure-normal.png" width="400">
+  <img src="./Enclosure/FotosensorEnclosure/fotosensor-enclosure-wireframe.png" width="400">
+</div>
 
-> 💡 **Detalhes do Enclosure:**
+> 💡 **Detalhes do Enclosure do Fotosensor:**
 > - [README FotosensorEnclosure](<./Enclosure/FotosensorEnclosure/README.md>)
 
 * ### Enclosure da Mainboard
 
-<img src="./Enclosure/MainboardEnclosure/assembly-wireframe.png" width="500">
+<div style="display: flex; gap: 10px;">
+  <img src="./Enclosure/MainboardEnclosure/assembly-normal.png" width="400">
+  <img src="./Enclosure/MainboardEnclosure/assembly-wireframe.png" width="400">
+</div>
 
-> 💡 **Detalhes do Enclosure:**
+> 💡 **Detalhes do Enclosure da Mainboard:**
 > - [README FotosensorEnclosure](<./Enclosure/MainboardEnclosure/README.md>)
