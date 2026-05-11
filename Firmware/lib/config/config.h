@@ -1,20 +1,25 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#define D15 15
-#define D14 14
-#define D4 4
+// Interruption
+#define D25 25
+
+// In Flow
+#define D18 18
+// Out Flow
+#define D17 17
+
 #define D2 2
 
 // Pino do LED (Indicador visual)
 const int LED_PIN = D2;
 
 // Pinos de estado do controle de fluxo
-const int IN_FLOW = D15;
-const int OUT_FLOW = D4;
+const int IN_FLOW = D18;
+const int OUT_FLOW = D17;
 
 // Pino de identificação de interrupção
-const int INTERRUPTION = D14;
+const int INTERRUPTION = D25;
 
 // Configuração de fuso: -3 horas * 3600 segundos
 const long gmtOffset_sec = TZS * 3600;
