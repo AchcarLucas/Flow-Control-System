@@ -290,7 +290,7 @@ void RoutineMonitor::running() {
         int currentSecond = timeinfo.tm_sec;
 
         // Chama a rotina de cleanup em um horário especifico
-        if (currentHour % 0 == 0 && currentMinute == 0 && currentSecond == 0) {
+        if (currentHour == 0 && currentMinute == 0 && currentSecond == 0) {
             if (this->processedCleanup.canProcessed(currentHour, currentMinute, currentSecond)) {
                 this->processedCleanup.trigger();
                 this->processedCleanup.setLastProcessed(currentHour, currentMinute, currentSecond);
