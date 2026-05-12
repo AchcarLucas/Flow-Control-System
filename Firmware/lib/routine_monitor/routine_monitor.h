@@ -84,7 +84,7 @@ class RoutineMonitor {
             cleanupRoutineRunning(false)
 
         {
-                attachInterruptArg(digitalPinToInterrupt(pInterruption), this->interruptionHandler, this, FALLING);
+                attachInterruptArg(digitalPinToInterrupt(pInterruption), this->interruptionHandler, this, RISING);
                 this->pInt = pIn;
                 this->pOut = pOut;
         };
