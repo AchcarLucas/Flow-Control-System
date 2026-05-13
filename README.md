@@ -79,10 +79,10 @@ Diferente de soluções dependentes de nuvem, este projeto foca em **Edge Comput
 | ✅ Concluído | Teste do Circuito de Condicionamento, Identificação de Fluxo na Protoboard|
 | ✅ Concluído | Desenvolvimento do Circuito de Fotosensor Placa PadBoard |
 | ✅ Concluído | Desenvolvimento do Circuito de Aquisição de Sinal na Placa PadBoard |
-| 🟡 Desenvolvimento | Desenvolvimento do Circuito de Condicionamento, Identificação de Fluxo e Processamento na Placa PadBoard|
+| ✅ Concluído | Desenvolvimento do Circuito de Condicionamento, Identificação de Fluxo e Processamento na Placa PadBoard|
 | ✅ Concluído | Prototipação do Enclosure da Mainboard Utilizando CAD |
-| 🔴 Pendente | Teste Final do Projeto na Todalidade |
-| 🔴 Pendente | Montagem Final do Projeto |
+| ✅ Concluído | Teste Final do Projeto na Todalidade |
+| ✅ Concluído | Montagem Final do Projeto |
 
 <!--
 | ✅ Concluído | Text |
@@ -178,3 +178,10 @@ Para facilitar a navegação, o projeto está dividido da seguinte forma:
 
 > 💡 **Detalhes do Enclosure da Mainboard:**
 > - [README FotosensorEnclosure](<./Enclosure/MainboardEnclosure/README.md>)
+
+## ✅ Projeto Concluído
+
+<div style="display: flex; gap: 10px;">
+  <img src="./Previa/Projeto-Finalizado.jpg" width="400">
+  <img src="./Previa/Projeto-Instalado.jpg" width="400">
+</div>
